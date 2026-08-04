@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """
-Relai X bot - daily market update (GitLab CI version).
+Relai X bot - daily market update.
 
-Four pipeline schedules fire inside the 11:00-13:00 Europe/Zurich window.
-Each run is assigned a SLOT number. The script derives the day's winning
-slot from the date, so exactly one run posts and the rest exit immediately.
-Keeps compute minutes near zero.
+Posts "<Weekday> market update:  1 BTC = 1 BTC" to @relai_app once a day,
+at a random-ish time between 11:00 and 13:00 Europe/Zurich.
+
+Four scheduled runs fire inside that window. Each gets a SLOT number (1-4).
+The script picks one winner per day from the date, so exactly one run posts
+and the other three exit immediately. SLOT 0 means a human triggered the run
+manually, which always posts.
 """
 
 import os
@@ -50,7 +53,7 @@ def main():
 
     print(f"Now: {now:%Y-%m-%d %H:%M %Z} | slot {slot} | today's slot {winner}")
 
-    if slot != winner and not dry_run:
+    if slot != 0 and slot != winner and not dry_run:
         print("Not today's slot. Exiting.")
         return
 
