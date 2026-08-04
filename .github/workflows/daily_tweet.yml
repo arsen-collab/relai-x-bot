@@ -1,0 +1,57 @@
+name: Daily Market Update
+
+# GitHub cron is UTC only and has no timezone setting.
+# 10:00-11:00 UTC is the one hour that falls inside 11:00-13:00
+# Europe/Zurich in BOTH CET (winter) and CEST (summer):
+#   winter  10:05 UTC -> 11:05 CET
+#   summer  10:05 UTC -> 12:05 CEST
+# Four slots. The script picks one per day from the date, so exactly
+# one run posts and the other three exit in seconds.
+
+on:
+  schedule:
+    - cron: '5 10 * * *'   # SLOT 1
+    - cron: '23 10 * * *'  # SLOT 2
+    - cron: '41 10 * * *'  # SLOT 3
+    - cron: '59 10 * * *'  # SLOT 4
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Preview only, do not post'
+        type: boolean
+        default: true
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install -r requirements.txt
+
+      - name: Map cron to slot
+        id: slot
+        run: |
+          case "${{ github.event.schedule }}" in
+            "5 10 * * *")  echo "n=1" >> $GITHUB_OUTPUT ;;
+            "23 10 * * *") echo "n=2" >> $GITHUB_OUTPUT ;;
+            "41 10 * * *") echo "n=3" >> $GITHUB_OUTPUT ;;
+            "59 10 * * *") echo "n=4" >> $GITHUB_OUTPUT ;;
+            *)             echo "n=0" >> $GITHUB_OUTPUT ;;
+          esac
+
+      - name: Post market update
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          SLOT: ${{ steps.slot.outputs.n }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: python post_tweet.py
