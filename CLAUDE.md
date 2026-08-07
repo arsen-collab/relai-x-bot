@@ -5,6 +5,9 @@ Owner: Arsen Thagapsov, Marketing Lead. Timezone Europe/Zurich.
 
 Posts to the official company X account @relai_app via GitHub Actions.
 
+**Scope: X only.** This repo automates posts to @relai_app. It does not
+cover App Store/Play Store review monitoring or any other non-X tooling.
+
 ---
 
 ## Working style
@@ -28,13 +31,6 @@ Posts to the official company X account @relai_app via GitHub Actions.
 | `post_evergreen.py` | `evergreen.yml` | Mondays | One line from `evergreen.txt`, 34-line rotation |
 
 Both target 09:00-13:00 Europe/Zurich, hard cutoff 20:00.
-
-### Built, not deployed
-
-`review_monitor.py` + `review_monitor.yml`. Weekly digest of App Store,
-Google Play and Trustpilot reviews, classified via the Claude API, posted to
-Slack. Waiting on a Slack Workflow Builder webhook. Trustpilot is parked
-because Relai's plan does not include API access.
 
 ### Shared module
 
@@ -102,9 +98,6 @@ Set in repo Settings, never in code. Names only:
 
 - `API_KEY`, `API_KEY_SECRET`, `ACCESS_TOKEN`, `ACCESS_TOKEN_SECRET` — X, OAuth 1.0a, do not expire
 - `X_USER_ID` — optional, saves one API read per run
-- `SLACK_WEBHOOK_URL` — for the review monitor, not yet set
-- `ANTHROPIC_API_KEY` — optional, review classification
-- `PLAY_SERVICE_ACCOUNT_JSON`, `PLAY_PACKAGE_NAME` — optional, Play Store reviews
 
 Never print, log or commit secret values.
 
