@@ -5,20 +5,20 @@ Relai X bot - evergreen posts.
 Posts one line from evergreen.txt every Monday, targeting 09:00-13:00
 Europe/Zurich.
 
-Timing policy:
-  This content is not time sensitive, so a late post is better than no
-  post. The guard is deliberately loose: anything up to 20:00 local goes
-  out, which absorbs roughly 7 to 11 hours of GitHub cron delay depending
-  on slot and season. Only a delay past 20:00 skips the day, to avoid
-  posting in the middle of the night.
+Reliability design:
+  Four runs fire each Monday. Any of them can post. Before posting, a run
+  checks the account's recent posts for this week's exact line and exits if
+  it is already there. So a run that fails to get a GitHub runner costs
+  nothing, because the next slot picks it up.
+
+  This content is not time sensitive, so a late post beats a missed one.
+  Anything up to 20:00 local goes out. Only past 20:00 is the day skipped,
+  to avoid posting overnight.
 
 Rotation:
   The pool is shuffled once with a fixed seed then walked in strict order,
   so every line posts once before any repeats. With N lines posting weekly,
   the same line returns every N weeks.
-
-SLOT 0 means a human triggered the run manually, which bypasses the slot
-pick but still respects the 20:00 cutoff.
 """
 
 import os
@@ -27,12 +27,11 @@ import random
 from datetime import date, datetime, timezone
 from zoneinfo import ZoneInfo
 
-import tweepy
+import x_api
 
 TZ = ZoneInfo("Europe/Zurich")
 POOL_FILE = "evergreen.txt"
 
-# Target window, and the cutoff after which the day is skipped.
 WINDOW_START_HOUR = 9
 WINDOW_TARGET_END_HOUR = 13
 HARD_CUTOFF_HOUR = 20
@@ -47,8 +46,8 @@ MAX_CHARS = 280
 MIN_POOL_SIZE = 4
 
 # Cron times must match .github/workflows/evergreen.yml.
-# 08:00-11:00 UTC lands inside 09:00-13:00 Zurich in both CET and CEST.
-SLOT_UTC_TIMES = {1: (8, 10), 2: (9, 0), 3: (9, 50), 4: (10, 40)}
+# Deliberately off the hour: the top of the hour is GitHub's busiest moment.
+SLOT_UTC_TIMES = {1: (8, 7), 2: (8, 53), 3: (9, 37), 4: (10, 23)}
 
 SHUFFLE_SEED = "relai-evergreen-v1"
 
@@ -103,28 +102,12 @@ def pick_tweet(pool, today):
     return order[post_index(today) % len(order)]
 
 
-def valid_slots(today):
-    """Which slots land inside the target window on this date."""
-    valid = []
-    for slot, (h, m) in SLOT_UTC_TIMES.items():
-        utc = datetime(today.year, today.month, today.day, h, m, tzinfo=timezone.utc)
-        if WINDOW_START_HOUR <= utc.astimezone(TZ).hour < WINDOW_TARGET_END_HOUR:
-            valid.append(slot)
-    return valid
-
-
-def winning_slot(today, candidates):
-    if not candidates:
-        return None
-    return random.Random(today.strftime("%Y-%m-%d") + "eg").choice(candidates)
-
-
-def get_credentials():
-    keys = ["API_KEY", "API_KEY_SECRET", "ACCESS_TOKEN", "ACCESS_TOKEN_SECRET"]
-    missing = [k for k in keys if not os.environ.get(k)]
-    if missing:
-        sys.exit(f"ERROR: missing variables: {', '.join(missing)}")
-    return {k: os.environ[k] for k in keys}
+def in_window(today, slot):
+    if slot == 0:
+        return True
+    h, m = SLOT_UTC_TIMES.get(slot, (0, 0))
+    utc = datetime(today.year, today.month, today.day, h, m, tzinfo=timezone.utc)
+    return WINDOW_START_HOUR <= utc.astimezone(TZ).hour < WINDOW_TARGET_END_HOUR
 
 
 def main():
@@ -133,33 +116,23 @@ def main():
 
     now = datetime.now(TZ)
     today = now.date()
-    candidates = valid_slots(today)
-    winner = winning_slot(today, candidates)
 
-    print(f"Now: {now:%Y-%m-%d %H:%M %Z} ({now:%A})")
-    print(f"Slot {slot} | valid slots today {candidates} | winner {winner}")
+    print(f"Now: {now:%Y-%m-%d %H:%M %Z} ({now:%A}) | slot {slot}")
 
     if today.weekday() not in POSTING_WEEKDAYS and slot != 0:
         print("Not a posting day. Exiting.")
         return
 
+    if not in_window(today, slot):
+        print("This slot falls outside the window today. Exiting.")
+        return
+
     if not dry_run:
         if now.hour >= HARD_CUTOFF_HOUR:
-            print(
-                f"It is {now:%H:%M} local, past the {HARD_CUTOFF_HOUR}:00 cutoff. "
-                "Skipping rather than posting overnight."
-            )
+            print(f"It is {now:%H:%M}, past the {HARD_CUTOFF_HOUR}:00 cutoff. Skipping.")
             return
         if now.hour >= WINDOW_TARGET_END_HOUR:
             print(f"Note: {now:%H:%M} is past target window. Posting anyway.")
-
-    if slot != 0:
-        if slot not in candidates:
-            print("This slot falls outside the window today. Exiting.")
-            return
-        if slot != winner and not dry_run:
-            print("Not today's slot. Exiting.")
-            return
 
     pool = load_pool()
     tweet = pick_tweet(pool, today)
@@ -174,16 +147,15 @@ def main():
         print("DRY_RUN enabled. Nothing posted.")
         return
 
-    creds = get_credentials()
-    client = tweepy.Client(
-        consumer_key=creds["API_KEY"],
-        consumer_secret=creds["API_KEY_SECRET"],
-        access_token=creds["ACCESS_TOKEN"],
-        access_token_secret=creds["ACCESS_TOKEN_SECRET"],
-    )
+    creds = x_api.get_credentials()
 
-    response = client.create_tweet(text=tweet)
-    print(f"Posted: https://x.com/relai_app/status/{response.data.get('id')}")
+    if x_api.already_posted(creds, tweet):
+        print("This week's post is already on the account. Nothing to do.")
+        return
+
+    tweet_id = x_api.post(creds, tweet)
+    if tweet_id:
+        print(f"Posted: https://x.com/relai_app/status/{tweet_id}")
 
 
 if __name__ == "__main__":
