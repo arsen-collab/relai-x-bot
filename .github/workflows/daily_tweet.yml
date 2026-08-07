@@ -1,20 +1,20 @@
 name: Daily Market Update
 
-# Every day, targeting 09:00-13:00 Europe/Zurich.
-# 08:00-11:00 UTC lands inside that window in both CET and CEST:
-#   winter 08:10 UTC -> 09:10 CET   |   summer 08:10 UTC -> 10:10 CEST
-#   winter 10:40 UTC -> 11:40 CET   |   summer 10:40 UTC -> 12:40 CEST
-# post_tweet.py allows posting up to 20:00 local, absorbing roughly 7 to 11
-# hours of GitHub cron delay before the day is skipped.
-# All four slots sit early in the window on purpose: only one slot per day
-# posts, so headroom comes from firing early, not from adding more slots.
+# Target window 09:00-13:00 Europe/Zurich.
+# 08:00-11:00 UTC lands inside that window in both CET and CEST.
+# Times sit off the hour on purpose; the top of the hour is when GitHub is
+# busiest and runner acquisition is most likely to fail.
+#
+# All four slots can post. Each one checks the account for today's exact
+# text first and exits if it is already there, so a slot that fails to get
+# a runner costs nothing.
 
 on:
   schedule:
-    - cron: '10 8 * * *'   # SLOT 1
-    - cron: '0 9 * * *'    # SLOT 2
-    - cron: '50 9 * * *'   # SLOT 3
-    - cron: '40 10 * * *'  # SLOT 4
+    - cron: '7 8 * * *'    # SLOT 1
+    - cron: '53 8 * * *'   # SLOT 2
+    - cron: '37 9 * * *'   # SLOT 3
+    - cron: '23 10 * * *'  # SLOT 4
   workflow_dispatch:
     inputs:
       dry_run:
@@ -22,32 +22,36 @@ on:
         type: boolean
         default: true
 
+# Queue overlapping runs rather than letting two post at once.
+concurrency:
+  group: market-update
+  cancel-in-progress: false
+
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: pip install -r requirements.txt
+
       - name: Map cron to slot
         id: slot
         run: |
           case "${{ github.event.schedule }}" in
-            "10 8 * * *")  echo "n=1" >> $GITHUB_OUTPUT ;;
-            "0 9 * * *")   echo "n=2" >> $GITHUB_OUTPUT ;;
-            "50 9 * * *")  echo "n=3" >> $GITHUB_OUTPUT ;;
-            "40 10 * * *") echo "n=4" >> $GITHUB_OUTPUT ;;
-            *)             echo "n=0" >> $GITHUB_OUTPUT ;;
+            "7 8 * * *")   echo "n=1" >> $GITHUB_OUTPUT ;;
+            "53 8 * * *")  echo "n=2" >> $GITHUB_OUTPUT ;;
+            "37 9 * * *")  echo "n=3" >> $GITHUB_OUTPUT ;;
+            "23 10 * * *") echo "n=4" >> $GITHUB_OUTPUT ;;
+            *)                echo "n=0" >> $GITHUB_OUTPUT ;;
           esac
-      - name: Post market update
+
+      - name: Post
         env:
           API_KEY: ${{ secrets.API_KEY }}
           API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          X_USER_ID: ${{ secrets.X_USER_ID }}
           SLOT: ${{ steps.slot.outputs.n }}
           DRY_RUN: ${{ inputs.dry_run }}
-        run: python post_tweet.py
+        run: python3 post_tweet.py
