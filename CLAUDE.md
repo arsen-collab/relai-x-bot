@@ -32,6 +32,18 @@ cover App Store/Play Store review monitoring or any other non-X tooling.
 
 Both target 09:00-13:00 Europe/Zurich, hard cutoff 20:00.
 
+### Offline tools
+
+`find_evergreen_candidates.py`. Run manually against a downloaded X data
+archive (zip, unzipped folder, or a direct tweet.js path). Lists standalone,
+text-only tweets over a like threshold as CSV, sorted by likes. Feeds
+candidates for the evergreen pool; does not touch `evergreen.txt` itself.
+Takes no credentials, makes no API calls, not part of any workflow.
+
+The raw X archive contains far more than public tweets (DMs, ad data). Never
+commit it; `.gitignore` blocks the common patterns but treat that as a
+backstop, not a guarantee.
+
 ### Shared module
 
 `x_api.py`. Hand-rolled OAuth 1.0a HMAC-SHA1 signing, stdlib only.

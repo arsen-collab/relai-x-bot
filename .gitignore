@@ -1,0 +1,5 @@
+# Raw X/Twitter data archive. Contains far more than public tweets
+# (DMs, ad data, etc.) and must never land in this public repo.
+*twitter-archive*
+*.zip
+data/tweet*.js
