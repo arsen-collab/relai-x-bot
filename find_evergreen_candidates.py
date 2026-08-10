@@ -28,12 +28,29 @@ Usage:
 import csv
 import json
 import os
+import re
 import sys
 import zipfile
 import fnmatch
 
 MIN_LIKES_DEFAULT = 100
 OUTPUT_DEFAULT = "evergreen_candidates.csv"
+
+# Heuristic signals that a tweet is time-bound rather than evergreen.
+# These are hints for a human reviewer to sort/filter by, not a filter
+# this script applies itself. A flagged tweet may still be a good
+# evergreen candidate; an unflagged one may still be dated in a way
+# these patterns miss.
+FLAG_PATTERNS = [
+    ("price", re.compile(r"\$\s?\d|\b\d[\d,.]*\s?(?:k|K|usd|USD|chf|CHF)\b")),
+    ("year", re.compile(r"\b20(1[0-9]|2[0-6])\b")),
+    ("relative_time", re.compile(r"\b(today|yesterday|tonight|this week|this month|last week|last month|last year|right now|breaking|just (?:in|happened))\b", re.IGNORECASE)),
+    ("named_event", re.compile(r"\b(halving|ETF|FOMC|CPI|Fed|SEC|election|ATH|all[- ]time high)\b", re.IGNORECASE)),
+]
+
+
+def heuristic_flags(text):
+    return [name for name, pattern in FLAG_PATTERNS if pattern.search(text)]
 
 # X archives wrap the JSON in a JS variable assignment, e.g.
 # "window.YTD.tweets.part0 = [ ... ]". Strip everything up to the
@@ -115,16 +132,18 @@ def find_candidates(tweets, min_likes):
 def write_csv(candidates, path):
     with open(path, "w", newline="", encoding="utf-8") as fh:
         writer = csv.writer(fh)
-        writer.writerow(["tweet_id", "created_at", "likes", "retweets", "url", "text"])
+        writer.writerow(["tweet_id", "created_at", "likes", "retweets", "flags", "url", "text"])
         for t in candidates:
             tweet_id = t.get("id_str", t.get("id", ""))
+            text = t.get("full_text", "")
             writer.writerow([
                 tweet_id,
                 t.get("created_at", ""),
                 t.get("favorite_count", ""),
                 t.get("retweet_count", ""),
+                ";".join(heuristic_flags(text)),
                 f"https://x.com/relai_app/status/{tweet_id}",
-                t.get("full_text", ""),
+                text,
             ])
 
 
