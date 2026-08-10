@@ -48,6 +48,12 @@ FLAG_PATTERNS = [
     ("named_event", re.compile(r"\b(halving|ETF|FOMC|CPI|Fed|SEC|election|ATH|all[- ]time high)\b", re.IGNORECASE)),
 ]
 
+# Flags in this set get a tweet excluded outright (real price figures, ATH
+# mentions, news tied to a specific past moment). "year" is left out on
+# purpose: a fact like "21 million bitcoin will ever exist" can match a
+# year-looking number without being tied to a repeatable event.
+DROP_FLAGS = {"price", "relative_time", "named_event"}
+
 
 def heuristic_flags(text):
     return [name for name, pattern in FLAG_PATTERNS if pattern.search(text)]
@@ -147,6 +153,15 @@ def write_csv(candidates, path):
             ])
 
 
+def split_on_flags(candidates):
+    """Partitions candidates into (kept, excluded) using DROP_FLAGS."""
+    kept, excluded = [], []
+    for t in candidates:
+        flags = heuristic_flags(t.get("full_text", ""))
+        (excluded if DROP_FLAGS & set(flags) else kept).append(t)
+    return kept, excluded
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit(f"Usage: python3 {os.path.basename(__file__)} <archive.zip|folder|tweet.js> [min_likes] [output.csv]")
@@ -154,16 +169,21 @@ def main():
     path = sys.argv[1]
     min_likes = int(sys.argv[2]) if len(sys.argv) > 2 else MIN_LIKES_DEFAULT
     output = sys.argv[3] if len(sys.argv) > 3 else OUTPUT_DEFAULT
+    excluded_output = os.path.splitext(output)[0] + "_excluded.csv"
 
     tweets = load_tweets(path)
     candidates, dropped = find_candidates(tweets, min_likes)
-    write_csv(candidates, output)
+    kept, excluded = split_on_flags(candidates)
+    write_csv(kept, output)
+    write_csv(excluded, excluded_output)
 
     print(f"Scanned {len(tweets)} tweets.")
     for reason, count in sorted(dropped.items(), key=lambda kv: -kv[1]):
         print(f"  dropped {count} for: {reason}")
     print(f"{len(candidates)} candidates over {min_likes} likes, text-only, standalone.")
-    print(f"Written to {output}. This is a review list, not evergreen.txt.")
+    print(f"  {len(excluded)} of those excluded for price/ATH/named-event/relative-time mentions -> {excluded_output}")
+    print(f"{len(kept)} kept -> {output}")
+    print("Review lists only, not evergreen.txt. Heuristic exclusion, check the _excluded file for false positives.")
 
 
 if __name__ == "__main__":

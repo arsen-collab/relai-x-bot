@@ -3,3 +3,7 @@
 *twitter-archive*
 *.zip
 data/tweet*.js
+
+# Generated review output from find_evergreen_candidates.py.
+# Working files for manual review, not part of the automation.
+evergreen_candidates*.csv
