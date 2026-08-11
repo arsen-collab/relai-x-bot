@@ -28,7 +28,7 @@ cover App Store/Play Store review monitoring or any other non-X tooling.
 | File | Workflow | Schedule | Content |
 |---|---|---|---|
 | `post_tweet.py` | `daily_tweet.yml` | Daily | `<Weekday> market update:\n\n1 BTC = 1 BTC` |
-| `post_evergreen.py` | `evergreen.yml` | Mondays | One line from `evergreen.txt`, 34-line rotation |
+| `post_evergreen.py` | `evergreen.yml` | Every 2 days | One line from `evergreen.txt`, 223-line rotation |
 
 Both target 09:00-13:00 Europe/Zurich, hard cutoff 20:00.
 

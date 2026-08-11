@@ -2,14 +2,14 @@
 """
 Relai X bot - evergreen posts.
 
-Posts one line from evergreen.txt every Monday, targeting 09:00-13:00
-Europe/Zurich.
+Posts one line from evergreen.txt every INTERVAL_DAYS days, targeting
+09:00-13:00 Europe/Zurich.
 
 Reliability design:
-  Four runs fire each Monday. Any of them can post. Before posting, a run
-  checks the account's recent posts for this week's exact line and exits if
-  it is already there. So a run that fails to get a GitHub runner costs
-  nothing, because the next slot picks it up.
+  Four runs fire on each posting day. Any of them can post. Before posting,
+  a run checks the account's recent posts for this cycle's exact line and
+  exits if it is already there. So a run that fails to get a GitHub runner
+  costs nothing, because the next slot picks it up.
 
   This content is not time sensitive, so a late post beats a missed one.
   Anything up to 20:00 local goes out. Only past 20:00 is the day skipped,
@@ -17,8 +17,8 @@ Reliability design:
 
 Rotation:
   The pool is shuffled once with a fixed seed then walked in strict order,
-  so every line posts once before any repeats. With N lines posting weekly,
-  the same line returns every N weeks.
+  so every line posts once before any repeats. With N lines posting every
+  INTERVAL_DAYS days, the same line returns every N * INTERVAL_DAYS days.
 """
 
 import os
@@ -36,8 +36,9 @@ WINDOW_START_HOUR = 9
 WINDOW_TARGET_END_HOUR = 13
 HARD_CUTOFF_HOUR = 20
 
-# Monday is 0.
-POSTING_WEEKDAYS = {0}
+# Post every INTERVAL_DAYS days, counted from EPOCH. Do not change casually,
+# it shifts every future posting day and re-times the whole rotation.
+INTERVAL_DAYS = 2
 
 # Fixed reference point. Do not change once live, it anchors the rotation.
 EPOCH = date(2026, 1, 1)
@@ -83,6 +84,10 @@ def load_pool(path=POOL_FILE):
     return lines
 
 
+def is_posting_day(day):
+    return (day - EPOCH).days % INTERVAL_DAYS == 0
+
+
 def post_index(today):
     """How many posting days have elapsed since EPOCH, excluding today."""
     if today < EPOCH:
@@ -90,7 +95,7 @@ def post_index(today):
     count = 0
     cursor = EPOCH
     while cursor < today:
-        if cursor.weekday() in POSTING_WEEKDAYS:
+        if is_posting_day(cursor):
             count += 1
         cursor = date.fromordinal(cursor.toordinal() + 1)
     return count
@@ -119,7 +124,7 @@ def main():
 
     print(f"Now: {now:%Y-%m-%d %H:%M %Z} ({now:%A}) | slot {slot}")
 
-    if today.weekday() not in POSTING_WEEKDAYS and slot != 0:
+    if not is_posting_day(today) and slot != 0:
         print("Not a posting day. Exiting.")
         return
 
@@ -138,7 +143,7 @@ def main():
     tweet = pick_tweet(pool, today)
 
     print(f"Pool: {len(pool)} lines | index {post_index(today) % len(pool)}")
-    print(f"Repeat gap: {len(pool)} weeks")
+    print(f"Repeat gap: {len(pool) * INTERVAL_DAYS} days")
     print("---")
     print(tweet)
     print("---")
