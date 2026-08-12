@@ -138,6 +138,11 @@ not misleading. Forward-looking return or price projections engage
 
 - Never add, edit or reword content in `evergreen.txt` without being asked.
   The pool went through Compliance review as a specific list.
+- `evergreen.txt` is manually copied into the sibling `relai-threads-bot`
+  repo (its own pool, not a live fetch, so it can run independently once
+  private). Any change here needs the same change copied there too, full
+  file, same line order, or the two bots' rotations fall out of step. This
+  already drifted once when the copy step was skipped.
 - Flag regulatory exposure explicitly with the regulator and article. Flag it
   once, state the specific change needed, then move on. Do not repeat flags
   or add generic caution.
