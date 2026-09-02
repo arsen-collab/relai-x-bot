@@ -8,6 +8,9 @@ Posts to the official company X account @relai_app via GitHub Actions.
 **Scope: X only.** This repo automates posts to @relai_app. It does not
 cover App Store/Play Store review monitoring or any other non-X tooling.
 
+Exception: the weekly suggester posts a review pointer to Slack. It is X
+content tooling, the Slack message is the handoff to a human, not a channel.
+
 ---
 
 ## Working style
@@ -32,6 +35,32 @@ cover App Store/Play Store review monitoring or any other non-X tooling.
 
 Both target 09:00-13:00 Europe/Zurich, hard cutoff 20:00.
 
+### Weekly X suggester
+
+`weekly-suggester/`. Drafts 15 suggestions a week from the X archive for
+manual review. Does not post. See `weekly-suggester/README.md`.
+
+| File | When | What |
+|---|---|---|
+| `rank.py` | Manual, per archive | Archive to `state/pool.json`. Pure Python, no model calls |
+| `generate.py` | `weekly_suggester.yml`, Mon | Drafts the batch with Claude Sonnet, writes `batches/YYYY-Www.{md,json}` |
+| `notify_slack.py` | Same workflow | Posts a pointer to the batch, not the batch |
+| `config.py` | Never | Every tunable: filters, counts, model, patterns |
+
+**Ranking is offline on purpose.** The archive is ~105 MB and gitignored, so
+the runner cannot see it. `pool.json` is committed and is what the Action
+reads. The archive does not change week to week, so scheduling the sort was
+always waste.
+
+**It cannot reach the live pool.** The suggester writes to `batches/` and
+`state/` only. Every line is written at `Compliance: unapproved`. Promotion
+into `evergreen.txt` is a separate manual decision.
+
+**Config is a Python module, not YAML or TOML.** PyYAML needs a pip install
+and `tomllib` only exists from 3.11, while `rank.py` runs on the system
+Python 3.9 on a Mac. `find_evergreen_candidates.py` already keeps its pattern
+list this way.
+
 ### Offline tools
 
 `find_evergreen_candidates.py`. Run manually against a downloaded X data
@@ -43,6 +72,20 @@ Takes no credentials, makes no API calls, not part of any workflow.
 The raw X archive contains far more than public tweets (DMs, ad data). Never
 commit it; `.gitignore` blocks the common patterns but treat that as a
 backstop, not a guarantee.
+
+### Skills
+
+`skills/relai-social-copy/SKILL.md` is the binding voice and compliance spec.
+`generate.py` loads it in full into its system prompt. Editing it changes what
+the suggester produces, so treat it as compliance-reviewed content.
+
+`skills/design-brief-creator/SKILL.md` handles the image branch of the review
+step, filing briefs on Paula's Notion board.
+
+Both are also installed as user skills in `~/.claude/skills/` so chat sessions
+pick them up without this repo open. **Two copies means they can drift.** A
+change here needs the same change copied to `~/.claude/skills/`, same as
+`evergreen.txt` and the sibling threads repo.
 
 ### Shared module
 
@@ -100,7 +143,14 @@ large and why any new recurring post needs enough variation. Not confirmed by
 X, figure comes from a scheduling vendor.
 
 **GitHub disables scheduled workflows after 60 days of repo inactivity.**
-Any commit resets it.
+Any commit resets it. The weekly suggester commits its batch, so it also
+resets the clock.
+
+**`find_evergreen_candidates.py` globs `tweet*.js`.** In a real archive that
+also matches `tweet-headers.js` (ids and timestamps only) and `tweetdeck.js`
+(column config). Those entries have no `favorite_count`, so the likes
+threshold drops them silently and the tool's output is unaffected. Anything
+else reusing `load_tweets` needs its own guard; `rank.py` has one.
 
 ---
 
@@ -110,6 +160,9 @@ Set in repo Settings, never in code. Names only:
 
 - `API_KEY`, `API_KEY_SECRET`, `ACCESS_TOKEN`, `ACCESS_TOKEN_SECRET` — X, OAuth 1.0a, do not expire
 - `X_USER_ID` — optional, saves one API read per run
+- `ANTHROPIC_API_KEY` — weekly suggester, `generate.py`
+- `SLACK_BOT_TOKEN` — weekly suggester, `notify_slack.py`. Needs `chat:write`
+  and `im:write` for a DM
 
 Never print, log or commit secret values.
 
@@ -121,6 +174,11 @@ X API is pay per use. Roughly $0.02 per post, and posts containing a link
 cost far more. Reads for the duplicate check add up. Current run rate is
 about $2/month. Rates are only visible in the X Developer Console, not
 published, so do not quote figures from memory.
+
+The weekly suggester adds Anthropic API usage: two Sonnet calls a week, plus
+a re-request round when suggestions get dropped. The voice skill is cached
+across the calls in a run. Published Sonnet rates are per million tokens and
+change, so check the current rate rather than quoting one from memory.
 
 ---
 
@@ -150,6 +208,14 @@ not misleading. Forward-looking return or price projections engage
   reviews before it goes live.
 - New third-party services are ICT dependencies under **DORA** and need a
   register entry. Mention it once when introducing one.
+- The weekly suggester produces advisory drafts only. It writes to
+  `weekly-suggester/batches/` and `state/`, never to a file a posting bot
+  reads. Every suggestion starts at `Compliance: unapproved` and the queue
+  gate is how MiCA Art. 66 gets enforced. Do not remove either.
+- Suggestions using Savings, Sparen or Sparplan are auto-flagged and need
+  written compliance approval before going live. The flag is not a
+  resolution. A clean mechanical check is not approval either; the regex
+  checks cover only the hard rules a pattern can decide.
 
 ---
 

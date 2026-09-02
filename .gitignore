@@ -3,6 +3,8 @@
 *twitter-archive*
 *.zip
 data/tweet*.js
+weekly-suggester/archive/*
+!weekly-suggester/archive/.gitkeep
 
 # Generated review output from find_evergreen_candidates.py.
 # Working files for manual review, not part of the automation.

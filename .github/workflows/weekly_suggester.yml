@@ -1,0 +1,70 @@
+name: Weekly X Suggester
+
+# Drafts 15 X suggestions from the ranked archive pool and posts a pointer to
+# Slack. Writes to weekly-suggester/batches/ and weekly-suggester/state/ only.
+# It cannot reach evergreen.txt, so it can never change what the posting bots
+# send.
+#
+# Monday morning. 04:23 UTC lands at 06:23 CEST and 05:23 CET, so it is a
+# Monday morning either side of the DST switch. A single cron cannot hold
+# 06:00 local year round; the exact minute does not matter for a batch that
+# gets reviewed later in the day.
+#
+# Times sit off the hour on purpose, same as the posting bots: the top of the
+# hour is when GitHub is busiest and runner acquisition is most likely to
+# fail. Scheduled runs on this repo have been landing 6 to 8 hours late. That
+# is tolerable here, a batch is not time sensitive. If it stops firing at all,
+# move the trigger to an external scheduler calling workflow_dispatch.
+#
+# One run per week, no retry slots. If a run is lost, dispatch it manually;
+# generate.py exits early if the week's batch file already exists, so a repeat
+# run costs nothing.
+
+on:
+  schedule:
+    - cron: '23 4 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Preview only, no API call and no Slack post'
+        type: boolean
+        default: true
+
+concurrency:
+  group: weekly-suggester
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  suggest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate batch
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: python3 weekly-suggester/generate.py
+
+      - name: Commit batch
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add weekly-suggester/batches weekly-suggester/state
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Add weekly X suggestion batch"
+            git push
+          fi
+
+      - name: Notify Slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: python3 weekly-suggester/notify_slack.py
