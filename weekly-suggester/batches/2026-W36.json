@@ -1,0 +1,164 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W36.md",
+ "dropped_count": 0,
+ "generated_at": "2026-09-02 12:39 CEST",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S01",
+   "rationale": "the single highest engagement post in the archive, so the adoption angle clearly resonates even without the old hashtag or specific figures",
+   "source_id": "1401422057238192130",
+   "text": "Some companies put Bitcoin on their balance sheet.\nSome countries put it in their reserves.\nBoth made a long term bet.",
+   "theme": "corporate and sovereign adoption",
+   "type": "rewrite"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [
+    "savings terminology"
+   ],
+   "id": "S02",
+   "rationale": "strong likes and one of the higher repost counts in the batch, the inflation contrast clearly lands with this audience",
+   "source_id": "1961083098113929558",
+   "text": "Work for decades. Save every month.\nThen the money supply gets printed and that money buys less.\nAnd people call Bitcoin the risky one?",
+   "theme": "inflation and fiat",
+   "type": "rewrite"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "one of the older but consistently well liked posts, the belief framing keeps getting repeated across the archive",
+   "source_id": "1758885516030980176",
+   "text": "Bitcoin isn't backed by a government or a bank.\nIt's backed by everyone who chooses to hold it.",
+   "theme": "network belief",
+   "type": "rewrite"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "short, direct posts like this one pulled solid likes and reposts, worth keeping the same blunt shape",
+   "source_id": "1764622245182210365",
+   "text": "We've got Bitcoin.\nCome get some.",
+   "theme": "product availability",
+   "type": "rewrite"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S05",
+   "rationale": "high likes and reposts for a light, culture-forward line, this theme recurs across the archive",
+   "source_id": "1856735341555921397",
+   "text": "Memes, jokes, and stubborn belief.\nThat's how Bitcoin is turning back into money.",
+   "theme": "bitcoin culture",
+   "type": "rewrite"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "a well liked post about courage over timing, rewritten to drop any implication of past gains",
+   "source_id": "1950230588088340533",
+   "text": "\"I wish I'd started earlier\" was never about timing.\nIt was about starting at all.\nThe first purchase is the hardest one.",
+   "theme": "starting mindset",
+   "type": "rewrite"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S07",
+   "rationale": "high likes and repost count for a short, confident line, sats framing is a recurring archive theme",
+   "source_id": "1924853371032523058",
+   "text": "Sats are the standard.\nNothing else to add.",
+   "theme": "stacking sats",
+   "type": "rewrite"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S08",
+   "rationale": "one of the better performing recent posts, the distinction between custody and code quality is worth repeating clearly",
+   "source_id": "2083214390015213781",
+   "text": "Self-custody isn't the risk.\nBad code is.",
+   "theme": "self-custody security",
+   "type": "rewrite"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "strong likes and reposts for the scarcity joke, kept as a plain fact instead of a rumor bit that could read as speculation",
+   "source_id": "1900522297456550282",
+   "text": "Rumor has it there will only ever be 21 million Bitcoin.",
+   "theme": "fixed supply",
+   "type": "rewrite"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "Self-custody and holding your own keys is a recurring theme in the archive; this gives it a mechanic-based angle instead of a moral one.",
+   "source_id": null,
+   "text": "A wallet you don't control is just an IOU.\nSelf-custody means the Bitcoin is actually yours.",
+   "theme": "self-custody mechanic",
+   "type": "new"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "Scarcity and sats-as-a-unit recur often in the archive; this reframes scarcity as an accessible entry point rather than a warning.",
+   "source_id": null,
+   "text": "You don't need a whole Bitcoin to start.\nYou need one sat.\n100 million of them make a Bitcoin.",
+   "theme": "sats divisibility",
+   "type": "new"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S12",
+   "rationale": "Consistency and small-amount entry points are a recurring archive theme; this frames the mechanic of recurring buys rather than the outcome.",
+   "source_id": null,
+   "text": "Timing the market takes luck.\nShowing up every week takes a plan.\nSame amount, same day, no second guessing.",
+   "theme": "dca consistency",
+   "type": "new"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [
+    "financial commentary risk"
+   ],
+   "id": "S13",
+   "rationale": "Fiat debasement is a recurring archive theme; this states it as a general observation instead of citing a specific event or percentage.",
+   "source_id": null,
+   "text": "Cash sitting still doesn't stay the same size.\nIt shrinks quietly, year after year.",
+   "theme": "purchasing power",
+   "type": "new"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S14",
+   "rationale": "Zoom-out and long-horizon framing recur across the archive; this gives the idea a fresh line without touching price levels.",
+   "source_id": null,
+   "text": "Bitcoin doesn't ask what you paid for it.\nIt only asks how long you're willing to hold it.",
+   "theme": "zoom out conviction",
+   "type": "new"
+  },
+  {
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S15",
+   "rationale": "The archive repeatedly frames Bitcoin as outside institutional control; this states the permissionless angle plainly instead of through a meme or CBDC contrast.",
+   "source_id": null,
+   "text": "Nobody needs to ask permission to use Bitcoin.\nThat's kind of the whole point.",
+   "theme": "permissionless network",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W36"
+}
