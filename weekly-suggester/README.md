@@ -120,10 +120,16 @@ archive would be spent as reference material inside a month.
 Repo Settings, names only:
 
 - `ANTHROPIC_API_KEY` for `generate.py`
-- `SLACK_BOT_TOKEN` for `notify_slack.py`, needs `chat:write` and `im:write`
-  for a DM
+- `SLACK_WEBHOOK_URL` for `notify_slack.py`. Incoming Webhook, same pattern as
+  `relai-review-monitor` and `relai-aso-report`. Point it at your own DM when
+  creating it; the destination is fixed then and cannot be changed after.
 
-The repo is public and so are Actions logs. Nothing here prints a secret.
+A bot token would also work and would allow choosing the destination at post
+time, but that needs an app install and two scopes to reach the same DM. One
+secret beats three moving parts.
+
+The repo is public and so are Actions logs. Nothing here prints a secret. The
+webhook URL is itself the credential, so it must stay out of error messages.
 
 ## Testing
 

@@ -67,8 +67,9 @@ MAX_SUGGESTION_CHARS = 280
 
 # --- Slack -----------------------------------------------------------------
 
-# DM Arsen. Replace with a private channel id to route the batch elsewhere.
-SLACK_DESTINATION = "U02C08MR0KW"
+# Nothing to configure. An Incoming Webhook's destination is fixed when the
+# webhook is created, so the SLACK_WEBHOOK_URL secret decides where the batch
+# lands. To move it, make a new webhook and replace the secret.
 
 
 # --- time-bound patterns ---------------------------------------------------

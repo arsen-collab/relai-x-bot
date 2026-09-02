@@ -161,8 +161,9 @@ Set in repo Settings, never in code. Names only:
 - `API_KEY`, `API_KEY_SECRET`, `ACCESS_TOKEN`, `ACCESS_TOKEN_SECRET` — X, OAuth 1.0a, do not expire
 - `X_USER_ID` — optional, saves one API read per run
 - `ANTHROPIC_API_KEY` — weekly suggester, `generate.py`
-- `SLACK_BOT_TOKEN` — weekly suggester, `notify_slack.py`. Needs `chat:write`
-  and `im:write` for a DM
+- `SLACK_WEBHOOK_URL` — weekly suggester, `notify_slack.py`. Incoming Webhook
+  pointed at Arsen's own DM, same pattern as `relai-review-monitor` and
+  `relai-aso-report`. A webhook's destination is fixed at creation
 
 Never print, log or commit secret values.
 

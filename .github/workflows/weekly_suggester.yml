@@ -65,6 +65,6 @@ jobs:
 
       - name: Notify Slack
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: python3 weekly-suggester/notify_slack.py
