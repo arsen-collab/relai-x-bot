@@ -1,0 +1,298 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W37.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 0,
+ "generated_at": "2026-09-03 13:48 CEST",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "Waiting for more money to start is like waiting to get in shape before working out.\nStart small.\nSome people start with just 10 euros a week in Bitcoin.",
+    "headline": "Start small.",
+    "purpose": "Show that starting small beats waiting for a perfect moment, using the DCA habit as the proof.",
+    "suggestion_id": "S01",
+    "target_feeling": "Reassured that starting now is enough, no pressure to wait.",
+    "visual_direction": "Type treatment: two stacked lines, \"Waiting\" in light gray with a thin strike-through, \"Starting small\" directly below in Relai orange, same size, no other elements. Generous white space around both lines. Logo bottom right. Avoid any gym or fitness imagery."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S01",
+   "rationale": "Source drew 165 likes and 15 reposts on the working-out analogy paired with a concrete DCA amount, a mechanic-first frame worth repeating.",
+   "source_id": "1922311371120902491",
+   "text": "Waiting for more money to start is like waiting to get in shape before working out.\nStart small.\nSome people start with just 10 euros a week in Bitcoin.",
+   "theme": "dca mindset",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin price update:\n1 BTC = 1 BTC.\nSome things never change.",
+    "headline": "1 BTC = 1 BTC.",
+    "purpose": "Land a dry joke about unit bias without implying any price claim.",
+    "suggestion_id": "S02",
+    "target_feeling": "A small laugh, nothing to analyze.",
+    "visual_direction": "Type treatment only: the equation \"1 BTC = 1 BTC\" set large and centered, equals sign in Relai orange, rest in black. No chart, no ticker, no numbers beyond the equation. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S02",
+   "rationale": "The deadpan 1 BTC = 1 BTC line pulled 131 likes and 13 reposts and recurs across the archive as a low-risk recurring bit.",
+   "source_id": "1877015404788486180",
+   "text": "Bitcoin price update:\n1 BTC = 1 BTC.\nSome things never change.",
+   "theme": "price joke",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "There will never be enough Bitcoin for 8 billion people.\nBut there will always be enough sats.",
+    "headline": "There will always be enough sats.",
+    "purpose": "Make the sats-versus-whole-coin scarcity point concrete for a Bitcoin-literate audience.",
+    "suggestion_id": "S03",
+    "target_feeling": "A quiet reframe: scarcity isn't a problem if you think in sats.",
+    "visual_direction": "Numeric comparison: two stacked figures, \"21,000,000\" labeled Bitcoin in gray, \"2,100,000,000,000,000\" labeled sats directly below in Relai orange, same visual weight. No chart, no icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "Original's slow-reveal satoshi punchline earned 104 likes and 15 reposts, the sats framing is worth reusing in a tighter form.",
+   "source_id": "1920501697459409385",
+   "text": "There will never be enough Bitcoin for 8 billion people.\nBut there will always be enough sats.",
+   "theme": "sats scarcity",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Nation states are buying Bitcoin.\nSome people still ask which coin to buy next.\nBitcoin only.",
+    "headline": "Bitcoin only.",
+    "purpose": "State the Bitcoin-only position plainly against the backdrop of nation-state adoption.",
+    "suggestion_id": "S04",
+    "target_feeling": "Firm, unambiguous, a little pointed.",
+    "visual_direction": "Type treatment: \"BITCOIN ONLY\" set large and bold in black, centered, with a simple orange underline beneath it, nothing else on the frame. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "The contrast joke got 151 likes and 11 reposts, and it reinforces the Bitcoin-only stance without naming any other coin.",
+   "source_id": "1884953209049071849",
+   "text": "Nation states are buying Bitcoin.\nSome people still ask which coin to buy next.\nBitcoin only.",
+   "theme": "bitcoin only",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Relai holds zero user funds.\nYour Bitcoin, your keys, your wallet.\nThat's self-custody.",
+    "headline": "Your Bitcoin. Your keys. Your wallet.",
+    "purpose": "Explain what self-custody means at Relai in three plain claims.",
+    "suggestion_id": "S05",
+    "target_feeling": "Clear and trustworthy, no jargon.",
+    "visual_direction": "Vertical list, three short lines stacked with equal spacing: \"Your Bitcoin\", \"Your keys\", \"Your wallet\". All lines black except \"Your keys\" set in Relai orange. No icons, no bullets. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S05",
+   "rationale": "Original's minimalist claim got 135 likes and 8 reposts, restated with exact self-custody terminology from the current voice guide.",
+   "source_id": "1808161709590270307",
+   "text": "Relai holds zero user funds.\nYour Bitcoin, your keys, your wallet.\nThat's self-custody.",
+   "theme": "self custody",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin already won.\nThe rest of the world is still catching up.",
+    "headline": "Bitcoin already won.",
+    "purpose": "State a long-term conviction line without making a forward price claim.",
+    "suggestion_id": "S06",
+    "target_feeling": "Calm confidence, not hype.",
+    "visual_direction": "Type treatment: \"Bitcoin already won.\" set large and centered in black, with a short orange underline beneath the word \"won\" only. Nothing else on the frame. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "strong claim without evidence"
+   ],
+   "id": "S06",
+   "rationale": "This conviction line pulled 186 likes and 18 reposts, one of the stronger zoom-out frames in the archive.",
+   "source_id": "1757446534403342496",
+   "text": "Bitcoin already won.\nThe rest of the world is still catching up.",
+   "theme": "conviction",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin drops and headlines panic.\nBut you don't judge Bitcoin by weeks.\nYou judge it by years.\nLike judging a marathon runner by his first sprint.",
+    "headline": "Judge it by years, not weeks.",
+    "purpose": "Reframe short-term volatility as irrelevant to a long-term holder, using a time-horizon contrast instead of a price chart.",
+    "suggestion_id": "S07",
+    "target_feeling": "Grounded, patient, unbothered by headlines.",
+    "visual_direction": "Comparison device: a simple horizontal bar split in two, left segment labeled \"Weeks\" in light gray, right segment labeled \"Years\" in Relai orange, right segment noticeably longer. No price line, no chart, no runner imagery. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "price drop framing"
+   ],
+   "id": "S07",
+   "rationale": "The marathon analogy resonated as a patience frame rather than a buy signal, keeping the time-horizon point without touching the price move itself.",
+   "source_id": "2062938750435393810",
+   "text": "Bitcoin drops and headlines panic.\nBut you don't judge Bitcoin by weeks.\nYou judge it by years.\nLike judging a marathon runner by his first sprint.",
+   "theme": "zoom out",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "My top 3 dips:\n1. Bitcoin dip\n2. Hummus dip\n3. Guacamole dip",
+    "headline": "My top 3 dips.",
+    "purpose": "Deliver a light joke to break up the feed with no informational weight.",
+    "suggestion_id": "S08",
+    "target_feeling": "A quick smile, low effort to read.",
+    "visual_direction": "Simple numbered list, three lines stacked, plain black text. Numeral \"1\" set in Relai orange, numerals 2 and 3 in black. No food props, no photography. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "price dip reference"
+   ],
+   "id": "S08",
+   "rationale": "This exact food-pun format earned 184 likes and 16 reposts and has repeated across the archive as reliable light humor.",
+   "source_id": "1692443515387625920",
+   "text": "My top 3 dips:\n1. Bitcoin dip\n2. Hummus dip\n3. Guacamole dip",
+   "theme": "dip joke",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "There will only ever be 21 million Bitcoin.\nThere are over 8 billion people.\nDo the math.",
+    "headline": "Do the math.",
+    "purpose": "Make the 21 million cap land as a simple, undeniable fact next to world population.",
+    "suggestion_id": "S09",
+    "target_feeling": "A blunt, obvious-once-you-see-it realization.",
+    "visual_direction": "Numeric comparison: two stacked numbers, \"21,000,000\" in Relai orange labeled Bitcoin, \"8,000,000,000\" in black labeled people, directly below. No chart, no icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "The scarcity math drove 132 likes and 15 reposts, kept here without the original's advice-like closing line.",
+   "source_id": "2019810895426101519",
+   "text": "There will only ever be 21 million Bitcoin.\nThere are over 8 billion people.\nDo the math.",
+   "theme": "scarcity",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "If you don't hold your own keys, you don't own Bitcoin.\nYou own a promise that someone else will give it back.",
+    "headline": "Not your keys, not your Bitcoin.",
+    "purpose": "Draw a hard line between holding your own keys and trusting a custodian's promise.",
+    "suggestion_id": "S10",
+    "target_feeling": "A little sharp, meant to make the reader check their own setup.",
+    "visual_direction": "Comparison device: two short labels side by side, \"Your keys\" in Relai orange on the left, \"Their promise\" in gray on the right, separated by a thin vertical line. No icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "Self-custody and holding your own keys recur across the archive as a core identity theme, here framed around the mechanic of trust rather than a slogan.",
+   "source_id": null,
+   "text": "If you don't hold your own keys, you don't own Bitcoin.\nYou own a promise that someone else will give it back.",
+   "theme": "self-custody",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "DCA isn't about picking the right day.\nIt's about buying on every day, good and bad, so no single day carries all the risk.",
+    "headline": "Every day. Good and bad.",
+    "purpose": "Explain the DCA mechanic itself, spreading risk across every day rather than timing one.",
+    "suggestion_id": "S11",
+    "target_feeling": "Understanding the mechanic, not chasing a return.",
+    "visual_direction": "Chart device: a single row of small evenly spaced dots representing consecutive days, all identical and gray, with one dot filled in Relai orange to represent any given day. No price line, no up or down movement shown. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "The archive leans on the buy-hodl-repeat and small-weekly-amount theme; this spells out the DCA mechanic itself instead of the outcome.",
+   "source_id": null,
+   "text": "DCA isn't about picking the right day.\nIt's about buying on every day, good and bad, so no single day carries all the risk.",
+   "theme": "dca mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin will have red days and green days.\nThe plan doesn't need to know which is which.",
+    "headline": "The plan doesn't need to know.",
+    "purpose": "Show that a DCA plan runs the same regardless of daily price direction.",
+    "suggestion_id": "S12",
+    "target_feeling": "Steady, unbothered by daily noise.",
+    "visual_direction": "Comparison device: a row of small alternating red and green dots representing daily moves, with a single straight Relai orange line running horizontally through the middle of them, unaffected. No chart curve, no price axis. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S12",
+   "rationale": "Extends the recurring zoom-out and conviction framing without referencing any specific price move or direction.",
+   "source_id": null,
+   "text": "Bitcoin will have red days and green days.\nThe plan doesn't need to know which is which.",
+   "theme": "zoom out conviction",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "No closing time. No holidays. No maintenance window.\nBitcoin just keeps producing blocks.",
+    "headline": "No closing time.",
+    "purpose": "Make Bitcoin's always-on network a simple, visual fact.",
+    "suggestion_id": "S13",
+    "target_feeling": "Quiet respect for a system that never stops.",
+    "visual_direction": "Type treatment: \"24/7/365\" set large and centered, digits in black except the final \"365\" in Relai orange. No clock icon, no illustration. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S13",
+   "rationale": "Builds on the recurring bank and CBDC contrast theme with a fresh angle centered on network reliability instead of institutions.",
+   "source_id": null,
+   "text": "No closing time. No holidays. No maintenance window.\nBitcoin just keeps producing blocks.",
+   "theme": "bitcoin uptime",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "You'll never own all 21 million Bitcoin.\nYou can still own some of the 2.1 quadrillion sats.",
+    "headline": "Own some of the 2.1 quadrillion.",
+    "purpose": "Reframe the 21 million cap as accessible once you think in sats instead of whole coins.",
+    "suggestion_id": "S14",
+    "target_feeling": "Relief, ownership feels reachable.",
+    "visual_direction": "Numeric comparison: \"21,000,000\" labeled Bitcoin in gray on top, \"2,100,000,000,000,000\" labeled sats below in Relai orange, same layout weight. No chart, no icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S14",
+   "rationale": "Reworks the recurring scarcity and satoshi-divisibility theme with a direct statement instead of the archive's drop-by-drop reveal format.",
+   "source_id": null,
+   "text": "You'll never own all 21 million Bitcoin.\nYou can still own some of the 2.1 quadrillion sats.",
+   "theme": "scarcity divisibility",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Half of Bitcoiners will tell you to zoom out.\nThe other half already have the chart open.",
+    "headline": "Zoom out.",
+    "purpose": "Land a self-aware joke about the Bitcoin community's chart-watching habit.",
+    "suggestion_id": "S15",
+    "target_feeling": "Knowing laugh from people already in the space.",
+    "visual_direction": "Type treatment only: \"ZOOM OUT\" set very large and centered in black, no chart, no graph, no icon. Generous white space on all sides. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S15",
+   "rationale": "Matches the archive's recurring lighthearted, self-aware community humor that performs well as standalone posts.",
+   "source_id": null,
+   "text": "Half of Bitcoiners will tell you to zoom out.\nThe other half already have the chart open.",
+   "theme": "community humor",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W37"
+}
