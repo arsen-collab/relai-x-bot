@@ -85,4 +85,9 @@ When a suggestion in a `weekly-suggester/batches/` file is marked image:
 - Purpose is the suggestion's stated theme.
 - Headline is the suggestion text, tightened to fit one line on the image if needed.
 - Note the source in the brief: repurposed from X batch, week number, suggestion id.
-- Default platform IG, default language EN, default due date the coming Friday. Confirm all three before creating.
+- Platform IG, language EN, priority Medium, due the coming Friday. Use these
+  without asking. The review board's note field is where Arsen overrides them,
+  and it arrives as `direction_from_review` in route.py's output. Read it
+  before drafting; it is the visual direction, not a footnote.
+- Only stop to ask when the note itself is ambiguous, or when the line carries
+  a compliance flag.
