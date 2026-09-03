@@ -29,6 +29,9 @@ from zoneinfo import ZoneInfo
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(HERE)
 
+sys.path.insert(0, HERE)
+import config  # noqa: E402
+
 BATCH_DIR = os.path.join(HERE, "batches")
 
 TZ = ZoneInfo("Europe/Zurich")
@@ -61,29 +64,24 @@ def build_message(batch):
     by_type = ", ".join(f"{count} {kind}" for kind, count in sorted(counts.items()))
 
     lines = [
-        f"*Week {int(week.split('-W')[1])} X suggestions* ({week})",
+        f"*Week {int(week.split('-W')[1])} Content Ideas*",
         f"`{batch['batch_file']}`",
         "",
         f"{len(suggestions)} suggestions: {by_type}",
         f"Ranking basis: {batch['ranking_basis']}",
     ]
     if batch.get("dropped_count"):
-        lines.append(f"{batch['dropped_count']} dropped on a mechanical voice check, listed at the end of the file.")
+        lines.append(f"{batch['dropped_count']} dropped before review, listed at the end of the file.")
 
-    flagged = [s for s in suggestions if s["flags"]]
+    # Compliance flags stay in the batch file and in the JSON, not here. Slack
+    # is a pointer, and a flag list in a notification invites the review to
+    # happen in Slack instead of against the file.
     lines.append("")
-    if flagged:
-        lines.append(f"*Compliance flags on {len(flagged)}:*")
-        for suggestion in flagged:
-            lines.append(f"• {suggestion['id']}: {', '.join(suggestion['flags'])}")
+    if config.REVIEW_URL:
+        lines.append(f"Review board: {config.REVIEW_URL}")
+        lines.append("Tick post, image or cut, edit any line in place, then hit Save decisions.")
     else:
-        lines.append("No compliance flags raised.")
-
-    lines += [
-        "",
-        "All lines are at Compliance: unapproved. Nothing is postable yet.",
-        "Reply in a chat session to review: tick copy, image or cut per line.",
-    ]
+        lines.append("Reply in a chat session to review: post, image or cut per line.")
     return "\n".join(lines)
 
 

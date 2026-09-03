@@ -67,9 +67,17 @@ MAX_SUGGESTION_CHARS = 280
 
 # --- Slack -----------------------------------------------------------------
 
-# Nothing to configure. An Incoming Webhook's destination is fixed when the
-# webhook is created, so the SLACK_WEBHOOK_URL secret decides where the batch
-# lands. To move it, make a new webhook and replace the secret.
+# The destination is not configured here. An Incoming Webhook's target is
+# fixed when the webhook is created, so the SLACK_WEBHOOK_URL secret decides
+# where the batch lands. To move it, make a new webhook and replace the secret.
+
+# The review board, linked from the Slack message. A stable URL: the same
+# artifact is republished each week rather than a new one being minted.
+#
+# It only shows the current week after that republish, which happens in a chat
+# session, not in the Action. So on Monday morning this link is still showing
+# last week until the batch is opened for review. Set to "" to drop the link.
+REVIEW_URL = "https://claude.ai/code/artifact/9ef8e952-3c4c-4a68-9fa1-b069ec6ea10e"
 
 
 # --- time-bound patterns ---------------------------------------------------
