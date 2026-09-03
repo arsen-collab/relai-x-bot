@@ -19,6 +19,7 @@ was deliberate.
 Env:
   ANTHROPIC_API_KEY  required for a live run
   DRY_RUN            1/true/yes exits before any API call
+  BATCH_WEEK         optional, YYYY-Www. Defaults to the current ISO week.
 """
 
 import json
@@ -559,8 +560,12 @@ def main():
     dry_run = os.environ.get("DRY_RUN", "").lower() in ("1", "true", "yes")
 
     now = datetime.now(TZ)
-    year, week, _ = now.isocalendar()
-    week_label = f"{year}-W{week:02d}"
+    # BATCH_WEEK forces the label, matching notify_slack.py. Used to generate
+    # a week ahead of its Monday, or to re-run one that was lost.
+    week_label = os.environ.get("BATCH_WEEK", "").strip()
+    if not week_label:
+        year, week, _ = now.isocalendar()
+        week_label = f"{year}-W{week:02d}"
     batch_md = os.path.join(BATCH_DIR, f"{week_label}.md")
     batch_json = os.path.join(BATCH_DIR, f"{week_label}.json")
 
