@@ -118,6 +118,13 @@ def main():
         print(f"Already routed {week} at {stamp}. Nothing to do.")
         return
 
+    # Briefs are tracked per suggestion, not per week. Ship a review, add two
+    # more images, ship again: only the two new ones get briefed. The
+    # week-level stamp above stops a re-run of the SAME submission; this stops
+    # a second submission re-briefing what the first one already sent.
+    routed.setdefault("briefed", {})
+    briefed = set(routed["briefed"].get(week, []))
+
     posts = [d for d in decisions if d["action"] == "post"]
     cuts = [d for d in decisions if d["action"] == "cut"]
     images = [d for d in decisions if d["action"] == "image"]
@@ -161,6 +168,10 @@ def main():
         print(f"  {added} cut -> {os.path.relpath(REJECTED_FILE, REPO_ROOT)}")
 
     # image -> brief payload, printed for the skill to pick up
+    done = [i["id"] for i in images if i["id"] in briefed]
+    if done:
+        print(f"  Briefs already on Paula's board, skipping: {', '.join(done)}")
+    images = [i for i in images if i["id"] not in briefed]
     if images:
         print(f"\n{len(images)} for design briefs:")
         print(json.dumps({
@@ -195,6 +206,7 @@ def main():
         print(f"\nStill undecided ({len(undecided)}): {', '.join(undecided)}")
 
     routed["runs"][week] = stamp
+    routed["briefed"][week] = sorted(briefed | {i["id"] for i in images})
     write_json(ROUTED_FILE, routed)
     print(f"\nMarked {week} routed at {stamp}.")
     if images:
