@@ -19,3 +19,6 @@
 #
 # Empty is the normal state. When this file has no tweets the bot exits
 # before any API call, so it costs nothing.
+Waiting for more money to start is like waiting to get in shape before working out.\nStart small.\nSome people start with just 10 euros a week in Bitcoin.
+Nation states are buying Bitcoin.\nSome people still ask which coin to buy next.\nBitcoin only.
+There will only ever be 21 million Bitcoin.\nThere are over 8 billion people.\nDo the math.

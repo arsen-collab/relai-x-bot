@@ -215,9 +215,19 @@ not misleading. Forward-looking return or price projections engage
 - Never add, edit or reword content in `evergreen.txt` or `fresh.txt` without
   being asked. The evergreen pool went through Compliance review as a specific
   list, and `fresh.txt` posts within two days with no further gate.
-- Promotion into `fresh.txt` is a manual act after Guglielmo signs off. The
-  weekly suggester writes to `weekly-suggester/queued/` and nothing moves
-  across on its own.
+- **Standing approval for archive rewrites, decided by Arsen on 3 Sep 2026.**
+  A suggestion that rewrites a tweet already published from @relai_app carries
+  his approval as Marketing Lead, so `route.py` promotes it into `fresh.txt`
+  automatically and it posts within two days. A net-new line has never been
+  published and still waits for Guglielmo in `weekly-suggester/queued/`.
+  This narrows the prior control; it does not remove it. Under **MiCA Art. 66**
+  the rewrite path rests on the source line already having gone out from the
+  account, so if that premise stops holding, the split stops being defensible.
+- `route.py` re-runs `DROP_CHECKS` and `FLAG_CHECKS` on any line bound for
+  `fresh.txt`. Copy is editable on the review board, so an edit can introduce
+  a violation the batch never had. A line that trips a check is diverted to
+  `queued/` with the reason recorded, never softened. Savings terminology
+  always diverts: it needs written approval regardless of who wrote the line.
 - `evergreen.txt` is manually copied into the sibling `relai-threads-bot`
   repo (its own pool, not a live fetch, so it can run independently once
   private). Any change here needs the same change copied there too, full

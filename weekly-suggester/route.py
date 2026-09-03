@@ -12,10 +12,20 @@ mechanical outcome in one pass:
 Edited lines are filed as edited. The original is kept beside them so a
 change is never silent.
 
-What this deliberately does NOT do:
-  It never writes to fresh.txt or evergreen.txt. Promotion into the posting
-  pool happens after Guglielmo signs off, and that is a separate command.
-  Nothing here can put copy in front of the public.
+Two routes for copy, decided by Arsen on 2026-09-03:
+
+  A rewrite of a tweet already published from @relai_app carries his standing
+  approval, so it goes straight into fresh.txt and posts within two days.
+  A net-new line has never been published and still waits for Guglielmo in
+  queued/, at Compliance: unapproved.
+
+  A line bound for fresh.txt is re-checked against config.DROP_CHECKS and
+  FLAG_CHECKS first, because copy is editable on the review board and an edit
+  can introduce a violation the batch never had. Anything that trips a check
+  is diverted to queued/ with the reason, never softened and never dropped
+  silently.
+
+  It never touches evergreen.txt.
 
 stdlib only, same as the rest of this folder.
 
@@ -27,10 +37,16 @@ Usage:
 import glob
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(HERE)
+
+sys.path.insert(0, HERE)
+import config  # noqa: E402
+
+FRESH_FILE = os.path.join(REPO_ROOT, "fresh.txt")
 
 QUEUED_DIR = os.path.join(HERE, "queued")
 REJECTED_FILE = os.path.join(HERE, "state", "rejected.json")
@@ -65,9 +81,11 @@ def write_json(path, payload):
 def render_queue(week, posts, existing):
     lines = [f"# Queued from week {int(week.split('-W')[1])}, routed {week}", ""]
     lines += [
-        "Approved by Arsen as copy. Not postable yet. Each line needs written",
-        "sign-off before it can move into fresh.txt. Promotion is a separate",
-        "manual act; nothing reads this file.",
+        "Held for compliance sign-off. Not postable. Nothing reads this file.",
+        "",
+        "Arsen's approval covers rewrites of tweets already published from the",
+        "account. A line here is either net new, so nobody has published it,",
+        "or it tripped a mechanical check. The reason is under each one.",
         "",
     ]
     for item in posts:
@@ -84,6 +102,8 @@ def render_queue(week, posts, existing):
             lines.append(f"Note from review: {item['note']}")
             lines.append("")
         lines.append(f"Chars: {len(item['text'])}")
+        if item.get("hold_reasons"):
+            lines.append(f"Held because: {', '.join(item['hold_reasons'])}")
         lines.append("Compliance: unapproved")
         lines.append("")
     body = "\n".join(lines).rstrip() + "\n"
@@ -125,7 +145,41 @@ def main():
     routed.setdefault("briefed", {})
     briefed = set(routed["briefed"].get(week, []))
 
+    # rewrite or net new comes from the batch file, not the board, because the
+    # batch file is the record in the repo and cannot be edited in a browser.
+    batch = read_json(os.path.join(BATCH_DIR, f"{week}.json"))
+    kinds = {}
+    if batch:
+        kinds = {s["id"]: ("rewrite" if s.get("source_id") else "new")
+                 for s in batch["suggestions"]}
+
+    drop_checks = [(label, re.compile(pat, re.IGNORECASE))
+                   for label, pat in config.DROP_CHECKS]
+    flag_checks = [(label, re.compile(pat, re.IGNORECASE))
+                   for label, pat in config.FLAG_CHECKS]
+
+    def gate(item):
+        """Reasons this line must not go straight to the posting pool."""
+        reasons = [label for label, pat in drop_checks if pat.search(item["text"])]
+        reasons += [label for label, pat in flag_checks if pat.search(item["text"])]
+        if len(item["text"]) > 280:
+            reasons.append("over 280 chars")
+        return reasons
+
     posts = [d for d in decisions if d["action"] == "post"]
+    promote, hold = [], []
+    for item in posts:
+        if kinds.get(item["id"]) != "rewrite":
+            hold.append((item, ["net new, needs compliance sign-off"]))
+            continue
+        reasons = gate(item)
+        if reasons:
+            hold.append((item, reasons))
+        else:
+            promote.append(item)
+    for item, reasons in hold:
+        item["hold_reasons"] = reasons
+    posts = [item for item, _ in hold]
     cuts = [d for d in decisions if d["action"] == "cut"]
     images = [d for d in decisions if d["action"] == "image"]
     edited = [d for d in decisions if d.get("original_text")]
@@ -146,6 +200,31 @@ def main():
             with open(path, "w", encoding="utf-8") as fh:
                 fh.write(render_queue(week, posts, existing))
             print(f"  {len(posts)} queued -> {os.path.relpath(path, REPO_ROOT)}")
+
+    # approved rewrites -> the posting pool
+    if promote:
+        existing = ""
+        if os.path.exists(FRESH_FILE):
+            with open(FRESH_FILE, encoding="utf-8") as fh:
+                existing = fh.read()
+        lines, added = [], []
+        for item in promote:
+            one = item["text"].replace("\n", "\\n")
+            if one in existing:
+                print(f"  Already in fresh.txt, skipping: {item['id']}")
+                continue
+            lines.append(one)
+            added.append(item["id"])
+        if lines:
+            with open(FRESH_FILE, "a", encoding="utf-8") as fh:
+                fh.write("\n".join(lines) + "\n")
+            print(f"  {len(lines)} approved rewrite(s) -> fresh.txt: {', '.join(added)}")
+            print("    These post publicly within two days.")
+
+    if hold:
+        print(f"  {len(hold)} held for sign-off:")
+        for item, reasons in hold:
+            print(f"    {item['id']}: {', '.join(reasons)}")
 
     # cut -> rejected
     if cuts:
@@ -212,8 +291,8 @@ def main():
     if images:
         print("Design briefs are NOT created by this script. Create them from "
               "the payload above with the design-brief-creator skill.")
-    print("Nothing here reaches fresh.txt or evergreen.txt. Queued copy needs "
-          "sign-off first.")
+    print("Approved rewrites are in fresh.txt and will post. Everything in "
+          "queued/ needs sign-off first. evergreen.txt is never touched.")
 
 
 if __name__ == "__main__":

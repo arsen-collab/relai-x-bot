@@ -114,10 +114,15 @@ saving into Downloads, and `route.py` takes the newest matching file.
 
 Then in a chat session:
 
-- **post**: moves to `queued/YYYY-Www.md`, still `Compliance: unapproved`. It
-  sits there until Guglielmo signs off. Nothing posts automatically. After
-  sign-off, Arsen moves the line into `fresh.txt` in the repo root and it goes
-  out within two days. That move is the gate, and it is manual.
+- **post, and it rewrites a published tweet**: goes straight into `fresh.txt`
+  and posts within two days. Arsen's approval as Marketing Lead covers these,
+  because the source line already went out from the account.
+- **post, and it is net new**: moves to `queued/YYYY-Www.md` at
+  `Compliance: unapproved` and waits for Guglielmo. Nothing reads that file.
+- Either way `route.py` re-runs the hard checks first. Copy is editable on the
+  board, so an edit can introduce a violation the batch never had. A line that
+  trips one is diverted to `queued/` with the reason, never softened. Savings
+  terminology always diverts.
 - **image**: the `design-brief-creator` skill drafts a brief and creates the
   Notion task on Paula's board, then returns the URL. The Notion Platform field
   has no X option, so X-sourced content goes in as IG plus whatever else Arsen
