@@ -65,6 +65,28 @@ EFFORT = "high"
 MAX_SUGGESTION_CHARS = 280
 
 
+# --- Design briefs ---------------------------------------------------------
+
+# A visual brief is drafted for every suggestion, not just the ones Arsen
+# picks, because at generation time nobody knows which those will be. Most go
+# unused. That is the point: the brief is on the card at the moment of the
+# decision, so ticking image means approving a brief already read.
+#
+# One extra Sonnet call a week. Cheap next to the round trip it removes.
+BRIEFS = True
+
+BRIEF_PLATFORM = ["IG"]
+BRIEF_LANGUAGES = ["🇬🇧 EN", "🇩🇪 DE"]
+BRIEF_PRIORITY = "Medium"
+
+# Days from the day the brief is filed, not from the batch date. Paula gets
+# three days from when the task actually lands on her board.
+BRIEF_DUE_DAYS = 3
+
+# Fixed for every platform. Portrait, never square.
+BRIEF_IMAGE_SPEC = "1080 x 1350 px, portrait"
+
+
 # --- Slack -----------------------------------------------------------------
 
 # The destination is not configured here. An Incoming Webhook's target is

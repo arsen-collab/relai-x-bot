@@ -42,6 +42,7 @@ USED_FILE = os.path.join(HERE, "state", "used.json")
 REJECTED_FILE = os.path.join(HERE, "state", "rejected.json")
 BATCH_DIR = os.path.join(HERE, "batches")
 SKILL_FILE = os.path.join(REPO_ROOT, "skills", "relai-social-copy", "SKILL.md")
+DESIGN_SKILL_FILE = os.path.join(REPO_ROOT, "skills", "design-brief-creator", "SKILL.md")
 
 TZ = ZoneInfo("Europe/Zurich")
 
@@ -73,6 +74,35 @@ SUGGESTION_SCHEMA = {
         },
     },
     "required": ["suggestions"],
+    "additionalProperties": False,
+}
+
+
+BRIEF_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "briefs": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "suggestion_id": {"type": "string"},
+                    "purpose": {"type": "string"},
+                    "target_feeling": {"type": "string"},
+                    "headline": {"type": "string"},
+                    "caption": {"type": "string"},
+                    "headline_de": {"type": "string"},
+                    "caption_de": {"type": "string"},
+                    "visual_direction": {"type": "string"},
+                },
+                "required": ["suggestion_id", "purpose", "target_feeling",
+                             "headline", "caption", "headline_de", "caption_de",
+                             "visual_direction"],
+                "additionalProperties": False,
+            },
+        },
+    },
+    "required": ["briefs"],
     "additionalProperties": False,
 }
 
@@ -123,13 +153,14 @@ def violations(text, checks):
 
 # --- API -------------------------------------------------------------------
 
-def call_claude(api_key, system_text, user_text):
+def call_claude(api_key, system_text, user_text, schema=None, key="suggestions"):
     body = {
         "model": config.MODEL,
         "max_tokens": config.MAX_TOKENS,
-        # The voice skill is byte-identical across both calls in a run, so a
-        # cache breakpoint on it means the second call reads it instead of
-        # paying for it again.
+        # The voice skill is byte-identical across the suggestion calls in a
+        # run, so a cache breakpoint on it means the second call reads it
+        # instead of paying for it again. The brief call appends the design
+        # skill, so it caches separately and that is fine, it runs once.
         "system": [{
             "type": "text",
             "text": system_text,
@@ -138,7 +169,7 @@ def call_claude(api_key, system_text, user_text):
         "thinking": {"type": "adaptive"},
         "output_config": {
             "effort": config.EFFORT,
-            "format": {"type": "json_schema", "schema": SUGGESTION_SCHEMA},
+            "format": {"type": "json_schema", "schema": schema or SUGGESTION_SCHEMA},
         },
         "messages": [{"role": "user", "content": user_text}],
     }
@@ -195,7 +226,7 @@ def call_claude(api_key, system_text, user_text):
     text = next((b["text"] for b in payload.get("content", []) if b.get("type") == "text"), None)
     if not text:
         sys.exit("ERROR: response carried no text block.")
-    return json.loads(text)["suggestions"]
+    return json.loads(text)[key]
 
 
 # --- prompts ---------------------------------------------------------------
@@ -278,6 +309,136 @@ REFERENCE SET
 
 
 # --- generation ------------------------------------------------------------
+
+def brief_prompt(suggestions):
+    lines = [
+        "Draft one visual brief for every line below. All of them, including "
+        "the ones you think are weak: which ones become images is decided "
+        "later by a human, and the brief has to already be there.",
+        "",
+        "Each brief is for a single portrait image, never a carousel.",
+        "",
+        "headline: what is set ON the image. One short line. It is not the "
+        "post text repeated. Tighten it until it fits comfortably at large size.",
+        "",
+        "caption: what is posted alongside. Every number, stat and piece of "
+        "context lives here, never on the image.",
+        "",
+        "headline_de and caption_de: the German. Not a translation. Write the "
+        "same idea the way a German speaker would say it, and let the wording "
+        "differ from the English where that reads better. Du, not Sie.",
+        "",
+        "visual_direction: one visual device and no more. A chart, a "
+        "comparison, a prop, a type treatment. Never two combined, never "
+        "illustration-heavy. Say what the device is concretely enough to "
+        "build. Generous white space. One accent colour, Relai orange, and "
+        "say where it goes. Logo bottom right. No font names, the designer "
+        "decides those. Name anything to avoid.",
+        "",
+        "purpose: one sentence on what the image is for.",
+        "target_feeling: one sentence on how it should land.",
+        "",
+        "Return a brief for every id, in the same order.",
+        "",
+        "LINES",
+    ]
+    for suggestion in suggestions:
+        text = suggestion["text"].replace("\n", " / ")
+        lines.append(f"{suggestion['id']}  [{suggestion['theme']}]  {text}")
+    return "\n".join(lines)
+
+
+def collect_briefs(api_key, system_text, suggestions):
+    """One brief per suggestion. A failure here is not fatal: the batch is
+    still usable, the cards just have no brief on them."""
+    try:
+        result = call_claude(api_key, system_text, brief_prompt(suggestions),
+                             schema=BRIEF_SCHEMA, key="briefs")
+    except SystemExit:
+        raise
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARNING: brief drafting failed: {exc}")
+        return {}
+
+    by_id = {b["suggestion_id"]: b for b in result}
+    missing = [s["id"] for s in suggestions if s["id"] not in by_id]
+    if missing:
+        print(f"WARNING: no brief for {', '.join(missing)}")
+    return by_id
+
+
+def build_system_text():
+    with open(SKILL_FILE, encoding="utf-8") as fh:
+        skill = fh.read()
+    return SYSTEM_PREAMBLE.format(skill=skill)
+
+
+def brief_system_text(system_text):
+    design_skill = ""
+    if os.path.exists(DESIGN_SKILL_FILE):
+        with open(DESIGN_SKILL_FILE, encoding="utf-8") as fh:
+            design_skill = fh.read()
+    else:
+        print(f"WARNING: {DESIGN_SKILL_FILE} not found, briefs will be off-spec.")
+    return system_text + "\n\n--- BEGIN BINDING DESIGN SKILL ---\n" + design_skill
+
+
+def backfill_briefs(batch_json, batch_md, dry_run):
+    """Add briefs to a batch that has none, leaving its suggestions alone."""
+    if not config.BRIEFS:
+        return
+    batch = read_json(batch_json, None)
+    if not batch:
+        print("  No matching .json, nothing to backfill.")
+        return
+
+    missing = [s for s in batch["suggestions"] if not s.get("brief")]
+    if not missing:
+        print("  Every suggestion already has a brief.")
+        return
+
+    print(f"  {len(missing)} of {len(batch['suggestions'])} have no visual brief.")
+    if dry_run:
+        print("  DRY_RUN enabled, not drafting them.")
+        return
+
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        sys.exit("ERROR: ANTHROPIC_API_KEY is not set.")
+
+    system_text = build_system_text()
+    briefs = collect_briefs(api_key, brief_system_text(system_text), missing)
+    if not briefs:
+        return
+
+    for suggestion in batch["suggestions"]:
+        if suggestion["id"] in briefs:
+            suggestion["brief"] = briefs[suggestion["id"]]
+    batch.setdefault("brief_defaults", {
+        "platform": config.BRIEF_PLATFORM,
+        "languages": config.BRIEF_LANGUAGES,
+        "priority": config.BRIEF_PRIORITY,
+        "due_days": config.BRIEF_DUE_DAYS,
+        "image_spec": config.BRIEF_IMAGE_SPEC,
+    })
+    write_json(batch_json, batch)
+    print(f"  Backfilled {len(briefs)} briefs into {os.path.relpath(batch_json, REPO_ROOT)}")
+
+    with open(batch_md, "a", encoding="utf-8") as fh:
+        fh.write("\n---\n\nVisual briefs, drafted after the fact\n\n")
+        for suggestion in batch["suggestions"]:
+            brief = suggestion.get("brief")
+            if not brief:
+                continue
+            fh.write(f"## {suggestion['id']}\n"
+                     f"  Headline:    {brief['headline']}\n"
+                     f"  Caption:     {brief['caption']}\n"
+                     f"  Headline DE: {brief['headline_de']}\n"
+                     f"  Caption DE:  {brief['caption_de']}\n"
+                     f"  Visual:      {brief['visual_direction']}\n"
+                     f"  Purpose:     {brief['purpose']}\n"
+                     f"  Feeling:     {brief['target_feeling']}\n\n")
+
 
 def collect(api_key, system_text, prompt_builder, want, existing_texts, drop_checks,
             flag_checks, used_sources, label):
@@ -370,6 +531,19 @@ def render_batch(week_label, run_date, generated_at, ranking_basis, suggestions,
             "Compliance: unapproved",
             "",
         ]
+        brief = suggestion.get("brief")
+        if brief:
+            lines += [
+                "Visual brief, drafted in advance in case this one is picked:",
+                f"  Headline:  {brief['headline']}",
+                f"  Caption:   {brief['caption']}",
+                f"  Headline DE: {brief['headline_de']}",
+                f"  Caption DE:  {brief['caption_de']}",
+                f"  Visual:    {brief['visual_direction']}",
+                f"  Purpose:   {brief['purpose']}",
+                f"  Feeling:   {brief['target_feeling']}",
+                "",
+            ]
 
     if dropped:
         lines += [
@@ -426,7 +600,12 @@ def main():
         )
 
     if os.path.exists(batch_md):
-        print(f"{os.path.relpath(batch_md, REPO_ROOT)} already exists. Nothing to do.")
+        print(f"{os.path.relpath(batch_md, REPO_ROOT)} already exists.")
+        # A batch can predate briefs, or the brief call can have failed on the
+        # run that made it. Filling those in is not the same as regenerating:
+        # the suggestions are untouched, so anything already reviewed against
+        # them stays valid.
+        backfill_briefs(batch_json, batch_md, dry_run)
         return
 
     if dry_run:
@@ -441,9 +620,7 @@ def main():
     if not api_key:
         sys.exit("ERROR: ANTHROPIC_API_KEY is not set.")
 
-    with open(SKILL_FILE, encoding="utf-8") as fh:
-        skill = fh.read()
-    system_text = SYSTEM_PREAMBLE.format(skill=skill)
+    system_text = build_system_text()
 
     drop_checks = compile_checks(config.DROP_CHECKS)
     flag_checks = compile_checks(config.FLAG_CHECKS)
@@ -477,6 +654,17 @@ def main():
     if pool.get("ranking_is_weak_proxy"):
         ranking_basis += ", weak proxy, no impression data"
 
+    # A brief for every line, not just the ones that will be picked. Which
+    # ones become images is a decision taken later, on the review board, and
+    # the brief has to be sitting there when it is taken.
+    briefs = {}
+    if config.BRIEFS:
+        print(f"\nDrafting {len(suggestions)} visual briefs...")
+        briefs = collect_briefs(api_key, brief_system_text(system_text), suggestions)
+        print(f"  {len(briefs)} drafted")
+        for suggestion in suggestions:
+            suggestion["brief"] = briefs.get(suggestion["id"])
+
     os.makedirs(BATCH_DIR, exist_ok=True)
     with open(batch_md, "w", encoding="utf-8") as fh:
         fh.write(render_batch(
@@ -504,9 +692,17 @@ def main():
                 "rationale": s["rationale"],
                 "flags": s["flags"],
                 "compliance": "unapproved",
+                "brief": briefs.get(s["id"]),
             }
             for s in suggestions
         ],
+        "brief_defaults": {
+            "platform": config.BRIEF_PLATFORM,
+            "languages": config.BRIEF_LANGUAGES,
+            "priority": config.BRIEF_PRIORITY,
+            "due_days": config.BRIEF_DUE_DAYS,
+            "image_spec": config.BRIEF_IMAGE_SPEC,
+        },
         "dropped_count": len(dropped),
     })
 

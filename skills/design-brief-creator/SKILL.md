@@ -9,7 +9,8 @@ Writes briefs for Paula Boehme and files them on the Relai Design board in Notio
 
 ## Workflow
 
-1. Ask only for what is genuinely missing: platform, language, priority, due date. Take initiative on standard details rather than asking.
+1. Do not ask about platform, language, priority or due date. The defaults
+   below cover them. Take initiative on every standard detail.
 2. Draft the brief. Sections, in this order and no others:
    - Purpose
    - Target feeling
@@ -26,9 +27,8 @@ Writes briefs for Paula Boehme and files them on the Relai Design board in Notio
 5. If he wants it changed, update the page with notion-update-page rather
    than creating a second one.
 
-Exception: ask first when the brief carries a compliance flag, or when
-platform, language or due date are non-default. Those change what Paula
-builds, not just how it reads.
+Exception: ask first when the line carries a compliance flag. That changes
+whether the asset can ship, not just how it reads.
 
 ## Visual rules
 
@@ -47,7 +47,9 @@ Image specs: always 1080 x 1350 px, Instagram feed portrait, for every platform.
 
 Carousels: always include a standalone single-image version for WhatsApp and X, using the main carousel image plus one additional element that you propose. Note the other slides as not for standalone posting.
 
-Language: English first, German only after English is approved. Confirm scope upfront.
+Language: English and German together, both in the same brief. Write the
+English headline and caption, then the German. German is not a translation
+of the English, it is the same idea written natively.
 
 ## Compliance, flag in chat and keep drafting
 
@@ -74,9 +76,13 @@ Assignee (Paula): 1abd872b-594c-819a-975e-0002e5b89f57
 
 ## Defaults when unspecified
 
+Apply these silently. They are not questions.
+
+- Platform: IG
+- Language: EN and DE, both
 - Priority: Medium
 - Image size: 1080 x 1350 portrait
-- Language: confirm upfront, default English first
+- Due: three days from the day the brief is filed, not from the batch date
 
 ## Entry point from the weekly X batch
 
@@ -85,9 +91,10 @@ When a suggestion in a `weekly-suggester/batches/` file is marked image:
 - Purpose is the suggestion's stated theme.
 - Headline is the suggestion text, tightened to fit one line on the image if needed.
 - Note the source in the brief: repurposed from X batch, week number, suggestion id.
-- Platform IG, language EN, priority Medium, due the coming Friday. Use these
-  without asking. The review board's note field is where Arsen overrides them,
-  and it arrives as `direction_from_review` in route.py's output. Read it
-  before drafting; it is the visual direction, not a footnote.
-- Only stop to ask when the note itself is ambiguous, or when the line carries
-  a compliance flag.
+- The brief is already drafted. generate.py writes one for every suggestion
+  at batch time, so by the time Arsen ticks image he has read it on the review
+  board and the tick is the approval. Do not redraft it from scratch.
+- Take the brief from the decisions file. If he edited it there, his version
+  wins outright. If he left a note, apply it to the drafted brief.
+- Only stop to ask when the note contradicts the brief in a way you cannot
+  resolve, or when the line carries a compliance flag.
