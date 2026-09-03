@@ -102,8 +102,17 @@ it. Savings terminology is the main one.
 
 Not automated. The Slack message links to a review board, an artifact holding
 the week's 15 lines with the source tweet and its engagement beside each
-rewrite. Lines are editable in place, and Save decisions writes the picks plus
-any edits to Downloads as JSON. Arsen hands that back in a chat session, and:
+rewrite, plus a visual brief drafted in advance for every line. Copy and brief
+are both editable in place.
+
+The board saves itself. Every change is debounced a few seconds and then
+written to `data/decisions.json` **on the artifact**, via the files form of
+`artifact.publish`, which does not reload the view. Claude reads that file off
+the board directly, so there is no download and no clipboard. Where publishing
+is unavailable (a read-only view, or a publicly shared board) it falls back to
+saving into Downloads, and `route.py` takes the newest matching file.
+
+Then in a chat session:
 
 - **post**: moves to `queued/YYYY-Www.md`, still `Compliance: unapproved`. It
   sits there until Guglielmo signs off. Nothing posts automatically. After
