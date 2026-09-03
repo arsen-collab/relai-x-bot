@@ -18,9 +18,17 @@ Writes briefs for Paula Boehme and files them on the Relai Design board in Notio
    - Visual direction
    - Image specs
    No font references, Paula handles that. No safe zone callouts unless asked. No compliance section inside the brief.
-3. Show the draft for approval. Do not create anything before approval.
-4. On approval, create the Notion page.
-5. Reply with the direct task URL immediately.
+3. Create the Notion page. Show the brief in the reply alongside the URL,
+   not before it. Arsen marking a line as image is the approval; a second
+   round of approving text he has already chosen is a step he does not want.
+4. Reply with the direct task URL immediately, then the brief itself so he
+   can read what went out.
+5. If he wants it changed, update the page with notion-update-page rather
+   than creating a second one.
+
+Exception: ask first when the brief carries a compliance flag, or when
+platform, language or due date are non-default. Those change what Paula
+builds, not just how it reads.
 
 ## Visual rules
 
