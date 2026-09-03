@@ -47,9 +47,14 @@ Image specs: always 1080 x 1350 px, Instagram feed portrait, for every platform.
 
 Carousels: always include a standalone single-image version for WhatsApp and X, using the main carousel image plus one additional element that you propose. Note the other slides as not for standalone posting.
 
-Language: English and German together, both in the same brief. Write the
-English headline and caption, then the German. German is not a translation
-of the English, it is the same idea written natively.
+Language: the brief is written in English. Translate it to German when you
+file it, from the English as it stands at that moment, and put both in the
+brief. Label the German as machine translated and ask Paula to check it reads
+naturally before she sets it.
+
+Never carry a German version through the review step. Arsen edits the English
+on the review board, and a German line written earlier silently stops matching
+it. Translating at filing time is what keeps the two from drifting.
 
 ## Compliance, flag in chat and keep drafting
 
@@ -79,7 +84,7 @@ Assignee (Paula): 1abd872b-594c-819a-975e-0002e5b89f57
 Apply these silently. They are not questions.
 
 - Platform: IG
-- Language: EN and DE, both
+- Language: EN authored, DE translated at filing, Paula verifies the German
 - Priority: Medium
 - Image size: 1080 x 1350 portrait
 - Due: three days from the day the brief is filed, not from the batch date

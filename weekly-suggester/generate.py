@@ -91,13 +91,10 @@ BRIEF_SCHEMA = {
                     "target_feeling": {"type": "string"},
                     "headline": {"type": "string"},
                     "caption": {"type": "string"},
-                    "headline_de": {"type": "string"},
-                    "caption_de": {"type": "string"},
                     "visual_direction": {"type": "string"},
                 },
                 "required": ["suggestion_id", "purpose", "target_feeling",
-                             "headline", "caption", "headline_de", "caption_de",
-                             "visual_direction"],
+                             "headline", "caption", "visual_direction"],
                 "additionalProperties": False,
             },
         },
@@ -324,9 +321,9 @@ def brief_prompt(suggestions):
         "caption: what is posted alongside. Every number, stat and piece of "
         "context lives here, never on the image.",
         "",
-        "headline_de and caption_de: the German. Not a translation. Write the "
-        "same idea the way a German speaker would say it, and let the wording "
-        "differ from the English where that reads better. Du, not Sie.",
+        "English only. The German is translated when the brief is filed, from "
+        "whatever the English says at that point, so that the two can never "
+        "drift apart.",
         "",
         "visual_direction: one visual device and no more. A chart, a "
         "comparison, a prop, a type treatment. Never two combined, never "
@@ -433,8 +430,6 @@ def backfill_briefs(batch_json, batch_md, dry_run):
             fh.write(f"## {suggestion['id']}\n"
                      f"  Headline:    {brief['headline']}\n"
                      f"  Caption:     {brief['caption']}\n"
-                     f"  Headline DE: {brief['headline_de']}\n"
-                     f"  Caption DE:  {brief['caption_de']}\n"
                      f"  Visual:      {brief['visual_direction']}\n"
                      f"  Purpose:     {brief['purpose']}\n"
                      f"  Feeling:     {brief['target_feeling']}\n\n")
@@ -537,8 +532,6 @@ def render_batch(week_label, run_date, generated_at, ranking_basis, suggestions,
                 "Visual brief, drafted in advance in case this one is picked:",
                 f"  Headline:  {brief['headline']}",
                 f"  Caption:   {brief['caption']}",
-                f"  Headline DE: {brief['headline_de']}",
-                f"  Caption DE:  {brief['caption_de']}",
                 f"  Visual:    {brief['visual_direction']}",
                 f"  Purpose:   {brief['purpose']}",
                 f"  Feeling:   {brief['target_feeling']}",

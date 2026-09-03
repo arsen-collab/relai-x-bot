@@ -20,9 +20,7 @@
   {
    "brief": {
     "caption": "Some companies hold Bitcoin on their balance sheet. Some countries hold it in reserve. Different playbooks, same long term view.",
-    "caption_de": "Manche Unternehmen halten Bitcoin in der Bilanz. Manche Staaten halten es in ihren Reserven. Unterschiedliche Wege, derselbe langfristige Blick.",
     "headline": "Companies. Countries. Same bet.",
-    "headline_de": "Firmen. Staaten. Dieselbe Wette.",
     "purpose": "Show that Bitcoin adoption spans both corporate and national balance sheets, reinforcing long term legitimacy.",
     "suggestion_id": "S01",
     "target_feeling": "Quiet confidence, credibility by association, forward looking calm.",
@@ -40,9 +38,7 @@
   {
    "brief": {
     "caption": "You work for decades and save every month. Then the money supply grows and that money buys less. Bitcoin gets called the risky one.",
-    "caption_de": "Du arbeitest jahrzehntelang, sparst jeden Monat. Dann wird einfach mehr Geld gedruckt und es kauft weniger. Und Bitcoin gilt als das Risiko.",
     "headline": "Who's the risky one?",
-    "headline_de": "Wer ist hier riskant?",
     "purpose": "Challenge the assumption that fiat is the safe choice by pointing at inflation, without predicting Bitcoin's price.",
     "suggestion_id": "S02",
     "target_feeling": "Mild provocation, a reframe that makes the reader pause.",
@@ -62,9 +58,7 @@
   {
    "brief": {
     "caption": "Bitcoin isn't backed by a government or a bank. It's backed by the people who choose to hold it.",
-    "caption_de": "Bitcoin steht hinter keiner Regierung und keiner Bank. Es steht hinter den Menschen, die es halten.",
     "headline": "Backed by everyone who holds it.",
-    "headline_de": "Gehalten von allen, die daran glauben.",
     "purpose": "Explain Bitcoin's trust model in one clean idea for a Bitcoin-literate audience.",
     "suggestion_id": "S03",
     "target_feeling": "Calm certainty, a settled feeling of understanding something obvious.",
@@ -82,9 +76,7 @@
   {
    "brief": {
     "caption": "Come get some.",
-    "caption_de": "Hol dir deins.",
     "headline": "We've got Bitcoin.",
-    "headline_de": "Wir haben Bitcoin.",
     "purpose": "Simple, playful availability post pointing people to the app.",
     "suggestion_id": "S04",
     "target_feeling": "Light, inviting, low pressure.",
@@ -102,9 +94,7 @@
   {
    "brief": {
     "caption": "That's how Bitcoin keeps turning back into money. Culture is part of the mechanism.",
-    "caption_de": "So wird aus Bitcoin wieder Geld. Kultur ist Teil des Mechanismus.",
     "headline": "Memes, jokes, stubborn belief.",
-    "headline_de": "Memes, Witze, sturer Glaube.",
     "purpose": "Nod to Bitcoin community culture as part of what makes the network resilient.",
     "suggestion_id": "S05",
     "target_feeling": "Playful, in on the joke, still credible.",
@@ -122,9 +112,7 @@
   {
    "brief": {
     "caption": "\"I wish I'd started earlier\" was never about timing. It was about starting at all.",
-    "caption_de": "\"Ich wünschte, ich hätte früher angefangen\" hatte nie mit dem Timing zu tun. Sondern damit, überhaupt anzufangen.",
     "headline": "The first purchase is the hardest one.",
-    "headline_de": "Der erste Kauf ist der schwerste.",
     "purpose": "Encourage taking the first step into Bitcoin without pushing urgency or timing claims.",
     "suggestion_id": "S06",
     "target_feeling": "Gentle encouragement, permission to start imperfectly.",
@@ -142,9 +130,7 @@
   {
    "brief": {
     "caption": "Nothing else to add.",
-    "caption_de": "Mehr gibt's dazu nicht zu sagen.",
     "headline": "Sats are the standard.",
-    "headline_de": "Sats sind der Standard.",
     "purpose": "Reinforce sats as the everyday unit Bitcoin holders think in.",
     "suggestion_id": "S07",
     "target_feeling": "Settled, matter of fact, insider confidence.",
@@ -162,9 +148,7 @@
   {
    "brief": {
     "caption": "Bad code is. That's why the wallet you use matters.",
-    "caption_de": "Schlechter Code ist es. Deshalb kommt es auf die Wallet an, die du nutzt.",
     "headline": "Self-custody isn't the risk.",
-    "headline_de": "Self-Custody ist nicht das Risiko.",
     "purpose": "Clarify that self-custody risk is about implementation quality, not the concept itself.",
     "suggestion_id": "S08",
     "target_feeling": "Reassurance grounded in honesty, not glossing over real risk.",
@@ -182,9 +166,7 @@
   {
    "brief": {
     "caption": "Rumor has it there will only ever be 21 million Bitcoin.",
-    "caption_de": "Es heißt, es wird nie mehr als 21 Millionen Bitcoin geben.",
     "headline": "Only ever 21 million.",
-    "headline_de": "Nur jemals 21 Millionen.",
     "purpose": "Restate Bitcoin's fixed supply as a foundational fact.",
     "suggestion_id": "S09",
     "target_feeling": "Quiet awe at the simplicity of a hard number.",
@@ -202,9 +184,7 @@
   {
    "brief": {
     "caption": "A wallet you don't control is just a promise. Self-custody means the Bitcoin is actually yours.",
-    "caption_de": "Eine Wallet, die dir nicht gehört, ist nur ein Versprechen. Self-Custody heißt: Der Bitcoin gehört wirklich dir.",
     "headline": "If you don't hold it, it's just an IOU.",
-    "headline_de": "Ohne Kontrolle ist es nur ein Versprechen.",
     "purpose": "Teach the core self-custody mechanic in one clear line.",
     "suggestion_id": "S10",
     "target_feeling": "A click of understanding, a small realization.",
@@ -222,9 +202,7 @@
   {
    "brief": {
     "caption": "You need one sat. 100 million of them make a Bitcoin.",
-    "caption_de": "Ein Sat reicht zum Start. 100 Millionen davon ergeben einen Bitcoin.",
     "headline": "You don't need a whole Bitcoin.",
-    "headline_de": "Du brauchst keinen ganzen Bitcoin.",
     "purpose": "Lower the perceived barrier to entry by explaining sats.",
     "suggestion_id": "S11",
     "target_feeling": "Relief, it feels more accessible than expected.",
@@ -242,9 +220,7 @@
   {
    "brief": {
     "caption": "Timing the market takes luck. Showing up every week takes a plan. No second guessing.",
-    "caption_de": "Den Markt zu timen braucht Glück. Jede Woche dabei zu sein braucht einen Plan. Kein Zögern nötig.",
     "headline": "Same amount. Same day.",
-    "headline_de": "Gleicher Betrag. Gleicher Tag.",
     "purpose": "Explain the DCA mechanic as a plan, not a market timing strategy.",
     "suggestion_id": "S12",
     "target_feeling": "Steady, low effort confidence.",
@@ -262,9 +238,7 @@
   {
    "brief": {
     "caption": "Cash sitting still doesn't stay the same size. It loses purchasing power, year after year.",
-    "caption_de": "Geld, das einfach liegen bleibt, bleibt nicht gleich viel wert. Es verliert Jahr für Jahr an Kaufkraft.",
     "headline": "Cash shrinks quietly.",
-    "headline_de": "Bargeld schrumpft leise.",
     "purpose": "Make the quiet erosion of cash value tangible.",
     "suggestion_id": "S13",
     "target_feeling": "A slow, sober realization rather than alarm.",
@@ -284,9 +258,7 @@
   {
    "brief": {
     "caption": "Bitcoin doesn't ask what you paid for it. It only asks how long you're willing to hold it.",
-    "caption_de": "Bitcoin fragt nicht, was du bezahlt hast. Es fragt nur, wie lange du bereit bist zu halten.",
     "headline": "It only asks how long.",
-    "headline_de": "Es fragt nur, wie lange.",
     "purpose": "Reinforce a long term holding mindset over price focused thinking.",
     "suggestion_id": "S14",
     "target_feeling": "Calm conviction, a mental reset toward patience.",
@@ -304,9 +276,7 @@
   {
    "brief": {
     "caption": "Nobody needs to ask permission to use Bitcoin. That's kind of the whole point.",
-    "caption_de": "Niemand muss um Erlaubnis fragen, um Bitcoin zu nutzen. Genau darum geht's.",
     "headline": "No permission needed.",
-    "headline_de": "Keine Erlaubnis nötig.",
     "purpose": "Highlight Bitcoin's permissionless nature as a core feature.",
     "suggestion_id": "S15",
     "target_feeling": "A sense of quiet freedom.",
