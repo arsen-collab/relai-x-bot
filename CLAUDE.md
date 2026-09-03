@@ -32,8 +32,25 @@ content tooling, the Slack message is the handoff to a human, not a channel.
 |---|---|---|---|
 | `post_tweet.py` | `daily_tweet.yml` | Daily | `<Weekday> market update:\n\n1 BTC = 1 BTC` |
 | `post_evergreen.py` | `evergreen.yml` | Every 2 days | One line from `evergreen.txt`, 223-line rotation |
+| `post_fresh.py` | `fresh.yml` | Days evergreen does not post | Top line of `fresh.txt`, then drains it |
 
-Both target 09:00-13:00 Europe/Zurich, hard cutoff 20:00.
+All three target 09:00-13:00 Europe/Zurich, hard cutoff 20:00.
+
+**`fresh.txt` is the fast lane, and it is a queue, not a rotation.** Approved
+copy posts within a day or two instead of waiting out the evergreen cycle,
+which at 224 lines every 2 days takes over a year to come round. After a
+successful post the line is removed from `fresh.txt`, appended to
+`fresh_posted.txt`, and the change is committed. The drain is the state; there
+is no separate state file.
+
+It runs on the days evergreen does not, importing `is_posting_day` from
+`post_evergreen` rather than copying the arithmetic, so the two can never post
+on the same day even if `INTERVAL_DAYS` changes. An empty queue exits before
+any API call, which is the normal case and costs nothing.
+
+`fresh.txt` is **approved copy only**, same standing as `evergreen.txt`.
+Anything in it posts publicly with no further review. It is not mirrored to
+`relai-threads-bot`; that repo mirrors `evergreen.txt` only.
 
 ### Weekly X suggester
 
@@ -195,8 +212,12 @@ not misleading. Forward-looking return or price projections engage
 
 **Rules for this repo:**
 
-- Never add, edit or reword content in `evergreen.txt` without being asked.
-  The pool went through Compliance review as a specific list.
+- Never add, edit or reword content in `evergreen.txt` or `fresh.txt` without
+  being asked. The evergreen pool went through Compliance review as a specific
+  list, and `fresh.txt` posts within two days with no further gate.
+- Promotion into `fresh.txt` is a manual act after Guglielmo signs off. The
+  weekly suggester writes to `weekly-suggester/queued/` and nothing moves
+  across on its own.
 - `evergreen.txt` is manually copied into the sibling `relai-threads-bot`
   repo (its own pool, not a live fetch, so it can run independently once
   private). Any change here needs the same change copied there too, full

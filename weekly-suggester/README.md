@@ -100,11 +100,15 @@ it. Savings terminology is the main one.
 
 ## Review and routing
 
-Not automated. Arsen opens a chat, reads the batch file, ticks one box per
-line, and then:
+Not automated. The Slack message links to a review board, an artifact holding
+the week's 15 lines with the source tweet and its engagement beside each
+rewrite. Lines are editable in place, and Save decisions writes the picks plus
+any edits to Downloads as JSON. Arsen hands that back in a chat session, and:
 
-- **copy**: moves to `queued/YYYY-Www.md`, still `Compliance: unapproved`. It
-  sits there until Guglielmo signs off. Nothing posts automatically.
+- **post**: moves to `queued/YYYY-Www.md`, still `Compliance: unapproved`. It
+  sits there until Guglielmo signs off. Nothing posts automatically. After
+  sign-off, Arsen moves the line into `fresh.txt` in the repo root and it goes
+  out within two days. That move is the gate, and it is manual.
 - **image**: the `design-brief-creator` skill drafts a brief and creates the
   Notion task on Paula's board, then returns the URL. The Notion Platform field
   has no X option, so X-sourced content goes in as IG plus whatever else Arsen

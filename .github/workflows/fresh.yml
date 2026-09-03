@@ -1,0 +1,64 @@
+name: Fresh Tweet
+
+# The fast lane. Posts the top line of fresh.txt, then drains it from the file
+# and commits. Most days the queue is empty and the script exits before any
+# API call, so it costs nothing.
+#
+# Runs on the days evergreen does not. post_fresh.py imports is_posting_day
+# from post_evergreen, so the two can never both post on the same day even if
+# INTERVAL_DAYS changes. The daily market update is unaffected.
+#
+# Target window 09:00-13:00 Europe/Zurich, same as the other bots.
+# 08:00-11:00 UTC lands inside that window in both CET and CEST.
+# Slot minutes are offset from evergreen.yml so the two never ask for a runner
+# at the same moment.
+
+on:
+  schedule:
+    - cron: '19 8 * * *'   # SLOT 1
+    - cron: '11 9 * * *'   # SLOT 2
+    - cron: '49 9 * * *'   # SLOT 3
+    - cron: '41 10 * * *'  # SLOT 4
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Preview only, do not post and do not drain'
+        type: boolean
+        default: true
+
+concurrency:
+  group: fresh
+  cancel-in-progress: false
+
+# Needed because a successful post rewrites fresh.txt and pushes.
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Map cron to slot
+        id: slot
+        run: |
+          case "${{ github.event.schedule }}" in
+            "19 8 * * *")  echo "n=1" >> $GITHUB_OUTPUT ;;
+            "11 9 * * *")  echo "n=2" >> $GITHUB_OUTPUT ;;
+            "49 9 * * *")  echo "n=3" >> $GITHUB_OUTPUT ;;
+            "41 10 * * *") echo "n=4" >> $GITHUB_OUTPUT ;;
+            *)             echo "n=0" >> $GITHUB_OUTPUT ;;
+          esac
+
+      - name: Post
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          X_USER_ID: ${{ secrets.X_USER_ID }}
+          SLOT: ${{ steps.slot.outputs.n }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: python3 post_fresh.py

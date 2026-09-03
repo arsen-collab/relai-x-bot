@@ -1,0 +1,21 @@
+# Relai X fresh pool. The fast lane.
+#
+# Lines here post within a day or two and are then removed from this file and
+# appended to fresh_posted.txt. It is a queue that drains, not a rotation.
+#
+# This file is for approved copy only. A line reaching this file has already
+# had Guglielmo's written sign-off. The weekly suggester cannot write here;
+# suggestions land in weekly-suggester/queued/ at Compliance: unapproved and
+# a human moves them across afterwards. Anything in this file will be posted
+# publicly from @relai_app without further review.
+#
+# Same syntax as evergreen.txt:
+#   Blank lines and lines starting with "# " (hash + space) are ignored.
+#   A bare "#" is also a comment. A line starting with #hashtag is a tweet.
+#   Use \n for a line break inside a tweet.
+#   Max 280 characters each. No duplicates.
+#
+# Order is the order you approved them. The top line goes first.
+#
+# Empty is the normal state. When this file has no tweets the bot exits
+# before any API call, so it costs nothing.
