@@ -1,0 +1,4 @@
+# Lines already posted from fresh.txt, newest last.
+# A log, not a pool. Nothing reads this file.
+#
+2026-09-03  Nobody needs to ask permission to use Bitcoin.\nThat's kind of the whole point.

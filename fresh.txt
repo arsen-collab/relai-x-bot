@@ -19,4 +19,3 @@
 #
 # Empty is the normal state. When this file has no tweets the bot exits
 # before any API call, so it costs nothing.
-Nobody needs to ask permission to use Bitcoin.\nThat's kind of the whole point.
