@@ -34,6 +34,7 @@ REPO_ROOT = os.path.dirname(HERE)
 
 QUEUED_DIR = os.path.join(HERE, "queued")
 REJECTED_FILE = os.path.join(HERE, "state", "rejected.json")
+ROUTED_FILE = os.path.join(HERE, "state", "routed.json")
 BATCH_DIR = os.path.join(HERE, "batches")
 
 DOWNLOAD_GLOB = os.path.expanduser("~/Downloads/x-batch-*-decisions.json")
@@ -102,6 +103,20 @@ def main():
 
     print(f"Reading {source}")
     print(f"Week {week}, {len(decisions)} decided")
+
+    # A scheduled router runs every couple of hours, so it will see the same
+    # shipped review many times. queued/ and rejected.json are idempotent, but
+    # a Notion task is not: creating it twice leaves Paula two of the same job.
+    # This marker is the guard. Nothing routes twice for one Ship it.
+    stamp = payload.get("submitted_at")
+    routed = read_json(ROUTED_FILE, {"runs": {}})
+    routed.setdefault("runs", {})
+    if not payload.get("submitted"):
+        print("Not marked shipped. The review is still open, nothing routed.")
+        return
+    if routed["runs"].get(week) == stamp:
+        print(f"Already routed {week} at {stamp}. Nothing to do.")
+        return
 
     posts = [d for d in decisions if d["action"] == "post"]
     cuts = [d for d in decisions if d["action"] == "cut"]
@@ -179,7 +194,13 @@ def main():
     if undecided:
         print(f"\nStill undecided ({len(undecided)}): {', '.join(undecided)}")
 
-    print("\nNothing here reaches fresh.txt or evergreen.txt. Queued copy needs "
+    routed["runs"][week] = stamp
+    write_json(ROUTED_FILE, routed)
+    print(f"\nMarked {week} routed at {stamp}.")
+    if images:
+        print("Design briefs are NOT created by this script. Create them from "
+              "the payload above with the design-brief-creator skill.")
+    print("Nothing here reaches fresh.txt or evergreen.txt. Queued copy needs "
           "sign-off first.")
 
 
