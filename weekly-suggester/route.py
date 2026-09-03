@@ -79,6 +79,9 @@ def render_queue(week, posts, existing):
             for original in item["original_text"].splitlines():
                 lines.append(f"> {original}")
             lines.append("")
+        if item.get("note"):
+            lines.append(f"Note from review: {item['note']}")
+            lines.append("")
         lines.append(f"Chars: {len(item['text'])}")
         lines.append("Compliance: unapproved")
         lines.append("")
@@ -151,12 +154,22 @@ def main():
                 "suggestion_id": item["id"],
                 "headline_source": item["text"],
                 "theme": item.get("theme", ""),
-                "note": f"Repurposed from X batch, week {int(week.split('-W')[1])}, {item['id']}",
+                "direction_from_review": item.get("note", ""),
+                "source": f"Repurposed from X batch, week {int(week.split('-W')[1])}, {item['id']}",
             } for item in images],
         }, ensure_ascii=False, indent=1))
 
     if edited:
         print(f"\nEdited during review: {', '.join(d['id'] for d in edited)}")
+
+    # Notes are instructions, not filing. They are printed rather than written
+    # so they get read and acted on rather than buried in a file.
+    noted = [d for d in decisions if d.get("note")]
+    if noted:
+        print("\nNotes from review:")
+        for item in noted:
+            action = item["action"] or "no decision yet"
+            print(f"  {item['id']} ({action}): {item['note']}")
 
     undecided = None
     batch = read_json(os.path.join(BATCH_DIR, f"{week}.json"))
