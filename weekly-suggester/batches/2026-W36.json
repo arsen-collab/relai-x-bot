@@ -1,11 +1,33 @@
 {
  "batch_file": "weekly-suggester/batches/2026-W36.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
  "dropped_count": 0,
  "generated_at": "2026-09-02 12:39 CEST",
  "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
  "status": "unreviewed",
  "suggestions": [
   {
+   "brief": {
+    "caption": "Some companies hold Bitcoin on their balance sheet. Some countries hold it in reserve. Different playbooks, same long term view.",
+    "caption_de": "Manche Unternehmen halten Bitcoin in der Bilanz. Manche Staaten halten es in ihren Reserven. Unterschiedliche Wege, derselbe langfristige Blick.",
+    "headline": "Companies. Countries. Same bet.",
+    "headline_de": "Firmen. Staaten. Dieselbe Wette.",
+    "purpose": "Show that Bitcoin adoption spans both corporate and national balance sheets, reinforcing long term legitimacy.",
+    "suggestion_id": "S01",
+    "target_feeling": "Quiet confidence, credibility by association, forward looking calm.",
+    "visual_direction": "Type-only comparison: the word 'Companies' stacked above 'Countries', both pointing down to a single shared word 'Bitcoin' set in Relai orange. No icons, no charts. Generous white space around the stack. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S01",
@@ -16,6 +38,16 @@
    "type": "rewrite"
   },
   {
+   "brief": {
+    "caption": "You work for decades and save every month. Then the money supply grows and that money buys less. Bitcoin gets called the risky one.",
+    "caption_de": "Du arbeitest jahrzehntelang, sparst jeden Monat. Dann wird einfach mehr Geld gedruckt und es kauft weniger. Und Bitcoin gilt als das Risiko.",
+    "headline": "Who's the risky one?",
+    "headline_de": "Wer ist hier riskant?",
+    "purpose": "Challenge the assumption that fiat is the safe choice by pointing at inflation, without predicting Bitcoin's price.",
+    "suggestion_id": "S02",
+    "target_feeling": "Mild provocation, a reframe that makes the reader pause.",
+    "visual_direction": "Simple line chart with one orange line drifting slowly downward across a plain axis, no numbers or labels on the axis, no illustration. Just the line and lots of white space. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [
     "savings terminology"
@@ -28,6 +60,16 @@
    "type": "rewrite"
   },
   {
+   "brief": {
+    "caption": "Bitcoin isn't backed by a government or a bank. It's backed by the people who choose to hold it.",
+    "caption_de": "Bitcoin steht hinter keiner Regierung und keiner Bank. Es steht hinter den Menschen, die es halten.",
+    "headline": "Backed by everyone who holds it.",
+    "headline_de": "Gehalten von allen, die daran glauben.",
+    "purpose": "Explain Bitcoin's trust model in one clean idea for a Bitcoin-literate audience.",
+    "suggestion_id": "S03",
+    "target_feeling": "Calm certainty, a settled feeling of understanding something obvious.",
+    "visual_direction": "Type treatment only: the word 'everyone' set large in Relai orange, the rest of the sentence in black around it at smaller size. No network graphics, no dots. Generous white space. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S03",
@@ -38,6 +80,16 @@
    "type": "rewrite"
   },
   {
+   "brief": {
+    "caption": "Come get some.",
+    "caption_de": "Hol dir deins.",
+    "headline": "We've got Bitcoin.",
+    "headline_de": "Wir haben Bitcoin.",
+    "purpose": "Simple, playful availability post pointing people to the app.",
+    "suggestion_id": "S04",
+    "target_feeling": "Light, inviting, low pressure.",
+    "visual_direction": "Single flat Bitcoin symbol (\\u20bf) centered, rendered in Relai orange, nothing else on the page. No coin illustration, no 3D render, just the flat glyph. Maximum white space. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S04",
@@ -48,6 +100,16 @@
    "type": "rewrite"
   },
   {
+   "brief": {
+    "caption": "That's how Bitcoin keeps turning back into money. Culture is part of the mechanism.",
+    "caption_de": "So wird aus Bitcoin wieder Geld. Kultur ist Teil des Mechanismus.",
+    "headline": "Memes, jokes, stubborn belief.",
+    "headline_de": "Memes, Witze, sturer Glaube.",
+    "purpose": "Nod to Bitcoin community culture as part of what makes the network resilient.",
+    "suggestion_id": "S05",
+    "target_feeling": "Playful, in on the joke, still credible.",
+    "visual_direction": "Type-only layout: three words stacked vertically ('Memes', 'jokes', 'stubborn belief'), each in a different weight, last line in Relai orange. No meme imagery, no illustrations. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S05",
@@ -58,6 +120,16 @@
    "type": "rewrite"
   },
   {
+   "brief": {
+    "caption": "\"I wish I'd started earlier\" was never about timing. It was about starting at all.",
+    "caption_de": "\"Ich wünschte, ich hätte früher angefangen\" hatte nie mit dem Timing zu tun. Sondern damit, überhaupt anzufangen.",
+    "headline": "The first purchase is the hardest one.",
+    "headline_de": "Der erste Kauf ist der schwerste.",
+    "purpose": "Encourage taking the first step into Bitcoin without pushing urgency or timing claims.",
+    "suggestion_id": "S06",
+    "target_feeling": "Gentle encouragement, permission to start imperfectly.",
+    "visual_direction": "A plain horizontal timeline, single dot marking the start in Relai orange, labeled nothing else. Rest of the line is thin and gray. No calendar, no chart grid. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S06",
@@ -68,6 +140,16 @@
    "type": "rewrite"
   },
   {
+   "brief": {
+    "caption": "Nothing else to add.",
+    "caption_de": "Mehr gibt's dazu nicht zu sagen.",
+    "headline": "Sats are the standard.",
+    "headline_de": "Sats sind der Standard.",
+    "purpose": "Reinforce sats as the everyday unit Bitcoin holders think in.",
+    "suggestion_id": "S07",
+    "target_feeling": "Settled, matter of fact, insider confidence.",
+    "visual_direction": "Large type treatment of the word 'SATS' centered, with a single thin underline in Relai orange beneath it. Nothing else on the page. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S07",
@@ -78,6 +160,16 @@
    "type": "rewrite"
   },
   {
+   "brief": {
+    "caption": "Bad code is. That's why the wallet you use matters.",
+    "caption_de": "Schlechter Code ist es. Deshalb kommt es auf die Wallet an, die du nutzt.",
+    "headline": "Self-custody isn't the risk.",
+    "headline_de": "Self-Custody ist nicht das Risiko.",
+    "purpose": "Clarify that self-custody risk is about implementation quality, not the concept itself.",
+    "suggestion_id": "S08",
+    "target_feeling": "Reassurance grounded in honesty, not glossing over real risk.",
+    "visual_direction": "Two stacked labels, 'Self-custody' with a checkmark in Relai orange beside it, 'Bad code' below with a plain gray cross. Type and two simple marks only, no icons or illustration beyond the check and cross. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S08",
@@ -88,6 +180,16 @@
    "type": "rewrite"
   },
   {
+   "brief": {
+    "caption": "Rumor has it there will only ever be 21 million Bitcoin.",
+    "caption_de": "Es heißt, es wird nie mehr als 21 Millionen Bitcoin geben.",
+    "headline": "Only ever 21 million.",
+    "headline_de": "Nur jemals 21 Millionen.",
+    "purpose": "Restate Bitcoin's fixed supply as a foundational fact.",
+    "suggestion_id": "S09",
+    "target_feeling": "Quiet awe at the simplicity of a hard number.",
+    "visual_direction": "The number '21,000,000' set large and centered in Relai orange, nothing else on the page. No coin graphics, no charts. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S09",
@@ -98,6 +200,16 @@
    "type": "rewrite"
   },
   {
+   "brief": {
+    "caption": "A wallet you don't control is just a promise. Self-custody means the Bitcoin is actually yours.",
+    "caption_de": "Eine Wallet, die dir nicht gehört, ist nur ein Versprechen. Self-Custody heißt: Der Bitcoin gehört wirklich dir.",
+    "headline": "If you don't hold it, it's just an IOU.",
+    "headline_de": "Ohne Kontrolle ist es nur ein Versprechen.",
+    "purpose": "Teach the core self-custody mechanic in one clear line.",
+    "suggestion_id": "S10",
+    "target_feeling": "A click of understanding, a small realization.",
+    "visual_direction": "Two stacked boxes with plain labels, 'Wallet you control' with a checkmark in Relai orange, 'Wallet you don't' with a plain gray cross beside it. Simple type and two marks only. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S10",
@@ -108,6 +220,16 @@
    "type": "new"
   },
   {
+   "brief": {
+    "caption": "You need one sat. 100 million of them make a Bitcoin.",
+    "caption_de": "Ein Sat reicht zum Start. 100 Millionen davon ergeben einen Bitcoin.",
+    "headline": "You don't need a whole Bitcoin.",
+    "headline_de": "Du brauchst keinen ganzen Bitcoin.",
+    "purpose": "Lower the perceived barrier to entry by explaining sats.",
+    "suggestion_id": "S11",
+    "target_feeling": "Relief, it feels more accessible than expected.",
+    "visual_direction": "A simple equation set in type: '1 Bitcoin = 100,000,000 sats', with the word 'sats' in Relai orange. No charts, no icons. Centered, generous white space. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S11",
@@ -118,6 +240,16 @@
    "type": "new"
   },
   {
+   "brief": {
+    "caption": "Timing the market takes luck. Showing up every week takes a plan. No second guessing.",
+    "caption_de": "Den Markt zu timen braucht Glück. Jede Woche dabei zu sein braucht einen Plan. Kein Zögern nötig.",
+    "headline": "Same amount. Same day.",
+    "headline_de": "Gleicher Betrag. Gleicher Tag.",
+    "purpose": "Explain the DCA mechanic as a plan, not a market timing strategy.",
+    "suggestion_id": "S12",
+    "target_feeling": "Steady, low effort confidence.",
+    "visual_direction": "A single row of evenly spaced dots, all identical size, all in Relai orange, representing recurring purchases. No calendar grid, no icons. Plenty of white space above and below the row. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S12",
@@ -128,6 +260,16 @@
    "type": "new"
   },
   {
+   "brief": {
+    "caption": "Cash sitting still doesn't stay the same size. It loses purchasing power, year after year.",
+    "caption_de": "Geld, das einfach liegen bleibt, bleibt nicht gleich viel wert. Es verliert Jahr für Jahr an Kaufkraft.",
+    "headline": "Cash shrinks quietly.",
+    "headline_de": "Bargeld schrumpft leise.",
+    "purpose": "Make the quiet erosion of cash value tangible.",
+    "suggestion_id": "S13",
+    "target_feeling": "A slow, sober realization rather than alarm.",
+    "visual_direction": "A single shape, like a bar or block, drawn shrinking slightly from left to right across the frame, in flat gray with the final smallest state outlined in Relai orange. No axis labels, no numbers. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [
     "financial commentary risk"
@@ -140,6 +282,16 @@
    "type": "new"
   },
   {
+   "brief": {
+    "caption": "Bitcoin doesn't ask what you paid for it. It only asks how long you're willing to hold it.",
+    "caption_de": "Bitcoin fragt nicht, was du bezahlt hast. Es fragt nur, wie lange du bereit bist zu halten.",
+    "headline": "It only asks how long.",
+    "headline_de": "Es fragt nur, wie lange.",
+    "purpose": "Reinforce a long term holding mindset over price focused thinking.",
+    "suggestion_id": "S14",
+    "target_feeling": "Calm conviction, a mental reset toward patience.",
+    "visual_direction": "A plain horizontal timeline with no start marker, just an arrow extending right, ending in the words 'how long?' set in Relai orange. No chart, no dots. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S14",
@@ -150,6 +302,16 @@
    "type": "new"
   },
   {
+   "brief": {
+    "caption": "Nobody needs to ask permission to use Bitcoin. That's kind of the whole point.",
+    "caption_de": "Niemand muss um Erlaubnis fragen, um Bitcoin zu nutzen. Genau darum geht's.",
+    "headline": "No permission needed.",
+    "headline_de": "Keine Erlaubnis nötig.",
+    "purpose": "Highlight Bitcoin's permissionless nature as a core feature.",
+    "suggestion_id": "S15",
+    "target_feeling": "A sense of quiet freedom.",
+    "visual_direction": "A single rubber-stamp shaped outline with the word 'APPROVED' struck through with one diagonal line in Relai orange. No other stamps, no illustration beyond this one prop. Logo bottom right."
+   },
    "compliance": "unapproved",
    "flags": [],
    "id": "S15",
