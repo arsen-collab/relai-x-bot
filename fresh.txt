@@ -19,4 +19,3 @@
 #
 # Empty is the normal state. When this file has no tweets the bot exits
 # before any API call, so it costs nothing.
-There will only ever be 21 million Bitcoin.\nThere are over 8 billion people.\nDo the math.
