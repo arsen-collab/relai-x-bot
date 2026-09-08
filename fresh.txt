@@ -19,3 +19,4 @@
 #
 # Empty is the normal state. When this file has no tweets the bot exits
 # before any API call, so it costs nothing.
+Bitcoin already won.\nThe rest of the world is still catching up.
