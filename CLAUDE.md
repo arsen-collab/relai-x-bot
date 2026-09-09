@@ -182,6 +182,25 @@ and exits if found. GitHub runner acquisition fails often on this repo, so
 one chance per day was not enough. Four independent chances, deduplicated by
 reading the account rather than by keeping state.
 
+**That deduplication only works when every slot computes the same line, so
+`post_fresh.py` needs a second guard.** Evergreen is a rotation: all four
+slots on a given day derive the same line from `EPOCH`, so slots 2 to 4
+find it on the account and exit. A queue drains. Once slot 1 posts and
+drains line A, line B is the new top, so slot 2 asks whether line B is on
+the account, finds it is not, and posts it too. On 5 Sep 2026 that put
+three lines out in 70 minutes, at 11:52, 12:38 and 13:02 UTC.
+
+`posted_today()` closes it by reading `fresh_posted.txt` for today's date
+before any API call, so the three losing slots cost nothing. The drain is
+still the state; no new state file. Slot 0 is manual dispatch and
+overrides, matching the existing convention in `in_window` and the
+evergreen-day check.
+
+A post that succeeded but failed to push writes no log entry, so the guard
+correctly does not fire and the `already_posted` check still drains the
+line without reposting. That recovery path is unchanged and is covered by
+the test.
+
 **Window guard on the local clock, not the cron.**
 GitHub cron is best effort and has been landing 6 to 8 hours late here. A run
 can never fire early, only late, so each script checks the real Europe/Zurich

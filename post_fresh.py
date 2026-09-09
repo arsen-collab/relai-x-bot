@@ -93,6 +93,34 @@ def load_queue(path=POOL_FILE):
     return tweets, raw
 
 
+def posted_today(today, path=POSTED_FILE):
+    """True if the queue already drained a line today.
+
+    Why this is needed here and not in post_evergreen: the four-slot design
+    deduplicates by asking the account whether the exact text is already up.
+    That works for evergreen, where every slot on a given day computes the
+    same line from the rotation, so slots 2 to 4 find it and exit.
+
+    A queue drains. After slot 1 posts and drains line A, line B is the new
+    top, so slot 2 asks "is line B on the account", finds it is not, and
+    posts it. On 5 Sep 2026 that put three lines out in 70 minutes.
+
+    The drain is still the state, consistent with the rest of this bot. No
+    new state file, and no API call needed to answer the question.
+    """
+    if not os.path.exists(path):
+        return False
+    stamp = f"{today:%Y-%m-%d}"
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line or is_comment(line):
+                continue
+            if line.startswith(stamp):
+                return True
+    return False
+
+
 def drain(tweet_raw, raw_lines, today):
     """Remove the posted line from fresh.txt and log it in fresh_posted.txt."""
     kept = []
@@ -148,6 +176,20 @@ def main():
 
     if not in_window(today, slot):
         print("This slot falls outside the window today. Exiting.")
+        return
+
+    # One line a day, whichever slot gets there first. Checked before any
+    # API call, so the three losing slots cost nothing.
+    #
+    # Slot 0 is manual dispatch and overrides, the same convention the
+    # evergreen-day check above already uses. A hand-run dispatch is a
+    # deliberate act; the scheduled slots are the ones that must not stack.
+    #
+    # A post that succeeded but failed to push leaves no entry here, so
+    # this correctly does not fire and the already_posted check below still
+    # drains the line without reposting it. That recovery path is unchanged.
+    if slot != 0 and posted_today(today):
+        print("The fresh queue already posted today. Exiting.")
         return
 
     tweets, raw_lines = load_queue()
