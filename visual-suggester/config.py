@@ -65,17 +65,20 @@ MAX_CAPTION_CHARS = 400
 # show the written direction with no sketch.
 MOCKS = True
 
-# Placeholder palette for the sketches only. Relai's real brand values are in
-# the brand book and are not in this repo, so these are stand-ins chosen to
-# read correctly in a thumbnail, not brand-accurate hex.
+# Deliberately monochrome, decided 9 Sep 2026. The sketches answer one
+# question, "does this composition hold", and colour is Paula's decision made
+# against the brand book. An earlier version used a stand-in orange and navy,
+# which invited exactly the wrong reading: a sketch that looks brand-coloured
+# gets treated as a colour decision.
 #
-# TODO: replace with the brand book values. Until then the sketches are
-# indicative of composition, not colour.
+# So four greys. Where the one accent goes is still visible, because `accent`
+# is the darkest value on the page and nothing else uses it. Which colour
+# fills that position is not this tool's call.
 MOCK_PALETTE = {
-    "accent": "#F7931A",   # placeholder orange
-    "ink": "#0E1B2E",      # placeholder navy
+    "accent": "#111111",   # the one accent position, not a colour choice
+    "ink": "#3D3D3D",
+    "muted": "#BFBFBF",
     "paper": "#FFFFFF",
-    "muted": "#9AA5B1",
 }
 
 
@@ -100,9 +103,17 @@ BRIEF_IMAGE_SPEC = "1080 x 1350 px, portrait"
 # fixed when the webhook is created, so SLACK_WEBHOOK_URL decides where the
 # batch lands. Same secret as the X suggester, so both land in the same DM.
 
-# The review board. Set once the artifact exists and is republished weekly
-# rather than minted fresh. Empty string drops the link from the message.
-REVIEW_URL = ""
+# The review board, linked from the Slack message. A stable URL: the same
+# artifact is republished each week rather than a new one being minted, same
+# arrangement as the X suggester.
+#
+# It only shows the current week after that republish, which happens in a chat
+# session, not in the Action. So on Tuesday morning this link still shows last
+# week until the batch is opened for review. Set to "" to drop the link.
+#
+# Republish with build_board.py's output, passing this URL, or the republish
+# mints a new one and this line goes stale.
+REVIEW_URL = "https://claude.ai/code/artifact/662c7fec-bd5b-4250-b574-34ede4860d1b"
 
 
 # --- the format catalog ----------------------------------------------------

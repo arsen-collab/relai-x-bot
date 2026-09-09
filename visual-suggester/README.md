@@ -21,11 +21,12 @@ Every concept is written out at `Compliance: unapproved`.
 
 | File | When it runs | What it does |
 |---|---|---|
-| `snapshot.py` | Manually, monthly | Normalizes a dump of Paula's Design board into `state/board.json`. No network, no model call. |
-| `generate.py` | Weekly, in Actions | Reads `board.json` plus the copy pools and the X archive ranking, drafts the batch with Claude, writes `batches/YYYY-Www.{md,json}` |
+| `snapshot.py` | Rarely, to re-baseline | Normalizes a dump of Paula's Design board into `state/board.json`. No network, no model call. |
+| `generate.py` | Weekly, in Actions | Reads `board.json` plus `made.json`, the copy pools and the X archive ranking, drafts the batch with Claude, writes `batches/YYYY-Www.{md,json}` |
 | `notify_slack.py` | Weekly, after generate | Posts a pointer to the batch, not the batch |
 | `build_board.py` | Manually, weekly | Injects the batch into `board_template.html`, writes `board/YYYY-Www.html` to publish as the review artifact |
 | `route.py` | Manually, after review | Files every decision: briefs out, flagged held, cuts recorded |
+| `record.py` | Every brief filed | Appends to `state/made.json`. The only writer on that file |
 | `config.py` | Never | Every tunable: the format catalog, counts, model, brief defaults |
 
 `.github/workflows/visual_suggester.yml` runs generate then notify, Tuesday
@@ -66,39 +67,43 @@ a format needs a better reason than a first version of something else.
 Add a format only after it has shipped. The model may also answer
 `new_format`, which costs a build from scratch, so it is capped.
 
-## The board snapshot
+## How it knows what Relai already made
 
-`state/board.json` is a committed snapshot of Paula's Design board. It is what
-stops the tool proposing what Relai already made, and it is what the format
-catalog's saturation counts come from.
+A frozen baseline plus a running log, decided 9 Sep 2026.
 
-**It is not fetched by the Action.** Reading Notion from a runner would need a
-`NOTION_TOKEN` secret, an internal integration granted on the board, and a DORA
-register entry for a new machine-to-machine path into a system that already
-holds the design pipeline. For what: an exclusion list that goes stale slowly.
+**`state/board.json` is the baseline.** A one-time snapshot of Paula's Design
+board as it stood on 9 Sep 2026: 47 concepts kept of 81 rows. It is also where
+the format catalog's saturation counts come from.
 
-So it is refreshed from a chat session, where the Notion connector is already
-authenticated as a human, and the result is committed. Same call as `rank.py`
-running offline against the X archive.
-
-To refresh: query the board, save the response, then
+**`state/made.json` is the running log.** Every visual brief filed with Claude
+after that date, whatever the entry point. `record.py` is the only writer on
+it, and both `route.py` and the `design-brief-creator` skill call it:
 
 ```bash
-python3 visual-suggester/snapshot.py ~/Downloads/design-board.json
+python3 visual-suggester/record.py \
+    --subject "wages against cost of living" \
+    --headline "Same work. Less bread." \
+    --format two_line_chart \
+    --notion-url https://notion.so/...
 ```
 
-Then commit `state/board.json`.
+Step 6 of the design skill does this on every brief it files. **A brief that
+is not recorded gets proposed back a week later**, so it is not optional.
+Re-running it for the same headline is a no-op, so run it when unsure.
+`--list` prints the record.
 
-`snapshot.py` drops request-driven rows, listed in `config.NOT_A_CONCEPT`. Blog
+**Why not read Notion live.** A runner fetch would need a `NOTION_TOKEN`
+secret, an internal integration granted on the board, and a DORA register
+entry for a new machine-to-machine path into a system that already holds the
+design pipeline. A baseline plus a log gets the same answer, is current to
+within one brief, and adds no credential.
+
+`snapshot.py` is still there for re-baselining, but it is no longer a routine
+chore. It drops request-driven rows listed in `config.NOT_A_CONCEPT`: blog
 images, email headers, app icons and `This Week in Bitcoin` are jobs sent to
 Paula when something specific needs a picture, not concepts a suggester could
 have proposed, so counting them as prior art would suppress ideas nobody has
-had yet. The first snapshot kept 47 of 81 rows.
-
-A stale snapshot costs a repeated concept, caught by the reviewer.
-`state/made.json` separately records every concept this tool has sent to Paula
-and is never stale, so the repeats the tool itself could cause stay covered
-even when the snapshot is a month behind. Monthly is enough.
+had yet.
 
 ## The sketches
 
@@ -107,10 +112,17 @@ The point is to judge composition at the moment of the decision rather than
 read a paragraph describing it.
 
 They are **not deliverables and are never sent to Paula**, who works from the
-written direction. The palette in `config.MOCK_PALETTE` is a placeholder, not
-Relai's brand values, which live in the brand book and are not in this repo.
-The board says so on every card, and the review UI is deliberately teal so the
-placeholder orange in a sketch is not mistaken for a brand decision.
+written direction.
+
+They are also **monochrome on purpose**. Four greys in
+`config.MOCK_PALETTE`, no colour at all. The darkest value marks the one accent
+position, and nothing else may use it, so placement stays readable without
+implying a hue. Which colour fills that position is Paula's decision against
+the brand book, which is not in this repo.
+
+An earlier version used a stand-in orange and navy. That invited exactly the
+wrong reading: a sketch that looks brand-coloured gets treated as a colour
+decision. Do not put a hue back in.
 
 A sketch is model-written SVG, so it is screened twice on the same rule:
 `clean_svg` in `generate.py` before it is stored, and `svgIsInert` in the board
@@ -139,6 +151,12 @@ Then in a chat session:
   `design-brief-creator` skill files it on Paula's board and returns the URL.
   A Notion task is internal work, not publication; what she builds is reviewed
   before it posts, same as every other asset on that board.
+  The payload is keyed to that skill's own brief sections, in its order:
+  purpose, target feeling, format, headline and copy, visual direction, image
+  specs. Nothing needs translating and no section the skill does not want
+  appears. No German either; the skill translates at filing time, from
+  whatever the English says then, which is what stops the two drifting after
+  an edit on the board.
 - **make, and it carries a flag**: held in `queued/YYYY-Www.md`. Not sent to
   Paula. Nothing reads that file.
 - **cut**: recorded in `state/rejected.json` so it never comes back.

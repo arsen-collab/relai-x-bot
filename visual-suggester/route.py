@@ -51,6 +51,7 @@ REPO_ROOT = os.path.dirname(HERE)
 
 sys.path.insert(0, HERE)
 import config  # noqa: E402
+import record  # noqa: E402
 
 QUEUED_DIR = os.path.join(HERE, "queued")
 REJECTED_FILE = os.path.join(HERE, "state", "rejected.json")
@@ -255,18 +256,28 @@ def main():
 
     if send:
         print(f"\n{len(send)} for design briefs:")
+        # Keyed to the brief sections in skills/design-brief-creator/SKILL.md,
+        # in its order: Purpose, Target feeling, Format, Headline and copy,
+        # Visual direction, Image specs. The skill fills the Notion fields
+        # from its own defaults, so nothing here needs translating and no
+        # section it does not want appears.
+        #
+        # No German. The skill translates at filing time, from whatever the
+        # English says then, which is what stops the two drifting after an
+        # edit on the review board.
         print(json.dumps({
             "week": week,
             "briefs": [{
                 "concept_id": item["id"],
-                "subject": item.get("subject", ""),
-                "format": item.get("format", ""),
-                "shape": item.get("shape", ""),
+                "task_title": item.get("subject", ""),
+                "purpose": item.get("purpose", ""),
+                "target_feeling": item.get("target_feeling", ""),
+                "format": f"{item.get('shape', 'single image')}, "
+                          f"{(item.get('format') or '').replace('_', ' ')}",
                 "headline": item.get("headline", ""),
                 "caption": item.get("caption", ""),
                 "visual_direction": item.get("visual_direction", ""),
-                "purpose": item.get("purpose", ""),
-                "target_feeling": item.get("target_feeling", ""),
+                "image_specs": config.BRIEF_IMAGE_SPEC,
                 "verify_before_build": item.get("needs_check") or [],
                 "direction_from_review": item.get("note", ""),
                 "source": f"Visual suggester, week {int(week.split('-W')[1])}, "
@@ -274,25 +285,20 @@ def main():
             } for item in send],
         }, ensure_ascii=False, indent=1))
 
-        # made.json is what stops next week proposing the same thing again
-        # before the board snapshot catches up.
-        made = read_json(MADE_FILE, {"concepts": []})
-        made.setdefault("concepts", [])
-        known = {(entry.get("week"), entry.get("concept_id"))
-                 for entry in made["concepts"]}
-        for item in send:
-            if (week, item["id"]) in known:
-                continue
-            made["concepts"].append({
-                "week": week,
-                "concept_id": item["id"],
-                "subject": item.get("subject", ""),
-                "headline": item.get("headline", ""),
-                "format": item.get("format", ""),
-            })
-        write_json(MADE_FILE, made)
-        print(f"\nRecorded in {os.path.relpath(MADE_FILE, REPO_ROOT)} so next "
-              "week does not re-propose them.")
+        # made.json is what stops next week proposing the same thing again.
+        # record.py is the only writer on it, so a brief filed straight from a
+        # chat session lands in the same place by the same rules.
+        added = record.add([{
+            "week": week,
+            "concept_id": item["id"],
+            "subject": item.get("subject", ""),
+            "headline": item.get("headline", ""),
+            "format": item.get("format", ""),
+            "source": "visual suggester review",
+        } for item in send])
+        print(f"\nRecorded {len(added)} in "
+              f"{os.path.relpath(MADE_FILE, REPO_ROOT)} so next week does not "
+              "re-propose them.")
 
     if edited:
         print(f"\nEdited during review: {', '.join(d['id'] for d in edited)}")

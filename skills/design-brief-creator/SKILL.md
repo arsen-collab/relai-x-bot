@@ -26,6 +26,24 @@ Writes briefs for Paula Boehme and files them on the Relai Design board in Notio
    can read what went out.
 5. If he wants it changed, update the page with notion-update-page rather
    than creating a second one.
+6. Record it, so the weekly visual suggester never proposes it again. From
+   the relai-x-bot repo:
+
+   ```
+   python3 visual-suggester/record.py \
+       --subject "<three to six words>" \
+       --headline "<the headline on the image>" \
+       --format "<catalog key, or blank>" \
+       --source "chat session" \
+       --notion-url "<the task URL>"
+   ```
+
+   Do this every time a brief is filed, including briefs that came from the
+   X batch or from a pitch in chat. This record is how the suggester knows
+   what Relai has already made; a brief that is not recorded gets proposed
+   back a week later. Re-running it for the same headline is a no-op, so run
+   it if unsure. If the repo is not to hand, say so in the reply rather than
+   skipping it silently.
 
 Exception: ask first when the line carries a compliance flag. That changes
 whether the asset can ship, not just how it reads.

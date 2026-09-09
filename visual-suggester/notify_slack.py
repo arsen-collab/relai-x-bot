@@ -77,7 +77,7 @@ def build_message(batch):
     ]
     if sketched:
         lines.append(f"{sketched} have a rough sketch on the board. "
-                     "Composition only, placeholder colours.")
+                     "Monochrome, composition only, never sent to Paula.")
     if batch.get("dropped_count"):
         lines.append(f"{batch['dropped_count']} dropped before review, "
                      "listed at the end of the file.")

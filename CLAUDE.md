@@ -94,21 +94,29 @@ puts them on a review board. Does not post and does not write to Notion. See
 
 | File | When | What |
 |---|---|---|
-| `snapshot.py` | Manual, monthly | Design board dump to `state/board.json`. Pure Python, no model calls |
+| `snapshot.py` | Rarely, to re-baseline | Design board dump to `state/board.json`. Pure Python, no model calls |
 | `generate.py` | `visual_suggester.yml`, Tue | Drafts concepts and sketches with Claude Sonnet, writes `batches/YYYY-Www.{md,json}` |
 | `notify_slack.py` | Same workflow | Posts a pointer to the batch |
 | `build_board.py` | Manual, weekly | Batch plus `board_template.html` to `board/YYYY-Www.html`, published as the review artifact |
 | `route.py` | Manual, after review | Briefs out, flagged held, cuts recorded |
+| `record.py` | Every brief filed | Appends to `state/made.json`. The only writer on that file |
 | `config.py` | Never | Every tunable: format catalog, counts, model, brief defaults |
 
 **Tuesday, not Monday.** The X batch lands Monday. Two review boards arriving
 in the same hour means one of them does not get reviewed.
 
-**It knows what Relai already made from a committed snapshot, not from
-Notion.** `state/board.json` is refreshed in a chat session and committed, so
-the Action needs no Notion credential and no new DORA register entry. A stale
-snapshot costs a repeated concept, caught by review, and `state/made.json`
-covers the repeats the tool itself could cause. Refresh monthly.
+**Prior art is a frozen baseline plus a running log, decided 9 Sep 2026.**
+`state/board.json` is a one-time snapshot of the 47 concepts that existed on
+the design board on 9 Sep 2026. Everything briefed after that date is recorded
+in `state/made.json` as it happens, by `record.py`, which both `route.py` and
+the `design-brief-creator` skill call.
+
+That combination needs no monthly Notion refresh and is never stale by more
+than one brief. **A brief filed without recording it gets proposed back a week
+later**, which is why step 6 of the design skill is not optional. Re-running
+`record.py` for the same headline is a no-op, so run it when unsure.
+Re-baselining from Notion with `snapshot.py` stays available but is no longer
+a routine chore.
 
 **The format catalog is read off the board, not invented.** Twelve formats,
 each with the precondition it actually needs and a saturation count. `versus`
@@ -117,8 +125,21 @@ Add a format only after it has shipped.
 
 **The sketches are thumbnails, never deliverables.** They exist so composition
 can be judged at the moment of the decision. Paula works from the written
-direction and never sees them. `config.MOCK_PALETTE` is a placeholder, not
-Relai's brand values, which are in the brand book and not in this repo.
+direction and never sees them.
+
+**The sketches are monochrome on purpose, decided 9 Sep 2026.** Four greys in
+`config.MOCK_PALETTE`, no colour at all. The darkest value marks the one
+accent position so placement stays readable; which colour fills it is Paula's
+decision against the brand book. An earlier version used a stand-in orange and
+navy, which invited the wrong reading: a sketch that looks brand-coloured gets
+treated as a colour decision. Do not put a hue back in.
+
+**The brief payload is keyed to the design skill's own sections.** `route.py`
+emits purpose, target feeling, format, headline, caption, visual direction and
+image specs, in that order and under those names, so the skill fills Paula's
+board without translating anything. No German in the payload: the skill
+translates at filing time, which is what stops the two drifting after an edit
+on the review board.
 
 **A flagged concept never reaches Paula.** Unlike an X rewrite, a visual has
 no already-published source line, so the standing approval does not reach it.
@@ -354,9 +375,13 @@ not misleading. Forward-looking return or price projections engage
   brief. Marketing numbers come from Relai's own backtest tool or verified
   data and are never approximated, so a figure nobody sourced must not be set
   in artwork.
-- `config.MOCK_PALETTE` is a placeholder, not Relai's brand palette. The
-  sketches are indicative of composition only. Do not treat a sketch as a
-  colour decision and do not send one to Paula.
+- The sketches are monochrome and carry no colour decision. Do not send one to
+  Paula and do not read one as a palette. Relai's brand values are in the
+  brand book, not in this repo.
+- **Every visual brief filed with Claude must be recorded** with
+  `visual-suggester/record.py`, whatever the entry point. It is step 6 of the
+  design skill. This is the record of what Relai has already made, so an
+  unrecorded brief comes back as a suggestion a week later.
 - Suggestions using Savings, Sparen or Sparplan are auto-flagged and need
   written compliance approval before going live. The flag is not a
   resolution. A clean mechanical check is not approval either; the regex

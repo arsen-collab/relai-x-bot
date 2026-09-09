@@ -307,10 +307,11 @@ def concept_prompt(count, board, evergreen, fresh, archive, made, avoid):
         sections += [
             "",
             "=" * 70,
-            "ALREADY SENT TO THE DESIGNER BY THIS TOOL",
+            "BRIEFED SINCE THE SNAPSHOT",
             "",
-            "These went out in earlier weeks and may not be on the board",
-            "snapshot yet. Do not propose them again.",
+            "Every visual brief filed since the board snapshot above was taken,",
+            "whether it came from this tool or was written straight into a chat",
+            "session. This list is current. Do not propose any of these again.",
             "",
             "\n".join(f"- {item['subject']}: {item['headline']}" for item in made),
         ]
@@ -379,13 +380,15 @@ def mock_prompt(concepts):
         "  imports, no base64 payloads. Plain shapes, paths and <text>.",
         "- Use font-family=\"sans-serif\" and nothing else. The real typeface",
         "  is the designer's decision.",
-        f"- Four colours only: accent {palette['accent']}, ink "
-        f"{palette['ink']}, paper {palette['paper']}, muted {palette['muted']}."
-        " These are placeholder values standing in for the brand palette, so"
-        " do not label them as Relai colours anywhere in the sketch.",
-        "- Paper fill covers the whole canvas. Accent is one accent: the",
-        "  smallest area on the sketch, on the one thing the eye should reach",
-        "  second.",
+        "- Monochrome. Four values only, and no others: "
+        f"paper {palette['paper']}, muted {palette['muted']}, "
+        f"ink {palette['ink']}, accent {palette['accent']}."
+        " Do not introduce a colour. Colour is the designer's decision and a"
+        " sketch that looks brand-coloured gets mistaken for one.",
+        "- Paper fill covers the whole canvas. `accent` marks the one accent",
+        "  position: the smallest area on the sketch, on the single thing the",
+        "  eye should reach second. Nothing else may use that value, so the",
+        "  accent placement stays readable without implying a hue.",
         "- Render the headline as real text, at the size it would actually be",
         "  set. If it does not fit the canvas at display size, that is a",
         "  finding worth seeing, so do not shrink it to fit.",
