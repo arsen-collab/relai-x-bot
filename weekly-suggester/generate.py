@@ -26,9 +26,6 @@ import json
 import os
 import re
 import sys
-import time
-import urllib.error
-import urllib.request
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -36,7 +33,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(HERE)
 
 sys.path.insert(0, HERE)
+sys.path.insert(0, REPO_ROOT)
 import config  # noqa: E402
+import anthropic_api  # noqa: E402
 
 POOL_FILE = os.path.join(HERE, "state", "pool.json")
 USED_FILE = os.path.join(HERE, "state", "used.json")
@@ -46,10 +45,6 @@ SKILL_FILE = os.path.join(REPO_ROOT, "skills", "relai-social-copy", "SKILL.md")
 DESIGN_SKILL_FILE = os.path.join(REPO_ROOT, "skills", "design-brief-creator", "SKILL.md")
 
 TZ = ZoneInfo("Europe/Zurich")
-
-API_URL = "https://api.anthropic.com/v1/messages"
-API_VERSION = "2023-06-01"
-API_RETRIES = 4
 
 # Suggestion ids (S01, S02, ...) are assigned here, not by the model. They have
 # to be sequential and stable across two separate API calls, and neither call
@@ -149,82 +144,17 @@ def violations(text, checks):
     return [label for label, pattern in checks if pattern.search(text)]
 
 
-# --- API -------------------------------------------------------------------
-
 def call_claude(api_key, system_text, user_text, schema=None, key="suggestions"):
-    body = {
-        "model": config.MODEL,
-        "max_tokens": config.MAX_TOKENS,
-        # The voice skill is byte-identical across the suggestion calls in a
-        # run, so a cache breakpoint on it means the second call reads it
-        # instead of paying for it again. The brief call appends the design
-        # skill, so it caches separately and that is fine, it runs once.
-        "system": [{
-            "type": "text",
-            "text": system_text,
-            "cache_control": {"type": "ephemeral"},
-        }],
-        "thinking": {"type": "adaptive"},
-        "output_config": {
-            "effort": config.EFFORT,
-            "format": {"type": "json_schema", "schema": schema or SUGGESTION_SCHEMA},
-        },
-        "messages": [{"role": "user", "content": user_text}],
-    }
+    """Thin wrapper so the call sites keep reading the same as before.
 
-    payload = None
-    last_error = None
-    for attempt in range(API_RETRIES):
-        request = urllib.request.Request(
-            API_URL,
-            data=json.dumps(body).encode("utf-8"),
-            headers={
-                "content-type": "application/json",
-                "anthropic-version": API_VERSION,
-                "x-api-key": api_key,
-            },
-            method="POST",
-        )
-        try:
-            with urllib.request.urlopen(request, timeout=900) as response:
-                payload = json.loads(response.read().decode("utf-8"))
-            break
-        except urllib.error.HTTPError as exc:
-            detail = exc.read().decode("utf-8", "replace")[:400]
-            if exc.code in (408, 409, 429) or exc.code >= 500:
-                delay = min(2 ** attempt, 30)
-                print(f"  API {exc.code}, retrying in {delay}s: {detail}")
-                last_error = f"HTTP {exc.code}: {detail}"
-                time.sleep(delay)
-                continue
-            sys.exit(f"ERROR: Anthropic API returned {exc.code}: {detail}")
-        except urllib.error.URLError as exc:
-            delay = min(2 ** attempt, 30)
-            print(f"  Connection error, retrying in {delay}s: {exc.reason}")
-            last_error = str(exc.reason)
-            time.sleep(delay)
-
-    if payload is None:
-        sys.exit(f"ERROR: Anthropic API unreachable after {API_RETRIES} attempts: {last_error}")
-
-    stop = payload.get("stop_reason")
-    if stop == "refusal":
-        sys.exit("ERROR: the request was declined by safety classifiers. Nothing generated.")
-    if stop == "max_tokens":
-        sys.exit(f"ERROR: hit max_tokens ({config.MAX_TOKENS}). Raise it in config.py and rerun.")
-
-    usage = payload.get("usage", {})
-    print(
-        f"  tokens in {usage.get('input_tokens', 0)}"
-        f" (cache read {usage.get('cache_read_input_tokens', 0)},"
-        f" write {usage.get('cache_creation_input_tokens', 0)})"
-        f" out {usage.get('output_tokens', 0)}"
+    The plumbing moved to anthropic_api.py once visual-suggester needed the
+    same retry policy. Model, token cap and effort still come from config.
+    """
+    return anthropic_api.call_json(
+        api_key, config.MODEL, system_text, user_text,
+        schema or SUGGESTION_SCHEMA, key,
+        config.MAX_TOKENS, config.EFFORT,
     )
-
-    text = next((b["text"] for b in payload.get("content", []) if b.get("type") == "text"), None)
-    if not text:
-        sys.exit("ERROR: response carried no text block.")
-    return json.loads(text)[key]
 
 
 # --- prompts ---------------------------------------------------------------

@@ -1,0 +1,743 @@
+{
+ "concept_count": 47,
+ "concepts": [
+  {
+   "created": "2026-09-09",
+   "format_guess": "single_prop",
+   "headline": "DE: SIE HALTEN DEINE ERSPARNISSE ALS GEISEL. EN: THEY HAVE YOUR SAVINGS HOSTAGE",
+   "platform": [
+    "IG"
+   ],
+   "status": "To Do",
+   "title": "They Have Your Savings Hostage",
+   "visual_direction": "The Euro symbol, or a Euro note, behind vertical prison bars. One visual device, nothing else in the frame. Relai orange used sparingly, maybe on the bars."
+  },
+  {
+   "created": "2026-09-09",
+   "format_guess": "single_prop",
+   "headline": "DE: NIEMAND KANN ES EINFRIEREN EN: NO ONE CAN FREEZE IT",
+   "platform": [
+    "IG"
+   ],
+   "status": "To Do",
+   "title": "No One Can Freeze It",
+   "visual_direction": "A bank card behind a padlock or ice block on one side, an open padlock or key on the other. One visual device, two halves of the same idea. Relai orange on the unlocked side only."
+  },
+  {
+   "created": "2026-09-09",
+   "format_guess": "versus",
+   "headline": "DE: MEHR ARBEIT. WENIGER KAUFKRAFT. EN: WORKING HARDER. BUYING LESS.",
+   "platform": [
+    "IG"
+   ],
+   "status": "To Do",
+   "title": "Working Harder, Buying Less",
+   "visual_direction": "Two lines on one simple chart, both starting together, one for nominal wages climbing gently, one for cost of living climbing steeper. Relai orange for the wage line, neutral gray or red for the cost-of-living line. No extra elements."
+  },
+  {
+   "created": "2026-09-08",
+   "format_guess": "timeline",
+   "headline": "STOP SAVING IN EURO No subheadline.",
+   "platform": [
+    "IG"
+   ],
+   "status": "To Do",
+   "title": "Stop Saving in Euro",
+   "visual_direction": "Same concept as the reference image, a banknote with a torn, sloped edge tracing the decline, timeline running underneath. Extend the year markers past 2022 through 2026. Keep the existing orange line and year labels. Add the Relai logo bottom right, it's missing from the reference. One visual device only, the note and the line together count as one. Redraw as a portrait composition, not a crop of the landscape reference."
+  },
+  {
+   "created": "2026-09-08",
+   "format_guess": "versus",
+   "headline": "",
+   "platform": [
+    "IG",
+    "LI",
+    "WA"
+   ],
+   "status": "To Do",
+   "title": "Polkadot vs Banana",
+   "visual_direction": "Same layout as the existing ETH vs Banana design. Top pair: Polkadot logo, \"5 Years Ago\" ~$29, \"Today\" ~$1.00 (confirm exact September 2021 closing price before finalizing artwork). Bottom pair: banana icon, \"5 Years Ago\" $1.80, \"Today\" $2.26. Relai logo bottom right."
+  },
+  {
+   "created": "2026-09-08",
+   "format_guess": "whatsapp_chat",
+   "headline": "IT'S MONOPOLY MONEY",
+   "platform": [
+    "IG",
+    "LI",
+    "WA"
+   ],
+   "status": "To Do",
+   "title": "Fiat is Monopoly Money",
+   "visual_direction": "Monopoly Man (top hat, mustache, monocle, cane) holding a fresh stack of Euro banknotes coming off a small printing press. Single illustrated character, kept to one scene, Relai orange as the only accent color, plenty of white space around him rather than a packed scene. Relai logo bottom right."
+  },
+  {
+   "created": "2026-09-03",
+   "format_guess": "",
+   "headline": "Headline on image: Your savings are melting",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Your savings are melting",
+   "visual_direction": "A melting ice cream carrying a euro sign. One prop, nothing else in frame. Euro sign as a flat glyph, not a banknote or coin. Relai orange used once, on the drip or the glyph, not both. Generous white space. Logo bottom right."
+  },
+  {
+   "created": "2026-08-20",
+   "format_guess": "type_only",
+   "headline": "/ copy: - On image: \"BUSINESSES WANT BITCOIN\" - Checklist below headline, five lines: - B2B Marketing Agency (checkmark) - Real Estate Holding (checkmark) - Truck Company (checkmark) - Metal Construction Company (checkmark) - Software Sales Company (checkmark) - One line under the checklist: \"Onboarded to Relai Business last month.\" - Caption (not on image): expand on the momentum, invite other businesses to check out Relai Business. No specific counts or growth stats unless a verified number is added.",
+   "platform": [
+    "IG",
+    "LI",
+    "WA"
+   ],
+   "status": "Published",
+   "title": "Businesses Want Bitcoin - Relai Business social proof",
+   "visual_direction": "Bold headline top. Checklist as the single visual device, each item with an orange checkmark. Generous white space around the list. Relai logo bottom-right. No icons, no logos, no illustration, just type."
+  },
+  {
+   "created": "2026-07-27",
+   "format_guess": "timeline",
+   "headline": "",
+   "platform": [
+    "LI",
+    "IG",
+    "WA",
+    "Newsletter"
+   ],
+   "status": "Published",
+   "title": "Social Image: Marc Friedrich Investor Announcement",
+   "visual_direction": "Hi Paula We will announce our influencer Marc Friedrich, as one of the investors in the latest round. The idea is to frame his conviction as something bullish and that he went from user to influencer and business partner, to now investor. W"
+  },
+  {
+   "created": "2026-07-27",
+   "format_guess": "timeline",
+   "headline": "",
+   "platform": [
+    "LI",
+    "IG",
+    "WA",
+    "Newsletter"
+   ],
+   "status": "Published",
+   "title": "Social Image: FinanzFabio Investor Announcement",
+   "visual_direction": "Hi Paula We will announce our influencer FinanzFabio, as one of the investors in the latest round. The idea is to frame his conviction as something bullish and that he went from user to influencer and business partner, to now investor. We w"
+  },
+  {
+   "created": "2026-07-27",
+   "format_guess": "versus",
+   "headline": "/copy (EN): - Headline: \"WE'RE STILL VERY EARLY\" - No other text on the image itself - Suggested caption: \"What happens if you price the world's biggest companies in Bitcoin? Spoiler: we are still very early. Nvidia: valued at 77,674,000 BTC. Google: 60,496,000 BTC. Apple: 75,829,000 BTC. Microsoft: 43,953,000 BTC. Amazon: 38,698,000 BTC. Together: 296,650,000 BTC. Bitcoin supply: 21,000,000 BTC. Draw your own conclusions.\"",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Big Tech vs Bitcoin – Still Early",
+   "visual_direction": "Relai blue background. One visual device: the five company logos (Nvidia, Apple, Google, Microsoft, Amazon) grouped together on the left, a bold \"VS\" divider in the middle, Bitcoin logo alone on the right, sized noticeably larger/bolder to make the imbalance feel intentional despite the actual number gap living in the caption. Headline above. White logos/text for contrast on blue, Bitcoin orange reserved for the Bitcoin logo. Relai logo bottom-right."
+  },
+  {
+   "created": "2026-07-27",
+   "format_guess": "versus",
+   "headline": "/copy: - On-image headline (EN): \"THE BIGGER FLEX\" - On-image headline (DE): \"DER GRÖSSERE FLEX\" - Two side labels: \"1 BITCOIN\" / \"1 LUXURY WATCH\" (DE: \"1 LUXUSUHR\") - Suggested caption (EN): \"Owning one Bitcoin is a bigger flex than owning a Rolex. Change my mind.\" - Suggested caption (DE): \"Ein Bitcoin zu besitzen ist ein größerer Flex als eine Rolex. Diskutiert.\"",
+   "platform": [
+    "IG",
+    "LI",
+    "WA"
+   ],
+   "status": "Published",
+   "title": "Bitcoin vs Rolex – Bigger Flex",
+   "visual_direction": "Two-column comparison layout, same structure as \"1 BTC in 2011 vs 2026.\" Blue background (Relai blue), vertical divider down the middle. Left: orange Bitcoin coin icon under \"1 BITCOIN.\" Right: generic steel luxury watch icon under \"1 LUXURY WATCH.\" White/navy text for contrast on blue, orange accent on the Bitcoin side only. Relai logo bottom-right."
+  },
+  {
+   "created": "2026-07-24",
+   "format_guess": "versus",
+   "headline": "/copy: - Top labels: \"2016\" / \"2026\" - Below the burger images: USD price and BTC equivalent for each year - Small caption line (optional, under the visual): \"The burger barely changed. What it costs you in Bitcoin did.\"",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Burger priced in BTC: 2016 vs 2026",
+   "visual_direction": "- Two-column layout, generic double-patty burger icon/illustration on each side (no McDonald's branding, no \"Big Mac\" naming) - Thin vertical divider line between the two columns - Navy text throughout, one orange accent color reserved for the BTC figures only - White background, generous white space - Relai logo bottom-right"
+  },
+  {
+   "created": "2026-07-23",
+   "format_guess": "big_number",
+   "headline": "\"Relai users are buying.\"",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Instagram post: Relai users are buying (bear market conviction)",
+   "visual_direction": "One visual device only, per style guide — a simple bear silhouette (line icon, navy) with a single bold orange arrow shooting upward through/breaking out of it. Signals \"bear market, bullish behavior\" in one clean image, not a scene or illustration. No other props. Big number dominates top of page, bear+arrow icon sits below or behind subheadline, generous white space, Relai logo bottom-right."
+  },
+  {
+   "created": "2026-07-09",
+   "format_guess": "phone_mockup",
+   "headline": "/ copy (DE): - Headline: Neues Update - Subline: Verifizierung jetzt deutlich schneller.",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "App update announcement – faster verification (IG)",
+   "visual_direction": "- One visual device: phone mockup of the Relai app showing the onboarding-completed screen (fallback: home screen if that's not available). - Headline sits above or beside the phone, generous white space around it. - Single accent color (Relai orange or blue), neutral background. - Relai logo bottom-right, small."
+  },
+  {
+   "created": "2026-07-09",
+   "format_guess": "versus",
+   "headline": "(DE): Prüfhäufigkeit — Fort Knox Goldreserve vs. Bitcoin",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Frequency of Audits — Fort Knox vs. Bitcoin",
+   "visual_direction": "- Two-column comparison, per style guide: one visual device, nothing else competing. - Left: simple vault/safe icon (neutral gray/gold, not a specific brand's exact rendering), labeled \"Letzte Prüfung: vor 51 Jahren\" - Right: Bitcoin logo in a solid orange circle (the one accent color moment), labeled \"Letzte Prüfung: vor 10 Minuten\" - White background, generous white space, Relai logo bottom-right."
+  },
+  {
+   "created": "2026-07-09",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "LI",
+    "IG"
+   ],
+   "status": "To Do",
+   "title": "Carousel Back to Ownership (CDs, Vinyl, DVDs) Why Not Bitcoin?",
+   "visual_direction": "I want to highlight the trend on the start screen of the carousel that more people want to take control over their belongings. (CDs, DVDs, Vinyl) and that if they do it there, they can also do it with money and Bitcoin. → The idea is to hig"
+  },
+  {
+   "created": "2026-07-09",
+   "format_guess": "timeline",
+   "headline": "BITCOIN. STILL EARLY.",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Bitcoin HODL — Adoption Timeline",
+   "visual_direction": "- Replace the Apple device photos from the reference with an original silhouette progression: a simple row of abstract 'generic device' icons growing in complexity left to right (e.g. block → simple screen → smartphone-like shape), rendered as flat shapes in Relai navy — not a specific brand's product design (avoids using Apple trademark/product imagery). - One accent color only (Relai orange) marking the current position, per style guide. - Bitcoin logo + \"HODL\" wordmark at top, bold and simple. - Arrow/label pointing to the first icon in the row: \"WE'RE HERE\" - White background, generous white space, Relai logo bottom-right."
+  },
+  {
+   "created": "2026-07-08",
+   "format_guess": "",
+   "headline": "\"You never have to worry about when to buy.\" Body: \"The hardest part of investing is deciding when. A savings plan removes that decision permanently.\"",
+   "platform": [
+    "LI",
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Carousel — 5 Advantages of a Savings Plan",
+   "visual_direction": "One statement, one supporting icon per slide, consistent template across all 7. Icons: lock (slide 3), calendar (slide 4), accumulation arrow (slide 5). Slide 6 uses a real product screenshot instead of an icon. Single accent color throughout, logo bottom-right on every slide."
+  },
+  {
+   "created": "2026-07-08",
+   "format_guess": "whatsapp_chat",
+   "headline": "",
+   "platform": [
+    "LI",
+    "IG"
+   ],
+   "status": "Published",
+   "title": "WhatsApp Chat Carousel — Friend-to-Friend DCA",
+   "visual_direction": "Paula's WhatsApp chat template. B bubbles Relai orange, A bubbles grey. Generous white space around the chat stack, nothing else competing on the slide. Logo bottom-right on final slide only."
+  },
+  {
+   "created": "2026-07-08",
+   "format_guess": "versus",
+   "headline": "",
+   "platform": [
+    "LI",
+    "IG",
+    "WA"
+   ],
+   "status": "Published",
+   "title": "Split Screen — €100 vs €150 Savings Plan",
+   "visual_direction": "Single comparison device, greyscale left (€100) vs Relai orange right (€150). Light 🙂/😁 overlays only, no other illustration. Generous space between the two halves. Logo bottom-right."
+  },
+  {
+   "created": "2026-07-08",
+   "format_guess": "versus",
+   "headline": "",
+   "platform": [
+    "LI",
+    "IG",
+    "WA"
+   ],
+   "status": "Published",
+   "title": "iPhone vs Bitcoin",
+   "visual_direction": "One clean comparison, split left/right. iPhone 13 photo left, Bitcoin/Relai visual right (single accent orange). Tension line between/below both halves. CTA strip is a thin bar at the bottom, not a second visual element. Plenty of white space, logo bottom-right."
+  },
+  {
+   "created": "2026-07-03",
+   "format_guess": "two_line_chart",
+   "headline": "",
+   "platform": [
+    "LI",
+    "IG",
+    "WA"
+   ],
+   "status": "Published",
+   "title": "Infographic About Rephrasing “Blood on the Streets” Theme",
+   "visual_direction": "Rephrase the “blood on the streets” topic and make it a bit more user friendly. → Showcase that smart investors are using the time right now to invest and double down. User should get a sense of urgency to act. And either invest with a SP o"
+  },
+  {
+   "created": "2026-06-29",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Relai 6th Birthday Carousel",
+   "visual_direction": "CAROUSEL COPY (EN) Slide 1 (Cover) Happy 6th birthday to us. Look what they've been telling us since day one. Slide 2 \"You need to add altcoins to grow.\" We didn't. Six years later, we're still growing. Slide 3 \"The market is too small.\" $1"
+  },
+  {
+   "created": "2026-06-25",
+   "format_guess": "whatsapp_chat",
+   "headline": "",
+   "platform": [],
+   "status": "Approved",
+   "title": "2026_RP_Whatsapp-Chat_1-5_EN",
+   "visual_direction": ""
+  },
+  {
+   "created": "2026-06-17",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Hardware Wallet Feature — IG Carousel",
+   "visual_direction": "CAROUSEL — 7 SLIDES Slide 1 If you have a hardware wallet, we have good news for you. VISUAL NOTE: Use a Trezor hardware wallet image on this slide. Slide 2 Many of you told us that it was too complicated to buy Bitcoin directly into your h"
+  },
+  {
+   "created": "2026-06-10",
+   "format_guess": "",
+   "headline": "",
+   "platform": [],
+   "status": "Approved",
+   "title": "2026_5-BTC-rules_DE",
+   "visual_direction": ""
+  },
+  {
+   "created": "2026-05-26",
+   "format_guess": "whatsapp_chat",
+   "headline": "",
+   "platform": [
+    "LI",
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Relai Private — WhatsApp chat carousel",
+   "visual_direction": "FORMAT: Carousel designed as a WhatsApp chat. Left side (grey bubble) = Ben. Right side (green bubble) = client --- COVER SLIDE Client: \"I want to move serious money into Bitcoin. But I don't know who to trust with a transaction this size.\""
+  },
+  {
+   "created": "2026-05-19",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Bitcoin Pizza Day 🍕 — Carousel",
+   "visual_direction": ""
+  },
+  {
+   "created": "2026-05-11",
+   "format_guess": "myth_rebuttal",
+   "headline": "",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "5 rules every Bitcoin investor should follow",
+   "visual_direction": "Carousel — 7 slides — text on brand color background, illustrations allowed but minimal. --- SLIDE 1 — Cover [Title] 5 rules every Bitcoin investor should follow. --- SLIDE 2 [Slide title] 1. Think long-term [Body] When are you planning to "
+  },
+  {
+   "created": "2026-05-04",
+   "format_guess": "two_line_chart",
+   "headline": "3% inflation. Sub 1: Here's what it actually costs you.",
+   "platform": [
+    "IG",
+    "LI",
+    "WA"
+   ],
+   "status": "Published",
+   "title": "3% inflation — what it actually costs you (carousel)",
+   "visual_direction": "CAROUSEL — 8 slides SLIDE 1 — Cover Headline: 3% inflation. Sub 1: Here's what it actually costs you. SLIDE 2 — Year 1 Headline: After 1 year, your €10,000 is worth €9,700. SLIDE 3 — Year 5 Headline: After 5 years: €8,587. SLIDE 4 — Year 10"
+  },
+  {
+   "created": "2026-04-29",
+   "format_guess": "testimonial",
+   "headline": "",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Review of the week — Carousel (EN)",
+   "visual_direction": "Carousel — 8 slides. All copy in DE SLIDE 1 — COVER Don't take our word for it. Take theirs. SLIDE 2 — https://www.trustpilot.com/reviews/6962d7afb9a0339bacdfb3df \"Simple and straightforward. I had no idea about this topic. Relai is built i"
+  },
+  {
+   "created": "2026-04-28",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Self-custody made simple: how Relai protects your Bitcoin",
+   "visual_direction": ""
+  },
+  {
+   "created": "2026-04-22",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "LI",
+    "WA",
+    "IG"
+   ],
+   "status": "Published",
+   "title": "Julian Liniger x TEDxBielBienne",
+   "visual_direction": "Event poster feel, not a promo ad. Clean and professional. Assets to use: TEDxBielBienne logo + Julian's photo (CEO & Co-founder) TEDxBielBienne website: https://tedxbielbienne.com/ Format: Single image Copy on the design: Julian Liniger CE"
+  },
+  {
+   "created": "2026-04-22",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "LI",
+    "IG",
+    "WA"
+   ],
+   "status": "Published",
+   "title": "Relai Business — Bitcoin treasury post",
+   "visual_direction": "More than 150 businesses across Europe have added Bitcoin to their treasury through Relai Business. These are just some we recently onboarded: - Tax consultant - Logistics company - Machinery manufacturer - Lighting company - Catering busin"
+  },
+  {
+   "created": "2026-04-21",
+   "format_guess": "myth_rebuttal",
+   "headline": "",
+   "platform": [
+    "IG",
+    "LI",
+    "WA"
+   ],
+   "status": "Published",
+   "title": "5 Bitcoin misconceptions — debunked",
+   "visual_direction": "Carousel format. 7 slides total. COVER SLIDE 5 Bitcoin myths most people still believe SLIDE 1 💬 \"Bitcoin is too expensive. I can't afford to spend €65k.\" ↩️ You don't need to buy a whole one. Just like a cake, you can buy just a small piec"
+  },
+  {
+   "created": "2026-04-16",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "LI",
+    "IG"
+   ],
+   "status": "Published",
+   "title": "21 good reasons book giveaway",
+   "visual_direction": ""
+  },
+  {
+   "created": "2026-04-09",
+   "format_guess": "",
+   "headline": "9 out of 10 traders lose all their money. Subline: But there's a smarter way.",
+   "platform": [
+    "IG",
+    "LI",
+    "WA"
+   ],
+   "status": "Published",
+   "title": "DCA calculator: how small amounts add up over time",
+   "visual_direction": "Format: Single image post Headline: 9 out of 10 traders lose all their money. Subline: But there's a smarter way. Copy (caption): 9 out of 10 traders lose all their money. You are up against algorithms, institutions, insiders and people who"
+  },
+  {
+   "created": "2026-04-02",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "IG",
+    "LI",
+    "WA"
+   ],
+   "status": "Published",
+   "title": "Satoshi Nakamoto carousel (5 slides)",
+   "visual_direction": ""
+  },
+  {
+   "created": "2026-04-01",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "IG",
+    "LI",
+    "WA"
+   ],
+   "status": "Published",
+   "title": "What central banks don't tell you about inflation",
+   "visual_direction": "Single slide post. Visual is text-only with the title."
+  },
+  {
+   "created": "2026-03-31",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "April Fools carousel — Relai XRP",
+   "visual_direction": ""
+  },
+  {
+   "created": "2026-03-30",
+   "format_guess": "whatsapp_chat",
+   "headline": "",
+   "platform": [],
+   "status": "Published",
+   "title": "In App Message Whatsapp",
+   "visual_direction": ""
+  },
+  {
+   "created": "2026-03-27",
+   "format_guess": "",
+   "headline": "",
+   "platform": [],
+   "status": "Published",
+   "title": "5 Lines of Code",
+   "visual_direction": ""
+  },
+  {
+   "created": "2026-03-23",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "What is Bitcoin? A 2-minute explanation — Carousel (7 slides)",
+   "visual_direction": ""
+  },
+  {
+   "created": "2026-03-19",
+   "format_guess": "two_line_chart",
+   "headline": "",
+   "platform": [
+    "IG"
+   ],
+   "status": "Published",
+   "title": "WhatsApp Channel Launch Graphics",
+   "visual_direction": "Graphics needed for the public launch of the Relai WhatsApp Channel on Monday March 23."
+  },
+  {
+   "created": "2026-03-12",
+   "format_guess": "",
+   "headline": "",
+   "platform": [
+    "IG"
+   ],
+   "status": "To be posted",
+   "title": "Bitcoin killer use case",
+   "visual_direction": ""
+  },
+  {
+   "created": "2026-03-11",
+   "format_guess": "two_line_chart",
+   "headline": "",
+   "platform": [],
+   "status": "Templates",
+   "title": "Infographics",
+   "visual_direction": ""
+  }
+ ],
+ "covers": {
+  "newest": "2026-09-09",
+  "oldest": "2026-03-11"
+ },
+ "excluded": [
+  {
+   "created": "2026-09-04",
+   "title": "Blog Image: Der Bitcoin Bullenmarkt",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-09-01",
+   "title": "Blog Image: Was ist ein Bitcoin Bullenmarkt?",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-08-31",
+   "title": "Email Header: Evergreen - Your Bitcoin belong to you. Not to us.",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-08-31",
+   "title": "Email Header: Evergreen - Why Bitcoin Only (EN + DE)",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-08-31",
+   "title": "Blog Image: Bitcoin im Unternehmen 2026",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-08-28",
+   "title": "Blog Image: Sicher Bitcoin kaufen",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-08-26",
+   "title": "Blog Image in German about: Wie viel Bitcoin sollte ich zum Einstieg kaufen?",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-08-26",
+   "title": "Blog Images About Marc Friedrich and FinanzFabio Investment",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-08-18",
+   "title": "App update announcement template",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-08-03",
+   "title": "Blog Post: Why Your Bitcoin is Safe With the Relai Wallet",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-07-17",
+   "title": "Email Header: Referral Code Reactivation",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-07-17",
+   "title": "Blog Image: Summer Sale",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-07-09",
+   "title": "DE version",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-07-03",
+   "title": "Blog Image Branding Relai Is THE Bitcoin Savings App",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-07-03",
+   "title": "Blog Image About Advantages of DCA Plan Increase",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-06-26",
+   "title": "This Week in Bitcoin — IG Carousel — 26.06.2026",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-06-26",
+   "title": "Blog Headers and Email Image MiCA Deadline July 1",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-06-17",
+   "title": "(untitled)",
+   "why": "no title"
+  },
+  {
+   "created": "2026-06-15",
+   "title": "Blog Headers Lais",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-06-15",
+   "title": "Brand Book Persona Update",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-06-12",
+   "title": "App Icon mockups for current touchpoints",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-06-12",
+   "title": "App Icon trademark",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-05-21",
+   "title": "This Week in Bitcoin — IG Carousel — 21.05.2026",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-05-21",
+   "title": "Template in customer.io",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-05-21",
+   "title": "App Icon",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-05-19",
+   "title": "New 3D Icon, Onboarding",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-05-15",
+   "title": "This Week in Bitcoin — IG Carousel (EN) — 15.05.2025",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-03-26",
+   "title": "Ref Programm",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-03-24",
+   "title": "Blog Post Header German: Was ist ein Bitcoin-Bärenmarkt?",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-03-11",
+   "title": "Social media posts",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-03-11",
+   "title": "Print products",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-03-11",
+   "title": "Blog post header",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-03-11",
+   "title": "Paid ad",
+   "why": "request-driven, not a concept"
+  },
+  {
+   "created": "2026-03-11",
+   "title": "Podcast cover",
+   "why": "request-driven, not a concept"
+  }
+ ],
+ "excluded_count": 34,
+ "format_saturation": {
+  "big_number": 1,
+  "myth_rebuttal": 2,
+  "phone_mockup": 1,
+  "single_prop": 2,
+  "testimonial": 1,
+  "timeline": 4,
+  "two_line_chart": 4,
+  "type_only": 1,
+  "unattributed": 18,
+  "versus": 8,
+  "whatsapp_chat": 5
+ },
+ "rows_seen": 81,
+ "source": "Notion Design board, c33f79ad-bc09-490b-8b95-32578426c036"
+}

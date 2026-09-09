@@ -5,11 +5,19 @@ Owner: Arsen Thagapsov, Marketing Lead. Timezone Europe/Zurich.
 
 Posts to the official company X account @relai_app via GitHub Actions.
 
-**Scope: X only.** This repo automates posts to @relai_app. It does not
-cover App Store/Play Store review monitoring or any other non-X tooling.
+**Scope: X posting, plus the content suggesters that feed off the X archive.**
+This repo automates posts to @relai_app. It does not cover App Store/Play
+Store review monitoring or any other non-X tooling.
 
-Exception: the weekly suggester posts a review pointer to Slack. It is X
-content tooling, the Slack message is the handoff to a human, not a channel.
+Two things sit just outside a strict reading of that, both deliberately:
+
+- The weekly suggesters post a review pointer to Slack. The Slack message is
+  the handoff to a human, not a channel.
+- `visual-suggester/` proposes visual concepts that mostly ship on Instagram,
+  not X. It lives here because it is built on the same X archive ranking, the
+  same approved copy pools, the same compliance module and the same
+  design-brief skill as the X image branch. Splitting it into its own repo
+  would mean four of those five things existing twice. Added 9 Sep 2026.
 
 ---
 
@@ -78,6 +86,60 @@ and `tomllib` only exists from 3.11, while `rank.py` runs on the system
 Python 3.9 on a Mac. `find_evergreen_candidates.py` already keeps its pattern
 list this way.
 
+### Weekly visual suggester
+
+`visual-suggester/`. Drafts 8 visual concepts a week, sketches each one, and
+puts them on a review board. Does not post and does not write to Notion. See
+`visual-suggester/README.md`.
+
+| File | When | What |
+|---|---|---|
+| `snapshot.py` | Manual, monthly | Design board dump to `state/board.json`. Pure Python, no model calls |
+| `generate.py` | `visual_suggester.yml`, Tue | Drafts concepts and sketches with Claude Sonnet, writes `batches/YYYY-Www.{md,json}` |
+| `notify_slack.py` | Same workflow | Posts a pointer to the batch |
+| `build_board.py` | Manual, weekly | Batch plus `board_template.html` to `board/YYYY-Www.html`, published as the review artifact |
+| `route.py` | Manual, after review | Briefs out, flagged held, cuts recorded |
+| `config.py` | Never | Every tunable: format catalog, counts, model, brief defaults |
+
+**Tuesday, not Monday.** The X batch lands Monday. Two review boards arriving
+in the same hour means one of them does not get reviewed.
+
+**It knows what Relai already made from a committed snapshot, not from
+Notion.** `state/board.json` is refreshed in a chat session and committed, so
+the Action needs no Notion credential and no new DORA register entry. A stale
+snapshot costs a repeated concept, caught by review, and `state/made.json`
+covers the repeats the tool itself could cause. Refresh monthly.
+
+**The format catalog is read off the board, not invented.** Twelve formats,
+each with the precondition it actually needs and a saturation count. `versus`
+is at eight, so a ninth needs a better reason than a first of something else.
+Add a format only after it has shipped.
+
+**The sketches are thumbnails, never deliverables.** They exist so composition
+can be judged at the moment of the decision. Paula works from the written
+direction and never sees them. `config.MOCK_PALETTE` is a placeholder, not
+Relai's brand values, which are in the brand book and not in this repo.
+
+**A flagged concept never reaches Paula.** Unlike an X rewrite, a visual has
+no already-published source line, so the standing approval does not reach it.
+It stops in `queued/` for written sign-off. See Compliance below.
+
+### Shared modules
+
+`x_api.py`. Hand-rolled OAuth 1.0a HMAC-SHA1 signing, stdlib only.
+Verified against X's documented test vector. Do not replace this with tweepy;
+removing the pip install step was deliberate, it was a failure point.
+
+`anthropic_api.py`. One structured-output call over urllib, with the retry
+policy and the refusal and max_tokens handling. Both suggesters use it.
+
+`compliance_checks.py`. `DROP_CHECKS` and `FLAG_CHECKS`, imported by both
+suggesters' `config.py`. **One copy on purpose.** Two would drift and the
+drift would be silent. A pattern edit here lands on both suggesters at once,
+which is the point. The archive-ranking lists (`TIME_BOUND`,
+`NOT_STANDALONE`) stayed in `weekly-suggester/config.py`; they are specific to
+sorting the X archive.
+
 ### Offline tools
 
 `find_evergreen_candidates.py`. Run manually against a downloaded X data
@@ -97,18 +159,18 @@ backstop, not a guarantee.
 the suggester produces, so treat it as compliance-reviewed content.
 
 `skills/design-brief-creator/SKILL.md` handles the image branch of the review
-step, filing briefs on Paula's Notion board.
+step, filing briefs on Paula's Notion board. `visual-suggester/generate.py`
+also loads it in full, alongside the voice skill, so a concept is drafted
+against the same visual rules the brief will be written to.
+
+Both skills being loaded by both suggesters means an edit to either one
+changes what two pipelines produce. Treat them as compliance-reviewed
+content.
 
 Both are also installed as user skills in `~/.claude/skills/` so chat sessions
 pick them up without this repo open. **Two copies means they can drift.** A
 change here needs the same change copied to `~/.claude/skills/`, same as
 `evergreen.txt` and the sibling threads repo.
-
-### Shared module
-
-`x_api.py`. Hand-rolled OAuth 1.0a HMAC-SHA1 signing, stdlib only.
-Verified against X's documented test vector. Do not replace this with tweepy;
-removing the pip install step was deliberate, it was a failure point.
 
 ---
 
@@ -195,8 +257,14 @@ published, so do not quote figures from memory.
 
 The weekly suggester adds Anthropic API usage: two Sonnet calls a week, plus
 a re-request round when suggestions get dropped. The voice skill is cached
-across the calls in a run. Published Sonnet rates are per million tokens and
-change, so check the current rate rather than quoting one from memory.
+across the calls in a run.
+
+The visual suggester adds two more Sonnet calls a week, one for the concepts
+and one for the sketches. Both skills are cached across the calls in a run.
+The sketch call is the more expensive of the two on output tokens.
+
+Published Sonnet rates are per million tokens and change, so check the current
+rate rather than quoting one from memory.
 
 ---
 
@@ -228,11 +296,18 @@ not misleading. Forward-looking return or price projections engage
   a violation the batch never had. A line that trips a check is diverted to
   `queued/` with the reason recorded, never softened. Savings terminology
   always diverts: it needs written approval regardless of who wrote the line.
-- `evergreen.txt` is manually copied into the sibling `relai-threads-bot`
+- `evergreen.txt` is manually mirrored into the sibling `relai-threads-bot`
   repo (its own pool, not a live fetch, so it can run independently once
-  private). Any change here needs the same change copied there too, full
-  file, same line order, or the two bots' rotations fall out of step. This
-  already drifted once when the copy step was skipped.
+  private). Any change here needs the same change brought over there too,
+  or the pools drift. This already drifted once when the step was skipped.
+- **Do not copy the full file over any more, as of 7 Sep 2026.** The Threads
+  pool is a 214-line subset: nine ASCII and emoji art lines are excluded
+  there because their shape depends on exact spacing and the Threads API
+  does not round-trip whitespace, which broke a run on 6 Sep 2026. They
+  post fine on X and stay here. A wholesale copy reintroduces them. Bring
+  individual line additions over by hand instead. The two rotations are no
+  longer in step and are not meant to be; `relai-threads-bot` has its own
+  `SHUFFLE_SEED`. See that repo's CLAUDE.md under "Pool source".
 - Flag regulatory exposure explicitly with the regulator and article. Flag it
   once, state the specific change needed, then move on. Do not repeat flags
   or add generic caution.
@@ -244,6 +319,25 @@ not misleading. Forward-looking return or price projections engage
   `weekly-suggester/batches/` and `state/`, never to a file a posting bot
   reads. Every suggestion starts at `Compliance: unapproved` and the queue
   gate is how MiCA Art. 66 gets enforced. Do not remove either.
+- **The visual suggester holds every flagged concept, with no rewrite path.**
+  The 3 Sep 2026 standing approval narrows the copy control because the source
+  line already went out from @relai_app. A visual concept has no such source:
+  it is a new asset, so under **MiCA Art. 66** the flagged terms need written
+  approval before it goes live, not after Paula has built it. A flagged
+  concept stops in `visual-suggester/queued/` and Guglielmo sees it first.
+  Do not extend the rewrite path to visuals; the premise it rests on is
+  absent. `route.py` re-runs both check sets on the headline and caption
+  first, because both are editable on the review board.
+- Sending an unflagged concept to Paula's board is not publication. A Notion
+  task is internal work, and what she builds is reviewed before it posts.
+- Every visual concept carries a `needs_check` list: the figures, prices and
+  dates a human must verify before the asset is built. Carry it into the
+  brief. Marketing numbers come from Relai's own backtest tool or verified
+  data and are never approximated, so a figure nobody sourced must not be set
+  in artwork.
+- `config.MOCK_PALETTE` is a placeholder, not Relai's brand palette. The
+  sketches are indicative of composition only. Do not treat a sketch as a
+  colour decision and do not send one to Paula.
 - Suggestions using Savings, Sparen or Sparplan are auto-flagged and need
   written compliance approval before going live. The flag is not a
   resolution. A clean mechanical check is not approval either; the regex

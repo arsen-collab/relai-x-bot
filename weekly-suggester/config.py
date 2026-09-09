@@ -12,6 +12,17 @@ this way.
 Tune the lists here. No logic lives in this file.
 """
 
+import os
+import sys
+
+# The mechanical compliance checks live at the repo root, not here, because
+# visual-suggester/config.py needs the same lists and a second copy would
+# drift silently. Re-exported below so config.DROP_CHECKS still resolves for
+# generate.py and route.py.
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from compliance_checks import DROP_CHECKS, FLAG_CHECKS  # noqa: E402,F401
+
+
 # --- paths -----------------------------------------------------------------
 
 # Live evergreen pool. Read only, for exclusion. Never written to.

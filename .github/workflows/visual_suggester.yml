@@ -1,0 +1,85 @@
+name: Weekly Visual Suggester
+
+# Drafts 8 visual concepts and posts a pointer to Slack. Writes to
+# visual-suggester/batches/ and visual-suggester/state/ only. It cannot reach
+# evergreen.txt or fresh.txt, and it does not touch Notion: filing a brief on
+# Paula's board is route.py handing a payload to the design-brief-creator
+# skill, after review.
+#
+# Tuesday morning, deliberately not Monday. The X suggester lands Monday, and
+# two review boards arriving in the same hour means one of them does not get
+# reviewed.
+#
+# 05:17 UTC lands at 07:17 CEST and 06:17 CET, a Tuesday morning either side
+# of the DST switch. A single cron cannot hold one local time year round; the
+# exact minute does not matter for a batch reviewed later in the day.
+#
+# Times sit off the hour on purpose, same as the posting bots: the top of the
+# hour is when GitHub is busiest and runner acquisition is most likely to
+# fail. Scheduled runs on this repo have been landing 6 to 8 hours late, which
+# is tolerable here. If it stops firing at all, move the trigger to an
+# external scheduler calling workflow_dispatch.
+#
+# One run per week, no retry slots. If a run is lost, dispatch it manually;
+# generate.py exits early if the week's batch file already exists, so a repeat
+# run costs nothing.
+#
+# The design board snapshot is NOT refreshed here. state/board.json is
+# committed and refreshed from a chat session, so this workflow needs no
+# Notion credential. See visual-suggester/README.md under "The board
+# snapshot".
+
+on:
+  schedule:
+    - cron: '17 5 * * 2'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Preview only, no API call and no Slack post'
+        type: boolean
+        default: true
+      batch_week:
+        description: 'Force a week label, YYYY-Www. Blank means the current ISO week.'
+        type: string
+        default: ''
+
+concurrency:
+  group: visual-suggester
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  suggest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate batch
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          BATCH_WEEK: ${{ inputs.batch_week }}
+        run: python3 visual-suggester/generate.py
+
+      - name: Commit batch
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add visual-suggester/batches visual-suggester/state
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Add weekly visual concept batch"
+            git push
+          fi
+
+      - name: Notify Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          BATCH_WEEK: ${{ inputs.batch_week }}
+        run: python3 visual-suggester/notify_slack.py
