@@ -1,0 +1,292 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W38.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 0,
+ "generated_at": "2026-09-14 11:59 CEST",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "Four years ago, this Relai user set up automatic Bitcoin purchases and never looked at it again. That's exactly how a Bitcoin auto-invest plan is meant to work: recurring purchases, no daily decisions.",
+    "headline": "Set it up. Forget it.",
+    "purpose": "To show that Relai's auto-invest plan works quietly in the background, requiring no ongoing attention.",
+    "suggestion_id": "S01",
+    "target_feeling": "Relief and quiet trust: I don't have to think about this.",
+    "visual_direction": "A single row of small, evenly spaced dots representing weekly purchases, flat gray, repeating left to right until the row fades near the edge of the frame. The final dot on the right is filled in Relai orange to mark today. No numbers, no chart axis, no illustration. Generous white space around the row. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S01",
+   "rationale": "The coinfession format ran twice in the archive and both versions ranked near the top, so the joke clearly lands with this audience.",
+   "source_id": "1876970861544214612",
+   "text": "Confession: I set up automatic Bitcoin purchases four years ago and forgot about it.\nTurns out that's the whole point.",
+   "theme": "automated bitcoin buying",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Governments talk about CBDCs. Banks freeze accounts. Bitcoin keeps producing a new block roughly every 10 minutes, on schedule, without asking anyone's permission.",
+    "headline": "A block. Every 10 minutes.",
+    "purpose": "To contrast Bitcoin's mechanical predictability with the unpredictability of banks and government money experiments.",
+    "suggestion_id": "S02",
+    "target_feeling": "Quiet confidence in Bitcoin's steadiness compared to institutional uncertainty.",
+    "visual_direction": "A simple three-line type comparison: 'CBDC talk' and 'Frozen account,' each with a small gray strike-through mark beside them, and 'New block' below with a small orange checkmark beside it. No icons beyond the checkmark and strike marks, no illustration. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S02",
+   "rationale": "This three-line contrast format sits high in the archive by engagement, likely because it makes Bitcoin's mechanics concrete against familiar frustrations.",
+   "source_id": "1960335421625258454",
+   "text": "Governments explore CBDCs.\nBanks freeze accounts.\nBitcoin just keeps producing a block every 10 minutes.",
+   "theme": "bitcoin reliability contrast",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "First it looks like a scam. Then you learn how it works. After that, everything else starts looking like the scam.",
+    "headline": "Bitcoin doesn't change. It changes how you see money.",
+    "purpose": "To capture the mental shift people go through once they actually understand how Bitcoin works.",
+    "suggestion_id": "S03",
+    "target_feeling": "A click of realization, the moment perspective flips.",
+    "visual_direction": "A single bold centered line of type, the headline itself, set large with a line break between the two sentences. No image, no icon, pure type treatment. The word 'money' set in Relai orange, rest in black. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "This mindset-shift line ranked highly in the archive, echoing a hook that recurs across the strongest posts.",
+   "source_id": "2005312366511067510",
+   "text": "First you think Bitcoin is a scam.\nThen you learn how it works.\nAfter that, everything else starts looking like the scam.\nBitcoin doesn't change. It changes how you see money.",
+   "theme": "mindset shift",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "No other assets, no distractions. Relai has been Bitcoin only from the very start, and that focus is still the point.",
+    "headline": "Bitcoin only. Since day one.",
+    "purpose": "To state Relai's Bitcoin-only positioning as a point of identity and pride.",
+    "suggestion_id": "S04",
+    "target_feeling": "Confidence and clarity of stance.",
+    "visual_direction": "A single flat circular badge shape, outlined in Relai orange, with the headline text set inside it, centered on an otherwise empty frame. No other graphic elements. Logo bottom right, outside the badge."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "Bitcoin-only identity statements are a recurring high performer in the archive and reinforce Relai's core differentiator.",
+   "source_id": "2067633231281664253",
+   "text": "Being Bitcoin only since day one is still our biggest flex.",
+   "theme": "bitcoin only identity",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Everyone has a moment they brushed Bitcoin off. What was yours?",
+    "headline": "What price did you ignore Bitcoin at?",
+    "purpose": "To spark engagement by getting people to recall the moment they dismissed Bitcoin, without stating any actual price.",
+    "suggestion_id": "S05",
+    "target_feeling": "A wry, self-aware laugh at past hesitation.",
+    "visual_direction": "A single flat price tag shape, outline only, with a blank underscore where a number would go instead of an actual figure. The tag sits alone centered in the frame. Underscore line in Relai orange. No currency symbol, no illustration beyond the tag outline. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S05",
+   "rationale": "Nostalgic price-based questions show up repeatedly among the archive's better performing engagement posts.",
+   "source_id": "1943264940300865720",
+   "text": "What was the price of Bitcoin the first time you ignored it?",
+   "theme": "engagement bitcoin price",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Relai gives people easy, secure, self-custodial access to Bitcoin. That's the whole idea.",
+    "headline": "Simple app. Simple idea.",
+    "purpose": "To communicate Relai's core product simplicity in one glance.",
+    "suggestion_id": "S06",
+    "target_feeling": "Calm and clarity: this doesn't need to be complicated.",
+    "visual_direction": "Three words stacked vertically as a type treatment: 'Easy,' 'Secure,' 'Self-custodial,' each on its own line, same weight and size, centered. One of the three words set in Relai orange. No icons, no illustration. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "The 'simple app, simple idea' framing already ranked well once, and restating it cleanly keeps the self-custody value front and center.",
+   "source_id": "1884224154888724672",
+   "text": "We're a simple app with a simple idea: give people easy, secure, self-custodial access to Bitcoin.",
+   "theme": "product simplicity",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Self-custody means the Bitcoin is actually yours. Holding less in your own wallet counts for more than holding more on someone else's platform.",
+    "headline": "1 Bitcoin you hold beats 2 you don't.",
+    "purpose": "To make the case for self-custody memorable through a direct numeric comparison.",
+    "suggestion_id": "S07",
+    "target_feeling": "Conviction that control matters more than quantity.",
+    "visual_direction": "A two-column comparison: '1 BTC, self-custodial wallet' on the left with a checkmark, '2 BTC, on an exchange' on the right with an X mark. Text only, no wallet or exchange logos, no illustration. Checkmark in Relai orange, X mark in flat gray. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S07",
+   "rationale": "This self-custody comparison is one of the stronger posts in the archive and reinforces a principle Relai repeats often.",
+   "source_id": "1643669830766317568",
+   "text": "1 Bitcoin in a self-custodial wallet beats 2 Bitcoin sitting on an exchange.",
+   "theme": "self custody",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "What's stopping you? Setting up recurring Bitcoin purchases takes a few minutes.",
+    "headline": "Still no Bitcoin DCA plan?",
+    "purpose": "To provoke light reflection on why someone hasn't started a Bitcoin DCA habit yet.",
+    "suggestion_id": "S08",
+    "target_feeling": "A light, friendly nudge, not guilt.",
+    "visual_direction": "A single oversized question mark centered in the frame, flat, no gradient. Question mark in Relai orange on a plain white background. No other elements. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S08",
+   "rationale": "Direct questions about DCA habits ranked well in the archive and tend to pull real replies rather than just likes.",
+   "source_id": "1934240474954654020",
+   "text": "What's your excuse for not running a Bitcoin DCA plan yet?",
+   "theme": "dca habit question",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Everything else online can be duplicated endlessly. Bitcoin can't. That scarcity is the whole point.",
+    "headline": "You can't copy and paste Bitcoin.",
+    "purpose": "To explain Bitcoin's digital scarcity in a way that's instantly visual and non-technical.",
+    "suggestion_id": "S09",
+    "target_feeling": "Quiet realization of what makes Bitcoin genuinely different online.",
+    "visual_direction": "A flat mockup of a right-click context menu with options 'Copy,' 'Cut,' and 'Paste,' where 'Paste' is grayed out and unselectable. Menu rendered simply, no browser chrome, no illustration beyond the menu. The grayed-out 'Paste' row has a thin Relai orange underline. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "This copy-paste framing is a fresh, well-ranked metaphor in the archive for explaining Bitcoin's scarcity without jargon.",
+   "source_id": "2032828890876391688",
+   "text": "Bitcoin is the only thing online you can't copy and paste.",
+   "theme": "digital scarcity",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Not a slogan. Just how it works.",
+    "headline": "Not your keys, not your Bitcoin.",
+    "purpose": "To restate the self-custody principle plainly, as a fact rather than a slogan.",
+    "suggestion_id": "S10",
+    "target_feeling": "Matter-of-fact confidence, not preachy.",
+    "visual_direction": "A single bold centered line of type, the headline itself, large and simple, with no supporting graphic. The word 'keys' set in Relai orange, rest in black. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "self-custody and holding your own keys recur across the archive as a core conviction theme, this gives it a plainer mechanic-first framing",
+   "source_id": null,
+   "text": "Not your keys, not your Bitcoin.\nNot a slogan, just how it works.",
+   "theme": "self-custody keys",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "No matter what the price does, the purchase amount stays the same. That consistency is the whole strategy behind a Bitcoin DCA plan.",
+    "headline": "Same amount. Every week.",
+    "purpose": "To show the DCA mechanic visually: fixed amount, fixed schedule, regardless of price.",
+    "suggestion_id": "S11",
+    "target_feeling": "Calm and steady: this doesn't require timing the market.",
+    "visual_direction": "A row of identical-height bars evenly spaced across the frame, representing equal purchase amounts over time, in flat Relai orange. Beneath the bars, a thin faint gray wavy line representing price movement, clearly in the background and much lighter in weight than the bars. No axis labels, no numbers. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "the archive repeatedly circles consistency and the buy/hodl/repeat idea, this states the DCA mechanic directly without any price framing",
+   "source_id": null,
+   "text": "Same amount, every week, no matter the price.\nThat's the whole strategy.",
+   "theme": "dca mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "A bank asks you to trust its word. Bitcoin lets you check the math yourself.",
+    "headline": "Don't trust it. Check it.",
+    "purpose": "To position Bitcoin's transparency, verifiable by anyone, against blind trust in institutions.",
+    "suggestion_id": "S12",
+    "target_feeling": "Quiet empowerment: I don't have to take anyone's word for it.",
+    "visual_direction": "A short block of monospace-style text resembling a hash string, centered in the frame, with a single checkmark beside it in Relai orange. No speech bubble, no bank imagery, no illustration. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S12",
+   "rationale": "proof of work vs trust in people is a recurring pair in the archive, this takes the same idea from a banking angle instead of a proof of stake comparison",
+   "source_id": null,
+   "text": "You don't have to trust a bank's word.\nYou can just check Bitcoin's math.",
+   "theme": "proof of work trust",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "No committee can vote to print more Bitcoin. 21 million is the whole supply, permanently.",
+    "headline": "21,000,000. Forever.",
+    "purpose": "To make Bitcoin's fixed supply feel concrete and permanent.",
+    "suggestion_id": "S13",
+    "target_feeling": "A sense of solidity, something that can't be moved or changed.",
+    "visual_direction": "The number '21,000,000' set enormous and centered, filling most of the frame, in flat black type. The word 'Forever' set much smaller directly beneath it in Relai orange. No chart, no illustration. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S13",
+   "rationale": "the archive's money-printing critique recurs often, this reframes the same skepticism around fixed supply as the counterpoint, using the protocol's known cap rather than an invented figure",
+   "source_id": null,
+   "text": "No committee can vote to print more Bitcoin.\n21 million is the whole supply, forever.",
+   "theme": "fixed supply",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Once you understand how Bitcoin works, you start asking that about everything else.",
+    "headline": "Why does everything else need so much trust?",
+    "purpose": "To voice the moment skepticism turns into a broader question about trust in money systems.",
+    "suggestion_id": "S14",
+    "target_feeling": "Reflective, slightly provocative curiosity.",
+    "visual_direction": "A single bold centered line of type, the headline itself, large and simple, no supporting graphic. The word 'trust' set in Relai orange, rest in black. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S14",
+   "rationale": "the skeptic-to-believer arc shows up several times in the archive, this keeps the shift in perspective but drops the price and mockery framing for a quieter observation",
+   "source_id": null,
+   "text": "Once you understand Bitcoin, you start asking why everything else needs so much trust.",
+   "theme": "skeptic journey",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "No portfolio to check every morning. Just Bitcoin.",
+    "headline": "One asset. One decision.",
+    "purpose": "To position Bitcoin-only simplicity against the mental load of managing a multi-asset portfolio.",
+    "suggestion_id": "S15",
+    "target_feeling": "Relief from decision fatigue.",
+    "visual_direction": "A comparison device: a loose cluster of many small gray squares of varying size on the left representing a scattered portfolio, and a single square in Relai orange standing alone on the right. No labels, no icons inside the squares, no illustration beyond flat shapes. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S15",
+   "rationale": "bitcoin-only conviction is a recurring identity theme in the archive, this gives it a simplicity angle instead of a flex or history angle",
+   "source_id": null,
+   "text": "One asset. One decision.\nNo portfolio to manage every morning.",
+   "theme": "bitcoin only focus",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W38"
+}
