@@ -1,0 +1,304 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W39.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 0,
+ "generated_at": "2026-09-21 12:04 CEST",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "Bitcoin doesn't need a strategic reserve.\n\nWhether a country needs one is a different question.",
+    "headline": "Bitcoin doesn't need a reserve.",
+    "purpose": "Prompt reflection on the difference between Bitcoin's design and a country's monetary policy choices.",
+    "suggestion_id": "S01",
+    "target_feeling": "curious and contemplative, not persuaded either way",
+    "visual_direction": "Type-based comparison: the image is split down the middle by a thin orange vertical line. Left side reads BITCOIN in large type, right side reads A COUNTRY in the same weight. No icons, no flags. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "political framing"
+   ],
+   "id": "S01",
+   "rationale": "Source tweet pulled 207 likes and 12 reposts, the strongest in the batch, so the national-reserve angle clearly resonates with the audience.",
+   "source_id": "1899816749685506418",
+   "text": "Bitcoin doesn't need a strategic reserve.\n\nWhether a country needs one is a different question.🇨🇭",
+   "theme": "swiss bitcoin reserve",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "What do you do when you're not thinking about Bitcoin?",
+    "headline": "What do you do when you're not thinking about Bitcoin?",
+    "purpose": "Give the audience a light, human moment that isn't about price or mechanics.",
+    "suggestion_id": "S02",
+    "target_feeling": "amused, a little self-aware",
+    "visual_direction": "One simple prop centered on white: a single chess piece (a knight) photographed from above. No text on the prop. Orange used only for the headline type above it. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S02",
+   "rationale": "Original hobbies question drew 128 likes and 9 reposts, showing simple open questions do well without needing any claim.",
+   "source_id": "1884273228346188076",
+   "text": "What do you do when you're not thinking about Bitcoin?",
+   "theme": "hobbies question",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Buy a bit of Bitcoin. Hold it. Repeat.\n\nThat's the whole plan.",
+    "headline": "Buy. Hold. Repeat.",
+    "purpose": "Show the DCA mechanic as simply as possible for a Bitcoin-literate audience.",
+    "suggestion_id": "S03",
+    "target_feeling": "reassured that the plan is this simple, nothing more",
+    "visual_direction": "Simple stepped bar chart, five or six bars of equal height marching left to right, each one a small orange block stacking on the last. No axis labels, no numbers. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "Source's buy/hold/repeat framing got 66 likes and 4 reposts and maps directly onto the approved DCA mechanic, just without the freedom framing.",
+   "source_id": "2068686676759584967",
+   "text": "Buy a bit of Bitcoin. Hold it. Repeat.\n\nThat's the whole plan.",
+   "theme": "dca mechanic",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Wednesday check-in: 1 BTC is still 1 BTC.",
+    "headline": "1 BTC is still 1 BTC.",
+    "purpose": "Deliver a dry, zoom-out joke that doesn't touch price direction.",
+    "suggestion_id": "S04",
+    "target_feeling": "a small knowing laugh",
+    "visual_direction": "Type treatment only: the line '1 BTC = 1 BTC' set large and centered, no chart, no ticker, no price figure anywhere on the image. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "The dry 1 BTC = 1 BTC joke earned 55 likes on a recency-decayed recent post, part of a recurring zoom-out humor thread in the archive.",
+   "source_id": "2084931384523501746",
+   "text": "Wednesday check-in: 1 BTC is still 1 BTC.",
+   "theme": "zoom out humor",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Normalize asking every store: do you accept Bitcoin?",
+    "headline": "Do you accept Bitcoin?",
+    "purpose": "Encourage a small real-world adoption habit among Bitcoin-literate followers.",
+    "suggestion_id": "S05",
+    "target_feeling": "invited to actually do something small today",
+    "visual_direction": "Prop shot: a plain paper sticker mockup, the kind seen on a shop door, reading 'Bitcoin accepted here?' as a question, photographed at a slight angle on a glass door background kept mostly white. Orange used only on the sticker border. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S05",
+   "rationale": "Source got 52 likes and 3 reposts pushing a simple adoption behavior, worth repeating with the same low-key call to action.",
+   "source_id": "2082439243839025459",
+   "text": "Normalize asking every store: do you accept Bitcoin?",
+   "theme": "bitcoin adoption ask",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin has no CEO. It runs on consensus.",
+    "headline": "No CEO. Just consensus.",
+    "purpose": "Restate a core Bitcoin fact about decentralization for an audience that already knows it, as a clean visual reminder.",
+    "suggestion_id": "S06",
+    "target_feeling": "quiet confidence in the system's design",
+    "visual_direction": "Simple comparison diagram: on the left a single box labeled nothing with a large X through it, on the right a small cluster of connected dots of equal size. No labels, no logos of companies. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "Original line landed 63 likes and 5 reposts making a clean structural point about Bitcoin with no need for embellishment.",
+   "source_id": "1985716493233836091",
+   "text": "Bitcoin has no CEO. It runs on consensus.",
+   "theme": "decentralization consensus",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "An exchange holding your Bitcoin isn't self-custody.\n\nHold your own keys.",
+    "headline": "Not your keys, not self-custody.",
+    "purpose": "Reinforce the self-custody distinction that's core to Relai's product without naming any competitor.",
+    "suggestion_id": "S07",
+    "target_feeling": "clear on the difference, slightly urged to act",
+    "visual_direction": "Two-icon comparison side by side: a simple vault icon on the left, a simple key icon on the right, equal size, no brand marks. Orange fills only the key icon. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "comparison to exchanges"
+   ],
+   "id": "S07",
+   "rationale": "Source tweet's self-custody point earned 81 likes and 5 reposts, a recurring archive theme, rewritten to drop the wordplay and state the mechanic plainly.",
+   "source_id": "1915026621989323017",
+   "text": "An exchange holding your Bitcoin isn't self-custody.\n\nHold your own keys.",
+   "theme": "self-custody exchanges",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Printing trillions out of thin air is legal.\nCounterfeiting one bill lands you in prison.\n\nSomething doesn't add up.",
+    "headline": "One is legal. One isn't.",
+    "purpose": "Deliver a pointed monetary policy observation as a stark visual contrast.",
+    "suggestion_id": "S08",
+    "target_feeling": "a jolt of 'wait, that's true'",
+    "visual_direction": "Two-column type comparison: left column reads 'PRINT TRILLIONS: LEGAL', right column reads 'COUNTERFEIT ONE BILL: PRISON', separated by a thin orange line. No currency imagery, no banknote reproduction. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "monetary policy commentary"
+   ],
+   "id": "S08",
+   "rationale": "Source tweet got 77 likes and 9 reposts with this fiat-debasement contrast, a recurring monetary critique theme in the archive.",
+   "source_id": "1971929175792513414",
+   "text": "Printing trillions out of thin air is legal.\nCounterfeiting one bill lands you in prison.\n\nSomething doesn't add up.",
+   "theme": "money printing critique",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Dips I don't mind:\n\n1. Bitcoin\n2. Ranch\n3. Guacamole",
+    "headline": "Dips I don't mind.",
+    "purpose": "Land a light joke that plays on 'dip' without framing a Bitcoin price drop as a buying signal.",
+    "suggestion_id": "S09",
+    "target_feeling": "a quick smile, nothing analytical",
+    "visual_direction": "Simple numbered list set in type, left aligned, generous white space around it. Only the number '1' next to Bitcoin is set in orange. No charts, no price lines, no food imagery. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "price dip framing"
+   ],
+   "id": "S09",
+   "rationale": "Original list joke pulled 73 likes and 9 reposts, one of the higher repost counts in the batch relative to its likes, suggesting the format shares well.",
+   "source_id": "1957830163749835233",
+   "text": "Dips I don't mind:\n\n1. Bitcoin\n2. Ranch\n3. Guacamole",
+   "theme": "bitcoin dip humor",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "A bank statement is a promise.\nYour own keys are proof.",
+    "headline": "A promise vs. proof.",
+    "purpose": "Make the self-custody argument concrete with a single visual contrast.",
+    "suggestion_id": "S10",
+    "target_feeling": "the click of understanding why keys matter more than a statement",
+    "visual_direction": "Two-item comparison: a plain paper document icon on the left labeled nothing, a simple key icon on the right, same scale. Orange fills only the key. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "The archive returns often to proof-of-work vs trust framing and self-custody language, so this takes the same trust-in-math idea and applies it to custody instead of consensus.",
+   "source_id": null,
+   "text": "A bank statement is a promise.\nYour own keys are proof.",
+   "theme": "self-custody",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Same amount, every week.\n\nSome weeks more sats, some weeks fewer.\n\nThat's the whole mechanic.",
+    "headline": "Same amount. Different sats.",
+    "purpose": "Explain the DCA mechanic concretely, showing that the sat amount varies while the CHF or EUR amount stays fixed.",
+    "suggestion_id": "S11",
+    "target_feeling": "calm clarity on how the mechanic actually works",
+    "visual_direction": "Bar chart with six bars of equal width but varying height, all the same orange, sitting on a flat baseline labeled nothing. No price axis, no numbers on the image. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "Recurring buy/hodl/repeat and orange-pilling posts show the audience responds to mechanic explanations, so this makes the DCA mechanic itself the post instead of hinting at outcomes.",
+   "source_id": null,
+   "text": "Same amount, every week.\nSome weeks more sats, some weeks fewer.\nThat's the whole mechanic.",
+   "theme": "dca mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Proof of work isn't a slogan.\n\nIt's electricity turned into math nobody can fake.",
+    "headline": "Electricity turned into math.",
+    "purpose": "Give proof of work a tangible, non-jargon visual explanation.",
+    "suggestion_id": "S12",
+    "target_feeling": "a moment of respect for what actually secures the network",
+    "visual_direction": "Single prop: a plug icon on the left transitioning into a hash symbol (#) on the right, connected by a thin orange line, nothing else on the canvas. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "product claims"
+   ],
+   "id": "S12",
+   "rationale": "Proof of work vs proof of stake is a recurring high performer in the archive, so this gives the same debate a physical, mechanic-first angle instead of the trust-in-people line already used twice.",
+   "source_id": null,
+   "text": "Proof of work isn't a slogan.\nIt's electricity turned into math nobody can fake.",
+   "theme": "proof of work",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "21 million Bitcoin.\n\nNo committee can vote for more.",
+    "headline": "21 million. No committee.",
+    "purpose": "Reinforce Bitcoin's fixed supply as a simple, verified fact.",
+    "suggestion_id": "S13",
+    "target_feeling": "a sense of certainty in a fixed rule nobody can change",
+    "visual_direction": "Simple capped bar chart: one horizontal bar filled fully to a hard stop marked with a small cap or wall shape at the end, nothing beyond it. Orange fills the bar. No numbers other than the headline. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S13",
+   "rationale": "The archive leans on sound-money and anti-debasement framing (the trillions/counterfeit tweet), so this takes the same skepticism-of-institutions theme and grounds it in the fixed supply mechanic instead.",
+   "source_id": null,
+   "text": "21 million Bitcoin.\nNo committee can vote for more.",
+   "theme": "scarcity",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin doesn't reward guessing the top or the bottom.\n\nIt rewards showing up.",
+    "headline": "It rewards showing up.",
+    "purpose": "Make the case for patience over timing without implying any guaranteed outcome.",
+    "suggestion_id": "S14",
+    "target_feeling": "settled, less tempted to time the market",
+    "visual_direction": "Comparison of two lines: a jagged, erratic scribble line on the left labeled nothing, a smooth flat dotted line on the right, same length. Orange used only on the flat line. No price axis or numbers. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "past-performance claims"
+   ],
+   "id": "S14",
+   "rationale": "Zoom-out and long-term conviction language recurs across the archive's strongest posts, so this reframes patience as a behavior rather than a market call.",
+   "source_id": null,
+   "text": "Bitcoin doesn't reward guessing the top or the bottom.\nIt rewards showing up.",
+   "theme": "patience",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Some hobbies need a garage.\n\nThis one just needs a wallet and some patience.",
+    "headline": "Just a wallet and patience.",
+    "purpose": "Close on a light, relatable note about what holding Bitcoin actually requires day to day.",
+    "suggestion_id": "S15",
+    "target_feeling": "a small, warm laugh of recognition",
+    "visual_direction": "Single prop centered on white: a plain physical wallet, closed, photographed from above, nothing else in frame. Orange appears only in the headline type. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S15",
+   "rationale": "The hobbies and feed-full-of-bitcoin posts show light lifestyle humor lands well, so this gives the same community-in-jokes theme a fresh, self-custody-adjacent punchline.",
+   "source_id": null,
+   "text": "Some hobbies need a garage.\nThis one just needs a wallet and some patience.",
+   "theme": "lifestyle humor",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W39"
+}
