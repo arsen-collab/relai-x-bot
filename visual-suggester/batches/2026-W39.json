@@ -1,0 +1,224 @@
+{
+ "batch_file": "visual-suggester/batches/2026-W39.md",
+ "board_snapshot": {
+  "concept_count": 47,
+  "newest": "2026-09-09"
+ },
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "concepts": [
+  {
+   "caption": "Mt. Gox, 2014. QuadrigaCX, 2019. FTX, 2022. Celsius, 2022. Different names, same lesson: if you don't hold your own keys, you don't hold your own Bitcoin.",
+   "compliance": "unapproved",
+   "flags": [
+    "Names of failed exchanges appear as text; confirm this doesn't read as a broker/exchange comparison under the hard rule"
+   ],
+   "format": "timeline",
+   "headline": "A history lesson in self-custody.",
+   "id": "V01",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"180\" font-family=\"sans-serif\" font-size=\"56\" fill=\"#3D3D3D\" text-anchor=\"middle\">A history lesson in self-custody.</text><line x1=\"150\" y1=\"650\" x2=\"930\" y2=\"650\" stroke=\"#111111\" stroke-width=\"4\"/><g font-family=\"sans-serif\" font-size=\"24\" fill=\"#3D3D3D\" text-anchor=\"middle\"><g><rect x=\"188\" y=\"610\" width=\"24\" height=\"18\" fill=\"#3D3D3D\"/><path d=\"M190 610 A10 10 0 0 1 210 610\" fill=\"none\" stroke=\"#3D3D3D\" stroke-width=\"3\"/><path d=\"M195 604 L205 604\" stroke=\"#FFFFFF\" stroke-width=\"3\"/><text x=\"200\" y=\"700\">2013</text></g><g><rect x=\"448\" y=\"610\" width=\"24\" height=\"18\" fill=\"#3D3D3D\"/><path d=\"M450 610 A10 10 0 0 1 470 610\" fill=\"none\" stroke=\"#3D3D3D\" stroke-width=\"3\"/><path d=\"M455 604 L465 604\" stroke=\"#FFFFFF\" stroke-width=\"3\"/><text x=\"460\" y=\"700\">2017</text></g><g><rect x=\"708\" y=\"610\" width=\"24\" height=\"18\" fill=\"#3D3D3D\"/><path d=\"M710 610 A10 10 0 0 1 730 610\" fill=\"none\" stroke=\"#3D3D3D\" stroke-width=\"3\"/><path d=\"M715 604 L725 604\" stroke=\"#FFFFFF\" stroke-width=\"3\"/><text x=\"720\" y=\"700\">2021</text></g><g><rect x=\"908\" y=\"610\" width=\"24\" height=\"18\" fill=\"#3D3D3D\"/><path d=\"M910 610 A10 10 0 0 1 930 610\" fill=\"none\" stroke=\"#3D3D3D\" stroke-width=\"3\"/><path d=\"M915 604 L925 604\" stroke=\"#FFFFFF\" stroke-width=\"3\"/><text x=\"920\" y=\"700\">2024</text></g></g><rect x=\"972\" y=\"1290\" width=\"70\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Self-custody made simple: how Relai protects your Bitcoin",
+   "needs_check": [
+    "Exact collapse years for Mt. Gox, QuadrigaCX, FTX, Celsius",
+    "Confirm icons stay generic, no depiction of any real exchange logo or trademark"
+   ],
+   "novelty": "Turns the general self-custody explainer into a concrete dated timeline of real collapses rather than a feature-explainer carousel.",
+   "purpose": "Use real exchange failure history to reinforce the self-custody message.",
+   "rationale": "Strong archive evidence, and a proven format, differentiated from the four existing timelines by subject.",
+   "shape": "single image",
+   "source_kind": "archive theme",
+   "source_ref": "Theme: exchange failures make the case for self-custody, evidenced by the archive item 'Self-custody made simple: how Relai protects your Bitcoin' and the repeated NOT YOUR KEYS lines across the approved copy pool.",
+   "subject": "exchange collapses argue for self-custody",
+   "target_feeling": "Sober realization that moves into resolve.",
+   "visual_direction": "Four simple flat markers on a single horizontal line, a generic broken-padlock icon at each point, year printed underneath. Orange accent on the connecting line only. No exchange logos, generic icons only. Logo bottom right."
+  },
+  {
+   "caption": "If you hold 0.2 Bitcoin, you already have more savings than most Europeans. Keep stacking.",
+   "compliance": "unapproved",
+   "flags": [
+    "Marketing comparison claim, verify the underlying savings figure before shipping",
+    "savings terminology"
+   ],
+   "format": "big_number",
+   "headline": "0.2 BTC",
+   "id": "V02",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"620\" font-family=\"sans-serif\" font-size=\"160\" text-anchor=\"middle\"><tspan fill=\"#111111\">0.2</tspan><tspan fill=\"#3D3D3D\" dx=\"20\">BTC</tspan></text><text x=\"540\" y=\"720\" font-family=\"sans-serif\" font-size=\"34\" fill=\"#3D3D3D\" text-anchor=\"middle\">a common first purchase size</text><rect x=\"972\" y=\"1290\" width=\"70\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Instagram post: Relai users are buying (bear market conviction)",
+   "needs_check": [
+    "Confirm 0.2 BTC still supports the 'more savings than most Europeans' comparison at current BTC price",
+    "Source of the underlying average-European-savings figure"
+   ],
+   "novelty": "Centers a specific numeral milestone rather than a conviction phrase, and uses a different framing (holding size vs market behavior).",
+   "purpose": "Reinforce an accumulation milestone using pre-approved copy.",
+   "rationale": "Big_number is underused on the board and this reuses an already-approved line with a fresh numeral treatment.",
+   "shape": "single image",
+   "source_kind": "evergreen line",
+   "source_ref": "\"If you have 0.2 Bitcoin, you already have more savings than most Europeans. Keep stacking.\" (approved copy pool)",
+   "subject": "0.2 Bitcoin savings milestone",
+   "target_feeling": "Quiet pride and motivation to keep going.",
+   "visual_direction": "Giant numeral '0.2 BTC' centered, the '0.2' in Relai orange. One short line beneath in normal weight, no chart, no icon. Plain background, generous white space, logo bottom right."
+  },
+  {
+   "caption": "In 2016, a month of rent in Zurich cost about [X] BTC. In 2026, it costs about [Y] BTC. Rent went up. Bitcoin's purchasing power tells a different story. Figures to be confirmed before publish.",
+   "compliance": "unapproved",
+   "flags": [
+    "Historical data only; confirm final copy cannot be read as implying future price movement"
+   ],
+   "format": "then_now",
+   "headline": "One month of rent, in Bitcoin.",
+   "id": "V03",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"160\" font-family=\"sans-serif\" font-size=\"54\" fill=\"#3D3D3D\" text-anchor=\"middle\">One month of rent, in Bitcoin.</text><g stroke=\"#3D3D3D\" stroke-width=\"4\" fill=\"none\"><circle cx=\"540\" cy=\"330\" r=\"30\"/><line x1=\"540\" y1=\"360\" x2=\"540\" y2=\"420\"/><line x1=\"540\" y1=\"400\" x2=\"565\" y2=\"400\"/><line x1=\"540\" y1=\"415\" x2=\"575\" y2=\"415\"/></g><text x=\"350\" y=\"560\" font-family=\"sans-serif\" font-size=\"40\" fill=\"#3D3D3D\" text-anchor=\"middle\">2015</text><text x=\"730\" y=\"560\" font-family=\"sans-serif\" font-size=\"40\" fill=\"#3D3D3D\" text-anchor=\"middle\">2024</text><text x=\"350\" y=\"650\" font-family=\"sans-serif\" font-size=\"46\" fill=\"#3D3D3D\" text-anchor=\"middle\">1.2 BTC</text><text x=\"730\" y=\"650\" font-family=\"sans-serif\" font-size=\"46\" fill=\"#111111\" text-anchor=\"middle\">0.05 BTC</text><rect x=\"972\" y=\"1290\" width=\"70\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Burger priced in BTC: 2016 vs 2026",
+   "needs_check": [
+    "Verified average Zurich rent figure for 2016",
+    "Verified average Zurich rent figure for 2026 or most recent year available",
+    "BTC/CHF price at both dates from Relai's own data, not approximated"
+   ],
+   "novelty": "Same two-point-in-time mechanic but a bigger, more relatable Swiss expense (rent) instead of a fast-food item, and the format's first dedicated entry.",
+   "purpose": "Illustrate a decade of Bitcoin purchasing power against a relatable Swiss cost of living.",
+   "rationale": "Then_now has zero entries despite being a proven mechanic, and a Swiss housing angle supports the Swiss-made positioning.",
+   "shape": "single image",
+   "source_kind": "net new",
+   "source_ref": "No archive precedent for this exact subject; original idea to fill the currently empty then_now slot with a Swiss-relevant expense.",
+   "subject": "Zurich rent priced in Bitcoin",
+   "target_feeling": "Long-term perspective, a 'zoom out' moment.",
+   "visual_direction": "Two-column then/now layout, '2016' and '2026' labels, a single simple house-key icon centered above the columns, BTC amount printed under each side in plain type, orange accent on the 2026 figure only. No banknote or currency imagery. Logo bottom right."
+  },
+  {
+   "caption": "It's too late. It's too risky. I don't have enough money. It's not backed by anything. I'll wait for a dip. Five things people say right before they change their mind. Swipe for the answers.",
+   "compliance": "unapproved",
+   "flags": [
+    "Ensure rebuttal lines stay educational and do not cross into investment advice"
+   ],
+   "format": "myth_rebuttal",
+   "headline": "5 things people say before they buy Bitcoin",
+   "id": "V04",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"500\" font-family=\"sans-serif\" font-size=\"58\" fill=\"#3D3D3D\" text-anchor=\"middle\">5 things people say</text><text x=\"540\" y=\"570\" font-family=\"sans-serif\" font-size=\"58\" fill=\"#3D3D3D\" text-anchor=\"middle\">before they buy Bitcoin</text><text x=\"300\" y=\"750\" font-family=\"sans-serif\" font-size=\"90\" fill=\"#111111\">\\u201C</text><text x=\"760\" y=\"750\" font-family=\"sans-serif\" font-size=\"90\" fill=\"#111111\">\\u201D</text><g fill=\"#BFBFBF\"><circle cx=\"480\" cy=\"1250\" r=\"8\"/><circle cx=\"510\" cy=\"1250\" r=\"8\"/><circle cx=\"540\" cy=\"1250\" r=\"8\"/><circle cx=\"570\" cy=\"1250\" r=\"8\"/><circle cx=\"600\" cy=\"1250\" r=\"8\"/></g><rect x=\"972\" y=\"1290\" width=\"70\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "5 Bitcoin misconceptions — debunked",
+   "needs_check": [
+    "Each rebuttal line must be checked so it does not read as financial advice",
+    "Confirm none of the five objections duplicates content already used in the shipped misconceptions carousel"
+   ],
+   "novelty": "Focuses on personal hesitation phrases a friend or family member might actually say, distinct content from the shipped carousel's general misconceptions about how Bitcoin works.",
+   "purpose": "Address common personal hesitations before a first purchase in a familiar carousel format.",
+   "rationale": "Myth_rebuttal performs well and has only two entries; this uses a distinct angle from what has already shipped.",
+   "shape": "carousel",
+   "source_kind": "archive theme",
+   "source_ref": "Theme: hesitation phrases voiced by prospects, evidenced by approved lines such as 'My family is asking me if it's too late to buy Bitcoin' and 'If you are under 30 and have no Bitcoin, prepare to work until your grave.'",
+   "subject": "objections people voice before buying",
+   "target_feeling": "Reassurance, a fair worry met with a simple, calm answer.",
+   "visual_direction": "Consistent template across slides, the objection in quotes on a colored block, the answer directly underneath in plain type. One accent color used only on the quotation marks. Generous white space, logo bottom right on the cover slide."
+  },
+  {
+   "caption": "Real reviews from Relai users on what it means to hold their own Bitcoin. Quoted exactly, nothing added, source linked on each slide.",
+   "compliance": "unapproved",
+   "flags": [
+    "Cannot proceed to build until matching real reviews are sourced and verified; do not fabricate quotes"
+   ],
+   "format": "testimonial",
+   "headline": "What self-custody feels like, in their words.",
+   "id": "V05",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"200\" font-family=\"sans-serif\" font-size=\"52\" fill=\"#3D3D3D\" text-anchor=\"middle\">What self-custody feels like,</text><text x=\"540\" y=\"260\" font-family=\"sans-serif\" font-size=\"52\" fill=\"#3D3D3D\" text-anchor=\"middle\">in their words.</text><text x=\"300\" y=\"600\" font-family=\"sans-serif\" font-size=\"100\" fill=\"#111111\">\\u201C</text><line x1=\"330\" y1=\"640\" x2=\"750\" y2=\"640\" stroke=\"#BFBFBF\" stroke-width=\"3\"/><line x1=\"330\" y1=\"690\" x2=\"700\" y2=\"690\" stroke=\"#BFBFBF\" stroke-width=\"3\"/><text x=\"760\" y=\"750\" font-family=\"sans-serif\" font-size=\"100\" fill=\"#111111\">\\u201D</text><text x=\"330\" y=\"820\" font-family=\"sans-serif\" font-size=\"30\" fill=\"#3D3D3D\">Name, Country</text><g fill=\"#BFBFBF\"><circle cx=\"480\" cy=\"1250\" r=\"8\"/><circle cx=\"510\" cy=\"1250\" r=\"8\"/><circle cx=\"540\" cy=\"1250\" r=\"8\"/><circle cx=\"570\" cy=\"1250\" r=\"8\"/><circle cx=\"600\" cy=\"1250\" r=\"8\"/></g><rect x=\"972\" y=\"1290\" width=\"70\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Review of the week — Carousel (EN)",
+   "needs_check": [
+    "Source at least three to five real published reviews that specifically mention self-custody or holding one's own keys",
+    "Exact quote text and source URL for each review",
+    "Reviewer name and country as published, not paraphrased"
+   ],
+   "novelty": "A themed, one-off curation around the self-custody experience rather than the existing recurring weekly slot.",
+   "purpose": "Build trust through authentic user voice curated specifically around the self-custody experience.",
+   "rationale": "Testimonial format is proven but underused, and a themed cut gives it a fresh angle without duplicating the recurring slot.",
+   "shape": "carousel",
+   "source_kind": "format rerun",
+   "source_ref": "Testimonial format, rerun of 'Review of the week' but curated by theme (self-custody) instead of a generic weekly rotation.",
+   "subject": "reviews about the feeling of self-custody",
+   "target_feeling": "Trust and warmth through genuine social proof.",
+   "visual_direction": "Same template as the existing testimonial carousel: one review per slide, name and country beneath the quote, orange accent on the quotation marks only. Logo bottom right on the cover slide."
+  },
+  {
+   "caption": "This is Relai's auto-invest plan. Choose an amount and a frequency, and Bitcoin lands in your self-custodial wallet automatically. Turn it off anytime.",
+   "compliance": "unapproved",
+   "flags": [
+    "Savings terminology: confirm the copy and screen describe recurring purchase behavior only, with no interest, yield, or safety-guarantee language, and that any required risk disclaimer is visible pre-purchase"
+   ],
+   "format": "phone_mockup",
+   "headline": "Set it once. Let it run.",
+   "id": "V06",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"200\" font-family=\"sans-serif\" font-size=\"56\" fill=\"#3D3D3D\" text-anchor=\"middle\">Set it once. Let it run.</text><rect x=\"390\" y=\"320\" width=\"300\" height=\"620\" rx=\"40\" fill=\"none\" stroke=\"#3D3D3D\" stroke-width=\"4\"/><rect x=\"420\" y=\"380\" width=\"240\" height=\"30\" rx=\"6\" fill=\"#BFBFBF\"/><rect x=\"420\" y=\"430\" width=\"240\" height=\"30\" rx=\"6\" fill=\"#BFBFBF\"/><rect x=\"420\" y=\"480\" width=\"240\" height=\"30\" rx=\"6\" fill=\"#BFBFBF\"/><rect x=\"420\" y=\"820\" width=\"240\" height=\"60\" rx=\"10\" fill=\"#111111\"/><rect x=\"972\" y=\"1290\" width=\"70\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "App update announcement – faster verification (IG)",
+   "needs_check": [
+    "Confirm the screen shown is the current live UI version",
+    "Confirm the screen itself uses the external term 'auto-invest plan', not any internal name"
+   ],
+   "novelty": "An evergreen feature explainer for the auto-invest plan flow itself, not tied to a version bump or update announcement.",
+   "purpose": "Showcase the auto-invest plan mechanic through the real product screen as an evergreen feature explainer.",
+   "rationale": "Phone_mockup has only one entry and has so far only been used for announcements; an evergreen version fills a real gap.",
+   "shape": "single image",
+   "source_kind": "net new",
+   "source_ref": "Product feature explainer with no direct archive precedent for this specific screen, distinct from the update-announcement uses of phone_mockup already shipped.",
+   "subject": "auto-invest plan setup screen",
+   "target_feeling": "Simplicity, the sense that setup takes ten seconds.",
+   "visual_direction": "One phone mockup showing the current auto-invest plan setup screen, headline set above the phone. Plain background, generous white space around the device, orange used only where it already appears in the app's own interface. Logo bottom right."
+  },
+  {
+   "caption": "Self-custody means you hold your own keys, not an exchange. There is no perfect moment to move Bitcoin off a platform, only sooner or later. Some people choose to do it right after they buy.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "type_only",
+   "headline": "Self-custody your Bitcoin. Not tomorrow. Now.",
+   "id": "V07",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"500\" font-family=\"sans-serif\" font-size=\"48\" fill=\"#3D3D3D\" text-anchor=\"middle\">Self-custody your Bitcoin.</text><text x=\"540\" y=\"620\" font-family=\"sans-serif\" font-size=\"72\" fill=\"#111111\" text-anchor=\"middle\">Not tomorrow.</text><text x=\"540\" y=\"780\" font-family=\"sans-serif\" font-size=\"120\" fill=\"#111111\" text-anchor=\"middle\">Now.</text><rect x=\"972\" y=\"1290\" width=\"70\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Businesses Want Bitcoin - Relai Business social proof",
+   "needs_check": [],
+   "novelty": "That board item is a five-line checklist for business social proof. This is a single urgency line about individual self-custody, built as escalating type weight, no list structure.",
+   "purpose": "Reinforce self-custody as an action to take immediately, using a line already cleared for use.",
+   "rationale": "Type_only has shipped only once despite being the cheapest format to build, and this line is already compliance-approved, so the only open question is the picture.",
+   "shape": "single image",
+   "source_kind": "evergreen line",
+   "source_ref": "\"Self-custody your Bitcoin. Not tomorrow. Now.\" (approved copy pool)",
+   "subject": "self-custody urgency, no delay",
+   "target_feeling": "Quiet conviction and a nudge to act, not pressure or fear.",
+   "visual_direction": "Pure type treatment, three stacked lines with escalating weight and size. 'Not tomorrow' and 'Now' carry the single orange accent, everything else black on white. Generous white space around the block, no icons, no imagery. Logo bottom right."
+  },
+  {
+   "caption": "Bitcoin's supply is fixed at 21 million coins, a rule written into its code since 2009. There are more than 8 billion people on Earth. Some call this the hardest form of scarcity ever built into money.",
+   "compliance": "unapproved",
+   "flags": [
+    "past performance"
+   ],
+   "format": "big_number",
+   "headline": "That's all there will ever be.",
+   "id": "V08",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"600\" font-family=\"sans-serif\" font-size=\"120\" fill=\"#111111\" text-anchor=\"middle\">21,000,000</text><text x=\"540\" y=\"700\" font-family=\"sans-serif\" font-size=\"42\" fill=\"#3D3D3D\" text-anchor=\"middle\">That's all there will ever be.</text><rect x=\"972\" y=\"1290\" width=\"70\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Instagram post: Relai users are buying (bear market conviction)",
+   "needs_check": [
+    "Current world population figure (8 billion+), confirm it still holds and is phrased as approximate, not exact",
+    "Phrasing that 21 million cap has been fixed 'since 2009', confirm this is how Relai's compliance-approved materials describe Bitcoin's genesis and supply schedule"
+   ],
+   "novelty": "That item uses a Relai usage metric tied to a bear market moment. This uses Bitcoin's fixed protocol supply as a timeless, non-market fact, no conviction-during-a-dip framing.",
+   "purpose": "Turn a well-known scarcity fact into a big number visual, anchoring the account's education framing.",
+   "rationale": "Big_number has shipped only once despite two of the archive's stronger-performing posts being built on exactly this fact, a natural and low-risk fit for the format.",
+   "shape": "single image",
+   "source_kind": "archive theme",
+   "source_ref": "21 million scarcity theme, evidenced by X posts 'Rumors on the street that there are only 21 million bitcoin' (257 likes) and 'There will only ever be 21 million Bitcoin. There are over 8 billion people in the world.' (132 likes)",
+   "subject": "21 million Bitcoin supply cap",
+   "target_feeling": "Quiet awe at the scale of the number, not urgency to buy.",
+   "visual_direction": "The numeral 21,000,000 set at display size, centered, in the single orange accent color. The headline sits below it in a smaller, neutral weight. Nothing else in frame, no chart, no icon. Wide margins. Logo bottom right."
+  }
+ ],
+ "dropped_count": 2,
+ "generated_at": "2026-09-22 12:03 CEST",
+ "mock_palette_is_placeholder": true,
+ "status": "unreviewed",
+ "week": "2026-W39"
+}
