@@ -1,0 +1,296 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W40.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 0,
+ "generated_at": "2026-09-28 13:04 CEST",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "Owning Bitcoin isn't a sprint. It's the slowest kind of winning you'll ever feel.",
+    "headline": "The slowest kind of winning.",
+    "purpose": "Reinforce the long-term, patient nature of holding Bitcoin as a feeling rather than a strategy.",
+    "suggestion_id": "S01",
+    "target_feeling": "Calm, steady conviction, not urgency.",
+    "visual_direction": "One device: a long, stretched horizontal line spanning almost the full width, flat for most of its length with a single small upward tick at the very end. No price chart framing, no axis labels. Line in Relai orange on white. Logo bottom right. Avoid anything resembling a candlestick or price chart."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "guaranteed outcome"
+   ],
+   "id": "S01",
+   "rationale": "The original 'winning in slow motion' post pulled a strong repost share for its size, so the zoom-out framing clearly resonates.",
+   "source_id": "1855314914493235255",
+   "text": "Owning Bitcoin isn't a sprint.\nIt's the slowest kind of winning you'll ever feel.",
+   "theme": "zoom out conviction",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Every trusted third party is a single point of failure. That's why we hold our own keys.",
+    "headline": "One point of failure.",
+    "purpose": "Explain the reasoning behind self-custody in one sharp comparison.",
+    "suggestion_id": "S02",
+    "target_feeling": "Clear-headed, quietly resolute.",
+    "visual_direction": "One device: two-column text comparison. Left column: 'Trust someone' in gray. Right column: 'Hold your own keys' in Relai orange, bolder weight. No icons, no key illustrations. Generous space between columns. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S02",
+   "rationale": "The original Satoshi-quote line performed solidly for a self-custody post, worth restating in plain language.",
+   "source_id": "1902700148238745963",
+   "text": "Every trusted third party is a single point of failure.\nThat's why we hold our own keys.",
+   "theme": "self-custody",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "It's never too late to start Bitcoin. Same as it's never too late to start eating healthy.",
+    "headline": "Never too late to start.",
+    "purpose": "Normalize starting Bitcoin at any point in life through a relatable analogy.",
+    "suggestion_id": "S03",
+    "target_feeling": "Reassuring, no pressure.",
+    "visual_direction": "One device: two parallel text lines stacked, same typographic treatment, only the subject word ('Bitcoin' / 'eating healthy') swapped. One of the two words set in Relai orange. No food or coin imagery. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "This analogy drew strong engagement in the archive, kept here while dropping the price-cycle line it originally closed on.",
+   "source_id": "1834978412018253930",
+   "text": "It's never too late to start Bitcoin.\nSame as it's never too late to start eating healthy.",
+   "theme": "never too late",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin might be the deepest rabbit hole you'll ever fall into. Most people never climb back out.",
+    "headline": "The deepest rabbit hole.",
+    "purpose": "Capture the pull of going deep into Bitcoin education, with a slight warning tone.",
+    "suggestion_id": "S04",
+    "target_feeling": "Intrigued, a little haunted.",
+    "visual_direction": "One device: a simple abstract spiral made of thin concentric rings, narrowing toward a single orange center point. Pure geometry, no character or illustration. Plenty of white space around it. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "The rabbit hole metaphor landed well with the more Bitcoin-literate X audience, so it's worth a cleaner version.",
+   "source_id": "1691505280520175617",
+   "text": "Bitcoin might be the deepest rabbit hole you'll ever fall into.\nMost people never climb back out.",
+   "theme": "bitcoin rabbit hole",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Explaining Bitcoin to a skeptic isn't always easy. We put together our favorite explainers, in English and German. Use them however you like.",
+    "headline": "Bitcoin, explained simply.",
+    "purpose": "Point people to Relai's explainer resources for talking to Bitcoin skeptics.",
+    "suggestion_id": "S05",
+    "target_feeling": "Helpful, practical, low pressure.",
+    "visual_direction": "One device: a small stack of three flat index-card shapes, slightly offset, each with a short unreadable title bar to suggest a resource list. Top card edge in Relai orange. No text needs to be legible. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S05",
+   "rationale": "The original open-source explainer post had one of the highest repost counts in the archive, showing demand for shareable education material.",
+   "source_id": "1648740801780776972",
+   "text": "Explaining Bitcoin to a skeptic isn't always easy.\nWe put together our favorite explainers, in English and German.\nUse them however you like.",
+   "theme": "educational resources",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "No matter how much Bitcoin you own, it never feels like enough.",
+    "headline": "Never feels like enough.",
+    "purpose": "Name the psychological trap of scarcity thinking around Bitcoin ownership.",
+    "suggestion_id": "S06",
+    "target_feeling": "Wry self-recognition.",
+    "visual_direction": "One device: two large numbers side by side, one small and one large, both followed by the same small gray label 'still not enough' underneath. Numbers in black, label in gray, no orange on the numbers themselves, orange used only as a thin underline beneath both. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "A recent, well-liked post for its size, the line travels well with a small clarity edit.",
+   "source_id": "2014012938592412069",
+   "text": "No matter how much Bitcoin you own, it never feels like enough.",
+   "theme": "scarcity mindset",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "How long do you plan to hold your Bitcoin? 1 year. 10 years. Forever.",
+    "headline": "How long will you hold?",
+    "purpose": "Prompt reflection on personal time horizon for holding Bitcoin.",
+    "suggestion_id": "S07",
+    "target_feeling": "Personal, a little challenging.",
+    "visual_direction": "One device: a simple vertical list of three lines, '1 year', '10 years', 'Forever', each with a small checkbox-style mark to the left. Only the 'Forever' checkbox filled in Relai orange, the other two empty outlines. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S07",
+   "rationale": "One of the highest-liked posts in the archive, the open engagement question format clearly works for this audience.",
+   "source_id": "1453766166791479304",
+   "text": "How long do you plan to hold your Bitcoin?\n1 year\n10 years\nForever",
+   "theme": "holding period",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Confession: I've been buying Bitcoin every single day for the last 3 years. No plans to stop.",
+    "headline": "Every single day.",
+    "purpose": "Show the consistency of a daily DCA habit through a personal, informal confession.",
+    "suggestion_id": "S08",
+    "target_feeling": "Quiet pride, habitual discipline.",
+    "visual_direction": "One device: a small grid of dots resembling a streak or contribution calendar, all dots filled solid in Relai orange, no gaps, no labels. Grid sits small and centered with generous white space around it. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S08",
+   "rationale": "The original 'coinfession' post was one of the best performing in the archive, rebuilt here around the actual DCA habit instead of the reversed joke.",
+   "source_id": "1740781725893226879",
+   "text": "Confession: I've been buying Bitcoin every single day for the last 3 years.\nNo plans to stop.",
+   "theme": "daily dca habit",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Relai is where your spare fiat goes to become Bitcoin. We'll happily take it.",
+    "headline": "Where spare fiat goes.",
+    "purpose": "Use light brand humor to describe what Relai does in plain terms.",
+    "suggestion_id": "S09",
+    "target_feeling": "Playful, self-aware.",
+    "visual_direction": "One device: a single typographic arrow treatment, 'fiat' in gray on the left, an arrow in Relai orange pointing right, 'Bitcoin' in black on the right. No coin or cash icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "The 'trash can for fiat' post got a healthy repost share, kept here with the mechanic made a bit sharper.",
+   "source_id": "1916816916796117155",
+   "text": "Relai is where your spare fiat goes to become Bitcoin.\nWe'll happily take it.",
+   "theme": "brand humor",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Proof of work asks you to check the math, not trust a person. Self-custody is the same idea. Hold your own keys and verify for yourself.",
+    "headline": "Check the math. Not the person.",
+    "purpose": "Connect the logic of proof of work to the logic of self-custody.",
+    "suggestion_id": "S10",
+    "target_feeling": "Intellectually satisfying, grounded.",
+    "visual_direction": "One device: two-word comparison stacked, 'Trust' crossed out in gray above, 'Verify' in Relai orange below, larger weight. No equation symbols, no icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "Extends the recurring math vs trust theme from the archive into the equally recurring self-custody idea, giving it a fresh angle instead of repeating the PoW vs PoS line.",
+   "source_id": null,
+   "text": "Proof of work asks you to check the math, not trust a person.\nSelf-custody is the same idea. Hold your own keys and verify for yourself.",
+   "theme": "proof of work self-custody",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "DCA doesn't try to time anything. It just buys the same amount, on the same day, no matter what the price is doing.",
+    "headline": "Same amount. Same day.",
+    "purpose": "Show the mechanic of DCA plainly: same amount, regular schedule, regardless of price.",
+    "suggestion_id": "S11",
+    "target_feeling": "Steady, mechanical reassurance.",
+    "visual_direction": "One device: a row of evenly spaced bars, all exactly the same height, sitting on a plain baseline with no axis values or price line. Bars in Relai orange, baseline in thin gray. Avoid anything that reads as a price chart. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "Builds on the archive's recurring consistency and zoom-out framing by showing the actual mechanic rather than an outcome.",
+   "source_id": null,
+   "text": "DCA doesn't try to time anything.\nIt just buys the same amount, on the same day, no matter what the price is doing.",
+   "theme": "dca mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "The rabbit hole isn't about getting rich. It's about understanding money for the first time in your life.",
+    "headline": "Understanding money, finally.",
+    "purpose": "Reframe the Bitcoin learning journey as being about understanding money, not wealth.",
+    "suggestion_id": "S12",
+    "target_feeling": "Reflective, quietly profound.",
+    "visual_direction": "One device: the word 'rich' with a single strikethrough line in gray, directly above the word 'understand' in Relai orange, same size and alignment. No other elements. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S12",
+   "rationale": "Takes the recurring rabbit-hole and orange-pilling theme and reframes the motivation away from wealth toward understanding.",
+   "source_id": null,
+   "text": "The rabbit hole isn't about getting rich.\nIt's about understanding money for the first time in your life.",
+   "theme": "education rabbit hole",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Owning Bitcoin isn't a flex. It's opting out of a system you never chose in the first place.",
+    "headline": "Opting out, not flexing.",
+    "purpose": "Frame self-custody as a rejection of an imposed system rather than a status symbol.",
+    "suggestion_id": "S13",
+    "target_feeling": "Defiant but calm.",
+    "visual_direction": "One device: the word 'Flex' with a strikethrough in gray, stacked above 'Opt out' in Relai orange, matching weight and size. No icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "system framing could read as broader institutional critique"
+   ],
+   "id": "S13",
+   "rationale": "Reworks the recurring flex and status framing from the archive into a self-custody angle instead of a comparison to other assets.",
+   "source_id": null,
+   "text": "Owning Bitcoin isn't a flex.\nIt's opting out of a system you never chose in the first place.",
+   "theme": "self-custody ownership",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "You don't need permission to start learning about Bitcoin. No sign up, no waitlist, no gatekeeper.",
+    "headline": "No sign up. No gatekeeper.",
+    "purpose": "Emphasize that learning about Bitcoin requires no permission or gatekeeping.",
+    "suggestion_id": "S14",
+    "target_feeling": "Freeing, direct.",
+    "visual_direction": "One device: a vertical list of three short phrases, 'No sign up', 'No waitlist', 'No gatekeeper', each preceded by a small dash. Last line set in Relai orange, other two in black. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S14",
+   "rationale": "Continues the archive's orange-pilling and education thread, shifting focus from persuading others to open access for the reader.",
+   "source_id": null,
+   "text": "You don't need permission to start learning about Bitcoin.\nNo sign up, no waitlist, no gatekeeper.",
+   "theme": "self-directed learning",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Most people don't remember the day they bought their first Bitcoin. They remember the day it finally made sense.",
+    "headline": "The day it made sense.",
+    "purpose": "Contrast the moment of buying Bitcoin with the moment it starts to make sense.",
+    "suggestion_id": "S15",
+    "target_feeling": "Nostalgic, clarifying.",
+    "visual_direction": "One device: two-panel type comparison side by side, left panel label 'Day you bought' in gray, right panel label 'Day it clicked' in Relai orange, both same size. No dates or icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S15",
+   "rationale": "Extends the recurring skeptic-to-believer arc from the archive without a price signal, putting the turning point on understanding instead.",
+   "source_id": null,
+   "text": "Most people don't remember the day they bought their first Bitcoin.\nThey remember the day it finally made sense.",
+   "theme": "education conviction",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W40"
+}
