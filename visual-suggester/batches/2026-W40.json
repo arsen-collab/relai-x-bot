@@ -1,0 +1,208 @@
+{
+ "batch_file": "visual-suggester/batches/2026-W40.md",
+ "board_snapshot": {
+  "concept_count": 47,
+  "newest": "2026-09-09"
+ },
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "concepts": [
+  {
+   "caption": "A simple weekly Bitcoin purchase, tracked year by year using Relai's own backtest data. This is a backward looking example, not a forecast. Past results do not guarantee future ones.",
+   "compliance": "unapproved",
+   "flags": [
+    "MiCA past-performance framing: disclaimer wording needs compliance sign-off before this is finalized"
+   ],
+   "format": "step_compounding",
+   "headline": "€25 a week. Watch it add up.",
+   "id": "V01",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"150\" font-family=\"sans-serif\" font-size=\"56\" fill=\"#3D3D3D\" text-anchor=\"middle\">€25 a week. Watch it add up.</text><text x=\"540\" y=\"600\" font-family=\"sans-serif\" font-size=\"36\" fill=\"#BFBFBF\" text-anchor=\"middle\">TOTAL INVESTED</text><text x=\"540\" y=\"680\" font-family=\"sans-serif\" font-size=\"64\" fill=\"#3D3D3D\" text-anchor=\"middle\">CHF 1'250</text><text x=\"540\" y=\"820\" font-family=\"sans-serif\" font-size=\"36\" fill=\"#BFBFBF\" text-anchor=\"middle\">SATS HELD</text><text x=\"540\" y=\"920\" font-family=\"sans-serif\" font-size=\"84\" fill=\"#111111\" text-anchor=\"middle\">1,234,567</text><circle cx=\"480\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"510\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"540\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"570\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"600\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "3% inflation — what it actually costs you (carousel)",
+   "needs_check": [
+    "Exact historical BTC price at each chosen interval from Relai's backtest tool",
+    "Total sats accumulated at each step",
+    "Confirm the backtest tool covers the chosen time window",
+    "Confirm required past-performance disclaimer wording with compliance"
+   ],
+   "novelty": "That item advances an inflation cost calculation across slides. This one advances a DCA accumulation calculation using Relai's own backtest tool, a different mechanic in the still-unused step_compounding catalog slot.",
+   "purpose": "Demonstrate the DCA mechanic concretely using real historical figures from Relai's backtest tool.",
+   "rationale": "step_compounding is fully unused on the board and is the cleanest way to show DCA mechanics with real numbers instead of a chart, matching the show-the-mechanic principle.",
+   "shape": "carousel",
+   "source_kind": "archive theme",
+   "source_ref": "X post 'I'll start investing when I have more money... €10 in Bitcoin weekly?' (165 likes) evidences appetite for a small recurring amount narrative; the existing carousel '3% inflation, what it actually costs you' shows the step-by-step calculation format already works.",
+   "subject": "Weekly Bitcoin DCA compounding over years",
+   "target_feeling": "Steady, unshowy confidence in consistency, not excitement about price.",
+   "visual_direction": "Same simple running total shown one slide at a time, one number per slide for total invested and total sats held. Identical layout every slide, only the numbers move. Orange accent on the running total only. No chart lines, no icons."
+  },
+  {
+   "caption": "A self-custodial wallet means only you hold the seed phrase that controls your Bitcoin. No exchange, no third party. Keep it safe, and it stays yours alone.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "single_prop",
+   "headline": "HOLD YOUR OWN KEYS",
+   "id": "V02",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"150\" font-family=\"sans-serif\" font-size=\"60\" fill=\"#3D3D3D\" text-anchor=\"middle\">HOLD YOUR OWN KEYS</text><rect x=\"440\" y=\"750\" width=\"200\" height=\"300\" fill=\"#FFFFFF\" stroke=\"#3D3D3D\" stroke-width=\"4\"/><rect x=\"0\" y=\"900\" width=\"1080\" height=\"450\" fill=\"#BFBFBF\"/><path d=\"M540 750 C 520 700, 500 680, 480 650\" stroke=\"#3D3D3D\" stroke-width=\"4\" fill=\"none\"/><path d=\"M540 750 C 560 700, 580 680, 600 650\" stroke=\"#3D3D3D\" stroke-width=\"4\" fill=\"none\"/><circle cx=\"540\" cy=\"640\" r=\"12\" fill=\"#111111\"/><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Your savings are melting",
+   "needs_check": [],
+   "novelty": "Existing single_prop items are all loss or threat metaphors, melting, frozen, hostage, prison. This is the first growth-oriented, positively framed metaphor in the format.",
+   "purpose": "Make the abstract idea of self-custody feel tangible and positive, something you grow rather than something you fear losing.",
+   "rationale": "single_prop has only 2 items on the board and both use a fear tone; a positive-framed version diversifies the emotional register the format currently carries.",
+   "shape": "single image",
+   "source_kind": "net new",
+   "source_ref": "New metaphor chosen to balance the archive's mostly fear-based single_prop metaphors, e.g. melting, frozen, prison bars, with a growth-oriented one.",
+   "subject": "Seed phrase planted like a seed",
+   "target_feeling": "Calm ownership, a quiet sense of planting something that is truly yours.",
+   "visual_direction": "One object: a physical seed phrase backup card, half buried in soil like a planted seed, with a small sprout emerging from one corner. Orange accent limited to the sprout tip. Plain neutral background, no hands, no other props, generous white space."
+  },
+  {
+   "caption": "Zero. That's how much of your Bitcoin Relai ever holds. Self-custodial means your Bitcoin goes straight into your own wallet, never onto our balance sheet.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "big_number",
+   "headline": "0",
+   "id": "V03",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"750\" font-family=\"sans-serif\" font-size=\"400\" fill=\"#111111\" text-anchor=\"middle\">0</text><text x=\"540\" y=\"850\" font-family=\"sans-serif\" font-size=\"32\" fill=\"#BFBFBF\" text-anchor=\"middle\">counterparty risk with self-custody</text><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Instagram post: Relai users are buying (bear market conviction)",
+   "needs_check": [
+    "Confirm the '0 user funds held' claim is still accurate and comfortable to state with no other qualifier on the image"
+   ],
+   "novelty": "Same big_number format, but the figure and message are about the custody model, not user buying behavior, a distinct claim needing its own verification.",
+   "purpose": "Reinforce Relai's self-custodial model with a single, memorable, structural figure rather than a performance claim.",
+   "rationale": "big_number has only 1 item on the board and this line is already compliance-approved copy, so only the visual needs building.",
+   "shape": "single image",
+   "source_kind": "evergreen line",
+   "source_ref": "\"0. That's how much user funds we hold. Thank you for reading.\"",
+   "subject": "Zero user funds held by Relai",
+   "target_feeling": "Trust and reassurance through simplicity.",
+   "visual_direction": "The number 0 alone at maximum display size, centered, in orange. One short line of context beneath it in small type. Nothing else in the frame, generous white space around the number, logo bottom right."
+  },
+  {
+   "caption": "Real reviews from real Relai users, unedited. Read them in their own words.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "testimonial",
+   "headline": "WHAT USERS ARE SAYING",
+   "id": "V04",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"120\" font-family=\"sans-serif\" font-size=\"44\" fill=\"#3D3D3D\" text-anchor=\"middle\">WHAT USERS ARE SAYING</text><text x=\"150\" y=\"480\" font-family=\"sans-serif\" font-size=\"110\" fill=\"#111111\">“</text><text x=\"150\" y=\"620\" font-family=\"sans-serif\" font-size=\"50\" fill=\"#3D3D3D\">Finally a simple way</text><text x=\"150\" y=\"690\" font-family=\"sans-serif\" font-size=\"50\" fill=\"#3D3D3D\">to hold my own Bitcoin.</text><text x=\"150\" y=\"790\" font-family=\"sans-serif\" font-size=\"30\" fill=\"#3D3D3D\">Marco, Switzerland</text><text x=\"150\" y=\"870\" font-family=\"sans-serif\" font-size=\"22\" fill=\"#BFBFBF\">App Store review</text><circle cx=\"480\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"510\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"540\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"570\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Review of the week — Carousel (EN)",
+   "needs_check": [
+    "Source and exact wording of each review to pull from Trustpilot or the App Store, with URLs, none chosen yet",
+    "Confirm the reviews chosen have not appeared in the previous Review of the week carousel"
+   ],
+   "novelty": "Same format, but a fresh set of reviews not yet used, since the format works and social proof needs regular refreshing rather than reinventing.",
+   "purpose": "Rerun the proven testimonial format with a fresh set of reviews to keep social proof current.",
+   "rationale": "Testimonial format is proven and lightly used; refreshing it keeps the strongest social-proof asset from going stale.",
+   "shape": "carousel",
+   "source_kind": "format rerun",
+   "source_ref": "testimonial format, board item 'Review of the week — Carousel (EN)'",
+   "subject": "Real user reviews, new batch",
+   "target_feeling": "Genuine trust built from real voices, not a brand claim.",
+   "visual_direction": "Each slide holds one quoted review in large type, with the reviewer's first name and country underneath in small type, and the source noted small at the bottom. Orange accent only on the quotation mark. Identical layout every slide, logo bottom right."
+  },
+  {
+   "caption": "Set up a recurring Bitcoin purchase in the Relai app once, and it runs on its own from then on, straight into your self-custodial wallet.",
+   "compliance": "unapproved",
+   "flags": [
+    "savings terminology: confirm the auto-invest plan framing describes recurring purchase behavior only, not a product or account claim, per the standing compliance rule"
+   ],
+   "format": "phone_mockup",
+   "headline": "SET IT ONCE. LET IT RUN.",
+   "id": "V05",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"150\" font-family=\"sans-serif\" font-size=\"52\" fill=\"#3D3D3D\" text-anchor=\"middle\">SET IT ONCE. LET IT RUN.</text><rect x=\"390\" y=\"250\" width=\"300\" height=\"600\" rx=\"40\" fill=\"#FFFFFF\" stroke=\"#3D3D3D\" stroke-width=\"6\"/><rect x=\"420\" y=\"300\" width=\"240\" height=\"60\" fill=\"#BFBFBF\"/><rect x=\"420\" y=\"380\" width=\"240\" height=\"60\" fill=\"#BFBFBF\"/><rect x=\"420\" y=\"460\" width=\"240\" height=\"60\" fill=\"#111111\"/><rect x=\"420\" y=\"540\" width=\"240\" height=\"60\" fill=\"#BFBFBF\"/><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "App update announcement – faster verification (IG)",
+   "needs_check": [
+    "Confirm the current, live auto-invest plan setup screen to screenshot matches what ships today"
+   ],
+   "novelty": "Same phone_mockup format and frame, but shows the auto-invest plan setup screen rather than a verification-speed update, a different feature and message.",
+   "purpose": "Show the actual recurring purchase feature simply, driving awareness of the auto-invest mechanic.",
+   "rationale": "phone_mockup has only 1 item on the board and this is a core, always-relevant feature worth a clean screenshot-led asset.",
+   "shape": "single image",
+   "source_kind": "format rerun",
+   "source_ref": "phone_mockup format, board item 'App update announcement – faster verification (IG)'",
+   "subject": "Auto-invest plan setup screen",
+   "target_feeling": "Simplicity, this looks easy to set up and forget.",
+   "visual_direction": "One Relai phone screen showing the auto-invest plan setup flow, centered in a plain phone frame, headline above it. Orange accent used only inside the app screen itself, nothing added outside the frame. No extra icons or props, generous white space."
+  },
+  {
+   "caption": "Five things people get wrong about holding your own Bitcoin, answered plainly. No exchange required, no advanced skills needed.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "myth_rebuttal",
+   "headline": "\"SELF-CUSTODY IS TOO COMPLICATED\"",
+   "id": "V06",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"260\" y=\"450\" font-family=\"sans-serif\" font-size=\"48\" fill=\"#111111\" text-anchor=\"middle\">\"</text><text x=\"540\" y=\"450\" font-family=\"sans-serif\" font-size=\"42\" fill=\"#3D3D3D\" text-anchor=\"middle\">SELF-CUSTODY IS TOO COMPLICATED</text><text x=\"820\" y=\"450\" font-family=\"sans-serif\" font-size=\"48\" fill=\"#111111\" text-anchor=\"middle\">\"</text><text x=\"540\" y=\"600\" font-family=\"sans-serif\" font-size=\"30\" fill=\"#BFBFBF\" text-anchor=\"middle\">Write down 12 words. That's it.</text><circle cx=\"480\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"510\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"540\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"570\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "5 Bitcoin misconceptions — debunked",
+   "needs_check": [
+    "Confirm the five specific self-custody misconceptions chosen are genuinely common and each answerable in one line without reading as advice"
+   ],
+   "novelty": "That carousel covers general Bitcoin beliefs about price, scarcity, and legitimacy. This one is scoped specifically to self-custody objections such as complexity or losing keys, a distinct belief set.",
+   "purpose": "Address the specific hesitations people have about self-custody, distinct from general Bitcoin misconceptions already covered.",
+   "rationale": "myth_rebuttal is proven and only at 2 on the board; narrowing scope to self-custody fills a gap the general version does not cover.",
+   "shape": "carousel",
+   "source_kind": "archive theme",
+   "source_ref": "myth_rebuttal format proven by '5 Bitcoin misconceptions debunked'; self-custody is a recurring theme across the archive, e.g. 'They Have Your Savings Hostage', 'No One Can Freeze It', 'Self-custody made simple: how Relai protects your Bitcoin'.",
+   "subject": "Common self-custody misconceptions rebutted",
+   "target_feeling": "Reassurance that self-custody is simpler than it sounds.",
+   "visual_direction": "One belief in quotes per slide, the plain answer directly underneath in a different weight. Identical template every slide, orange accent only on the quotation marks. No icons, no photos, generous white space, logo bottom right."
+  },
+  {
+   "caption": "We will never lose access to your wallet, because we never had access to your wallet. That's what a self-custodial wallet means: only you hold the keys to your Bitcoin.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "type_only",
+   "headline": "We never had access to your wallet.",
+   "id": "V07",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"100\" y=\"600\" font-family=\"sans-serif\" font-size=\"70\" fill=\"#3D3D3D\">We never had access</text><text x=\"100\" y=\"690\" font-family=\"sans-serif\" font-size=\"70\" fill=\"#111111\">to your wallet.</text><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Businesses Want Bitcoin checklist",
+   "needs_check": [],
+   "novelty": "Same type_only device but a trust statement about custody architecture, not a B2B checklist. Different subject, different structure (two-line contrast vs list).",
+   "purpose": "Reinforce Relai's non-custodial model as a trust signal.",
+   "rationale": "Fills a nearly empty format (1 on board) with an already-approved, compliance-clean line that speaks directly to the self-custody value proposition the X audience already responds to.",
+   "shape": "single image",
+   "source_kind": "evergreen line",
+   "source_ref": "\"We will never lose access to your wallet. Because we never had access to your wallet.\" tightened to a single line, meaning unchanged",
+   "subject": "Relai never holds your keys",
+   "target_feeling": "Grounded reassurance, not hype.",
+   "visual_direction": "Pure typography, no imagery. Two-line statement, second line in Relai orange for emphasis on 'never had access'. Generous white space around the text. Logo bottom right. No lock or key icon, no other visual elements."
+  },
+  {
+   "caption": "Switzerland had only a handful of Bitcoin ATMs in 2016. Today there are far more. Self-custody keeps getting easier to reach in the country where Relai is built. Figures to be confirmed against a public ATM registry before this goes live.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "then_now",
+   "headline": "Swiss Bitcoin ATMs. Then and now.",
+   "id": "V08",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"150\" font-family=\"sans-serif\" font-size=\"52\" fill=\"#3D3D3D\" text-anchor=\"middle\">Swiss Bitcoin ATMs. Then and now.</text><line x1=\"540\" y1=\"250\" x2=\"540\" y2=\"1100\" stroke=\"#BFBFBF\" stroke-width=\"2\"/><rect x=\"230\" y=\"400\" width=\"120\" height=\"180\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#3D3D3D\" stroke-width=\"4\"/><circle cx=\"290\" cy=\"460\" r=\"10\" fill=\"#3D3D3D\"/><text x=\"290\" y=\"650\" font-family=\"sans-serif\" font-size=\"48\" fill=\"#3D3D3D\" text-anchor=\"middle\">12</text><text x=\"290\" y=\"700\" font-family=\"sans-serif\" font-size=\"22\" fill=\"#BFBFBF\" text-anchor=\"middle\">2016</text><rect x=\"730\" y=\"400\" width=\"120\" height=\"180\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#3D3D3D\" stroke-width=\"4\"/><circle cx=\"790\" cy=\"460\" r=\"10\" fill=\"#3D3D3D\"/><text x=\"790\" y=\"650\" font-family=\"sans-serif\" font-size=\"48\" fill=\"#111111\" text-anchor=\"middle\">120</text><text x=\"790\" y=\"700\" font-family=\"sans-serif\" font-size=\"22\" fill=\"#BFBFBF\" text-anchor=\"middle\">2026</text><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Burger priced in BTC: 2016 vs 2026",
+   "needs_check": [
+    "exact number of Bitcoin ATMs in Switzerland in 2016",
+    "exact number of Bitcoin ATMs in Switzerland in 2026, current at time of publishing",
+    "source confirmation, e.g. CoinATMRadar or another named public registry"
+   ],
+   "novelty": "Uses infrastructure adoption data instead of a price-based comparison, so it carries no Bitcoin price figures at all and sidesteps any past-performance framing the burger concept touches.",
+   "purpose": "Show real growth in Swiss Bitcoin infrastructure to support Relai's Swiss-made positioning.",
+   "rationale": "Opens an unused format with a fresh, compliance-safe adoption story tied to Relai's Swiss credibility, rather than another price-anchored comparison.",
+   "shape": "single image",
+   "source_kind": "net new",
+   "source_ref": "then_now format sits at 0 on the board; Swiss Bitcoin ATM growth fits Relai's Swiss-made identity and has not been used in any prior concept",
+   "subject": "Swiss Bitcoin ATMs, then and now",
+   "target_feeling": "Quiet confidence that Bitcoin access in Switzerland is maturing.",
+   "visual_direction": "Two-column layout, same simple ATM line icon repeated in each column, one verified figure set beneath each icon. Accent orange used only on the 2026 figure. Thin vertical divider between columns. Generous white space, logo bottom right. No other icons or decoration."
+  }
+ ],
+ "dropped_count": 2,
+ "generated_at": "2026-09-29 13:24 CEST",
+ "mock_palette_is_placeholder": true,
+ "status": "unreviewed",
+ "week": "2026-W40"
+}
