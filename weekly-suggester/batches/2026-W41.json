@@ -1,0 +1,298 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W41.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 0,
+ "generated_at": "2026-10-05 13:40 CEST",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "Real estate needs tenants, repairs, and decades.\nBitcoin just needs you to hold your own keys.\nSame conviction, less hassle.",
+    "headline": "Same conviction. Less hassle.",
+    "purpose": "Make the real estate versus Bitcoin comparison instantly scannable as a single image for the feed.",
+    "suggestion_id": "S01",
+    "target_feeling": "Quiet confidence, the relief of simplicity over burden.",
+    "visual_direction": "Two-column text comparison. Left column lists real estate words (tenants, repairs, decades) in neutral gray. Right column lists Bitcoin in Relai orange, single word, large. No icons, no building illustration. Generous white space between columns. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S01",
+   "rationale": "Original flex-vs-rentals framing drew strong engagement (108 likes, 12 reposts); kept the comparison but swapped hype for the self-custody mechanic.",
+   "source_id": "1961026223246655655",
+   "text": "Real estate needs tenants, repairs, and decades.\nBitcoin just needs you to hold your own keys.\nSame conviction, less hassle.",
+   "theme": "bitcoin vs real estate",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin stores value without a bank, moves across borders without permission, and settles peer to peer, no middleman. No other asset works quite like it.",
+    "headline": "No bank. No border. No middleman.",
+    "purpose": "Spell out the three core mechanics that make Bitcoin different, for a Bitcoin-literate audience.",
+    "suggestion_id": "S02",
+    "target_feeling": "Clarity, the sense of something stated plainly and confidently.",
+    "visual_direction": "Type treatment only. Three short lines stacked large, each starting with 'No'. Last line 'No middleman' set in Relai orange, the rest in black. No icons or diagrams. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "overstated claim"
+   ],
+   "id": "S02",
+   "rationale": "The capability-list format performed well (88 likes) and matches the archive's recurring 'what Bitcoin can do' theme; dropped the 'grow your wealth' and 'most superior asset' language.",
+   "source_id": "2004229954460926105",
+   "text": "Bitcoin:\n- stores value without a bank\n- moves across borders without permission\n- settles peer to peer, no middleman\n\nNo other asset works quite like it.",
+   "theme": "bitcoin mechanics",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Logged into X and the whole timeline is Bitcoin again. Good to be back among friends.",
+    "headline": "Good to be back among friends.",
+    "purpose": "A light community in-joke post for engagement, not an education post.",
+    "suggestion_id": "S03",
+    "target_feeling": "Warmth and humor, inside-joke recognition.",
+    "visual_direction": "Type treatment: the word 'BITCOIN' repeated small and gray as a dense text texture filling the frame, with one instance highlighted in Relai orange and circled or boxed. No timeline mockup, no X logo. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "Light community-recognition post that landed well (68 likes); kept the casual 'hello everyone' feel.",
+   "source_id": "2077095549560340698",
+   "text": "Logged into X and the whole timeline is Bitcoin again.\nGood to be back among friends.",
+   "theme": "community humor",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Every curious, rigorous thinker I know ends up looking hard at Bitcoin. That's not a coincidence.",
+    "headline": "Curious minds end up here.",
+    "purpose": "Position Bitcoin curiosity as a mark of rigorous thinking, for the core X audience.",
+    "suggestion_id": "S04",
+    "target_feeling": "Validation, the quiet pride of being the curious one who looked closer.",
+    "visual_direction": "Type treatment, single bold statement centered, large. 'Here' set in Relai orange, rest in black. No portraits, no illustration. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "Reworded the 'smart people are pro bitcoin' line, a recurring conviction theme in the archive, to describe a pattern rather than judge non-holders.",
+   "source_id": "1980238252377346315",
+   "text": "Every curious, rigorous thinker I know ends up looking hard at Bitcoin.\nThat's not a coincidence.",
+   "theme": "curiosity and bitcoin",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "It just doesn't feel like one.",
+    "headline": "Holding zero Bitcoin is a position too.",
+    "purpose": "Reframe not holding Bitcoin as an active choice rather than a neutral default.",
+    "suggestion_id": "S05",
+    "target_feeling": "A small jolt of reconsideration, not pressure.",
+    "visual_direction": "Type treatment. The statement set large and centered, with the word 'zero' underlined in Relai orange. Nothing else on the image. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "risk framing"
+   ],
+   "id": "S05",
+   "rationale": "Kept the original risk-framing idea (64 likes, 12 reposts, high repost ratio) while avoiding a guaranteed-outcome claim.",
+   "source_id": "1939713790100328926",
+   "text": "Holding zero Bitcoin is a position too.\nIt just doesn't feel like one.",
+   "theme": "opportunity cost",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "You had a good run.",
+    "headline": "RIP #Bitcoin hashtag",
+    "purpose": "A humor post marking how normalized the Bitcoin hashtag has become.",
+    "suggestion_id": "S06",
+    "target_feeling": "A knowing laugh.",
+    "visual_direction": "Single simple prop: a minimal line-drawn gravestone shape with '#Bitcoin' etched on it, centered, lots of white space around it. No other elements, no X branding. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "Simple, well-performing joke (122 likes, 6 reposts); removed the literal hashtag symbol since posts shouldn't use hashtags.",
+   "source_id": "1816732593745985601",
+   "text": "RIP the Bitcoin hashtag.\nYou had a good run.",
+   "theme": "hashtag humor",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Feature idea: auto-invest keeps buying on schedule no matter what headline hits that day. Who's in?",
+    "headline": "Bans come and go. Auto-invest doesn't flinch.",
+    "purpose": "Pitch a playful hypothetical feature idea while keeping the DCA mechanic, not a price call, as the subject.",
+    "suggestion_id": "S07",
+    "target_feeling": "Amusement paired with quiet trust in the mechanic.",
+    "visual_direction": "Code snippet style device: a short mock code block, two lines, monospace look, white card with thin border. One line highlighted in Relai orange background. No price chart, no 'buy' language on the image itself. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S07",
+   "rationale": "One of the archive's top performers (425 likes, 20 reposts); kept the joke mechanic and used the correct external product name.",
+   "source_id": "1441400372963196929",
+   "text": "Feature idea: auto-invest buys a little extra every time Bitcoin gets 'banned' again.\nWho's in?",
+   "theme": "dca joke",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Letting someone else hold your keys is.",
+    "headline": "Self-custody isn't the risky part.",
+    "purpose": "Reframe self-custody as the safer choice compared to third-party custody.",
+    "suggestion_id": "S08",
+    "target_feeling": "Reassurance, a reframe that feels obvious once stated.",
+    "visual_direction": "Two-line comparison, stacked. First line in black: 'Self-custody isn't the risky part.' Second line in Relai orange, slightly larger: 'Letting someone else hold your keys is.' No icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S08",
+   "rationale": "Near-compliant original already carried solid engagement (69 likes, 4 reposts); tightened phrasing while keeping the core message intact.",
+   "source_id": "1942539409766650121",
+   "text": "Self-custody isn't the risky part.\nLetting someone else hold your keys is.",
+   "theme": "self custody",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Once you really understand Bitcoin, staying quiet about it gets hard.",
+    "headline": "Once you understand it, staying quiet gets hard.",
+    "purpose": "Capture the moment understanding Bitcoin turns into wanting to talk about it.",
+    "suggestion_id": "S09",
+    "target_feeling": "Recognition, a nod of 'yes, that's exactly it.'",
+    "visual_direction": "Type treatment, single centered line, large. 'Staying quiet' struck through lightly in gray, rest in black. One word, 'hard,' set in Relai orange. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "Recurring 'can't stop talking about it' sentiment resonated (106 likes, 5 reposts); reframed from hashtag slang to plain language.",
+   "source_id": "1806679442410111032",
+   "text": "Once you really understand Bitcoin, staying quiet about it gets hard.",
+   "theme": "bitcoin curiosity",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "If you don't hold the keys, you don't hold the Bitcoin. You hold a promise.",
+    "headline": "No keys, no Bitcoin. Just a promise.",
+    "purpose": "Explain the core self-custody principle in one sharp line.",
+    "suggestion_id": "S10",
+    "target_feeling": "A clarifying click, the line that reframes what owning Bitcoin actually means.",
+    "visual_direction": "Two-line comparison stacked. Top line black: 'Hold the keys. Hold the Bitcoin.' Bottom line in Relai orange: 'No keys. Just a promise.' No key illustration, text only. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "Builds on the recurring self-custody vs trusted third party theme, reframing it around the mechanic of key ownership rather than risk comparison.",
+   "source_id": null,
+   "text": "If you don't hold the keys, you don't hold the Bitcoin. You hold a promise.",
+   "theme": "self-custody keys",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Proof of work doesn't ask you to trust a company or a committee. It asks you to trust math and electricity.",
+    "headline": "Trust math and electricity, not a committee.",
+    "purpose": "Explain proof of work as a trust model, for a Bitcoin-literate audience.",
+    "suggestion_id": "S11",
+    "target_feeling": "Intellectual respect, the calm logic of the mechanic.",
+    "visual_direction": "Two-column comparison. Left column gray, crossed out lightly: 'a company,' 'a committee.' Right column in Relai orange: 'math,' 'electricity.' Text only, no icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "Continues the proof of work theme that performs well, with a new framing on what backs the trust instead of comparing consensus systems.",
+   "source_id": null,
+   "text": "Proof of work doesn't ask you to trust a company or a committee. It asks you to trust math and electricity.",
+   "theme": "proof of work",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "The auto-invest plan buys more sats when the price is low, fewer when it's high. Same amount in, different amount of Bitcoin out each time.",
+    "headline": "Same amount in. Different amount of Bitcoin out.",
+    "purpose": "Show how the auto-invest plan's DCA mechanic works, not what it might return.",
+    "suggestion_id": "S12",
+    "target_feeling": "Understanding of a mechanic, not excitement about an outcome.",
+    "visual_direction": "Simple bar chart device: a row of evenly sized bars representing fixed CHF amount invested, paired below with a row of varying-height bars representing sats received, one bar highlighted in Relai orange where price was lower and sats received were higher. No price prediction labels. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S12",
+   "rationale": "Recurring DCA and auto-invest interest in the archive, shown here as a plain mechanic rather than an outcome or price call.",
+   "source_id": null,
+   "text": "The auto-invest plan buys more sats when the price is low, fewer when it's high. Same amount in, different amount of Bitcoin out each time.",
+   "theme": "dca mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin's price moves every day. The 21 million supply cap never does.",
+    "headline": "Price moves. The cap doesn't.",
+    "purpose": "Contrast Bitcoin's daily price volatility with its fixed supply as a long-term conviction point.",
+    "suggestion_id": "S13",
+    "target_feeling": "Steadiness, a zoom-out calm against daily noise.",
+    "visual_direction": "Simple two-line chart device: a jagged volatile gray line labeled 'price' above a perfectly flat line in Relai orange labeled '21 million cap.' No dates or price axis values. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S13",
+   "rationale": "New angle on the zoom-out conviction theme, anchored to a fixed fact instead of a price opinion.",
+   "source_id": null,
+   "text": "Bitcoin's price moves every day. The 21 million supply cap never does.",
+   "theme": "fixed supply conviction",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Most skeptics don't change their mind about Bitcoin. They just stop mentioning it.",
+    "headline": "They don't change their mind. They just go quiet.",
+    "purpose": "Observe a recurring pattern in how skepticism toward Bitcoin fades over time.",
+    "suggestion_id": "S14",
+    "target_feeling": "A wry, knowing smile.",
+    "visual_direction": "Type treatment, two lines stacked. First line black: 'They don't change their mind.' Second line in Relai orange: 'They just go quiet.' No portraits or illustration. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S14",
+   "rationale": "Extends the recurring skeptic-to-buyer theme with a quieter, non-triumphant framing.",
+   "source_id": null,
+   "text": "Most skeptics don't change their mind about Bitcoin. They just stop mentioning it.",
+   "theme": "skepticism over time",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "No tokens, no roadmap votes, no restarts. Just blocks, every ten minutes.",
+    "headline": "Just blocks, every ten minutes.",
+    "purpose": "Highlight Bitcoin's structural simplicity compared to systems with governance and changeable rules.",
+    "suggestion_id": "S15",
+    "target_feeling": "Calm respect for a system that doesn't need anyone's permission to keep running.",
+    "visual_direction": "Single prop device: a minimal clock face with only one mark, at the ten minute position, in Relai orange. No numbers elsewhere on the clock. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "other cryptocurrencies (implicit contrast via tokens/roadmap language)"
+   ],
+   "id": "S15",
+   "rationale": "Plays on the Bitcoin-only identity and culture jokes recurring in the archive, framed as steady simplicity.",
+   "source_id": null,
+   "text": "No tokens, no roadmap votes, no restarts. Just blocks, every ten minutes.",
+   "theme": "bitcoin only simplicity",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W41"
+}
