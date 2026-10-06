@@ -17,7 +17,7 @@ Why a separate file and not evergreen.txt:
 Scheduling:
   Runs on days evergreen does not, using the same EPOCH, so the two never
   post on the same day. A line approved today goes out within two days. The
-  daily market update is unaffected and still posts every day.
+  market update is unaffected and posts on its own Tue/Fri schedule.
 
 Reliability design:
   Same as post_evergreen.py. Four slots a day, any of which can post, each

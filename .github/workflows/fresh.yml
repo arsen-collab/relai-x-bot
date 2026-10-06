@@ -6,7 +6,7 @@ name: Fresh Tweet
 #
 # Runs on the days evergreen does not. post_fresh.py imports is_posting_day
 # from post_evergreen, so the two can never both post on the same day even if
-# INTERVAL_DAYS changes. The daily market update is unaffected.
+# INTERVAL_DAYS changes. The Tue/Fri market update is unaffected.
 #
 # Target window 09:00-13:00 Europe/Zurich, same as the other bots.
 # 08:00-11:00 UTC lands inside that window in both CET and CEST.

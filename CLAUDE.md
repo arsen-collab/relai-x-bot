@@ -38,7 +38,7 @@ Two things sit just outside a strict reading of that, both deliberately:
 
 | File | Workflow | Schedule | Content |
 |---|---|---|---|
-| `post_tweet.py` | `daily_tweet.yml` | Daily | `<Weekday> market update:\n\n1 BTC = 1 BTC` |
+| `post_tweet.py` | `daily_tweet.yml` | Tuesday and Friday (cron day-of-week `2,5`) | `<Weekday> market update:\n\n1 BTC = 1 BTC` |
 | `post_evergreen.py` | `evergreen.yml` | Every 2 days | One line from `evergreen.txt`, 223-line rotation |
 | `post_fresh.py` | `fresh.yml` | Days evergreen does not post | Top line of `fresh.txt`, then drains it |
 

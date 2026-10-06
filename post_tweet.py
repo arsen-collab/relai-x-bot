@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Relai X bot - daily market update.
+Relai X bot - twice-weekly market update.
 
-Posts "<Weekday> market update:  1 BTC = 1 BTC" to @relai_app every day,
-targeting 09:00-13:00 Europe/Zurich.
+Posts "<Weekday> market update:  1 BTC = 1 BTC" to @relai_app on Tuesday
+and Friday, targeting 09:00-13:00 Europe/Zurich.
 
 Reliability design:
-  Four runs fire each day. Any of them can post. Before posting, a run
+  Four runs fire on posting days. Any of them can post. Before posting, a run
   checks the account's recent posts for today's exact text and exits if it
   is already there. So a run that fails to get a GitHub runner costs
   nothing, because the next slot picks it up.
@@ -31,7 +31,8 @@ HARD_CUTOFF_HOUR = 20
 
 MAX_CHARS = 280
 
-# Cron times must match .github/workflows/daily_tweet.yml.
+# Cron times must match .github/workflows/daily_tweet.yml, including its
+# 'Map cron to slot' step, which matches the full cron strings.
 # 08:00-11:00 UTC lands inside 09:00-13:00 Zurich in both CET and CEST.
 # Deliberately off the hour: the top of the hour is GitHub's busiest moment.
 SLOT_UTC_TIMES = {1: (8, 7), 2: (8, 53), 3: (9, 37), 4: (10, 23)}
