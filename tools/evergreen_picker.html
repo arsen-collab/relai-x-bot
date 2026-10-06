@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evergreen Picker</title>
+<!--
+  Evergreen picker. Open this file in a browser, point it at an unzipped X
+  archive, keep or discard each tweet, download evergreen.txt.
+
+  Runs entirely in the browser. Nothing is uploaded and no network request
+  is made. In folder mode only the tweets*.js files are opened; DMs and the
+  rest of the archive are never read.
+
+  Same candidate rules as find_evergreen_candidates.py: no replies, quotes,
+  retweets, links or media. The flag patterns are a port of FLAG_PATTERNS
+  there; keep the two in step if either changes.
+-->
+<style>
+:root {
+  --bg: #f6f6f4; --surface: #ffffff; --text: #1b1b1a; --muted: #6b6b66;
+  --border: #dddcd6; --accent: #1f5fd1; --accent-text: #ffffff;
+  --keep: #1e7a3c; --drop: #b3261e; --warn-bg: #fff3d6; --warn-text: #7a5300;
+  --tag-bg: #ecebe6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --surface: #20201f; --text: #ececea; --muted: #a3a39d;
+    --border: #3a3a37; --accent: #6f9ef5; --accent-text: #0d0d0c;
+    --keep: #5cc27e; --drop: #f0857c; --warn-bg: #3b2f12; --warn-text: #f3cf7a;
+    --tag-bg: #2e2e2c;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161615; --surface: #20201f; --text: #ececea; --muted: #a3a39d;
+  --border: #3a3a37; --accent: #6f9ef5; --accent-text: #0d0d0c;
+  --keep: #5cc27e; --drop: #f0857c; --warn-bg: #3b2f12; --warn-text: #f3cf7a;
+  --tag-bg: #2e2e2c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+main { max-width: 760px; margin: 0 auto; padding: 24px 16px 96px; }
+h1 { font-size: 24px; margin: 0 0 4px; }
+.sub { color: var(--muted); margin: 0 0 24px; }
+.panel {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; margin-bottom: 16px;
+}
+button, .btn {
+  font: inherit; border: 1px solid var(--border); background: var(--surface);
+  color: var(--text); border-radius: 8px; padding: 8px 14px; cursor: pointer;
+}
+button:hover { border-color: var(--muted); }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
+button.keep { background: var(--keep); border-color: var(--keep); color: var(--accent-text); }
+button.drop { background: var(--drop); border-color: var(--drop); color: var(--accent-text); }
+button:disabled { opacity: .45; cursor: default; }
+kbd {
+  font: 12px ui-monospace, Menlo, monospace; border: 1px solid currentColor;
+  border-radius: 4px; padding: 0 4px; margin-left: 6px; opacity: .8;
+}
+.row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.controls label { display: flex; gap: 6px; align-items: center; color: var(--muted); }
+.controls input[type=number] { width: 80px; font: inherit; padding: 4px 6px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+.controls select { font: inherit; padding: 4px 6px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+.tabs { display: flex; gap: 4px; margin: 16px 0; border-bottom: 1px solid var(--border); }
+.tabs button { border: none; border-bottom: 2px solid transparent; border-radius: 0; background: none; color: var(--muted); padding: 8px 12px; }
+.tabs button.on { color: var(--text); border-bottom-color: var(--accent); }
+.tweet { white-space: pre-wrap; word-wrap: break-word; font-size: 19px; line-height: 1.45; margin: 0 0 16px; }
+.meta { color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 16px; }
+.meta a { color: var(--accent); }
+.tag { background: var(--tag-bg); border-radius: 4px; padding: 0 6px; font-size: 13px; }
+.warn { background: var(--warn-bg); color: var(--warn-text); border-radius: 8px; padding: 8px 12px; font-size: 14px; margin-bottom: 16px; }
+textarea { width: 100%; min-height: 140px; font: inherit; font-size: 17px; padding: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); margin-bottom: 12px; }
+.list-item { border-top: 1px solid var(--border); padding: 14px 0; }
+.list-item:first-child { border-top: none; }
+.list-item .tweet { font-size: 16px; margin-bottom: 8px; }
+.empty { color: var(--muted); text-align: center; padding: 32px 0; }
+.progress { height: 6px; background: var(--tag-bg); border-radius: 3px; overflow: hidden; margin-top: 12px; }
+.progress div { height: 100%; background: var(--accent); width: 0; }
+.bar {
+  position: fixed; left: 0; right: 0; bottom: 0; background: var(--surface);
+  border-top: 1px solid var(--border); padding: 12px 16px;
+}
+.bar .inner { max-width: 760px; margin: 0 auto; display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.status { color: var(--muted); font-size: 14px; margin-top: 12px; }
+input[type=file] { display: none; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Evergreen picker</h1>
+  <p class="sub">Choose which of your old tweets go into the evergreen pool. This runs entirely in your browser. Nothing is uploaded.</p>
+
+  <section class="panel" id="load">
+    <p style="margin-top:0"><strong>1.</strong> Unzip the archive X sent you (double-click the .zip).</p>
+    <p><strong>2.</strong> Click the button and choose the unzipped folder. Only your tweets file is read; your DMs are never opened.</p>
+    <div class="row">
+      <label class="btn primary" style="background:var(--accent);color:var(--accent-text);border-color:var(--accent)">
+        Choose archive folder
+        <input type="file" id="folderInput" webkitdirectory directory multiple>
+      </label>
+      <label class="btn">
+        Or choose tweets.js directly
+        <input type="file" id="fileInput" accept=".js" multiple>
+      </label>
+    </div>
+    <div class="status" id="loadStatus"></div>
+  </section>
+
+  <section id="app" hidden>
+    <div class="panel controls">
+      <div class="row">
+        <label>At least <input type="number" id="minLikes" min="0" step="1"> likes</label>
+        <label><input type="checkbox" id="hideFlagged"> Hide dated tweets (prices, news, "today")</label>
+        <label>Sort <select id="sortBy"><option value="likes">Most liked first</option><option value="newest">Newest first</option></select></label>
+      </div>
+      <div class="status" id="summary"></div>
+      <div class="progress"><div id="progressFill"></div></div>
+    </div>
+
+    <div class="tabs">
+      <button data-tab="review" class="on">To review <span id="nReview"></span></button>
+      <button data-tab="kept">Kept <span id="nKept"></span></button>
+      <button data-tab="dropped">Discarded <span id="nDropped"></span></button>
+    </div>
+
+    <div id="tabReview"></div>
+    <div id="tabKept" hidden></div>
+    <div id="tabDropped" hidden></div>
+  </section>
+</main>
+
+<div class="bar" id="bar" hidden>
+  <div class="inner">
+    <span id="barText"></span>
+    <div class="row">
+      <button id="resetBtn">Start over</button>
+      <button class="primary" id="exportBtn">Download evergreen.txt</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var MAX_CHARS = 280;           // matches post_evergreen.MAX_CHARS
+  var STORE_KEY = "evergreen-picker-v1";
+  var TWEET_FILE = /^tweets?(-part\d+)?\.js$/i;  // skips tweet-headers.js, tweetdeck.js
+
+  var FLAG_PATTERNS = [
+    ["price", /\$\s?\d|\b\d[\d,.]*\s?(?:k|K|usd|USD|chf|CHF)\b/],
+    ["year", /\b20(1[0-9]|2[0-6])\b/],
+    ["relative_time", /\b(today|yesterday|tonight|this week|this month|last week|last month|last year|right now|breaking|just (?:in|happened))\b/i],
+    ["named_event", /\b(halving|ETF|FOMC|CPI|Fed|SEC|election|ATH|all[- ]time high)\b/i]
+  ];
+  var DROP_FLAGS = { price: 1, relative_time: 1, named_event: 1 };
+  var FLAG_LABELS = { price: "price", year: "year", relative_time: "time word", named_event: "news event" };
+
+  var candidates = [];   // {id, text, likes, rts, date, flags}
+  var byId = {};
+  var state = { decisions: {}, edits: {}, minLikes: 100, hideFlagged: true, sortBy: "likes" };
+  var history = [];
+  var pinned = null;
+  var editing = null;
+  var tab = "review";
+
+  function $(id) { return document.getElementById(id); }
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (raw) Object.assign(state, JSON.parse(raw));
+    } catch (e) { /* storage unavailable, start fresh */ }
+  }
+  function save() {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  function decode(s) {
+    return s.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"')
+            .replace(/&#39;/g, "'").replace(/&amp;/g, "&");
+  }
+
+  function parseBlob(text) {
+    var i = text.indexOf("=");
+    var json = text.slice(i + 1).trim().replace(/;\s*$/, "");
+    return JSON.parse(json);
+  }
+
+  function excluded(t) {
+    if (t.in_reply_to_status_id_str) return "reply";
+    if (t.is_quote_status === true || t.is_quote_status === "true") return "quote";
+    var text = t.full_text || t.text || "";
+    if (t.retweeted_status || text.indexOf("RT @") === 0) return "retweet";
+    var ent = t.entities || {};
+    if (ent.urls && ent.urls.length) return "link";
+    var media = (t.extended_entities || ent).media;
+    if (media && media.length) return "media";
+    return null;
+  }
+
+  function flagsFor(text) {
+    return FLAG_PATTERNS.filter(function (p) { return p[1].test(text); }).map(function (p) { return p[0]; });
+  }
+
+  function textOf(c) { return state.edits[c.id] != null ? state.edits[c.id] : c.text; }
+
+  function problem(text) {
+    var n = Array.from(text).length;
+    if (n > MAX_CHARS) return "Too long for the bot: " + n + " of " + MAX_CHARS + " characters. Edit it shorter or discard.";
+    if (text.trim() === "#" || text.indexOf("# ") === 0) return "Starts with \"# \", which the bot reads as a comment. Edit the start or discard.";
+    if (!text.trim()) return "Empty.";
+    return null;
+  }
+
+  function ingest(texts) {
+    var raw = [];
+    texts.forEach(function (t) {
+      parseBlob(t).forEach(function (e) { raw.push(e.tweet || e); });
+    });
+    var dropped = {};
+    var seen = {};
+    candidates = [];
+    raw.forEach(function (t) {
+      var why = excluded(t);
+      if (why) { dropped[why] = (dropped[why] || 0) + 1; return; }
+      var text = decode(t.full_text || t.text || "").trim();
+      var c = {
+        id: String(t.id_str || t.id),
+        text: text,
+        likes: parseInt(t.favorite_count || 0, 10),
+        rts: parseInt(t.retweet_count || 0, 10),
+        date: new Date(t.created_at),
+        flags: flagsFor(text)
+      };
+      if (seen[text]) {
+        dropped.duplicate = (dropped.duplicate || 0) + 1;
+        if (c.likes > seen[text].likes) { seen[text].likes = c.likes; }
+        return;
+      }
+      seen[text] = c;
+      candidates.push(c);
+    });
+    byId = {};
+    candidates.forEach(function (c) { byId[c.id] = c; });
+
+    var parts = Object.keys(dropped).map(function (k) { return dropped[k] + " " + k + (dropped[k] === 1 ? "" : "s"); });
+    $("loadStatus").textContent = "Read " + raw.length + " tweets. " + candidates.length +
+      " are plain text posts you could reuse." + (parts.length ? " Skipped: " + parts.join(", ") + "." : "");
+    $("app").hidden = false;
+    $("bar").hidden = false;
+    $("minLikes").value = state.minLikes;
+    $("hideFlagged").checked = state.hideFlagged;
+    $("sortBy").value = state.sortBy;
+    render();
+  }
+
+  function readFiles(files) {
+    var picked = Array.prototype.filter.call(files, function (f) { return TWEET_FILE.test(f.name); });
+    if (!picked.length) {
+      $("loadStatus").textContent = "No tweets.js found in that folder. Make sure you picked the unzipped archive folder (it has a \"data\" folder inside).";
+      return;
+    }
+    $("loadStatus").textContent = "Reading " + picked.map(function (f) { return f.name; }).join(", ") + "...";
+    Promise.all(picked.map(function (f) { return f.text(); }))
+      .then(ingest)
+      .catch(function (e) { $("loadStatus").textContent = "Could not read that file: " + e.message; });
+  }
+
+  function visible(c) {
+    if (c.likes < state.minLikes) return false;
+    if (state.hideFlagged && c.flags.some(function (f) { return DROP_FLAGS[f]; })) return false;
+    return true;
+  }
+
+  function sorted(list) {
+    return list.slice().sort(state.sortBy === "newest"
+      ? function (a, b) { return b.date - a.date; }
+      : function (a, b) { return b.likes - a.likes; });
+  }
+
+  function queue() {
+    return sorted(candidates.filter(function (c) { return visible(c) && !state.decisions[c.id]; }));
+  }
+  function withDecision(d) {
+    return sorted(candidates.filter(function (c) { return state.decisions[c.id] === d; }));
+  }
+
+  function current() {
+    if (pinned && byId[pinned] && !state.decisions[pinned]) return byId[pinned];
+    pinned = null;
+    return queue()[0] || null;
+  }
+
+  function decide(id, d) {
+    if (d === "keep" && problem(textOf(byId[id]))) return;
+    state.decisions[id] = d;
+    history.push(id);
+    if (pinned === id) pinned = null;
+    editing = null;
+    save();
+    render();
+  }
+
+  function undo() {
+    var id = history.pop();
+    if (!id) return;
+    delete state.decisions[id];
+    pinned = id;
+    save();
+    render();
+  }
+
+  function el(tag, attrs, children) {
+    var n = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) {
+      if (k === "text") n.textContent = attrs[k];
+      else if (k === "on") Object.keys(attrs.on).forEach(function (ev) { n.addEventListener(ev, attrs.on[ev]); });
+      else n.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) { if (c) n.appendChild(c); });
+    return n;
+  }
+
+  function metaFor(c) {
+    var text = textOf(c);
+    var tags = c.flags.map(function (f) { return el("span", { class: "tag", text: FLAG_LABELS[f] }); });
+    if (state.edits[c.id] != null) tags.push(el("span", { class: "tag", text: "edited" }));
+    return el("div", { class: "meta" }, [
+      el("span", { text: c.date.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) }),
+      el("span", { text: c.likes.toLocaleString() + " likes" }),
+      el("span", { text: c.rts.toLocaleString() + " reposts" }),
+      el("span", { text: Array.from(text).length + " chars" }),
+      el("a", { href: "https://x.com/i/status/" + c.id, target: "_blank", rel: "noopener", text: "Open on X" })
+    ].concat(tags));
+  }
+
+  function editor(c, onDone) {
+    var ta = el("textarea", {});
+    ta.value = textOf(c);
+    function commit() {
+      var v = ta.value.trim();
+      if (v === c.text) delete state.edits[c.id]; else state.edits[c.id] = v;
+      editing = null; save(); onDone();
+    }
+    ta.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); commit(); }
+      if (e.key === "Escape") { e.preventDefault(); editing = null; onDone(); }
+    });
+    setTimeout(function () { ta.focus(); }, 0);
+    return el("div", {}, [
+      ta,
+      el("div", { class: "row" }, [
+        el("button", { class: "primary", text: "Save edit", on: { click: commit } }),
+        el("button", { text: "Cancel", on: { click: function () { editing = null; onDone(); } } }),
+        el("button", { text: "Undo my edits", on: { click: function () { delete state.edits[c.id]; editing = null; save(); onDone(); } } })
+      ])
+    ]);
+  }
+
+  function renderReview() {
+    var box = $("tabReview");
+    box.innerHTML = "";
+    var c = current();
+    if (!c) {
+      box.appendChild(el("div", { class: "panel empty", text: candidates.length
+        ? "Nothing left to review with these filters. Lower the likes number to see more, or download your evergreen.txt below."
+        : "No tweets loaded." }));
+      return;
+    }
+    var p = problem(textOf(c));
+    var card = el("div", { class: "panel" }, [
+      editing === c.id ? editor(c, render) : el("p", { class: "tweet", text: textOf(c) }),
+      metaFor(c),
+      p ? el("div", { class: "warn", text: p }) : null,
+      editing === c.id ? null : el("div", { class: "row" }, [
+        keyBtn("keep", "Keep", "K", function () { decide(c.id, "keep"); }, !!p),
+        keyBtn("drop", "Discard", "D", function () { decide(c.id, "drop"); }),
+        keyBtn("", "Edit", "E", function () { editing = c.id; render(); }),
+        keyBtn("", "Back", "B", undo, !history.length)
+      ])
+    ]);
+    box.appendChild(card);
+  }
+
+  function keyBtn(cls, label, key, fn, disabled) {
+    var b = el("button", { class: cls, on: { click: fn } });
+    b.appendChild(document.createTextNode(label));
+    b.appendChild(el("kbd", { text: key }));
+    if (disabled) b.disabled = true;
+    return b;
+  }
+
+  function renderList(boxId, d) {
+    var box = $(boxId);
+    box.innerHTML = "";
+    var list = withDecision(d);
+    var panel = el("div", { class: "panel" });
+    if (!list.length) panel.appendChild(el("div", { class: "empty", text: d === "keep" ? "Nothing kept yet." : "Nothing discarded yet." }));
+    list.forEach(function (c) {
+      var p = problem(textOf(c));
+      panel.appendChild(el("div", { class: "list-item" }, [
+        editing === c.id ? editor(c, render) : el("p", { class: "tweet", text: textOf(c) }),
+        metaFor(c),
+        p && d === "keep" ? el("div", { class: "warn", text: p }) : null,
+        editing === c.id ? null : el("div", { class: "row" }, d === "keep" ? [
+          el("button", { text: "Edit", on: { click: function () { editing = c.id; render(); } } }),
+          el("button", { text: "Discard instead", on: { click: function () { decide(c.id, "drop"); } } })
+        ] : [
+          el("button", { text: "Keep instead", on: { click: function () { decide(c.id, "keep"); } } })
+        ])
+      ]));
+    });
+    box.appendChild(panel);
+  }
+
+  function exportable() {
+    return withDecision("keep").map(textOf).filter(function (t) { return !problem(t); });
+  }
+
+  function render() {
+    var q = queue();
+    var kept = withDecision("keep").length;
+    var dropped = withDecision("drop").length;
+    var inView = candidates.filter(visible).length;
+    var done = inView - q.length;
+    $("nReview").textContent = "(" + q.length + ")";
+    $("nKept").textContent = "(" + kept + ")";
+    $("nDropped").textContent = "(" + dropped + ")";
+    $("summary").textContent = inView + " tweets match these filters. " + done + " reviewed, " + q.length + " to go.";
+    $("progressFill").style.width = inView ? (100 * done / inView) + "%" : "0";
+    var n = exportable().length;
+    $("barText").textContent = n + " kept. Posting every 2 days, that is " + (n * 2) + " days before the first repeat.";
+    $("exportBtn").disabled = !n;
+
+    ["review", "kept", "dropped"].forEach(function (t) {
+      $("tab" + t[0].toUpperCase() + t.slice(1)).hidden = t !== tab;
+    });
+    document.querySelectorAll(".tabs button").forEach(function (b) { b.classList.toggle("on", b.dataset.tab === tab); });
+    if (tab === "review") renderReview();
+    if (tab === "kept") renderList("tabKept", "keep");
+    if (tab === "dropped") renderList("tabDropped", "drop");
+  }
+
+  function exportFile() {
+    var seen = {};
+    var lines = exportable().filter(function (t) { return seen[t] ? false : (seen[t] = true); })
+      .map(function (t) { return t.replace(/\r?\n/g, "\\n"); });
+    var body = "# Evergreen pool. One post per line. \\n inside a line means a line break.\n" +
+      "# Lines starting with \"# \" are comments and never post.\n" + lines.join("\n") + "\n";
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([body], { type: "text/plain" }));
+    a.download = "evergreen.txt";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  $("folderInput").addEventListener("change", function (e) { readFiles(e.target.files); });
+  $("fileInput").addEventListener("change", function (e) { readFiles(e.target.files); });
+  $("minLikes").addEventListener("change", function (e) { state.minLikes = Math.max(0, parseInt(e.target.value || 0, 10)); save(); render(); });
+  $("hideFlagged").addEventListener("change", function (e) { state.hideFlagged = e.target.checked; save(); render(); });
+  $("sortBy").addEventListener("change", function (e) { state.sortBy = e.target.value; save(); render(); });
+  document.querySelectorAll(".tabs button").forEach(function (b) {
+    b.addEventListener("click", function () { tab = b.dataset.tab; editing = null; render(); });
+  });
+  $("exportBtn").addEventListener("click", exportFile);
+  $("resetBtn").addEventListener("click", function () {
+    if (!confirm("Clear every keep and discard decision and start over?")) return;
+    state.decisions = {}; state.edits = {}; history = []; pinned = null; save(); render();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (tab !== "review" || editing || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (/input|select|textarea/i.test(document.activeElement.tagName)) return;
+    var c = current();
+    var k = e.key.toLowerCase();
+    if (k === "b") { undo(); return; }
+    if (!c) return;
+    if (k === "k") decide(c.id, "keep");
+    else if (k === "d") decide(c.id, "drop");
+    else if (k === "e") { e.preventDefault(); editing = c.id; render(); }
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>

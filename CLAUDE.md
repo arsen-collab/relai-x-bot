@@ -169,6 +169,17 @@ text-only tweets over a like threshold as CSV, sorted by likes. Feeds
 candidates for the evergreen pool; does not touch `evergreen.txt` itself.
 Takes no credentials, makes no API calls, not part of any workflow.
 
+`tools/evergreen_picker.html`. Browser version of the same filter, with
+keep, discard and edit per tweet, exporting a ready `evergreen.txt`. Runs
+offline; in folder mode it opens only `tweets*.js`, never DMs. Its flag
+patterns are a port of `FLAG_PATTERNS`, so change both together.
+
+`PERSONAL_BOT_SETUP.md`. Self-serve guide for someone copying the evergreen
+bot to their own account, written for a non-technical reader with Claude
+prompts per step. Added 6 Oct 2026 for Arsen's boss. It points at files in
+this repo by name, so renaming `post_evergreen.py`, `x_api.py`,
+`find_evergreen_candidates.py`, `evergreen.yml` or the picker breaks it.
+
 The raw X archive contains far more than public tweets (DMs, ad data). Never
 commit it; `.gitignore` blocks the common patterns but treat that as a
 backstop, not a guarantee.
