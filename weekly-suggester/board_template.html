@@ -1,0 +1,1228 @@
+<!doctype html><html><head><meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>X Review Board</title><style id="css">
+  :root {
+    --bg: #EBEDEF;
+    --card: #FFFFFF;
+    --sunk: #F2F3F5;
+    --line: #D6D9DD;
+    --line-soft: #E4E7EA;
+    --ink: #15181C;
+    --ink-mid: #565C64;
+    --ink-dim: #868D96;
+    --accent: #D9500B;
+    --post: #0C7A55;
+    --post-bg: #E3F3EC;
+    --image: #4152C4;
+    --image-bg: #E7EAF8;
+    --shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 8px 24px -16px rgba(20, 24, 28, .18);
+
+    --step-0: 0.9375rem;
+    --step-1: 1.1875rem;
+    --step-2: 1.5rem;
+    --micro: 0.75rem;
+
+    --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0F1216;
+      --card: #181C21;
+      --sunk: #13171B;
+      --line: #2A3037;
+      --line-soft: #22272D;
+      --ink: #E7E9EC;
+      --ink-mid: #99A1AA;
+      --ink-dim: #6C747D;
+      --accent: #FF7A33;
+      --post: #35C494;
+      --post-bg: #10281F;
+      --image: #8E9AF2;
+      --image-bg: #191D33;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .7);
+    }
+  }
+
+  :root[data-theme="light"] {
+    --bg: #EBEDEF;
+    --card: #FFFFFF;
+    --sunk: #F2F3F5;
+    --line: #D6D9DD;
+    --line-soft: #E4E7EA;
+    --ink: #15181C;
+    --ink-mid: #565C64;
+    --ink-dim: #868D96;
+    --accent: #D9500B;
+    --post: #0C7A55;
+    --post-bg: #E3F3EC;
+    --image: #4152C4;
+    --image-bg: #E7EAF8;
+    --shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 8px 24px -16px rgba(20, 24, 28, .18);
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0F1216;
+    --card: #181C21;
+    --sunk: #13171B;
+    --line: #2A3037;
+    --line-soft: #22272D;
+    --ink: #E7E9EC;
+    --ink-mid: #99A1AA;
+    --ink-dim: #6C747D;
+    --accent: #FF7A33;
+    --post: #35C494;
+    --post-bg: #10281F;
+    --image: #8E9AF2;
+    --image-bg: #191D33;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .7);
+  }
+
+  .page {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: var(--step-0);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    padding-bottom: 5rem;
+  }
+
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .bar-inner {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0.875rem 1.25rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .bar-title {
+    font-size: var(--step-0);
+    font-weight: 640;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .bar-sub {
+    font-family: var(--mono);
+    font-size: var(--micro);
+    color: var(--ink-dim);
+  }
+
+  .tally {
+    margin-left: auto;
+    display: flex;
+    align-items: baseline;
+    gap: 0.875rem;
+    font-family: var(--mono);
+    font-size: var(--micro);
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-mid);
+  }
+
+  .tally b { color: var(--ink); font-weight: 600; }
+  .tally .t-post b { color: var(--post); }
+  .tally .t-image b { color: var(--image); }
+
+  .meter {
+    height: 2px;
+    background: var(--line-soft);
+  }
+
+  .meter span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    transition: width .25s ease;
+  }
+
+  .wrap {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 1.75rem 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .intro h1 {
+    font-size: var(--step-2);
+    font-weight: 680;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .intro p {
+    margin: 0;
+    color: var(--ink-mid);
+    max-width: 34em;
+  }
+
+  .keys {
+    font-family: var(--mono);
+    font-size: var(--micro);
+    color: var(--ink-dim);
+  }
+
+  .keys kbd {
+    font-family: inherit;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 0.05em 0.35em;
+    color: var(--ink-mid);
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line-soft);
+    border-radius: 7px;
+    box-shadow: var(--shadow);
+    padding: 1.125rem 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    scroll-margin-top: 5rem;
+    transition: border-color .15s ease, opacity .2s ease;
+  }
+
+  .card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .card[data-pick="post"] { border-color: color-mix(in srgb, var(--post) 45%, var(--line-soft)); }
+  .card[data-pick="image"] { border-color: color-mix(in srgb, var(--image) 45%, var(--line-soft)); }
+  .card[data-pick="cut"] { opacity: 0.42; }
+
+  .head {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: var(--micro);
+    color: var(--ink-dim);
+  }
+
+  .num {
+    color: var(--ink-mid);
+    font-weight: 600;
+  }
+
+  .kind {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 0.05em 0.4em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.6875rem;
+  }
+
+  .kind.flag {
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .kind[data-kind="new"] {
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+
+  .theme {
+    margin-left: auto;
+    font-family: var(--sans);
+    font-size: var(--micro);
+    color: var(--ink-dim);
+  }
+
+  .copy {
+    font-size: var(--step-1);
+    line-height: 1.45;
+    letter-spacing: -0.012em;
+    white-space: pre-wrap;
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .chars {
+    font-family: var(--mono);
+    font-size: var(--micro);
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-dim);
+  }
+
+  .chars.over { color: var(--accent); font-weight: 600; }
+
+  .edited {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .edited[hidden] { display: none; }
+
+  .copy[contenteditable] {
+    border-radius: 4px;
+    margin: -0.25rem -0.4rem;
+    padding: 0.25rem 0.4rem;
+    transition: background .12s ease, box-shadow .12s ease;
+    cursor: text;
+  }
+
+  .copy[contenteditable]:hover { background: var(--sunk); }
+
+  .copy[contenteditable]:focus {
+    outline: none;
+    background: var(--sunk);
+    box-shadow: inset 0 0 0 1px var(--line), 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+
+  .source {
+    background: var(--sunk);
+    border-left: 2px solid var(--line);
+    border-radius: 0 4px 4px 0;
+    padding: 0.625rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .source-label {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .source-text {
+    margin: 0;
+    font-size: var(--micro);
+    line-height: 1.5;
+    color: var(--ink-mid);
+    white-space: pre-wrap;
+  }
+
+  .foot {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--line-soft);
+    padding-top: 0.875rem;
+  }
+
+  .picks {
+    display: flex;
+    gap: 0.375rem;
+  }
+
+  .pick {
+    font: inherit;
+    font-size: var(--micro);
+    font-weight: 550;
+    color: var(--ink-mid);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    transition: background .12s ease, color .12s ease, border-color .12s ease;
+  }
+
+  .pick:hover { border-color: var(--ink-dim); color: var(--ink); }
+  .pick:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .pick[aria-pressed="true"][data-act="post"] {
+    background: var(--post-bg);
+    border-color: color-mix(in srgb, var(--post) 55%, transparent);
+    color: var(--post);
+  }
+
+  .pick[aria-pressed="true"][data-act="image"] {
+    background: var(--image-bg);
+    border-color: color-mix(in srgb, var(--image) 55%, transparent);
+    color: var(--image);
+  }
+
+  .pick[aria-pressed="true"][data-act="cut"] {
+    background: var(--line-soft);
+    border-color: var(--ink-dim);
+    color: var(--ink);
+  }
+
+  .note-btn {
+    font: inherit;
+    font-size: var(--micro);
+    color: var(--ink-dim);
+    background: transparent;
+    border: 1px dashed var(--line);
+    border-radius: 5px;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+  }
+
+  .note-btn:hover { color: var(--ink); border-color: var(--ink-dim); }
+  .note-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .note-btn.has-note {
+    border-style: solid;
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    color: var(--accent);
+  }
+
+  .note {
+    font: inherit;
+    font-size: var(--micro);
+    line-height: 1.5;
+    color: var(--ink);
+    background: var(--sunk);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 0.5rem 0.6rem;
+    resize: vertical;
+    width: 100%;
+  }
+
+  .note:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .note[hidden] { display: none; }
+
+  .brief {
+    background: var(--sunk);
+    border: 1px solid var(--line-soft);
+    border-radius: 6px;
+    padding: 0.75rem 0.875rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .brief[hidden] { display: none; }
+
+  .brief-row {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 0.75rem;
+    align-items: start;
+  }
+
+  .brief-label {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    padding-top: 0.15rem;
+  }
+
+  .brief-value {
+    font-size: var(--micro);
+    line-height: 1.55;
+    color: var(--ink);
+    border-radius: 3px;
+    padding: 0.1rem 0.3rem;
+    margin: -0.1rem -0.3rem;
+    white-space: pre-wrap;
+    cursor: text;
+  }
+
+  .brief-value:hover { background: var(--card); }
+
+  .brief-value:focus {
+    outline: none;
+    background: var(--card);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+
+  @media (max-width: 34rem) {
+    .brief-row { grid-template-columns: 1fr; gap: 0.15rem; }
+  }
+
+  .why {
+    margin: 0 0 0 auto;
+    font-size: var(--micro);
+    color: var(--ink-dim);
+    max-width: 26em;
+    text-align: right;
+  }
+
+  .state {
+    font-family: var(--mono);
+    font-size: var(--micro);
+    color: var(--ink-dim);
+    min-width: 5.5rem;
+  }
+
+  .handoff {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 4.5rem;
+    z-index: 20;
+    margin: 0;
+    max-width: min(30rem, calc(100vw - 2rem));
+    background: var(--card);
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 0.625rem 0.875rem;
+    font-size: var(--micro);
+    line-height: 1.5;
+    color: var(--ink-mid);
+  }
+
+  .handoff[hidden] { display: none; }
+
+  .done {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1.25rem;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 0.625rem 0.75rem 0.625rem 1rem;
+    font-size: var(--micro);
+    color: var(--ink-mid);
+    max-width: calc(100vw - 2rem);
+  }
+
+  .send {
+    font: inherit;
+    font-size: var(--micro);
+    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .send:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .send[disabled] { opacity: 0.4; cursor: default; }
+  .send[hidden] { display: none; }
+
+  .send.alt {
+    background: transparent;
+    color: var(--ink-mid);
+    border: 1px solid var(--line);
+  }
+
+  .send.alt:hover { color: var(--ink); border-color: var(--ink-dim); }
+
+  .out {
+    max-width: 46rem;
+    margin: 1.25rem auto 0;
+    padding: 0 1.25rem;
+  }
+
+  .out textarea {
+    width: 100%;
+    min-height: 14rem;
+    font-family: var(--mono);
+    font-size: var(--micro);
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.875rem;
+    resize: vertical;
+  }
+
+  .out[hidden] { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+
+  @media (max-width: 34rem) {
+    .theme, .why { margin-left: 0; text-align: left; }
+    .head, .foot { gap: 0.5rem; }
+  }
+</style></head><body><div id="root"></div><script id="data" type="application/json">__BOARD_JSON__</script><script id="decisions" type="application/json">__DECISIONS_JSON__</script><script id="app">
+(function () {
+  var SHELL = '<div class="page">\n  <header class="bar">\n    <div class="bar-inner">\n      <p class="bar-title" id="bar-title"></p>\n      <span class="bar-sub" id="sub"></span>\n      <div class="tally">\n        <span class="t-post"><b id="n-post">0</b> post</span>\n        <span class="t-image"><b id="n-image">0</b> image</span>\n        <span><b id="n-cut">0</b> cut</span>\n      </div>\n    </div>\n    <div class="meter"><span id="meter"></span></div>\n  </header>\n\n  <main class="wrap">\n    <div class="intro">\n      <h1 id="intro-h1"></h1>\n      <p id="intro-mix"></p>\n      <p>Nothing decided yet. Tick each line, edit anything you want, then press Ship it once. It saves itself as you go, with no downloads and no prompts.</p>\n      <p>Every line already has a visual brief in English. Open it on any card, edit it in place, and if you tick image that edited brief is what Paula gets, with the German translated at filing for her to check. Click any line to edit it. Add a note to tell me what should change: a rewrite instruction, or how an image should look and feel. Edits and notes travel with your decision.</p>\n      <p class="keys"><kbd>j</kbd> <kbd>k</kbd> move &nbsp; <kbd>1</kbd> post &nbsp; <kbd>2</kbd> image &nbsp; <kbd>3</kbd> cut</p>\n    </div>\n    <div id="cards" style="display:flex;flex-direction:column;gap:0.875rem"></div>\n  </main>\n\n  <div class="out" id="out" hidden>\n    <textarea id="outText" readonly aria-label="Your decisions as text"></textarea>\n  </div>\n\n  <div class="done">\n    <span id="progress">0 of 15 decided</span>\n    <span class="state" id="state"></span>\n    <button class="send" id="save" disabled hidden>Ship it</button>\n    <button class="send alt" id="send" disabled>Copy decisions</button>\n  </div>\n  <p class="handoff" id="handoff" hidden></p>\n</div>';
+  document.getElementById('root').innerHTML = SHELL;
+
+  var DATA = JSON.parse(document.getElementById('data').textContent);
+  var items = DATA.items;
+  var WEEKNO = parseInt(DATA.week.split('-W')[1], 10);
+  var picks = {};
+  var edits = {};
+  var notes = {};
+  var noteEls = {};
+  var briefEdits = {};
+  var briefBtns = {};
+
+  // What a note is for depends on where the line is going, so the prompt
+  // follows the pick rather than the suggestion type.
+  function setNotePlaceholder(i) {
+    var el = noteEls[i];
+    if (!el) return;
+    if (picks[i] === 'image') {
+      el.placeholder = 'How should it look and feel? Anything to avoid?';
+    } else if (picks[i] === 'cut') {
+      el.placeholder = 'Why is it out? Useful for keeping the next batch off it.';
+    } else {
+      el.placeholder = 'What should change? Tone, angle, a word that is wrong.';
+    }
+  }
+
+  document.getElementById('sub').textContent = DATA.week + ' · drafted ' + DATA.generated;
+  var rewrites = items.filter(function (s) { return s.type === 'rewrite'; }).length;
+  document.getElementById('bar-title').textContent = 'Week ' + WEEKNO + ' X batch';
+  document.getElementById('intro-h1').textContent = 'Week ' + WEEKNO + ': ' + items.length + ' lines to triage';
+  document.getElementById('intro-mix').textContent = rewrites + ' rewrites of your best-performing archive posts, ' +
+    (items.length - rewrites) + ' written fresh. Each rewrite shows the tweet it came from, and how that tweet did.';
+
+  var host = document.getElementById('cards');
+
+  items.forEach(function (item, i) {
+    var card = document.createElement('article');
+    card.className = 'card';
+    card.tabIndex = 0;
+    card.dataset.index = i;
+
+    var head = document.createElement('div');
+    head.className = 'head';
+
+    var num = document.createElement('span');
+    num.className = 'num';
+    num.textContent = item.id;
+    head.appendChild(num);
+
+    var kind = document.createElement('span');
+    kind.className = 'kind';
+    kind.dataset.kind = item.type;
+    kind.textContent = item.type === 'new' ? 'new' : 'rewrite';
+    head.appendChild(kind);
+
+    (item.flags || []).forEach(function (f) {
+      var fl = document.createElement('span');
+      fl.className = 'kind flag';
+      fl.textContent = 'flag: ' + f;
+      fl.title = 'Held in queued/ for written compliance sign-off if you pick post.';
+      head.appendChild(fl);
+    });
+
+    var chars = document.createElement('span');
+    chars.className = 'chars';
+    head.appendChild(chars);
+
+    var edited = document.createElement('span');
+    edited.className = 'edited';
+    edited.textContent = 'edited';
+    edited.hidden = true;
+    head.appendChild(edited);
+
+    var theme = document.createElement('span');
+    theme.className = 'theme';
+    theme.textContent = item.theme;
+    head.appendChild(theme);
+
+    card.appendChild(head);
+
+    // The copy is editable in place. Some lines need a word changed before
+    // they are worth keeping, and sending them back to be re-typed elsewhere
+    // loses the edit.
+    var copy = document.createElement('p');
+    copy.className = 'copy';
+    copy.setAttribute('contenteditable', 'plaintext-only');
+    if (copy.contentEditable !== 'plaintext-only') copy.setAttribute('contenteditable', 'true');
+    copy.setAttribute('spellcheck', 'true');
+    copy.setAttribute('role', 'textbox');
+    copy.setAttribute('aria-label', 'Post text for ' + item.id + ', editable');
+    copy.textContent = item.text;
+    card.appendChild(copy);
+
+    function sync() {
+      var now = copy.innerText.replace(/\n+$/, '');
+      edits[i] = now;
+      var changed = now !== item.text;
+      edited.hidden = !changed;
+      chars.textContent = now.length + ' chars';
+      chars.classList.toggle('over', now.length > 280);
+    }
+    copy.addEventListener('input', autosave);
+    copy.addEventListener('input', sync);
+    sync();
+
+    if (item.source) {
+      var src = document.createElement('div');
+      src.className = 'source';
+
+      var label = document.createElement('div');
+      label.className = 'source-label';
+      var bits = [
+        'from ' + item.source.date,
+        item.source.likes + ' likes',
+        item.source.reposts + ' reposts'
+      ];
+      bits.forEach(function (b) {
+        var s = document.createElement('span');
+        s.textContent = b;
+        label.appendChild(s);
+      });
+      src.appendChild(label);
+
+      var srcText = document.createElement('p');
+      srcText.className = 'source-text';
+      srcText.textContent = item.source.text;
+      src.appendChild(srcText);
+
+      card.appendChild(src);
+    }
+
+    // The visual brief, drafted at batch time for every line whether or not
+    // it gets picked. Collapsed until it matters, so the board still scans.
+    var briefBox = null;
+    if (item.brief) {
+      briefBox = document.createElement('div');
+      briefBox.className = 'brief';
+      briefBox.hidden = true;
+
+      [['Headline', 'headline'], ['Caption', 'caption'],
+       ['Visual', 'visual_direction'], ['Feeling', 'target_feeling']
+      ].forEach(function (pair) {
+        if (!item.brief[pair[1]]) return;
+        var row = document.createElement('div');
+        row.className = 'brief-row';
+
+        var label = document.createElement('span');
+        label.className = 'brief-label';
+        label.textContent = pair[0];
+        row.appendChild(label);
+
+        var value = document.createElement('div');
+        value.className = 'brief-value';
+        value.setAttribute('contenteditable', 'plaintext-only');
+        if (value.contentEditable !== 'plaintext-only') value.setAttribute('contenteditable', 'true');
+        value.setAttribute('role', 'textbox');
+        value.setAttribute('aria-label', pair[0] + ' for ' + item.id + ', editable');
+        value.textContent = item.brief[pair[1]];
+        value.addEventListener('input', function () {
+          briefEdits[i] = briefEdits[i] || {};
+          briefEdits[i][pair[1]] = value.innerText.replace(/\n+$/, '');
+          autosave();
+        });
+        row.appendChild(value);
+
+        briefBox.appendChild(row);
+      });
+    }
+
+    var foot = document.createElement('div');
+    foot.className = 'foot';
+
+    var group = document.createElement('div');
+    group.className = 'picks';
+    [['post', 'Post as copy'], ['image', 'Make it an image'], ['cut', 'Cut']].forEach(function (pair) {
+      var btn = document.createElement('button');
+      btn.className = 'pick';
+      btn.type = 'button';
+      btn.dataset.act = pair[0];
+      btn.setAttribute('aria-pressed', 'false');
+      btn.textContent = pair[1];
+      btn.addEventListener('click', function () { choose(i, pair[0]); });
+      group.appendChild(btn);
+    });
+    foot.appendChild(group);
+
+    if (briefBox) {
+      var briefBtn = document.createElement('button');
+      briefBtn.className = 'note-btn';
+      briefBtn.type = 'button';
+      briefBtn.textContent = 'Visual brief';
+      briefBtn.setAttribute('aria-expanded', 'false');
+      briefBtn.addEventListener('click', function () {
+        briefBox.hidden = !briefBox.hidden;
+        briefBtn.setAttribute('aria-expanded', String(!briefBox.hidden));
+      });
+      foot.appendChild(briefBtn);
+      briefBtns[i] = { btn: briefBtn, box: briefBox };
+    }
+
+    var noteBtn = document.createElement('button');
+    noteBtn.className = 'note-btn';
+    noteBtn.type = 'button';
+    noteBtn.textContent = 'Add note';
+    foot.appendChild(noteBtn);
+
+    var why = document.createElement('p');
+    why.className = 'why';
+    why.textContent = item.why;
+    foot.appendChild(why);
+
+    card.appendChild(foot);
+    if (briefBox) card.appendChild(briefBox);
+
+    // Free text back to Claude. For an image pick this steers the brief, for
+    // a post pick it is a rewrite instruction. Ticking says what happens to a
+    // line; this says what should change about it.
+    var note = document.createElement('textarea');
+    note.className = 'note';
+    note.hidden = true;
+    note.rows = 2;
+    note.setAttribute('aria-label', 'Note to Claude about ' + item.id);
+    noteEls[i] = note;
+    setNotePlaceholder(i);
+    note.addEventListener('input', function () {
+      notes[i] = note.value.trim();
+      noteBtn.textContent = notes[i] ? 'Note added' : 'Add note';
+      noteBtn.classList.toggle('has-note', !!notes[i]);
+      autosave();
+      refresh();
+    });
+    card.appendChild(note);
+
+    noteBtn.addEventListener('click', function () {
+      note.hidden = !note.hidden;
+      if (!note.hidden) note.focus();
+    });
+    host.appendChild(card);
+  });
+
+  var cards = Array.prototype.slice.call(host.children);
+
+  // Decisions already routed in chat come back pre-ticked, so the page shows
+  // what is left rather than starting from zero every time.
+  items.forEach(function (item, i) {
+    if (DATA.already && DATA.already[item.id]) choose(i, DATA.already[item.id]);
+  });
+
+  function choose(i, act) {
+    picks[i] = picks[i] === act ? undefined : act;
+    var card = cards[i];
+    if (picks[i]) { card.dataset.pick = picks[i]; } else { delete card.dataset.pick; }
+    Array.prototype.forEach.call(card.querySelectorAll('.pick'), function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.act === picks[i]));
+    });
+    setNotePlaceholder(i);
+    autosave();
+    var bb = briefBtns[i];
+    if (bb && picks[i] === 'image' && bb.box.hidden) {
+      bb.box.hidden = false;
+      bb.btn.setAttribute('aria-expanded', 'true');
+    }
+    refresh();
+  }
+
+  function counts() {
+    var c = { post: 0, image: 0, cut: 0 };
+    Object.keys(picks).forEach(function (k) { if (picks[k]) c[picks[k]]++; });
+    return c;
+  }
+
+  function refresh() {
+    var c = counts();
+    var total = c.post + c.image + c.cut;
+    document.getElementById('n-post').textContent = c.post;
+    document.getElementById('n-image').textContent = c.image;
+    document.getElementById('n-cut').textContent = c.cut;
+    document.getElementById('progress').textContent = total + ' of ' + items.length + ' decided';
+    document.getElementById('meter').style.width = (total / items.length * 100) + '%';
+    var anyNote = Object.keys(notes).some(function (k) { return notes[k]; });
+    var nothing = total === 0 && !anyNote;
+    document.getElementById('send').disabled = nothing;
+  }
+
+  function textOf(item, i) {
+    return (edits[i] === undefined ? item.text : edits[i]);
+  }
+
+  function asData() {
+    return {
+      week: DATA.week,
+      decisions: items.map(function (item, i) {
+        var now = textOf(item, i);
+        var d = { id: item.id, action: picks[i] || null, text: now, theme: item.theme };
+        if (now !== item.text) d.original_text = item.text;
+        if (notes[i]) d.note = notes[i];
+        if (item.brief) {
+          var b = {};
+          Object.keys(item.brief).forEach(function (k) { b[k] = item.brief[k]; });
+          if (briefEdits[i]) {
+            Object.keys(briefEdits[i]).forEach(function (k) { b[k] = briefEdits[i][k]; });
+            d.brief_edited = true;
+          }
+          d.brief = b;
+        }
+        return d;
+      // A note without a tick still travels. "Not sure, try it colder" is
+      // feedback worth having even when the decision is not made yet.
+      }).filter(function (d) { return d.action || d.note; })
+    };
+  }
+
+  function asText() {
+    var lines = ['Week ' + WEEKNO + ' decisions', ''];
+    ['post', 'image', 'cut'].forEach(function (act) {
+      var got = items.filter(function (_, i) { return picks[i] === act; });
+      if (!got.length) return;
+      lines.push(act.toUpperCase() + ' (' + got.length + ')');
+      got.forEach(function (item) {
+        var i = items.indexOf(item);
+        var now = textOf(item, i);
+        var mark = now === item.text ? '  ' : ' *';
+        lines.push(' ' + mark + item.id + '  ' + now.replace(/\n/g, ' / '));
+        if (notes[i]) lines.push('        note: ' + notes[i]);
+      });
+      lines.push('');
+    });
+    var undecided = items.filter(function (_, i) { return !picks[i]; }).map(function (s) { return s.id; });
+    if (undecided.length) lines.push('UNDECIDED: ' + undecided.join(', '));
+    return lines.join('\n').trim();
+  }
+
+  document.getElementById('send').addEventListener('click', function () {
+    var text = asText();
+    var out = document.getElementById('out');
+    var box = document.getElementById('outText');
+    box.value = text;
+    out.hidden = false;
+    var btn = this;
+    function done(msg) {
+      btn.textContent = msg;
+      setTimeout(function () { btn.textContent = 'Copy decisions'; }, 2000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        done('Copied');
+      }, function () {
+        box.select();
+        done('Select and copy');
+      });
+    } else {
+      box.select();
+      done('Select and copy');
+    }
+    box.scrollIntoView({ block: 'nearest' });
+  });
+
+  // The save button only appears if the viewer's runtime grants downloads.
+  // It never exists on a local file open, so the copy button stays as the
+  // fallback rather than being replaced.
+  var saveBtn = document.getElementById('save');
+  var stateEl = document.getElementById('state');
+  var handoff = document.getElementById('handoff');
+  var shipped = false;
+  var saveTimer = null;
+  var STASH = 'x-batch-' + DATA.week + '-inflight';
+  var lastSaved = '';
+
+  // Only ONE silent transport: the page publishes data/decisions.json onto
+  // itself and Claude reads it from there. The files form is the one that
+  // matters, because it does not reload this view, so a save mid-review
+  // leaves the reviewer's ticks and edits alone.
+  //
+  // The downloads capability used to be the fallback and it was wrong here:
+  // a browser download asks permission EVERY time, so autosaving through it
+  // meant a dialog every few seconds. Anything that cannot save silently
+  // does not belong on an autosaving page.
+  var publisher = null;
+  var canSave = null;
+
+  function payload() {
+    var d = asData();
+    if (shipped) {
+      d.submitted = true;
+      d.submitted_at = new Date().toISOString();
+    }
+    return JSON.stringify(d, null, 1);
+  }
+
+  function label(text) { stateEl.textContent = text; }
+
+  // A whole-page publish replaces the board, so the document it writes has
+  // to carry the BOARD, not the decisions. Getting that wrong once published
+  // a page with no cards on it.
+  //
+  // So two data blocks. #data is the board, with the reviewer's ticks and
+  // edits folded in, which is what the page rebuilds itself from. #decisions
+  // is the submitted payload, which is what Claude reads.
+  function boardState() {
+    return {
+      week: DATA.week,
+      generated: DATA.generated,
+      items: items.map(function (item, i) {
+        var copy = {
+          id: item.id, type: item.type, theme: item.theme, why: item.why,
+          text: textOf(item, i), source: item.source,
+          note: notes[i] || ''
+        };
+        if (item.brief) {
+          copy.brief = {};
+          Object.keys(item.brief).forEach(function (k) { copy.brief[k] = item.brief[k]; });
+          if (briefEdits[i]) {
+            Object.keys(briefEdits[i]).forEach(function (k) {
+              copy.brief[k] = briefEdits[i][k];
+            });
+          }
+        }
+        return copy;
+      }),
+      already: items.reduce(function (acc, item, i) {
+        if (picks[i]) acc[item.id] = picks[i];
+        return acc;
+      }, {})
+    };
+  }
+
+  function block(id, value) {
+    var close = '<' + '/script>';
+    return '<script id="' + id + '" type="application/json">' +
+      JSON.stringify(value, null, 1).replace(/<\/script/g, '<\\/script') + close;
+  }
+
+  function selfDocument(body) {
+    var css = document.getElementById('css').textContent;
+    var app = document.getElementById('app').textContent;
+    var close = '<' + '/script>';
+    return '<!doctype html><html><head><meta charset="utf8">' +
+      '<meta name="viewport" content="width=device-width,initial-scale=1">' +
+      '<title>X Review Board<' + '/title>' +
+      '<style id="css">' + css + '<' + '/style></head><body>' +
+      '<div id="root"></div>' +
+      block('data', boardState()) +
+      block('decisions', JSON.parse(body)) +
+      '<script id="app">' + app + close +
+      '</body></html>';
+  }
+
+  // Which publish form to use. The files form writes one data file and leaves
+  // the view running, which is ideal but is capability_disabled in this host.
+  // The html form replaces the whole page and reloads the view, which is fine
+  // because the board is baked into what gets published. Starts optimistic and
+  // drops to the html form on the first rejection that says the files form is
+  // unavailable.
+  var useFiles = true;
+
+  function trace(what) {
+    handoff.textContent = what;
+    handoff.hidden = false;
+    try { console.log('[board]', what); } catch (e) {}
+  }
+
+  function writeNow() {
+    if (!publisher) {
+      trace('No publisher, so nothing was saved. claude.use("artifact") gave nothing usable.');
+      return;
+    }
+    var body = payload();
+    if (body === lastSaved && !shipped) return;
+
+    label('saving');
+
+    var attempt;
+    try {
+      attempt = useFiles
+        ? publisher.publish({ 'data/decisions.json': body })
+        : publisher.publish(selfDocument(body));
+    } catch (e) {
+      label('save failed');
+      trace('publish() threw: ' + (e && e.message ? e.message : e) +
+            '. Tell Claude this.');
+      return;
+    }
+    if (!attempt || typeof attempt.then !== 'function') {
+      label('save failed');
+      trace('publish() returned no promise. Tell Claude this.');
+      return;
+    }
+
+    attempt.then(function () {
+      lastSaved = body;
+      try { sessionStorage.removeItem(STASH); } catch (e) {}
+      label(shipped ? 'shipped' : 'saved');
+    }, function (err) {
+      var code = (err && err.code) || 'upstream_error';
+      if (code === 'conflict') {
+        label('reloading');
+        return;
+      }
+      if (code === 'rate_limited') {
+        label('saving, slowly');
+        if (saveTimer) clearTimeout(saveTimer);
+        saveTimer = setTimeout(writeNow, 20000);
+        return;
+      }
+      // The files form is not available in this view. Fall back to replacing
+      // the whole page, once, rather than telling the reviewer to paste.
+      if (useFiles && (code === 'capability_disabled' ||
+                       code === 'capability_removed' ||
+                       code === 'not_declared')) {
+        useFiles = false;
+        writeNow();
+        return;
+      }
+      if (code === 'not_writer' || code === 'not_granted') {
+        publisher = null;
+        offer(code);
+        return;
+      }
+      if (code === 'too_large' || code === 'invalid_content' ||
+          code === 'read_only_path') {
+        label('save failed');
+        trace('Save rejected: ' + code + '. ' + ((err && err.message) || '') +
+              '. Tell Claude this code.');
+        return;
+      }
+      label('save failed');
+      trace('Save failed: ' + code + '. ' + ((err && err.message) || 'no message') +
+            '. Tell Claude this code.');
+    });
+  }
+
+  // Saving is genuinely unavailable. Say so and point at the manual route
+  // rather than pretending it saved.
+  function offer(code) {
+    saveBtn.hidden = true;
+    label('');
+    handoff.textContent = 'This view cannot save on its own (' + code + '). ' +
+      'Use Copy decisions and paste them to Claude in chat.';
+    handoff.hidden = false;
+  }
+
+  // An html publish reloads the view, so anything not yet published has to
+  // survive the trip. The docs are explicit about this.
+  function stash() {
+    try {
+      sessionStorage.setItem(STASH, JSON.stringify({
+        week: DATA.week, picks: picks, edits: edits,
+        notes: notes, briefEdits: briefEdits
+      }));
+    } catch (e) {}
+  }
+
+  function unstash() {
+    var raw = null;
+    try { raw = sessionStorage.getItem(STASH); } catch (e) { return; }
+    if (!raw) return;
+    var kept;
+    try { kept = JSON.parse(raw); } catch (e) { return; }
+    if (!kept || kept.week !== DATA.week) return;
+    Object.keys(kept.notes || {}).forEach(function (k) { notes[k] = kept.notes[k]; });
+    Object.keys(kept.briefEdits || {}).forEach(function (k) { briefEdits[k] = kept.briefEdits[k]; });
+    Object.keys(kept.picks || {}).forEach(function (k) {
+      if (kept.picks[k] && picks[k] !== kept.picks[k]) choose(Number(k), kept.picks[k]);
+    });
+  }
+
+  // Autosave keeps the ticks safe. With the html form each save reloads the
+  // view, so it is unhurried on purpose.
+  function autosave() {
+    if (!publisher) return;
+    stash();
+    if (saveTimer) clearTimeout(saveTimer);
+    label('unsaved');
+    saveTimer = setTimeout(writeNow, useFiles ? 4000 : 9000);
+  }
+
+  if (typeof claude !== 'undefined' && claude && claude.use) {
+    claude.use('artifact').then(function (a) {
+      if (a && a.publish) {
+        publisher = a;
+        saveBtn.hidden = false;
+        saveBtn.disabled = false;
+        saveBtn.title = 'Marks the review finished. Claude routes it from here.';
+        label('saves itself');
+        unstash();
+      } else {
+        offer('not available');
+      }
+    }, function () { offer('not available'); });
+
+    saveBtn.addEventListener('click', function () {
+      if (saveTimer) clearTimeout(saveTimer);
+      shipped = true;
+      lastSaved = '';
+      stash();
+      var c = counts();
+      handoff.textContent = 'Marked finished: ' + c.post + ' to post, ' +
+        c.image + ' to brief, ' + c.cut + ' cut. Nothing else to do. Claude ' +
+        'checks the board every couple of hours and files it.';
+      handoff.hidden = false;
+      writeNow();
+      // If nothing moved the status off 'unsaved', the save never started.
+      setTimeout(function () {
+        if (stateEl.textContent === 'unsaved') {
+          trace('Ship it did not start a save. Status stuck on unsaved. ' +
+                'Tell Claude that.');
+        }
+      }, 1200);
+    });
+
+    window.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden' && saveTimer) {
+        clearTimeout(saveTimer);
+        writeNow();
+      }
+    });
+  } else {
+    offer('no runtime');
+  }
+
+  var focused = -1;
+  function focus(i) {
+    focused = Math.max(0, Math.min(items.length - 1, i));
+    cards[focused].focus();
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var tag = (e.target.tagName || '').toLowerCase();
+    // Without the isContentEditable guard, typing "1" into a line would
+    // silently mark that line as post instead of inserting the character.
+    if (tag === 'textarea' || tag === 'input' || e.target.isContentEditable) return;
+    var active = document.activeElement;
+    if (active && active.classList && active.classList.contains('card')) {
+      focused = Number(active.dataset.index);
+    }
+    if (e.key === 'j') { e.preventDefault(); focus(focused + 1); }
+    else if (e.key === 'k') { e.preventDefault(); focus(focused - 1); }
+    else if (e.key === '1' || e.key === '2' || e.key === '3') {
+      if (focused < 0) return;
+      e.preventDefault();
+      choose(focused, ['post', 'image', 'cut'][Number(e.key) - 1]);
+    }
+  });
+
+  refresh();
+})();
+</script></body></html>

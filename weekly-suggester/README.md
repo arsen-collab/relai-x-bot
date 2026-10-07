@@ -100,7 +100,14 @@ it. Savings terminology is the main one.
 
 ## Review and routing
 
-Not automated. The Slack message links to a review board, an artifact holding
+Not automated. Every Monday, after the batch lands, republish the board to the
+same artifact URL: `python3 weekly-suggester/build_board.py`, then publish
+`board/YYYY-Www.html` at `config.REVIEW_URL`. The Action cannot do this step, so
+until it is done the Slack link shows the previous week. `board_template.html`
+is the review UI; `build_board.py` joins the batch with `state/pool.json` for the
+source tweets.
+
+The Slack message links to a review board, an artifact holding
 the week's 15 lines with the source tweet and its engagement beside each
 rewrite, plus a visual brief drafted in advance for every line. Copy and brief
 are both editable in place.
