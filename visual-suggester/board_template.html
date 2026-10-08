@@ -302,6 +302,12 @@
   }
   .gate b { font-weight: 700; }
 
+  .send-row { margin-top: var(--sp-3); display: flex; gap: var(--sp-3); align-items: center; flex-wrap: wrap; }
+  .send-row .status { font-size: 12.5px; color: var(--ink-soft); }
+  .send-row .status a { color: var(--signal); font-weight: 600; }
+  .send-row .status.err { color: var(--cut); }
+  .card[data-sent="1"] { border-left-color: var(--signal); }
+
   footer {
     margin-top: var(--sp-7); padding-top: var(--sp-4);
     border-top: 1px solid var(--line);
@@ -362,6 +368,11 @@
       Saving writes <code id="fname">visual-batch-decisions.json</code> to your
       Downloads folder. Then, in a chat session:
       <code>python3 visual-suggester/route.py</code>
+    </p>
+    <p>
+      Send to Paula files the task on her Design board in one click, sketch
+      attached, with the German translated at that moment. Save decisions is
+      still there for the record and for held concepts.
     </p>
     <p>
       A concept marked make with a compliance flag on it does not go to the
@@ -482,6 +493,217 @@
     return wrap;
   }
 
+
+  // ---- send to Paula ----------------------------------------------------
+  // One click files the Notion task on Paula's Design board through the
+  // viewer's own Notion connector (mcp capability). The same gate route.py
+  // applies runs first, on the copy as edited here. Flagged concepts get no
+  // button: a visual has no already-published source, so the standing approval
+  // does not reach it. Recording in state/made.json cannot happen from a
+  // browser, so a sent task is picked up from Notion by the next Claude
+  // session ("record sent visuals").
+  const NOTION = "Notion";
+  const DESIGN_SOURCE = "c33f79ad-bc09-490b-8b95-32578426c036";
+  const OWNER = "f0e5090d-ed80-4c74-88ff-1ab60b4c1b64";
+  const ASSIGNEE = "1abd872b-594c-819a-975e-0002e5b89f57";
+  const SENT_KEY = "relai-visual-sent-" + BATCH.week;
+
+  function sentMap() {
+    try { return JSON.parse(localStorage.getItem(SENT_KEY) || "{}"); } catch (e) { return {}; }
+  }
+  function markSent(id, url) {
+    const m = sentMap(); m[id] = url;
+    try { localStorage.setItem(SENT_KEY, JSON.stringify(m)); } catch (e) { /* private mode */ }
+  }
+
+  function holdReasons(c, s) {
+    const text = s.headline + "\n" + s.caption;
+    const out = [];
+    const rx = (p) => { try { return new RegExp(p, "i"); } catch (e) { return null; } };
+    for (const [label, p] of (BATCH.checks?.drop || [])) { const r = rx(p); if (r && r.test(text)) out.push(label); }
+    for (const [label, p] of (BATCH.checks?.flag || [])) { const r = rx(p); if (r && r.test(text)) out.push(label); }
+    for (const f of c.flags || []) out.push(f);
+    const max = BATCH.checks?.max_headline;
+    if (max && s.headline.length > max) out.push("headline over " + max + " chars");
+    return [...new Set(out)].sort();
+  }
+
+  function zurichDatePlus(days) {
+    const d = new Date(Date.now() + days * 86400000);
+    return d.toLocaleDateString("sv-SE", { timeZone: "Europe/Zurich" });
+  }
+
+  async function translate(s) {
+    const sample = await claude.use("sample");
+    if (!sample) throw new Error("German translation is not available in this view");
+    const r = await sample.json(
+      "Translate this Relai marketing copy from English to German for Swiss and German retail readers. "
+      + "Use the du form. Keep Bitcoin, Relai and wallet as they are. No em dashes. Keep line breaks and capitalisation style. "
+      + "Reply as JSON: {\"headline\": string, \"caption\": string}.\n\n"
+      + JSON.stringify({ headline: s.headline, caption: s.caption }));
+    if (!r || typeof r.headline !== "string" || typeof r.caption !== "string") {
+      throw new Error("German translation came back malformed");
+    }
+    return r;
+  }
+
+  function resultText(res) {
+    const parts = [];
+    for (const b of (res && res.content) || []) if (b && typeof b.text === "string") parts.push(b.text);
+    try { parts.push(JSON.stringify(res.payload ?? res.structuredContent ?? "")); } catch (e) { /* ignore */ }
+    return parts.join("\n");
+  }
+
+  function briefText(c, s, de) {
+    const lines = [
+      "PURPOSE", c.purpose, "",
+      "TARGET FEELING", c.target_feeling, "",
+      "FORMAT", c.shape + ", " + c.format.replace(/_/g, " ") + ".", "",
+      "HEADLINE AND COPY", "Headline (on the image):", s.headline, "",
+      "Caption (posted alongside, not on the image):", s.caption, "",
+      "DE (machine translated, please check it reads naturally before you set it):",
+      "Headline: " + de.headline, "Caption: " + de.caption, "",
+      "VISUAL DIRECTION", s.visual,
+      "Generous white space. Relai logo bottom right.", "",
+      "IMAGE SPECS", BATCH.brief_defaults?.image_spec || "1080 x 1350 px, portrait", "",
+    ];
+    if ((c.needs_check || []).length) {
+      lines.push("VERIFY BEFORE BUILD");
+      for (const n of c.needs_check) lines.push("- " + n);
+      lines.push("");
+    }
+    if (s.note.trim()) lines.push("DIRECTION FROM REVIEW", s.note.trim(), "");
+    lines.push("SOURCE", "Visual suggester, week " + parseInt(BATCH.week.split("-W")[1], 10) + ", " + c.id
+      + ", from " + c.source_kind + (s.headline.trim() !== c.headline ? ". Headline edited in review; original: " + c.headline : "") + ".");
+    return lines.join("\n");
+  }
+
+  async function sendToPaula(c, setStatus) {
+    const s = state.get(c.id);
+    const reasons = holdReasons(c, s);
+    if (reasons.length) throw new Error("Held, not sent: " + reasons.join(", "));
+    const mcp = await claude.use("mcp");
+    if (!mcp) throw new Error("Notion is not available in this view");
+
+    setStatus("Translating to German");
+    const de = await translate(s);
+
+    let imageMd = "";
+    let fileId = null;
+    if (c.mock_svg) {
+      setStatus("Uploading the sketch");
+      const att = await mcp.callTool(NOTION, "notion-create-attachment", {
+        content: c.mock_svg, filename: c.id + "-composition-sketch.svg",
+      });
+      const t = resultText(att);
+      const m = t.match(/file-upload:\/\/([0-9a-f-]{36})/i);
+      if (m) { fileId = m[1]; imageMd = '<image src="file-upload://' + fileId + '"></image>'; }
+    }
+
+    setStatus("Filing the task");
+    const edited = s.headline.trim() !== c.headline;
+    const caveat = "Composition sketch, for layout only. It is a monochrome thumbnail with no colour decision"
+      + (edited ? ", and it shows the original headline wording" : "")
+      + ". The headline and visual direction in Notes / context win over the sketch.";
+    const page = {
+      properties: {
+        "Task": c.subject.charAt(0).toUpperCase() + c.subject.slice(1),
+        "Status": "To Do",
+        "Type": "Design request",
+        "Priority": BATCH.brief_defaults?.priority || "Medium",
+        "Platform": JSON.stringify(BATCH.brief_defaults?.platform || ["IG"]),
+        "Language": JSON.stringify(BATCH.brief_defaults?.languages || ["\ud83c\uddec\ud83c\udde7 EN", "\ud83c\udde9\ud83c\uddea DE"]),
+        "date:Due (mandatory):start": zurichDatePlus(BATCH.brief_defaults?.due_days ?? 3),
+        "date:Due (mandatory):is_datetime": 0,
+        "Owner": JSON.stringify([OWNER]),
+        "Assignee": JSON.stringify([ASSIGNEE]),
+        "Notes / context": briefText(c, s, de),
+      },
+    };
+    if (imageMd) page.content = caveat + "\n" + imageMd;
+    const made = await mcp.callTool(NOTION, "notion-create-pages", {
+      parent: { type: "data_source_id", data_source_id: DESIGN_SOURCE },
+      pages: [page],
+    });
+    const out = resultText(made);
+    const u = out.match(/https:\/\/(?:app\.)?notion\.(?:com|so)\/[^\s"\\)]+/);
+    const pid = (out.match(/"id"\s*:\s*"([0-9a-f-]{36})"/i) || [])[1];
+    const url = u ? u[0] : null;
+    if (!url && !pid) throw new Error("Notion answered but no task link came back. Check the Design board before sending again.");
+
+    // Attachment property, so the image sits on the card as well as in the
+    // page. Not fatal: the task already exists with the image in its body.
+    if (fileId && pid) {
+      try {
+        await mcp.callTool(NOTION, "notion-update-page", {
+          page_id: pid, command: "update_properties",
+          properties: { "Attachment": [{ type: "file_upload", file_upload: { id: fileId } }] },
+        });
+      } catch (e) { /* sketch is still in the page body */ }
+    }
+    return url || ("https://www.notion.so/" + pid.replace(/-/g, ""));
+  }
+
+  function sendRow(c, node) {
+    const row = el("div", "send-row");
+    const btn = el("button", "primary", "Send to Paula");
+    btn.type = "button";
+    const status = el("span", "status");
+    row.append(btn, status);
+
+    const showSent = (url) => {
+      btn.disabled = true; btn.textContent = "Sent";
+      status.className = "status"; status.textContent = "";
+      const a = el("a", null, "Open the task");
+      a.href = url; a.target = "_blank"; a.rel = "noopener";
+      status.append(a);
+      node.dataset.sent = "1";
+    };
+    const existing = sentMap()[c.id];
+    if (existing) { showSent(existing); return row; }
+    if ((BATCH.already_briefed || []).includes(c.id)) {
+      btn.disabled = true; btn.textContent = "Already sent";
+      status.textContent = "Filed on Paula's board earlier this week";
+      node.dataset.sent = "1";
+      return row;
+    }
+
+    const refresh = () => {
+      const s = state.get(c.id);
+      const reasons = holdReasons(c, s);
+      const make = s.action === "make";
+      btn.disabled = !make || reasons.length > 0;
+      if (reasons.length && make) {
+        status.className = "status err";
+        status.textContent = "Held for written sign-off, not sent: " + reasons.join(", ");
+      } else if (!make) {
+        status.className = "status";
+        status.textContent = "Tick make to send";
+      } else {
+        status.className = "status"; status.textContent = "";
+      }
+    };
+    refresh();
+    row.addEventListener("input", refresh);
+    document.addEventListener("click", () => setTimeout(refresh, 0));
+    document.addEventListener("input", () => setTimeout(refresh, 0));
+
+    btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      status.className = "status";
+      try {
+        const url = await sendToPaula(c, (t) => { status.textContent = t + "..."; });
+        markSent(c.id, url);
+        showSent(url);
+      } catch (e) {
+        status.className = "status err";
+        status.textContent = (e && e.message) ? e.message : "Send failed";
+        btn.disabled = false;
+      }
+    });
+    return row;
+  }
+
   function card(c) {
     const node = el("div", "card");
     node.dataset.action = state.get(c.id).action || "";
@@ -589,6 +811,9 @@
     });
     decide.append(clear);
     body.append(decide);
+
+    node.dataset.sent = sentMap()[c.id] ? "1" : "";
+    body.append(sendRow(c, node));
 
     const noteWrap = el("div", "field");
     noteWrap.style.marginTop = "var(--sp-4)";

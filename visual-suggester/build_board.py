@@ -34,6 +34,9 @@ TEMPLATE = os.path.join(HERE, "board_template.html")
 BATCH_DIR = os.path.join(HERE, "batches")
 BOARD_DIR = os.path.join(HERE, "board")
 
+sys.path.insert(0, HERE)
+import config  # noqa: E402
+
 TOKEN = "__BATCH_JSON__"
 TZ = ZoneInfo("Europe/Zurich")
 
@@ -72,6 +75,23 @@ def main():
 
     if TOKEN not in template:
         sys.exit(f"ERROR: {TOKEN} not found in board_template.html.")
+
+    # The board re-runs the same mechanical checks route.py runs, because the
+    # Send to Paula button files the task straight from the browser. Patterns
+    # are shipped as data so there is still exactly one copy of them.
+    batch["checks"] = {
+        "drop": [[label, pattern] for label, pattern in config.DROP_CHECKS],
+        "flag": [[label, pattern] for label, pattern in config.FLAG_CHECKS],
+        "max_headline": config.MAX_HEADLINE_CHARS,
+    }
+
+    # Concepts route.py already briefed. The board cannot see them otherwise,
+    # and a second click would file a duplicate task on Paula's board.
+    try:
+        with open(os.path.join(HERE, "state", "routed.json"), encoding="utf-8") as fh:
+            batch["already_briefed"] = json.load(fh).get("briefed", {}).get(week, [])
+    except (OSError, ValueError):
+        batch["already_briefed"] = []
 
     html = template.replace(TOKEN, js_literal(batch))
 

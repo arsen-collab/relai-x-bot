@@ -124,8 +124,12 @@ is at eight, so a ninth needs a better reason than a first of something else.
 Add a format only after it has shipped.
 
 **The sketches are thumbnails, never deliverables.** They exist so composition
-can be judged at the moment of the decision. Paula works from the written
-direction and never sees them.
+can be judged at the moment of the decision. As of 8 Oct 2026 the sketch is
+also attached to Paula's task as a labelled layout reference (Arsen's call,
+overriding the earlier rule that she never sees them). The written direction
+still wins over the sketch, and the label says so. The sketch is drawn from
+the batch wording, so after a headline edit it shows the original; the label
+says that too.
 
 **The sketches are monochrome on purpose, decided 9 Sep 2026.** Four greys in
 `config.MOCK_PALETTE`, no colour at all. The darkest value marks the one
@@ -140,6 +144,16 @@ image specs, in that order and under those names, so the skill fills Paula's
 board without translating anything. No German in the payload: the skill
 translates at filing time, which is what stops the two drifting after an edit
 on the review board.
+
+**The review board files to Paula itself, decided 8 Oct 2026.** Each make
+card has a Send to Paula button. It runs the same mechanical checks as
+`route.py` on the edited copy, translates the German at that moment, uploads
+the sketch and creates the task on the Design board through the viewer's
+Notion connector. It cannot write `state/made.json` from a browser, so a task
+filed that way is recorded by the next Claude session ("record sent
+visuals": find Design board tasks whose notes say "Visual suggester, week",
+run `record.py` for each). Until then the suggester can re-propose it.
+`route.py` stays for held concepts and for the record.
 
 **A flagged concept never reaches Paula.** Unlike an X rewrite, a visual has
 no already-published source line, so the standing approval does not reach it.
@@ -386,8 +400,8 @@ not misleading. Forward-looking return or price projections engage
   brief. Marketing numbers come from Relai's own backtest tool or verified
   data and are never approximated, so a figure nobody sourced must not be set
   in artwork.
-- The sketches are monochrome and carry no colour decision. Do not send one to
-  Paula and do not read one as a palette. Relai's brand values are in the
+- The sketches are monochrome and carry no colour decision. It goes to Paula
+  as a layout reference only, labelled as such; do not read one as a palette. Relai's brand values are in the
   brand book, not in this repo.
 - **Every visual brief filed with Claude must be recorded** with
   `visual-suggester/record.py`, whatever the entry point. It is step 6 of the
