@@ -48,7 +48,7 @@ CONCEPTS = 8
 # softened. This caps the re-request rounds so a bad run cannot spin.
 MAX_REGENERATION_ROUNDS = 2
 
-MAX_TOKENS = 24000
+MAX_TOKENS = 40000
 EFFORT = "high"
 
 # On-image headline. Shorter than a tweet on purpose: it has to hold at large
