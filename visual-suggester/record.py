@@ -54,7 +54,8 @@ TZ = ZoneInfo("Europe/Zurich")
 
 
 def normalize(text):
-    return re.sub(r"[^a-z0-9 ]", "", (text or "").lower().replace("\n", " ")).strip()
+    cleaned = re.sub(r"[^a-z0-9 ]", "", (text or "").lower().replace("\n", " "))
+    return re.sub(r" +", " ", cleaned).strip()
 
 
 def read():
