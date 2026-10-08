@@ -635,7 +635,7 @@
 
   // ---- save -------------------------------------------------------------
 
-  function save() {
+  async function save() {
     const decisions = [];
     for (const c of BATCH.concepts) {
       const s = state.get(c.id);
@@ -674,20 +674,41 @@
       decisions,
     };
 
-    const blob = new Blob([JSON.stringify(payload, null, 1)], { type: "application/json" });
+    const filename = `visual-batch-${BATCH.week}-decisions.json`;
+    const text = JSON.stringify(payload, null, 1);
+    const note = document.getElementById("autosave");
+    const say = (msg, ms) => {
+      note.textContent = msg;
+      clearTimeout(autosaveTimer);
+      autosaveTimer = setTimeout(() => { note.textContent = ""; }, ms);
+    };
+
+    // Inside the artifact viewer a plain download link does nothing, so the
+    // downloads capability is the path. Opened as a local file it resolves
+    // null and the anchor fallback below is what works.
+    let downloads = null;
+    try { downloads = await window.claude?.use("downloads"); } catch (e) { downloads = null; }
+
+    if (downloads) {
+      try {
+        await downloads.save({ filename, data: text });
+        say(`Saved ${decisions.length} decisions to Downloads`, 6000);
+      } catch (e) {
+        say(e && e.code === "declined" ? "Save cancelled" : "Save failed, try again", 6000);
+      }
+      return;
+    }
+
+    const blob = new Blob([text], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `visual-batch-${BATCH.week}-decisions.json`;
+    a.download = filename;
     document.body.append(a);
     a.click();
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-
-    const el2 = document.getElementById("autosave");
-    el2.textContent = `Saved ${decisions.length} decisions to Downloads`;
-    clearTimeout(autosaveTimer);
-    autosaveTimer = setTimeout(() => { el2.textContent = ""; }, 6000);
+    say(`Saved ${decisions.length} decisions to Downloads`, 6000);
   }
 
   // ---- boot -------------------------------------------------------------
