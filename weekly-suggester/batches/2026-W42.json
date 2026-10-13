@@ -1,0 +1,296 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W42.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 0,
+ "generated_at": "2026-10-13 09:53 CEST",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "Proof of work trusts math. Proof of stake trusts people. That difference is the whole point of Bitcoin.",
+    "headline": "Trusts math. Not people.",
+    "purpose": "Introduce the proof of work vs proof of stake distinction to explain why Bitcoin's design matters.",
+    "suggestion_id": "S01",
+    "target_feeling": "Clear, slightly provocative confidence in Bitcoin's design logic.",
+    "visual_direction": "Simple two-column comparison with two labels, 'Proof of Work' and 'Proof of Stake,' each paired with one word underneath, 'Math' and 'People.' Orange accent under the Proof of Work word 'Math.' Generous white space between columns, logo bottom right. No icons, no illustration."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S01",
+   "rationale": "This comparison theme shows up twice in the archive and both versions landed well, a clean educational angle worth repeating in current voice.",
+   "source_id": "1969363229898895636",
+   "text": "Proof of work trusts math.\nProof of stake trusts people.\nThat difference is the whole point of Bitcoin.",
+   "theme": "proof of work vs stake",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Imagine a currency whose supply can't be inflated away. That's the whole idea behind Bitcoin.",
+    "headline": "A supply that can't be inflated away.",
+    "purpose": "Explain Bitcoin's fixed supply as a response to currency inflation.",
+    "suggestion_id": "S02",
+    "target_feeling": "Calm realization, an 'aha' about scarcity.",
+    "visual_direction": "A single flat horizontal line on a simple axis representing a hard supply cap, labeled 'capped' above it in orange. No second line, no numbers. Generous white space, logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S02",
+   "rationale": "Original inflation-joke format did well, rewritten to state the fixed-supply mechanic as fact rather than imply a value outcome.",
+   "source_id": "1880958386071654735",
+   "text": "Imagine a currency whose supply can't be inflated away.\nThat's the whole idea behind Bitcoin.",
+   "theme": "fixed supply",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "If Bitcoin were a song, which one would it be? Drop your answer below.",
+    "headline": "If Bitcoin were a song, which one?",
+    "purpose": "Spark community engagement by inviting Bitcoin holders to answer a playful question.",
+    "suggestion_id": "S03",
+    "target_feeling": "Light, fun, conversational.",
+    "visual_direction": "A single simple audio waveform graphic centered on the page, rendered in orange, with generous white space around it. No text on the waveform itself. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "Open-ended fun question drove solid engagement in the source, kept nearly as is since the format itself is the draw.",
+   "source_id": "1787492766659862933",
+   "text": "If Bitcoin were a song, which one would it be?",
+   "theme": "community question",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Got paid today. Moved some straight into sats. Balance: lower. Conviction: higher.",
+    "headline": "Balance: lower. Conviction: higher.",
+    "purpose": "Normalize converting part of a paycheck into Bitcoin as a routine habit.",
+    "suggestion_id": "S04",
+    "target_feeling": "Quiet pride in a small consistent action.",
+    "visual_direction": "A simple two-line receipt style layout with two rows of text only, 'Balance' paired with a down arrow and 'Conviction' paired with an up arrow in orange. No amounts shown. Generous white space, logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "Payday humor about moving money into Bitcoin is a recurring bit, rewritten shorter and without the gimmick dots.",
+   "source_id": "1861029066872102992",
+   "text": "Got paid today.\nMoved some straight into sats.\nBalance: lower. Conviction: higher.",
+   "theme": "salary to sats",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "If you don't hold your own keys, you don't hold your Bitcoin. Move it off the exchange.",
+    "headline": "Move it off the exchange.",
+    "purpose": "Remind holders to move Bitcoin off exchanges into self-custody.",
+    "suggestion_id": "S05",
+    "target_feeling": "A gentle but direct urgency.",
+    "visual_direction": "Two simple labeled boxes side by side, 'Exchange' and 'Your Wallet,' connected by a single arrow pointing from Exchange to Your Wallet, arrow in orange. No icons, no illustration. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S05",
+   "rationale": "One of the higher engagement posts in the set, self-custody is a core recurring theme and this keeps the exact approved terminology.",
+   "source_id": "1590381198966071299",
+   "text": "If you don't hold your own keys, you don't hold your Bitcoin.\nMove it off the exchange.",
+   "theme": "self-custody reminder",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "One Bitcoin in your own wallet beats two sitting on an exchange.",
+    "headline": "1 in your wallet beats 2 on an exchange.",
+    "purpose": "Make the self-custody tradeoff concrete with a simple number comparison.",
+    "suggestion_id": "S06",
+    "target_feeling": "Confident, slightly contrarian clarity.",
+    "visual_direction": "Two large numerals side by side, '1' labeled 'Your wallet' and '2' labeled 'Exchange,' with the '1' set in orange to mark the stronger position. Plain type treatment, generous white space, logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "Strong engagement source, the self-custody comparison mechanic is concrete and repeats well in current voice.",
+   "source_id": "1512805332900319235",
+   "text": "One Bitcoin in your own wallet beats two sitting on an exchange.",
+   "theme": "self-custody comparison",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "I keep looking for a solid argument against Bitcoin. Still haven't found one.",
+    "headline": "Still haven't found one.",
+    "purpose": "Share a personal conviction statement about Bitcoin that invites reflection.",
+    "suggestion_id": "S07",
+    "target_feeling": "Thoughtful, understated confidence.",
+    "visual_direction": "A single short line of type centered on an otherwise empty page, with the word 'one' set in orange. No other elements. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S07",
+   "rationale": "Personal conviction framing is a recurring archive theme and reads as opinion, not advice or prediction.",
+   "source_id": "1959606619102478587",
+   "text": "I keep looking for a solid argument against Bitcoin.\nStill haven't found one.",
+   "theme": "bitcoin conviction",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Zero-fee stacking in Europe is about to get a lot easier. App update coming soon.",
+    "headline": "Zero-fee stacking. Coming soon.",
+    "purpose": "Tease an upcoming app update that lowers fees for European users.",
+    "suggestion_id": "S08",
+    "target_feeling": "Anticipation.",
+    "visual_direction": "A simple horizontal progress bar, mostly filled, rendered in orange, with no percentage or label on it. Generous white space above and below. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "stack sats, X and merch only"
+   ],
+   "id": "S08",
+   "rationale": "Straightforward product announcement format that performed well, zero-fee stacking phrasing is explicitly allowed on X.",
+   "source_id": "1577335487043207168",
+   "text": "Zero-fee stacking in Europe is about to get a lot easier.\nApp update coming soon.",
+   "theme": "app update",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Market update: 1 BTC still equals 1 BTC.",
+    "headline": "1 BTC = 1 BTC.",
+    "purpose": "Reinforce a zoom-out mindset during price volatility without reacting to short-term moves.",
+    "suggestion_id": "S09",
+    "target_feeling": "Calm, unbothered steadiness.",
+    "visual_direction": "A single bold equation set in large type, '1 BTC = 1 BTC,' centered on the page, with the equals sign in orange. No chart, no price data. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "This meme appears twice in the archive with solid repost counts, a volatility joke with no price claim attached.",
+   "source_id": "1710707056003739933",
+   "text": "Market update: 1 BTC still equals 1 BTC.",
+   "theme": "price zoom out meme",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Not your keys, not your coins. It's not a slogan. It's how Bitcoin actually works.",
+    "headline": "Not your keys, not your coins.",
+    "purpose": "Reinforce the self-custody principle as a technical fact, not a slogan.",
+    "suggestion_id": "S10",
+    "target_feeling": "Grounded seriousness.",
+    "visual_direction": "A single simple key shape as the only visual element, centered, drawn in outline with the bow of the key filled in orange. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "Archive repeatedly returns to Bitcoin's core mechanics (proof of work, trust in math); this takes the same education angle but applies it to self-custody instead.",
+   "source_id": null,
+   "text": "Not your keys, not your coins.\nIt's not a slogan. It's how Bitcoin actually works.",
+   "theme": "self-custody keys",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "You don't need to time the market. You need a plan you stick to.",
+    "headline": "You don't need to time the market.",
+    "purpose": "Explain the DCA mechanic as a habit of consistency rather than market timing.",
+    "suggestion_id": "S11",
+    "target_feeling": "Reassured, practical calm.",
+    "visual_direction": "A simple horizontal timeline with evenly spaced dots representing recurring buys, one dot set in orange. No prices or dates labeled. Generous white space, logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "Several top posts push a long-term, no-hype conviction frame; this gives that frame a concrete mechanic (consistency over timing) instead of a slogan.",
+   "source_id": null,
+   "text": "You don't need to time the market.\nYou need a plan you stick to.",
+   "theme": "dca consistency",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "21 million. Never more. That's the whole monetary policy.",
+    "headline": "21 million. Never more.",
+    "purpose": "State Bitcoin's fixed supply as its defining monetary policy.",
+    "suggestion_id": "S12",
+    "target_feeling": "Plain, confident fact.",
+    "visual_direction": "Large type treatment of the number '21,000,000' filling most of the page, with 'Never more' set smaller beneath it in orange. No chart, no icon. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S12",
+   "rationale": "The archive's best invention and reserve currency lines lean on Bitcoin conviction; this grounds that same pride in one verifiable protocol fact instead of a prediction.",
+   "source_id": null,
+   "text": "21 million. Never more.\nThat's the whole monetary policy.",
+   "theme": "fixed supply",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Most people don't believe in Bitcoin until they look into it themselves. Then it just makes sense.",
+    "headline": "Then it just makes sense.",
+    "purpose": "Describe the common path from skepticism to conviction about Bitcoin.",
+    "suggestion_id": "S13",
+    "target_feeling": "Reassuring, relatable.",
+    "visual_direction": "Two words set side by side connected by an arrow, 'Skeptic' to 'Convinced,' with 'Convinced' set in orange. Plain type treatment, generous white space, logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S13",
+   "rationale": "Reframes the recurring skeptic-becomes-buyer theme around curiosity and self-education rather than mocking people for being wrong.",
+   "source_id": null,
+   "text": "Most people don't believe in Bitcoin until they look into it themselves.\nThen it just makes sense.",
+   "theme": "skeptic to convert",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Opened the app three times today. Nothing new happened. Still checked.",
+    "headline": "Opened the app three times today.",
+    "purpose": "Poke fun at the habit of repeatedly checking the app out of excitement rather than need.",
+    "suggestion_id": "S14",
+    "target_feeling": "Light self-aware humor.",
+    "visual_direction": "Three simple tally marks in a row, the third one set in orange, centered on the page. No phone mockup, no icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S14",
+   "rationale": "Matches the archive's relatable, self-deprecating humor (the salary gag) with a different everyday habit, no numbers involved.",
+   "source_id": null,
+   "text": "Opened the app three times today.\nNothing new happened. Still checked.",
+   "theme": "habit humor",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Fiat currencies are designed to lose value over time. Bitcoin was designed with a hard cap instead.",
+    "headline": "Designed to lose value. Designed with a cap.",
+    "purpose": "Contrast fiat's built-in inflation with Bitcoin's fixed supply design.",
+    "suggestion_id": "S15",
+    "target_feeling": "Clear-eyed contrast, quiet conviction.",
+    "visual_direction": "Two simple line charts side by side, one sloping downward labeled 'Fiat' and one flat labeled 'Bitcoin,' no numbers or axis labels. The flat line rendered in orange. Generous white space, logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "inflation/economic claims"
+   ],
+   "id": "S15",
+   "rationale": "Builds on the recurring 'money losing value' theme with a factual mechanic (hard cap vs monetary expansion) instead of the original rhetorical question.",
+   "source_id": null,
+   "text": "Fiat currencies are designed to lose value over time.\nBitcoin was designed with a hard cap instead.",
+   "theme": "inflation contrast",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W42"
+}
