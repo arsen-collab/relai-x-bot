@@ -44,7 +44,7 @@ import json
 import os
 import re
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -633,6 +633,13 @@ def render_batch(week_label, run_date, generated_at, concepts, dropped, board):
     return "\n".join(lines)
 
 
+
+def week_anchor(moment):
+    """A weekend run belongs to the coming ISO week, so a Sunday cron lands
+    its batch under the Monday it is for."""
+    return moment + timedelta(days=2) if moment.weekday() >= 5 else moment
+
+
 def main():
     dry_run = os.environ.get("DRY_RUN", "").lower() in ("1", "true", "yes")
 
@@ -641,7 +648,7 @@ def main():
     # week ahead of its run day, or to re-run one that was lost.
     week_label = os.environ.get("BATCH_WEEK", "").strip()
     if not week_label:
-        year, week, _ = now.isocalendar()
+        year, week, _ = week_anchor(now).isocalendar()
         week_label = f"{year}-W{week:02d}"
     batch_md = os.path.join(BATCH_DIR, f"{week_label}.md")
     batch_json = os.path.join(BATCH_DIR, f"{week_label}.json")

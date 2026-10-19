@@ -68,7 +68,7 @@ manual review. Does not post. See `weekly-suggester/README.md`.
 | File | When | What |
 |---|---|---|
 | `rank.py` | Manual, per archive | Archive to `state/pool.json`. Pure Python, no model calls |
-| `generate.py` | `weekly_suggester.yml`, Mon | Drafts the batch with Claude Sonnet, writes `batches/YYYY-Www.{md,json}` |
+| `generate.py` | `weekly_suggester.yml`, Sun evening | Drafts the batch with Claude Sonnet, writes `batches/YYYY-Www.{md,json}` |
 | `notify_slack.py` | Same workflow | Posts a pointer to the batch, not the batch |
 | `config.py` | Never | Every tunable: filters, counts, model, patterns |
 
@@ -95,15 +95,17 @@ puts them on a review board. Does not post and does not write to Notion. See
 | File | When | What |
 |---|---|---|
 | `snapshot.py` | Rarely, to re-baseline | Design board dump to `state/board.json`. Pure Python, no model calls |
-| `generate.py` | `visual_suggester.yml`, Tue | Drafts concepts and sketches with Claude Sonnet, writes `batches/YYYY-Www.{md,json}` |
+| `generate.py` | `visual_suggester.yml`, Sun evening | Drafts concepts and sketches with Claude Sonnet, writes `batches/YYYY-Www.{md,json}` |
 | `notify_slack.py` | Same workflow | Posts a pointer to the batch |
 | `build_board.py` | Manual, weekly | Batch plus `board_template.html` to `board/YYYY-Www.html`, published as the review artifact |
 | `route.py` | Manual, after review | Briefs out, flagged held, cuts recorded |
 | `record.py` | Every brief filed | Appends to `state/made.json`. The only writer on that file |
 | `config.py` | Never | Every tunable: format catalog, counts, model, brief defaults |
 
-**Tuesday, not Monday.** The X batch lands Monday. Two review boards arriving
-in the same hour means one of them does not get reviewed.
+**Sunday evening, both suggesters, changed 19 Oct 2026.** GitHub cron ran 4 to 8
+hours late on Monday and Tuesday mornings, so batches missed the start of the
+working week. Sunday 17:23 UTC (X) and 17:47 UTC (visual) absorb that. A weekend
+run files under the coming ISO week via `week_anchor`.
 
 **Prior art is a frozen baseline plus a running log, decided 9 Sep 2026.**
 `state/board.json` is a one-time snapshot of the 47 concepts that existed on

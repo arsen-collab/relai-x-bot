@@ -6,13 +6,10 @@ name: Weekly Visual Suggester
 # Paula's board is route.py handing a payload to the design-brief-creator
 # skill, after review.
 #
-# Tuesday morning, deliberately not Monday. The X suggester lands Monday, and
-# two review boards arriving in the same hour means one of them does not get
-# reviewed.
-#
-# 05:17 UTC lands at 07:17 CEST and 06:17 CET, a Tuesday morning either side
-# of the DST switch. A single cron cannot hold one local time year round; the
-# exact minute does not matter for a batch reviewed later in the day.
+# Sunday evening, 24 minutes after the X suggester, so both are waiting on
+# Monday. 17:47 UTC is 19:47 CEST or 18:47 CET. The two Slack pointers arrive
+# together; the boards are still reviewed one after the other. A weekend run
+# is filed under the coming ISO week.
 #
 # Times sit off the hour on purpose, same as the posting bots: the top of the
 # hour is when GitHub is busiest and runner acquisition is most likely to
@@ -31,7 +28,7 @@ name: Weekly Visual Suggester
 
 on:
   schedule:
-    - cron: '17 5 * * 2'
+    - cron: '47 17 * * 0'
   workflow_dispatch:
     inputs:
       dry_run:

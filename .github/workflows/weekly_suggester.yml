@@ -5,10 +5,10 @@ name: Weekly X Suggester
 # It cannot reach evergreen.txt, so it can never change what the posting bots
 # send.
 #
-# Monday morning. 04:23 UTC lands at 06:23 CEST and 05:23 CET, so it is a
-# Monday morning either side of the DST switch. A single cron cannot hold
-# 06:00 local year round; the exact minute does not matter for a batch that
-# gets reviewed later in the day.
+# Sunday evening, so the batch is waiting when the week starts. 17:23 UTC is
+# 19:23 CEST or 18:23 CET. Scheduled runs here have landed up to 8 hours late,
+# which still leaves them before Monday morning. generate.py and
+# notify_slack.py file a weekend run under the coming ISO week.
 #
 # Times sit off the hour on purpose, same as the posting bots: the top of the
 # hour is when GitHub is busiest and runner acquisition is most likely to
@@ -22,7 +22,7 @@ name: Weekly X Suggester
 
 on:
   schedule:
-    - cron: '23 4 * * 1'
+    - cron: '23 17 * * 0'
   workflow_dispatch:
     inputs:
       dry_run:

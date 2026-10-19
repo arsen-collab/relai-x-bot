@@ -23,7 +23,7 @@ import os
 import sys
 import urllib.error
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -85,12 +85,19 @@ def build_message(batch):
     return "\n".join(lines)
 
 
+
+def week_anchor(moment):
+    """A weekend run belongs to the coming ISO week, so a Sunday cron lands
+    its batch under the Monday it is for."""
+    return moment + timedelta(days=2) if moment.weekday() >= 5 else moment
+
+
 def main():
     dry_run = os.environ.get("DRY_RUN", "").lower() in ("1", "true", "yes")
 
     week = os.environ.get("BATCH_WEEK")
     if not week:
-        year, iso_week, _ = datetime.now(TZ).isocalendar()
+        year, iso_week, _ = week_anchor(datetime.now(TZ)).isocalendar()
         week = f"{year}-W{iso_week:02d}"
 
     batch_path = os.path.join(BATCH_DIR, f"{week}.json")
