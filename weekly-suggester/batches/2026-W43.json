@@ -1,0 +1,294 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W43.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 0,
+ "generated_at": "2026-10-19 09:53 CEST",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "Proof of work isn't a flaw to fix. It's the reason Bitcoin works. The energy and computation are what make the network impossible to cheat.",
+    "headline": "Not a flaw. The reason it works.",
+    "purpose": "Reframe proof of work as a core feature of Bitcoin rather than a wasteful flaw.",
+    "suggestion_id": "S01",
+    "target_feeling": "Quiet confidence, myth-busting clarity.",
+    "visual_direction": "Type treatment only. Two stacked lines: 'a flaw' in thin gray type with a single strikethrough, 'the reason it works' in bold Relai orange beneath it. Generous white space around the lines. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S01",
+   "rationale": "The original PoW explainer was one of the archive's stronger performers; kept the core educational idea and dropped the direct crypto comparison.",
+   "source_id": "1563593436992790528",
+   "text": "Proof of work isn't a flaw to fix.\nIt's the reason Bitcoin works.",
+   "theme": "proof of work",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "No one controls Bitcoin. Everyone controls their own Bitcoin. That's what makes it different from every system before it.",
+    "headline": "No one controls Bitcoin. Everyone controls their own.",
+    "purpose": "Highlight Bitcoin's decentralized control structure in one clean contrast.",
+    "suggestion_id": "S02",
+    "target_feeling": "Empowerment, quiet independence.",
+    "visual_direction": "Comparison of two short phrases side by side, divided by a single thin vertical line. 'no one' in gray on the left, 'everyone' in Relai orange on the right. No icons, type only. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S02",
+   "rationale": "This line's rhythm and self-custody logic drew solid engagement in the original post.",
+   "source_id": "1716863371906330865",
+   "text": "No one controls Bitcoin.\nEveryone controls their own Bitcoin.",
+   "theme": "self custody",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Hold your own keys. That's the whole point of self-custody: no third party between you and your Bitcoin.",
+    "headline": "Hold your own keys.",
+    "purpose": "Reinforce the self-custody message with a simple physical metaphor.",
+    "suggestion_id": "S03",
+    "target_feeling": "Grounded, tangible sense of ownership.",
+    "visual_direction": "Single prop: one physical key photographed on a plain white background, bow of the key tinted Relai orange. Avoid any bank, vault, or lock-box imagery. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "The 'not your keys' line is a recurring high performer; restated with Relai's approved terminology.",
+   "source_id": "1723044098028757280",
+   "text": "Hold your own keys.\nThat's the whole point of self-custody.",
+   "theme": "self custody",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "The Olympics has gold, silver, and bronze. Maybe it's time for a Bitcoin medal: for whoever played the longest game.",
+    "headline": "A medal for the longest game.",
+    "purpose": "Tie Bitcoin's long-term holding culture to a familiar sporting metaphor.",
+    "suggestion_id": "S04",
+    "target_feeling": "Playful, aspirational, patient.",
+    "visual_direction": "Comparison device: three classic medal circles in flat outline (gold, silver, bronze) in a row, plus a fourth circle filled solid in Relai orange at the end. Flat shapes only, no ribbons or illustration detail. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "Playful long-term framing in the original drew decent likes and reposts relative to its recency.",
+   "source_id": "1901307722748084467",
+   "text": "The Olympics has gold, silver, and bronze.\nMaybe it's time for a Bitcoin medal: for whoever played the longest game.",
+   "theme": "long term holding",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "How do you tip someone in gold? Asking for a friend.",
+    "headline": "How do you tip in gold?",
+    "purpose": "Light humor post contrasting Bitcoin's practical utility with gold.",
+    "suggestion_id": "S05",
+    "target_feeling": "Amused, in on the joke.",
+    "visual_direction": "Comparison prop: a photographed small gold bar on the left in grayscale next to a single coin-shaped Bitcoin prop on the right tinted Relai orange, both the same size. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S05",
+   "rationale": "Lighthearted comparison format performed well and needs no change to stay compliant.",
+   "source_id": "1639686332501962752",
+   "text": "How do you tip someone in gold?\nAsking for a friend.",
+   "theme": "bitcoin utility humor",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "You don't change Bitcoin. Bitcoin changes you.",
+    "headline": "Bitcoin changes you.",
+    "purpose": "Capture the personal, reflective mindset shift that holding Bitcoin creates.",
+    "suggestion_id": "S06",
+    "target_feeling": "Introspective, slightly profound.",
+    "visual_direction": "Type treatment only, single bold centered line. Relai orange applied only to the word 'you'. No supporting graphic. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "One of the stronger reflective lines in the archive, kept nearly verbatim since it was already clean.",
+   "source_id": "1687169712592220160",
+   "text": "You don't change Bitcoin.\nBitcoin changes you.",
+   "theme": "bitcoin mindset",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Still working on convincing your family to hold some Bitcoin? You're not the only one.",
+    "headline": "Still convincing your family?",
+    "purpose": "Relatable humor about the common struggle of getting family on board with Bitcoin.",
+    "suggestion_id": "S07",
+    "target_feeling": "Wry recognition, shareable.",
+    "visual_direction": "Type treatment, the question set large and centered. A single small question mark rendered in Relai orange as the only accent. No people or illustration. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "investment advice"
+   ],
+   "id": "S07",
+   "rationale": "The original question format prompted good reply engagement around onboarding family members.",
+   "source_id": "1826651795898142996",
+   "text": "Still working on convincing your family to hold some Bitcoin?",
+   "theme": "family adoption",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "What's the biggest scam in human history, besides fiat money?",
+    "headline": "The biggest scam, besides fiat money?",
+    "purpose": "Provoke thought about fiat money's track record using a lighthearted question format.",
+    "suggestion_id": "S08",
+    "target_feeling": "Cheeky, thought-provoking.",
+    "visual_direction": "Type treatment, large bold question mark centered on the page. The phrase 'fiat money' underlined once in Relai orange, rest of the text in black. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S08",
+   "rationale": "Open-ended fiat skepticism questions have generated discussion in the archive before.",
+   "source_id": "2083902888070267126",
+   "text": "What's the biggest scam in human history, besides fiat money?",
+   "theme": "fiat critique",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "And Satoshi said, let there be Bitcoin. And there was Bitcoin.",
+    "headline": "Let there be Bitcoin.",
+    "purpose": "Playful riff on Bitcoin's creation myth for a Bitcoin-literate audience.",
+    "suggestion_id": "S09",
+    "target_feeling": "Amused, in-joke familiarity.",
+    "visual_direction": "Type treatment, scripture-style single line set large and centered, with one thin Relai orange rule placed above the line. Nothing else on the page. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "This biblical-style joke about Bitcoin's creation was a crowd favorite and carries no compliance risk.",
+   "source_id": "1788981073680167410",
+   "text": "And Satoshi said, let there be Bitcoin.\nAnd there was Bitcoin.",
+   "theme": "bitcoin origin humor",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "A bank can freeze your account. Code can't. That is why some people choose to hold their own keys.",
+    "headline": "A bank can freeze your account. Code can't.",
+    "purpose": "Explain the concrete reason some people choose self-custody over a bank account.",
+    "suggestion_id": "S10",
+    "target_feeling": "Clear-eyed, quietly convinced.",
+    "visual_direction": "Comparison of two simple icons divided by a thin vertical line: a padlock over a bank-column icon on the left in gray, an open code-bracket icon on the right in Relai orange. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "self-custody and holding your own keys recur as a core trust theme across the archive's conviction posts",
+   "source_id": null,
+   "text": "A bank can freeze your account. Code can't.\nThat is why some people choose to hold their own keys.",
+   "theme": "self custody",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Twenty one million will always be twenty one million. No vote, no committee, no exception.",
+    "headline": "21,000,000. No vote. No exception.",
+    "purpose": "Reinforce Bitcoin's fixed supply as an unchangeable rule.",
+    "suggestion_id": "S11",
+    "target_feeling": "Steady, reassuring certainty.",
+    "visual_direction": "Chart device: a single perfectly flat horizontal line drawn in Relai orange across a time axis, capped at the 21,000,000 mark. Minimal axis labels, no other data. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "extends the proof of work vs trust in people theme to Bitcoin's issuance instead of the consensus mechanism",
+   "source_id": null,
+   "text": "Twenty one million will always be twenty one million.\nNo vote, no committee, no exception.",
+   "theme": "fixed supply",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Every currency before Bitcoin asked you to trust someone. Bitcoin asks you to verify something.",
+    "headline": "Trust someone. Or verify something.",
+    "purpose": "Frame Bitcoin's trust model against traditional money as a simple binary idea.",
+    "suggestion_id": "S12",
+    "target_feeling": "Clarifying, confident.",
+    "visual_direction": "Comparison of two phrases divided by a thin vertical line: 'trust someone' in gray on the left, 'verify something' in bold Relai orange on the right. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S12",
+   "rationale": "direct descendant of the proof of stake versus proof of work post, reframed around verification",
+   "source_id": null,
+   "text": "Every currency before Bitcoin asked you to trust someone.\nBitcoin asks you to verify something.",
+   "theme": "trust versus verify",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Timing the market takes a perfect guess. Buying a little bit, often, just takes a Tuesday. That's the idea behind an auto-invest plan: more sats when prices are lower, without having to guess.",
+    "headline": "Perfect timing is hard. A Tuesday isn't.",
+    "purpose": "Show the DCA mechanic as simpler and more realistic than trying to time the market.",
+    "suggestion_id": "S13",
+    "target_feeling": "Relieved, practical.",
+    "visual_direction": "Comparison chart: left side shows a jagged erratic line labeled 'timing attempts', right side shows a row of evenly spaced dots on a calendar grid labeled 'small recurring buys', dots rendered in Relai orange. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S13",
+   "rationale": "gives the recurring zoom out and discipline theme a concrete mechanic instead of an outcome claim",
+   "source_id": null,
+   "text": "Timing the market takes a perfect guess.\nBuying a little bit, often, just takes a Tuesday.",
+   "theme": "dca consistency",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Explaining why prices keep rising is easy. Explaining why Bitcoin's supply never changes is harder, and that's exactly the point.",
+    "headline": "Why prices rise is easy. Why this doesn't is harder.",
+    "purpose": "Contrast the ease of explaining inflation with the difficulty of explaining Bitcoin's fixed supply.",
+    "suggestion_id": "S14",
+    "target_feeling": "Thoughtful, quietly persuasive.",
+    "visual_direction": "Chart device: a rising gray line labeled 'prices' next to a flat line labeled '21 million' rendered in Relai orange, both on one simple shared axis with no further numbers. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S14",
+   "rationale": "continues the central bank and money printing theme from the archive without any forward price claim",
+   "source_id": null,
+   "text": "Explaining why prices keep rising is easy.\nExplaining why nothing changes is harder.",
+   "theme": "inflation education",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Most people don't start with Bitcoin. They end up there after asking enough questions.",
+    "headline": "Most people end up there.",
+    "purpose": "Capture the common path of skeptics becoming Bitcoin holders through curiosity.",
+    "suggestion_id": "S15",
+    "target_feeling": "Welcoming, validating for latecomers.",
+    "visual_direction": "Type treatment: a single dotted path line running left to right across the page, ending in a solid Relai orange dot. The word 'Bitcoin' set only at the ending point. No other graphic elements. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S15",
+   "rationale": "new angle on the skeptic becomes buyer theme, framed as a learning path rather than a price bet",
+   "source_id": null,
+   "text": "Most people don't start with Bitcoin.\nThey end up there after asking enough questions.",
+   "theme": "skeptic to learner",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W43"
+}
