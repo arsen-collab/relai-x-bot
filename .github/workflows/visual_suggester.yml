@@ -71,6 +71,9 @@ jobs:
             echo "Nothing to commit."
           else
             git commit -m "Add weekly visual concept batch"
+            # The other suggester may have pushed since checkout. They write
+            # disjoint folders, so a rebase never conflicts.
+            git pull --rebase
             git push
           fi
 
