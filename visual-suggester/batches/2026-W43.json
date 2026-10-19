@@ -1,0 +1,204 @@
+{
+ "batch_file": "visual-suggester/batches/2026-W43.md",
+ "board_snapshot": {
+  "concept_count": 47,
+  "newest": "2026-09-09"
+ },
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "concepts": [
+  {
+   "caption": "Fiat supply grows. Bitcoin supply doesn't. Some people find that distinction reason enough to act accordingly.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "type_only",
+   "headline": "FIAT: SELL. BITCOIN: BUY.",
+   "id": "V01",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"620\" font-family=\"sans-serif\" font-size=\"72\" font-weight=\"bold\" fill=\"#3D3D3D\" text-anchor=\"middle\">FIAT: TRUST.</text><text x=\"540\" y=\"710\" font-family=\"sans-serif\" font-size=\"72\" font-weight=\"bold\" fill=\"#111111\" text-anchor=\"middle\">BITCOIN: VERIFY.</text><rect x=\"980\" y=\"1270\" width=\"60\" height=\"40\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Businesses Want Bitcoin checklist",
+   "needs_check": [],
+   "novelty": "Different line and structure: a two-line contrast statement rather than a checklist list.",
+   "purpose": "Reinforce Bitcoin-only positioning with a sharp, quotable one-liner for X and IG.",
+   "rationale": "Type-only is cheap to build and this line already cleared compliance as approved copy, so it's a low-lift, high-signal slot.",
+   "shape": "single image",
+   "source_kind": "evergreen line",
+   "source_ref": "'It's not hard. / Fiat: sell / Bitcoin: buy' tightened to fit two lines on the image",
+   "subject": "fiat sell bitcoin buy mantra",
+   "target_feeling": "Amused agreement, the kind of line a bitcoiner nods at and shares.",
+   "visual_direction": "Bold type only, two stacked lines. 'FIAT: SELL.' in black, 'BITCOIN: BUY.' in Relai orange. Generous white space around the type block, logo bottom right. No icons, no chart, nothing else in frame."
+  },
+  {
+   "caption": "Zero. That's how much user Bitcoin Relai holds. Your coins move straight into your own self-custodial wallet, never through ours.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "big_number",
+   "headline": "0",
+   "id": "V02",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"700\" font-family=\"sans-serif\" font-size=\"440\" font-weight=\"bold\" fill=\"#111111\" text-anchor=\"middle\">0</text><text x=\"540\" y=\"840\" font-family=\"sans-serif\" font-size=\"28\" fill=\"#BFBFBF\" text-anchor=\"middle\">ZERO COUNTERPARTY RISK</text><rect x=\"980\" y=\"1270\" width=\"60\" height=\"40\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Instagram post: Relai users are buying (bear market conviction)",
+   "needs_check": [
+    "Confirm the exact current wording ('user funds' vs 'user Bitcoin') is still categorically accurate across all account types before this ships."
+   ],
+   "novelty": "Different figure and message: a structural custody claim rather than a behavioral buying claim.",
+   "purpose": "State Relai's non-custodial model in the most literal, verifiable way possible.",
+   "rationale": "Uses the only existing big_number layout for a sharp, differentiating custody claim.",
+   "shape": "single image",
+   "source_kind": "evergreen line",
+   "source_ref": "'0. / That's how much user funds we hold. / Thank you for reading.'",
+   "subject": "zero user funds held custody",
+   "target_feeling": "Reassured trust from a concrete fact, not a trust claim.",
+   "visual_direction": "A single giant '0' centered, Relai orange digit on a white background, one line of context in small type beneath it. No icons, no chart, nothing else in frame."
+  },
+  {
+   "caption": "In 2016, CHF went noticeably further at the till than it does in 2026. Figures from Swiss CPI data, to be confirmed against the Federal Statistical Office before this goes live. Purchasing power erodes quietly, even in Switzerland.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "then_now",
+   "headline": "THE FRANC THEN AND NOW",
+   "id": "V03",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"220\" font-family=\"sans-serif\" font-size=\"56\" font-weight=\"bold\" fill=\"#3D3D3D\" text-anchor=\"middle\">THE FRANC THEN AND NOW</text><line x1=\"540\" y1=\"400\" x2=\"540\" y2=\"950\" stroke=\"#BFBFBF\" stroke-width=\"2\"/><text x=\"320\" y=\"470\" font-family=\"sans-serif\" font-size=\"40\" fill=\"#3D3D3D\" text-anchor=\"middle\">2016</text><text x=\"320\" y=\"560\" font-family=\"sans-serif\" font-size=\"56\" font-weight=\"bold\" fill=\"#3D3D3D\" text-anchor=\"middle\">CHF 100</text><text x=\"760\" y=\"470\" font-family=\"sans-serif\" font-size=\"40\" fill=\"#3D3D3D\" text-anchor=\"middle\">2026</text><text x=\"760\" y=\"560\" font-family=\"sans-serif\" font-size=\"56\" font-weight=\"bold\" fill=\"#111111\" text-anchor=\"middle\">CHF 83</text><rect x=\"980\" y=\"1270\" width=\"60\" height=\"40\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Stop Saving in Euro banknote decline",
+   "needs_check": [
+    "Exact Swiss CPI or purchasing-power figures for 2016 and 2026 need sourcing from the Federal Statistical Office or another nameable public source before the image is built."
+   ],
+   "novelty": "Uses the unused then_now format with a Swiss-franc-specific CPI figure pair instead of a timeline sweep or banknote imagery.",
+   "purpose": "Make the quiet cost of fiat inflation concrete to a Swiss audience using two verified data points instead of a chart.",
+   "rationale": "Opens an unused format slot and gives the Swiss inflation angle a sharper, numbers-first treatment than the existing timeline piece.",
+   "shape": "single image",
+   "source_kind": "archive theme",
+   "source_ref": "Fiat purchasing power decline, evidenced by 'Stop Saving in Euro banknote decline' (timeline) and '3% inflation — what it actually costs you' (carousel)",
+   "subject": "Swiss franc purchasing power erosion",
+   "target_feeling": "A small jolt of 'that gap is bigger than I thought.'",
+   "visual_direction": "Two columns labeled '2016' and '2026', one verified CHF purchasing-power figure under each, thin vertical divider between them. Relai orange on the 2026 figure only. No banknote imagery, no illustration."
+  },
+  {
+   "caption": "Five things people worry about before holding their own Bitcoin, and the plain answer to each. Swipe through.",
+   "compliance": "unapproved",
+   "flags": [
+    "potential guaranteed-outcome framing on individual rebuttal lines, needs careful drafting"
+   ],
+   "format": "myth_rebuttal",
+   "headline": "SELF-CUSTODY MYTHS, DEBUNKED",
+   "id": "V04",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"200\" font-family=\"sans-serif\" font-size=\"48\" font-weight=\"bold\" fill=\"#3D3D3D\" text-anchor=\"middle\">SELF-CUSTODY MYTHS, DEBUNKED</text><text x=\"540\" y=\"560\" font-family=\"sans-serif\" font-size=\"40\" fill=\"#3D3D3D\" text-anchor=\"middle\">&quot;IT'S TOO COMPLICATED&quot;</text><text x=\"540\" y=\"650\" font-family=\"sans-serif\" font-size=\"44\" font-weight=\"bold\" fill=\"#111111\" text-anchor=\"middle\">IT ISN'T.</text><circle cx=\"480\" cy=\"1280\" r=\"8\" fill=\"#3D3D3D\"/><circle cx=\"520\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"560\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"600\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"640\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><rect x=\"980\" y=\"1270\" width=\"60\" height=\"40\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "5 Bitcoin misconceptions — debunked",
+   "needs_check": [
+    "Each rebuttal line needs a compliance pass to confirm none reads as a security guarantee, since claims like 'you can never lose your Bitcoin' risk a guaranteed-outcome framing."
+   ],
+   "novelty": "Narrower theme than the general misconceptions carousel: every slide is specifically a self-custody objection (lost keys, phone loss, seed phrase, forgetting, exchange habit), not general Bitcoin myths.",
+   "purpose": "Address the most common hesitations about self-custody in a swipeable, reusable carousel.",
+   "rationale": "Self-custody is a core differentiator and this format slot has only two uses on the board, both on different themes.",
+   "shape": "carousel",
+   "source_kind": "archive theme",
+   "source_ref": "Self-custody hesitation, evidenced by 'They Have Your Savings Hostage', 'No One Can Freeze It' (single_prop) and the planned 'Self-custody made simple: how Relai protects your Bitcoin' carousel",
+   "subject": "self-custody fears, debunked",
+   "target_feeling": "Calm reassurance that self-custody is simpler than it sounds.",
+   "visual_direction": "Consistent template per slide: the myth in quotes at top, the rebuttal directly under it in Relai orange, identical layout every slide, generous white space. No icons, no illustration."
+  },
+  {
+   "caption": "Same amount, same schedule, advancing one year at a time using Relai's own backtest tool. Past performance only, not a forecast of what buying Bitcoin weekly will do next. Figures to be pulled fresh from the backtest before this ships.",
+   "compliance": "unapproved",
+   "flags": [
+    "MiCA forward-return risk: must frame explicitly as backward-looking only, with no implication about future results"
+   ],
+   "format": "step_compounding",
+   "headline": "WATCH CHF 20 A WEEK ADD UP",
+   "id": "V05",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"200\" font-family=\"sans-serif\" font-size=\"46\" font-weight=\"bold\" fill=\"#3D3D3D\" text-anchor=\"middle\">WATCH CHF 20 A WEEK ADD UP</text><text x=\"540\" y=\"480\" font-family=\"sans-serif\" font-size=\"36\" fill=\"#3D3D3D\" text-anchor=\"middle\">2024</text><text x=\"540\" y=\"560\" font-family=\"sans-serif\" font-size=\"32\" fill=\"#3D3D3D\" text-anchor=\"middle\">CHF 20 / week</text><text x=\"540\" y=\"700\" font-family=\"sans-serif\" font-size=\"64\" font-weight=\"bold\" fill=\"#111111\" text-anchor=\"middle\">0.00031 BTC</text><text x=\"540\" y=\"760\" font-family=\"sans-serif\" font-size=\"32\" fill=\"#111111\" text-anchor=\"middle\">CHF 20 total</text><circle cx=\"480\" cy=\"1280\" r=\"8\" fill=\"#3D3D3D\"/><circle cx=\"520\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"560\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"600\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><rect x=\"980\" y=\"1270\" width=\"60\" height=\"40\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "3% inflation — what it actually costs you (carousel)",
+   "needs_check": [
+    "Every weekly amount, year range, and running total must come directly from Relai's own backtest tool, never approximated, and the exact historical window needs confirming before any slide is drafted."
+   ],
+   "novelty": "That carousel shows the cost of inflation with a two_line_chart; this one shows an accumulation building slide by slide using Relai's backtest tool, strictly historical.",
+   "purpose": "Show the DCA mechanic as a sequence rather than a single stat, using Relai's own backtest data.",
+   "rationale": "Opens a completely unused format and directly demonstrates the DCA mechanic Relai sells, which the voice skill names as the preferred education angle.",
+   "shape": "carousel",
+   "source_kind": "net new",
+   "source_ref": "No step_compounding item exists on the board yet; this directly applies the copy principle 'show the mechanic, not the outcome.'",
+   "subject": "small weekly Bitcoin purchases add up",
+   "target_feeling": "Quiet surprise at how steady small amounts compound, without any promise about future returns.",
+   "visual_direction": "Each slide repeats the same layout: year label, weekly amount, running total in Bitcoin and CHF. One bold figure growing slide to slide, Relai orange on the running total only. No charts, no icons."
+  },
+  {
+   "caption": "A real review, quoted exactly, name and country included. Source link in bio. We don't add anything to these, we just share them.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "testimonial",
+   "headline": "FIVE STARS, STRAIGHT FROM THE APP STORE",
+   "id": "V06",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"200\" font-family=\"sans-serif\" font-size=\"44\" font-weight=\"bold\" fill=\"#3D3D3D\" text-anchor=\"middle\">FIVE STARS, STRAIGHT FROM THE APP STORE</text><rect x=\"140\" y=\"500\" width=\"800\" height=\"350\" fill=\"#FFFFFF\" stroke=\"#BFBFBF\" stroke-width=\"2\"/><text x=\"540\" y=\"620\" font-family=\"sans-serif\" font-size=\"32\" fill=\"#3D3D3D\" text-anchor=\"middle\">&quot;Simple, calm, and it just works.&quot;</text><text x=\"540\" y=\"780\" font-family=\"sans-serif\" font-size=\"24\" fill=\"#BFBFBF\" text-anchor=\"middle\">— A. Meier, Switzerland</text><circle cx=\"480\" cy=\"1280\" r=\"8\" fill=\"#111111\"/><circle cx=\"520\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"560\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"600\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><rect x=\"980\" y=\"1270\" width=\"60\" height=\"40\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Review of the week — Carousel (EN)",
+   "needs_check": [
+    "Specific new review text, reviewer name, country, and source URL must be pulled and verified before this is drafted; none exists yet in this concept."
+   ],
+   "novelty": "Same template, new review content. The recurring nature of this format is the intended reuse, differing only in which verified review is quoted.",
+   "purpose": "Keep the recurring review series going with fresh, verified social proof.",
+   "rationale": "Low-risk, cheap-to-build recurring slot that keeps a proven format fresh with current proof rather than reusing the same review.",
+   "shape": "carousel",
+   "source_kind": "format rerun",
+   "source_ref": "testimonial format, board item 'Review of the week — Carousel (EN)'",
+   "subject": "fresh verified app review spotlight",
+   "target_feeling": "Trust built from someone else's real words, not Relai's.",
+   "visual_direction": "One quoted review per slide, reviewer name and country beneath it, same clean quote-card template as prior reviews. No star icons beyond what appears in the literal source screenshot, no illustration."
+  },
+  {
+   "caption": "Relai now supports face or fingerprint login on top of your passcode. One less thing standing between you and your self-custodial wallet. Check your app for the update.",
+   "compliance": "unapproved",
+   "flags": [
+    "trademark: must use generic 'face or fingerprint login' wording, never Apple's Face ID or Touch ID naming"
+   ],
+   "format": "phone_mockup",
+   "headline": "LOG IN WITHOUT TYPING A THING",
+   "id": "V07",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"220\" font-family=\"sans-serif\" font-size=\"46\" font-weight=\"bold\" fill=\"#3D3D3D\" text-anchor=\"middle\">LOG IN WITHOUT TYPING A THING</text><rect x=\"390\" y=\"400\" width=\"300\" height=\"600\" rx=\"40\" ry=\"40\" fill=\"#FFFFFF\" stroke=\"#3D3D3D\" stroke-width=\"4\"/><circle cx=\"540\" cy=\"650\" r=\"60\" fill=\"none\" stroke=\"#BFBFBF\" stroke-width=\"4\"/><rect x=\"470\" y=\"850\" width=\"140\" height=\"60\" rx=\"10\" ry=\"10\" fill=\"#111111\"/><rect x=\"980\" y=\"1270\" width=\"60\" height=\"40\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "App update announcement – faster verification (IG)",
+   "needs_check": [
+    "Confirm face or fingerprint login has actually shipped in the current app version before this is built; this concept assumes it exists but needs product confirmation."
+   ],
+   "novelty": "Different feature announced (biometric login vs. verification speed), same template reuse.",
+   "purpose": "Announce a login convenience update using the existing phone mockup template.",
+   "rationale": "Reuses a working, cheap template for a real product update, assuming the feature is live.",
+   "shape": "single image",
+   "source_kind": "format rerun",
+   "source_ref": "phone_mockup format, board item 'App update announcement – faster verification (IG)'",
+   "subject": "face or fingerprint login screen",
+   "target_feeling": "Small relief, one less bit of friction.",
+   "visual_direction": "One Relai phone screen showing the face or fingerprint login prompt, plain phone frame, headline stacked above it. Relai orange on the login button only. No other UI chrome in frame, generous white space around the phone."
+  },
+  {
+   "caption": "Not a metaphor. If you don't hold the keys, you don't hold the Bitcoin. Self-custody means exactly that.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "single_prop",
+   "headline": "HOLD YOUR OWN KEYS",
+   "id": "V08",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"220\" font-family=\"sans-serif\" font-size=\"48\" font-weight=\"bold\" fill=\"#3D3D3D\" text-anchor=\"middle\">HOLD YOUR OWN KEYS</text><circle cx=\"420\" cy=\"700\" r=\"70\" fill=\"none\" stroke=\"#3D3D3D\" stroke-width=\"14\"/><rect x=\"480\" y=\"680\" width=\"260\" height=\"40\" fill=\"#3D3D3D\"/><rect x=\"650\" y=\"720\" width=\"20\" height=\"60\" fill=\"#3D3D3D\"/><rect x=\"700\" y=\"720\" width=\"20\" height=\"40\" fill=\"#3D3D3D\"/><rect x=\"600\" y=\"720\" width=\"20\" height=\"30\" fill=\"#111111\"/><rect x=\"980\" y=\"1270\" width=\"60\" height=\"40\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "No One Can Freeze It",
+   "needs_check": [],
+   "novelty": "Different object and different idea: ownership and keys rather than seizure and freezing. No frost, bars, or printing press imagery.",
+   "purpose": "Make the self-custody message land instantly through a literal object rather than a line of text.",
+   "rationale": "Single_prop reads in under a second and this is the most literal translation of 'hold your own keys,' a phrase the voice skill names as an exact required term.",
+   "shape": "single image",
+   "source_kind": "net new",
+   "source_ref": "A new, unused metaphor: a literal physical key, distinct from the melting-savings, ice, and prison-bars props already on the board.",
+   "subject": "a single physical key metaphor",
+   "target_feeling": "A clean, obvious 'oh, of course' moment.",
+   "visual_direction": "One plain physical key resting on an empty white surface, nothing else in frame. Relai orange used only as a thin highlight on the key's teeth. No wallet, no phone, no hands, no background texture."
+  }
+ ],
+ "dropped_count": 0,
+ "generated_at": "2026-10-19 13:34 CEST",
+ "mock_palette_is_placeholder": true,
+ "status": "unreviewed",
+ "week": "2026-W43"
+}
