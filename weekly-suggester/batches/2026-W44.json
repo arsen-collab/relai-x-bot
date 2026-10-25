@@ -1,0 +1,297 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W44.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 0,
+ "generated_at": "2026-10-25 20:46 CET",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "Some inventions change the world once. Bitcoin is one of them.",
+    "headline": "It only had to happen once.",
+    "purpose": "Frame Bitcoin as a once-in-history kind of invention to build long-term conviction.",
+    "suggestion_id": "S01",
+    "target_feeling": "Quiet awe, like recognizing the scale of something for the first time.",
+    "visual_direction": "Type treatment only: the word Bitcoin centered and large in black, with the word once set directly beneath it in Relai orange. No other graphic elements. Generous white space around the text. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S01",
+   "rationale": "Source was a high-engagement conviction line; keeps the sentiment but drops the absolute 'best ever, never beaten' hype claim.",
+   "source_id": "2014645134353105387",
+   "text": "Some inventions change the world once.\nBitcoin is one of them.",
+   "theme": "bitcoin conviction",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Proof of stake asks you to trust people. Proof of work asks you to trust math. Bitcoin picked math.",
+    "headline": "Trust math, not people.",
+    "purpose": "Explain why proof of work is the trust model Bitcoin chose, for a Bitcoin-literate audience.",
+    "suggestion_id": "S02",
+    "target_feeling": "Clear-headed respect for the mechanism, not hype.",
+    "visual_direction": "Two-column comparison: left column labeled Proof of Stake with the word People, right column labeled Proof of Work with the word Math in Relai orange. A single checkmark in orange next to Math only. No icons beyond that. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S02",
+   "rationale": "One of the better performing educational contrasts in the archive; rewritten to drop the brand pun and keep it a clean concept explainer.",
+   "source_id": "1798401647988936789",
+   "text": "Proof of stake asks you to trust people.\nProof of work asks you to trust math.\nBitcoin picked math.",
+   "theme": "proof of work",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Some people choose to stack sats instead. The auto-invest plan buys Bitcoin automatically, on a schedule, regardless of price.",
+    "headline": "Don't have fun staying poor.",
+    "purpose": "Push the DCA habit in a punchy, meme-adjacent way for the X audience.",
+    "suggestion_id": "S03",
+    "target_feeling": "Wry, a little provocative, not preachy.",
+    "visual_direction": "Type treatment: the headline set in bold black type, large, centered. A single row of small orange dots beneath it, evenly spaced, implying steady repeated action. No chart axes, no numbers. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "investment advice framing in original",
+    "stack sats, X and merch only"
+   ],
+   "id": "S03",
+   "rationale": "This line and its near-duplicate both landed well with the audience; softened the direct 'buy' imperative into behavior framing per the DCA guidance.",
+   "source_id": "1705635387547258965",
+   "text": "Don't have fun staying poor.\nSome people choose to stack sats instead.",
+   "theme": "dca mindset",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Checked the Bitcoin price again today. Still 1 BTC = 1 BTC.",
+    "headline": "1 BTC = 1 BTC",
+    "purpose": "Light, recurring joke format about Bitcoin's unit of account to keep the feed from being all-education.",
+    "suggestion_id": "S04",
+    "target_feeling": "A small laugh of recognition.",
+    "visual_direction": "Type treatment: the equation set large and centered in black, equals sign in Relai orange. Nothing else on the canvas. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "A recurring low-effort, high-engagement joke format in the archive; kept the exact mechanic since it carries no price claim.",
+   "source_id": "1834220920728346988",
+   "text": "Checked the Bitcoin price again today.\nStill 1 BTC = 1 BTC.",
+   "theme": "bitcoin price joke",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "I'll start: The...",
+    "headline": "Let's write a Bitcoin story. One word per reply.",
+    "purpose": "Drive reply engagement with a collaborative story prompt.",
+    "suggestion_id": "S05",
+    "target_feeling": "Playful, inviting, low effort to join.",
+    "visual_direction": "Single speech bubble shape, outline only, containing the word The and a blinking-cursor style vertical bar in Relai orange. Nothing else inside or outside the bubble. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S05",
+   "rationale": "Community participation formats like this recur in the archive and draw steady replies; wording tightened, idea unchanged.",
+   "source_id": "1861418634285064348",
+   "text": "Let's write a Bitcoin story together.\nOne word per reply.\nI'll start: The...",
+   "theme": "community engagement",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Because they keep printing more money. How to explain inflation to your kids, in one line.",
+    "headline": "Why is everything so expensive now?",
+    "purpose": "Make inflation tangible through a simple, relatable exchange rather than a lecture.",
+    "suggestion_id": "S06",
+    "target_feeling": "A knowing nod, like hearing something true said simply.",
+    "visual_direction": "Two stacked chat bubbles, plain outline style, no avatars. Top bubble holds the question in black, bottom bubble holds the answer with the words printing more money set in Relai orange. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "The dialogue format performed well and fits the recurring inflation-education theme in the archive; kept the joke, dropped the meme slang.",
+   "source_id": "1956678072255791235",
+   "text": "How to explain inflation to your kids:\n\"Why is everything so expensive now?\"\n\"Because they keep printing more money.\"",
+   "theme": "inflation education",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "That's it. That's Relai.",
+    "headline": "You send fiat. You get Bitcoin.",
+    "purpose": "State the core product mechanic as plainly as possible for people unfamiliar with Relai.",
+    "suggestion_id": "S07",
+    "target_feeling": "Relief at how simple it actually is.",
+    "visual_direction": "Two boxes connected by a single arrow: left box labeled Fiat, right box labeled Bitcoin, arrow in Relai orange pointing left to right. No currency symbols, no logos inside the boxes. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S07",
+   "rationale": "Simple mechanic lines like this repost well; removed 'no-brainer' since it reads as a guaranteed-outcome claim.",
+   "source_id": "1865069439772668176",
+   "text": "You send fiat.\nYou get Bitcoin.\nThat's it. That's Relai.",
+   "theme": "product mechanic",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "About 450 new Bitcoin are mined each day. That number only goes down over time. Supply is fixed, demand is not.",
+    "headline": "New supply only goes down.",
+    "purpose": "Explain Bitcoin's fixed, diminishing issuance schedule to reinforce the scarcity argument.",
+    "suggestion_id": "S08",
+    "target_feeling": "Steady, factual confidence, not a price pitch.",
+    "visual_direction": "A stepped line chart trending downward in stages (the halving schedule shape), line in Relai orange on an otherwise bare axis with no numbers printed on the image. No price axis, no dollar signs. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "numeric claim should be checked against current block reward before posting"
+   ],
+   "id": "S08",
+   "rationale": "Reworked from a multi-stat post in the archive down to the one verifiable figure, the daily issuance rate, dropping the unverified world stats.",
+   "source_id": "1992240979298939242",
+   "text": "Every day, about 450 new Bitcoin get mined.\nThat number only goes down.\nSupply is fixed, demand is not.",
+   "theme": "bitcoin issuance",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "More people are realizing the money in their bank account isn't really theirs. It's a claim on the bank's balance sheet. That's why self-custody matters.",
+    "headline": "It's a claim, not your money.",
+    "purpose": "Introduce the idea that bank deposits are a claim, not property, to motivate self-custody.",
+    "suggestion_id": "S09",
+    "target_feeling": "A small jolt of realization.",
+    "visual_direction": "Single prop: an outline icon of a paper receipt or IOU slip, centered, with the word CLAIM stamped across it in Relai orange. No bank logos, no illustrated buildings. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "This counterparty-risk observation was a solid performer and ties directly to the self-custody message the account leans on; dropped the 'Also GM' sign-off for focus.",
+   "source_id": "1638453670978240513",
+   "text": "More people are realizing the money in their bank account isn't really theirs.\nIt's a claim on the bank's balance sheet.\nThat's why self-custody matters.",
+   "theme": "self-custody education",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Your Bitcoin is only yours if you hold the keys. Everything else is just a promise.",
+    "headline": "If you don't hold the keys, it's a promise.",
+    "purpose": "Deliver the core self-custody conviction line as a standalone statement piece.",
+    "suggestion_id": "S10",
+    "target_feeling": "Firm, grounded certainty.",
+    "visual_direction": "Single prop: one simple key icon, centered, rendered in Relai orange against a plain background. No lock, no wallet, no second object. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "Builds on the archive's recurring trust/ownership theme (proof of work vs proof of stake) with a new angle on holding your own keys instead of trusting a system.",
+   "source_id": null,
+   "text": "Your Bitcoin is only yours if you hold the keys.\nEverything else is just a promise.",
+   "theme": "self-custody conviction",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "The auto-invest plan doesn't check the price before it buys. It just buys again, every time, on schedule.",
+    "headline": "It doesn't check the price. It just buys.",
+    "purpose": "Show the DCA mechanic concretely: it buys on schedule, not on price signals.",
+    "suggestion_id": "S11",
+    "target_feeling": "Reassured by the mechanical simplicity, no second-guessing.",
+    "visual_direction": "A simple wavy line representing price moving up and down, with evenly spaced orange dots sitting on the line at fixed time intervals regardless of whether the line is high or low. No numbers or dollar values on the axis. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "Shows the DCA mechanic itself rather than a price outcome, a recurring strategy theme across the archive that usually leans on hype instead.",
+   "source_id": null,
+   "text": "The auto-invest plan doesn't check the price before it buys.\nIt just buys again, every time.",
+   "theme": "dca mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "You don't have to trust Bitcoin. You can verify it, line by line, forever.",
+    "headline": "Don't trust it. Verify it.",
+    "purpose": "Highlight that Bitcoin is independently verifiable, not something you take on faith.",
+    "suggestion_id": "S12",
+    "target_feeling": "Quiet confidence in the mechanism.",
+    "visual_direction": "Code snippet type treatment: a few lines of monospaced hash-like characters, with one line highlighted in Relai orange. No blockchain diagrams, no chain-link graphics. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S12",
+   "rationale": "Extends the recurring proof-of-work vs proof-of-stake trust theme with a fresh angle on verifiability instead of a flat comparison.",
+   "source_id": null,
+   "text": "You don't have to trust Bitcoin.\nYou can verify it, line by line, forever.",
+   "theme": "proof of work verification",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Most people don't start with belief. They start with one honest question about Bitcoin.",
+    "headline": "One honest question is enough.",
+    "purpose": "Lower the barrier to curiosity by framing entry into Bitcoin as one honest question, not a leap of belief.",
+    "suggestion_id": "S13",
+    "target_feeling": "Permission to be unsure and still start.",
+    "visual_direction": "Type treatment: a single large question mark centered, rendered in Relai orange, with no other shapes or icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S13",
+   "rationale": "Reframes the archive's recurring skeptic-becomes-buyer theme around the process of asking questions instead of the outcome of being 'wrong'.",
+   "source_id": null,
+   "text": "Most people don't start with belief.\nThey start with one honest question about Bitcoin.",
+   "theme": "skepticism to curiosity",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "A currency that can be printed without limit was never scarce to begin with. Bitcoin was built with a hard cap instead.",
+    "headline": "No limit was never scarce.",
+    "purpose": "Contrast unlimited money printing with Bitcoin's hard cap to reinforce the scarcity argument.",
+    "suggestion_id": "S14",
+    "target_feeling": "Clarity about why the cap matters, stated plainly.",
+    "visual_direction": "Two simple line shapes side by side: one line rising off the top of the frame uncapped, one line rising and flattening at a clear ceiling in Relai orange. No axis labels, no numbers. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S14",
+   "rationale": "Pulls from the recurring central-bank debasement theme but states the supply mechanic as fact instead of implying a future price move.",
+   "source_id": null,
+   "text": "A currency that can be printed without limit was never scarce to begin with.\nBitcoin was built with a hard cap instead.",
+   "theme": "fiat debasement cap",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "The best time to learn how Bitcoin works was years ago. The second best time is today.",
+    "headline": "The second best time is today.",
+    "purpose": "Give a low-pressure nudge to start learning about Bitcoin now.",
+    "suggestion_id": "S15",
+    "target_feeling": "Gentle urgency without pressure.",
+    "visual_direction": "Single prop: a simple calendar icon with one date circled in Relai orange, the rest of the grid left plain. No clock, no other icon. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S15",
+   "rationale": "Reworks the archive's recurring future-regret framing (grandchildren asking why you didn't buy) around learning rather than a buy decision, avoiding advice framing.",
+   "source_id": null,
+   "text": "The best time to learn how Bitcoin works was years ago.\nThe second best time is today.",
+   "theme": "learn bitcoin now",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W44"
+}
