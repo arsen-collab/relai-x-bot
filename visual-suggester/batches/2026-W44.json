@@ -1,0 +1,208 @@
+{
+ "batch_file": "visual-suggester/batches/2026-W44.md",
+ "board_snapshot": {
+  "concept_count": 47,
+  "newest": "2026-09-09"
+ },
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "concepts": [
+  {
+   "caption": "One Bitcoin is 100,000,000 sats. Thinking in sats makes it easier to picture buying a fraction of a coin. No price talk, just the unit people end up using once they start stacking.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "type_only",
+   "headline": "SATS ARE THE STANDARD.",
+   "id": "V01",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"600\" font-family=\"sans-serif\" font-size=\"88\" fill=\"#3D3D3D\" text-anchor=\"middle\">SATS ARE THE</text><text x=\"540\" y=\"730\" font-family=\"sans-serif\" font-size=\"120\" fill=\"#111111\" text-anchor=\"middle\" font-weight=\"bold\">STANDARD.</text><rect x=\"980\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Businesses Want Bitcoin - Relai Business social proof",
+   "needs_check": [],
+   "novelty": "Single punchy statement, not a checklist. Different subject entirely: unit framing rather than business adoption.",
+   "purpose": "Turn a proven X line into a cheap, scroll-stopping type asset that reinforces the sats mental model.",
+   "rationale": "Cheapest format on the list, built from a line that already proved itself on X, no new copy risk.",
+   "shape": "single image",
+   "source_kind": "archive theme",
+   "source_ref": "What landed on X: \"Sats are the standard. End of conversation.\" (206 likes, 2025-05-20)",
+   "subject": "sats as the standard unit",
+   "target_feeling": "Clarity and quiet confidence.",
+   "visual_direction": "Type only, no imagery. The word STANDARD set in Relai orange, the rest in black or white. Large display type, generous white space around it, logo bottom right."
+  },
+  {
+   "caption": "1 Bitcoin is 100,000,000 sats. That is the full unit broken into pieces small enough for everyday buying, including the smallest DCA purchase. No price mentioned, just the math behind every Bitcoin transaction.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "big_number",
+   "headline": "100,000,000 SATS",
+   "id": "V02",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"660\" font-family=\"sans-serif\" font-size=\"78\" fill=\"#111111\" text-anchor=\"middle\" font-weight=\"bold\">100,000,000 SATS</text><text x=\"540\" y=\"730\" font-family=\"sans-serif\" font-size=\"40\" fill=\"#3D3D3D\" text-anchor=\"middle\">= 1 Bitcoin</text><rect x=\"980\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Instagram post: Relai users are buying (bear market conviction)",
+   "needs_check": [],
+   "novelty": "Different subject entirely, a fixed protocol fact rather than a user-behavior claim, so it carries none of that post's compliance weight.",
+   "purpose": "Deliver a core Bitcoin numeracy fact as a clean, shareable big-number asset.",
+   "rationale": "Pre-approved copy, zero invented numbers, and a format with only one prior use so it reads fresh.",
+   "shape": "single image",
+   "source_kind": "evergreen line",
+   "source_ref": "\"Market update: / 1 BTC = 100,000,000 sats\" (approved copy pool, tightened to fit the big number format)",
+   "subject": "one bitcoin in sats",
+   "target_feeling": "A small, satisfying click of understanding.",
+   "visual_direction": "The number 100,000,000 at display size in Relai orange, with a single small line underneath reading \"= 1 Bitcoin\" in black. Nothing else in frame, generous white space, logo bottom right."
+  },
+  {
+   "caption": "Mt. Gox, QuadrigaCX, FTX, Celsius: four platforms, four different years, same outcome. Users who left funds on an exchange lost access to them. Self-custody means your Bitcoin never sits on someone else's balance sheet. Hold your own keys.",
+   "compliance": "unapproved",
+   "flags": [
+    "naming specific collapsed exchanges by name on an image is more visible than in a tweet, confirm this still clears the no-exchange-comparison rule even though the line is pre-approved"
+   ],
+   "format": "timeline",
+   "headline": "CLASS DISMISSED.",
+   "id": "V03",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"220\" font-family=\"sans-serif\" font-size=\"72\" fill=\"#111111\" text-anchor=\"middle\" font-weight=\"bold\">CLASS DISMISSED.</text><circle cx=\"220\" cy=\"650\" r=\"45\" fill=\"#BFBFBF\"/><text x=\"220\" y=\"730\" font-family=\"sans-serif\" font-size=\"28\" fill=\"#3D3D3D\" text-anchor=\"middle\">Exchange A</text><text x=\"220\" y=\"765\" font-family=\"sans-serif\" font-size=\"24\" fill=\"#3D3D3D\" text-anchor=\"middle\">2014</text><circle cx=\"460\" cy=\"650\" r=\"45\" fill=\"#BFBFBF\"/><text x=\"460\" y=\"730\" font-family=\"sans-serif\" font-size=\"28\" fill=\"#3D3D3D\" text-anchor=\"middle\">Exchange B</text><text x=\"460\" y=\"765\" font-family=\"sans-serif\" font-size=\"24\" fill=\"#3D3D3D\" text-anchor=\"middle\">2016</text><circle cx=\"700\" cy=\"650\" r=\"45\" fill=\"#BFBFBF\"/><text x=\"700\" y=\"730\" font-family=\"sans-serif\" font-size=\"28\" fill=\"#3D3D3D\" text-anchor=\"middle\">Exchange C</text><text x=\"700\" y=\"765\" font-family=\"sans-serif\" font-size=\"24\" fill=\"#3D3D3D\" text-anchor=\"middle\">2019</text><circle cx=\"940\" cy=\"650\" r=\"50\" fill=\"#111111\"/><text x=\"940\" y=\"730\" font-family=\"sans-serif\" font-size=\"28\" fill=\"#111111\" text-anchor=\"middle\">Relai</text><text x=\"940\" y=\"765\" font-family=\"sans-serif\" font-size=\"24\" fill=\"#111111\" text-anchor=\"middle\">Now</text><rect x=\"980\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Stop Saving in Euro",
+   "needs_check": [
+    "Mt. Gox collapse year",
+    "QuadrigaCX collapse year",
+    "FTX collapse year",
+    "Celsius collapse year"
+   ],
+   "novelty": "Different subject than currency debasement or adoption curves: four named historical exchange failures as the markers.",
+   "purpose": "Turn an already-approved self-custody line into a scannable visual history lesson.",
+   "rationale": "Uses copy already cleared by compliance, strong self-custody message, timeline format not oversaturated.",
+   "shape": "single image",
+   "source_kind": "evergreen line",
+   "source_ref": "\"Self-custody history lesson: Mt. Gox, QuadrigaCX, FTX, Celsius. Class dismissed.\" (approved copy pool)",
+   "subject": "exchange collapses, self-custody lesson",
+   "target_feeling": "Sober recognition, reinforced conviction to self-custody.",
+   "visual_direction": "A row of four plain markers, one per exchange, each labeled with name and year. Original simple icon shapes only, no logos. Relai orange reserved for the final marker. Generous white space between markers, logo bottom right."
+  },
+  {
+   "caption": "The most common pushback we hear: \"Bitcoin moves too much for me.\" Here's how dollar-cost averaging answers it: same small amount, same day, every week, regardless of price. No predictions, just consistency.",
+   "compliance": "unapproved",
+   "flags": [
+    "review the reply wording before shipping to confirm it reads as mechanic explanation, not financial advice"
+   ],
+   "format": "whatsapp_chat",
+   "headline": "Isn't Bitcoin too risky right now?",
+   "id": "V04",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><rect x=\"100\" y=\"300\" width=\"620\" height=\"160\" rx=\"30\" fill=\"#BFBFBF\"/><text x=\"130\" y=\"360\" font-family=\"sans-serif\" font-size=\"36\" fill=\"#3D3D3D\"><tspan x=\"130\" dy=\"0\">Isn't Bitcoin too risky</tspan><tspan x=\"130\" dy=\"44\">right now?</tspan></text><rect x=\"360\" y=\"520\" width=\"580\" height=\"120\" rx=\"30\" fill=\"#111111\"/><text x=\"390\" y=\"590\" font-family=\"sans-serif\" font-size=\"36\" fill=\"#FFFFFF\">Zoom out.</text><circle cx=\"480\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/><circle cx=\"520\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/><circle cx=\"560\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/><circle cx=\"600\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "WhatsApp Chat Carousel — Friend-to-Friend DCA",
+   "needs_check": [],
+   "novelty": "Targets the specific volatility objection rather than a general DCA introduction.",
+   "purpose": "Give the single most common objection to starting a mechanic-based answer, not advice.",
+   "rationale": "Volatility fear is the single most common objection Relai hears, worth its own entry in a proven format.",
+   "shape": "carousel",
+   "source_kind": "format rerun",
+   "source_ref": "whatsapp_chat format, board item \"Friend-to-Friend DCA\"",
+   "subject": "friend worried about bitcoin volatility",
+   "target_feeling": "Reassurance, like a friend explaining it calmly.",
+   "visual_direction": "Two-bubble chat, grey for the friend, Relai orange for the reply, plain background, no avatars. Same template across slides, logo bottom right on the final slide only."
+  },
+  {
+   "caption": "Five things people tell themselves before buying their first sat. Each one, answered straight. No sugarcoating, no advice, just how DCA actually works.",
+   "compliance": "unapproved",
+   "flags": [
+    "the 'waiting for the dip' answer slide must stay phrased as DCA removing the need to guess, never as a buying-opportunity signal"
+   ],
+   "format": "myth_rebuttal",
+   "headline": "Excuses, debunked.",
+   "id": "V05",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"260\" font-family=\"sans-serif\" font-size=\"72\" fill=\"#111111\" text-anchor=\"middle\" font-weight=\"bold\">Excuses, debunked.</text><text x=\"540\" y=\"500\" font-family=\"sans-serif\" font-size=\"44\" fill=\"#3D3D3D\" text-anchor=\"middle\">\"I'll buy when it dips.\"</text><text x=\"540\" y=\"580\" font-family=\"sans-serif\" font-size=\"44\" fill=\"#111111\" text-anchor=\"middle\" font-weight=\"bold\">Nobody can time it.</text><circle cx=\"480\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/><circle cx=\"520\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/><circle cx=\"560\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/><circle cx=\"600\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "5 Bitcoin misconceptions — debunked",
+   "needs_check": [],
+   "novelty": "Behavioral excuses for not starting, not factual claims about Bitcoin's properties.",
+   "purpose": "Fill a gap in the myth_rebuttal series by addressing procrastination excuses rather than factual misconceptions.",
+   "rationale": "Low-saturation but proven format, fresh angle the archive has not covered yet.",
+   "shape": "carousel",
+   "source_kind": "net new",
+   "source_ref": "Existing myth_rebuttal carousels cover misconceptions about Bitcoin itself; none address the behavioral excuses for delaying a first purchase.",
+   "subject": "excuses for delaying bitcoin dca",
+   "target_feeling": "Recognition, followed by quiet reassurance.",
+   "visual_direction": "One excuse per slide in quotes, the answer directly under it, same template throughout. Orange accent on the answer line only, plain background, logo bottom right on the final slide."
+  },
+  {
+   "caption": "A backward-looking look at what consistent weekly Bitcoin buying would have added up to over time, using Relai's own backtest data. Past results only, not a forecast of what comes next. Figures pending verification before this goes live.",
+   "compliance": "unapproved",
+   "flags": [
+    "backward-looking only, figures must come from Relai's own verified backtest tool before this is built",
+    "must avoid any language that implies guaranteed future outcomes"
+   ],
+   "format": "step_compounding",
+   "headline": "Same amount. Every week. Watch it add up.",
+   "id": "V06",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"200\" font-family=\"sans-serif\" font-size=\"56\" fill=\"#3D3D3D\" text-anchor=\"middle\">Same amount. Every week.</text><text x=\"540\" y=\"270\" font-family=\"sans-serif\" font-size=\"56\" fill=\"#3D3D3D\" text-anchor=\"middle\">Watch it add up.</text><text x=\"540\" y=\"650\" font-family=\"sans-serif\" font-size=\"110\" fill=\"#111111\" text-anchor=\"middle\" font-weight=\"bold\">CHF 1,050</text><text x=\"540\" y=\"720\" font-family=\"sans-serif\" font-size=\"36\" fill=\"#3D3D3D\" text-anchor=\"middle\">Week 10</text><circle cx=\"480\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/><circle cx=\"520\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/><circle cx=\"560\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/><circle cx=\"600\" cy=\"1250\" r=\"10\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "3% inflation — what it actually costs you (carousel)",
+   "needs_check": [
+    "exact historical BTC prices and dates to pull from Relai's own backtest tool for each interval shown",
+    "confirm required past-performance disclaimer language for this calculation format",
+    "exact DCA amount and interval to illustrate, pending sign-off"
+   ],
+   "novelty": "Shows DCA accumulation advancing slide by slide rather than a two-line chart of an erosion cost.",
+   "purpose": "First use of the step_compounding format, showing the DCA mechanic advancing step by step with real historical figures.",
+   "rationale": "Opens an unused format that fits Relai's core DCA message, built only on backward-looking, Relai-sourced figures.",
+   "shape": "carousel",
+   "source_kind": "net new",
+   "source_ref": "Format catalog lists step_compounding with zero items shipped. Inspired by the calculation-carousel precedent of \"3% inflation, what it actually costs you.\"",
+   "subject": "watching a dca plan compound",
+   "target_feeling": "A calm, click-into-place realization of how consistency adds up.",
+   "visual_direction": "Same simple layout repeated each slide: a running total at display size, one small context line under it. Orange accent on the running total only, generous white space, logo bottom right on the final slide."
+  },
+  {
+   "caption": "Relai never holds your Bitcoin. From the first purchase, it goes straight into your own self-custodial wallet. We hold zero user funds, by design. That's not a feature we added, it's the whole point of self-custody.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "big_number",
+   "headline": "0",
+   "id": "V07",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"700\" font-family=\"sans-serif\" font-size=\"260\" fill=\"#111111\" text-anchor=\"middle\" font-weight=\"bold\">0</text><text x=\"540\" y=\"800\" font-family=\"sans-serif\" font-size=\"40\" fill=\"#3D3D3D\" text-anchor=\"middle\">Bitcoin held by Relai.</text><rect x=\"980\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Instagram post: Relai users are buying (bear market conviction)",
+   "needs_check": [
+    "Confirm with compliance or product that Relai literally holds zero user funds at every point in the purchase flow before this claim ships, not just at rest."
+   ],
+   "novelty": "Same big_number format but a structural custody fact instead of a market-conviction stat, and the figure is 0 rather than a user count.",
+   "purpose": "Make Relai's non-custodial model legible as a single, memorable fact.",
+   "rationale": "Big_number has shipped once, so the layout exists but the slot isn't crowded, and this line is already in the approved pool so only the visual needs sign-off.",
+   "shape": "single image",
+   "source_kind": "evergreen line",
+   "source_ref": "approved line: '0. / That's how much user funds we hold. / Thank you for reading.' tightened so the image carries only the numeral, with the context line moved into the caption.",
+   "subject": "Relai holds zero user funds",
+   "target_feeling": "Reassured and a little surprised, trust earned through a plain fact rather than a claim.",
+   "visual_direction": "The numeral 0 set at full display size, centered, in Relai orange. One small line of black type underneath reading 'Bitcoin held by Relai.' Nothing else in the frame, wide white margins, logo bottom right."
+  },
+  {
+   "caption": "Mt. Gox, 2014. QuadrigaCX, 2019. FTX, 2022. Celsius, 2022. All centralized. All collapsed. Every one of them held customer funds and lost them. Hold your own keys, hold your own Bitcoin.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "timeline",
+   "headline": "They all said trust us.",
+   "id": "V08",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"220\" font-family=\"sans-serif\" font-size=\"64\" fill=\"#111111\" text-anchor=\"middle\" font-weight=\"bold\">They all said trust us.</text><circle cx=\"220\" cy=\"650\" r=\"40\" fill=\"#BFBFBF\"/><text x=\"220\" y=\"730\" font-family=\"sans-serif\" font-size=\"26\" fill=\"#3D3D3D\" text-anchor=\"middle\">2014</text><circle cx=\"440\" cy=\"650\" r=\"40\" fill=\"#BFBFBF\"/><text x=\"440\" y=\"730\" font-family=\"sans-serif\" font-size=\"26\" fill=\"#3D3D3D\" text-anchor=\"middle\">2016</text><circle cx=\"660\" cy=\"650\" r=\"40\" fill=\"#BFBFBF\"/><text x=\"660\" y=\"730\" font-family=\"sans-serif\" font-size=\"26\" fill=\"#3D3D3D\" text-anchor=\"middle\">2019</text><circle cx=\"940\" cy=\"600\" r=\"55\" fill=\"#111111\"/><circle cx=\"940\" cy=\"590\" r=\"10\" fill=\"#FFFFFF\"/><rect x=\"935\" y=\"600\" width=\"10\" height=\"25\" fill=\"#FFFFFF\"/><rect x=\"980\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Bitcoin HODL — Adoption Timeline",
+   "needs_check": [
+    "Verify the exact collapse years for Mt. Gox (2014), QuadrigaCX (2019), FTX (2022), and Celsius (2022) against a citable source before the caption is finalized."
+   ],
+   "novelty": "Same timeline format, but the subject is a sequence of custodial failures building to a self-custody conclusion, not Bitcoin's own adoption milestones, and the tone is cautionary rather than triumphant.",
+   "purpose": "Reinforce the self-custody message using a pattern of real custodial failures rather than a single warning.",
+   "rationale": "Timeline has four items on the board so the layout is proven, but every existing one is adoption or decline framed around Bitcoin or fiat, never around exchange failures, so this is a genuinely new use of a familiar format.",
+   "shape": "single image",
+   "source_kind": "archive theme",
+   "source_ref": "archive theme: self-custody after custodial failures, evidenced by the approved pool line 'Self-custody history lesson: Mt. Gox, QuadrigaCX, FTX, Celsius. Class dismissed.' Reworked into a timeline device since the exact 'Class dismissed' line already appears in this batch.",
+   "subject": "exchange collapse history timeline",
+   "target_feeling": "A sober, matter-of-fact click of recognition, not fear.",
+   "visual_direction": "A horizontal row of four plain grey circular markers evenly spaced, each with a year below it, no exchange names or logos on the image. The fourth marker sits apart on the right in Relai orange, unlabeled except a small key icon. Headline sits above the row. Generous white space, logo bottom right."
+  }
+ ],
+ "dropped_count": 1,
+ "generated_at": "2026-10-25 20:59 CET",
+ "mock_palette_is_placeholder": true,
+ "status": "unreviewed",
+ "week": "2026-W44"
+}
