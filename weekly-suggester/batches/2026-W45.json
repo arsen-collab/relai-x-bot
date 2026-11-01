@@ -1,0 +1,296 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W45.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 0,
+ "generated_at": "2026-11-01 22:16 CET",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "A moment of silence for every sat sold too early.",
+    "headline": "A moment of silence.",
+    "purpose": "Use self-deprecating humor to build community resonance around holding regret.",
+    "suggestion_id": "S01",
+    "target_feeling": "A wry laugh of recognition, not shame.",
+    "visual_direction": "A single lit candle prop centered on plain white background. Flame tip colored Relai orange. No other elements. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "past performance framing"
+   ],
+   "id": "S01",
+   "rationale": "One of the archive's strongest performers (302 likes, 21 reposts), rewritten as light community humor instead of a performance claim.",
+   "source_id": "1450828611569717262",
+   "text": "A moment of silence for every sat sold too early.",
+   "theme": "selling regret humor",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Who's still holding with full conviction, no matter the price?",
+    "headline": "Still holding?",
+    "purpose": "Ask an engagement question that surfaces loyal, long-term holders.",
+    "suggestion_id": "S02",
+    "target_feeling": "Pride and quiet solidarity.",
+    "visual_direction": "Type treatment only: one large bold question mark centered, colored Relai orange. No chart, no price line. Generous white space around it. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S02",
+   "rationale": "High-performing engagement post (280 likes), reworked away from the laser-eyes price-target meme into a conviction question.",
+   "source_id": "1549820433704296450",
+   "text": "Who's still holding with full conviction, no matter the price?",
+   "theme": "holder conviction",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Keep buying either way. That's the whole strategy.",
+    "headline": "Green month. Red month. Then what?",
+    "purpose": "Reinforce that DCA consistency matters more than market mood.",
+    "suggestion_id": "S03",
+    "target_feeling": "Calm resolve.",
+    "visual_direction": "Two equal-size flat color blocks side by side, one muted green, one muted red, no numbers or chart lines. A thin Relai orange divider line between them is the only accent. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "Strong engagement (190 likes) on a cycle-naming meme, reframed around the DCA mechanic instead of hype month names.",
+   "source_id": "1720867002477158500",
+   "text": "Green month. Red month. Then what?\nKeep buying either way.",
+   "theme": "dca consistency",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Chase hype without understanding the mechanic, and you'll lose sats fast.",
+    "headline": "Hype burns sats fast.",
+    "purpose": "Warn against hype-driven speculation to reinforce an understanding-first ethos.",
+    "suggestion_id": "S04",
+    "target_feeling": "A sobering, matter-of-fact caution.",
+    "visual_direction": "A single matchstick prop burning down, flame colored Relai orange. Plain white background, nothing else in frame. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "Well-performing post (156 likes), kept the consequence idea but dropped the other-coin reference entirely.",
+   "source_id": "1727016808220402161",
+   "text": "Chase hype without understanding the mechanic, and you'll lose sats fast.",
+   "theme": "speculation risk",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin adoption is happening quietly, one wallet at a time.",
+    "headline": "One wallet at a time.",
+    "purpose": "Reinforce the narrative of steady, grassroots Bitcoin adoption.",
+    "suggestion_id": "S05",
+    "target_feeling": "Quiet optimism.",
+    "visual_direction": "A single simple wallet icon prop centered, one small Relai orange dot on it as the only accent. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S05",
+   "rationale": "Solid engagement (108 likes) on a simple adoption observation, reworded to stay concrete and vague-claim free.",
+   "source_id": "1652694547061788674",
+   "text": "Bitcoin adoption is happening quietly, one wallet at a time.",
+   "theme": "bitcoin adoption",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Say something a Bitcoiner finds spooky, in two words or less.",
+    "headline": "Happy Halloween.",
+    "purpose": "Seasonal Halloween post to invite playful replies and boost engagement.",
+    "suggestion_id": "S06",
+    "target_feeling": "Light, fun, in on the joke.",
+    "visual_direction": "A single jack-o'-lantern prop on plain white background, its glow tinted Relai orange. No other Halloween imagery. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "Strong seasonal engagement format (120 likes) kept intact with current voice.",
+   "source_id": "1719399583586091110",
+   "text": "Happy Halloween.\nSay something a Bitcoiner finds spooky, in two words or less.",
+   "theme": "halloween engagement",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "It's estimated that millions of bitcoin are lost forever, often because a seed phrase was misplaced. Don't be a statistic. Back yours up today.",
+    "headline": "Back up your seed phrase.",
+    "purpose": "Drive home the real stakes of losing a seed phrase to prompt users to back theirs up.",
+    "suggestion_id": "S07",
+    "target_feeling": "Mild urgency balanced by clear, doable action.",
+    "visual_direction": "A single prop: a seed phrase card, half faded or worn at the edges. The words \"back up\" underlined in Relai orange. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "unverified statistic"
+   ],
+   "id": "S07",
+   "rationale": "Recurring self-custody education theme with solid engagement (93 likes), rounded the figure since the exact count isn't verified.",
+   "source_id": "1736799234165551359",
+   "text": "It's estimated that millions of Bitcoin are lost forever.\nBack up your seed phrase.",
+   "theme": "seed phrase backup",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Market update.",
+    "headline": "1 BTC = 1 BTC.",
+    "purpose": "Use a dry joke about bitcoin-denominated thinking to resonate with a bitcoin-literate audience.",
+    "suggestion_id": "S08",
+    "target_feeling": "A knowing smirk.",
+    "visual_direction": "Type treatment only: the equation set in large bold centered type, the equals sign colored Relai orange. Nothing else on the page. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S08",
+   "rationale": "Quirky but well-performing line (95 likes) that needs no change in substance, just tightened wording.",
+   "source_id": "1768654386153328803",
+   "text": "Market update:\n1 BTC = 1 BTC.",
+   "theme": "bitcoin standard humor",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "How many people in your family have you introduced to Bitcoin?",
+    "headline": "How many family members?",
+    "purpose": "Engagement question that turns personal bitcoin advocacy into shareable pride.",
+    "suggestion_id": "S09",
+    "target_feeling": "Warmth and personal connection.",
+    "visual_direction": "A simple family-tree prop made of connected dots and thin lines, one dot colored Relai orange. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "Engagement post (83 likes) rewritten without insider jargon like orangepill.",
+   "source_id": "1792573243439640767",
+   "text": "How many people in your family have you introduced to Bitcoin?",
+   "theme": "family introductions",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Holding your own keys is boring until the day it isn't.",
+    "headline": "Boring. Until it isn't.",
+    "purpose": "Reinforce the value of self-custody through a memorable contrast.",
+    "suggestion_id": "S10",
+    "target_feeling": "Quiet confidence with a hint of foresight.",
+    "visual_direction": "A single key prop lying flat on a plain background, the key's teeth highlighted in Relai orange. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "Conviction and ownership language recur across the archive's strongest posts, this gives the self-custody idea a quieter, non-hype angle.",
+   "source_id": null,
+   "text": "Holding your own keys is boring until the day it isn't.",
+   "theme": "self-custody value",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "You don't need to time the market. You need to show up, same amount, every week.",
+    "headline": "Show up. Same amount. Every week.",
+    "purpose": "Explain the DCA mechanic plainly: consistency beats timing.",
+    "suggestion_id": "S11",
+    "target_feeling": "Relief and simplicity.",
+    "visual_direction": "A single row of identical small dots evenly spaced across the image, each colored Relai orange, representing one recurring purchase each. No chart, no axis. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "DCA and consistency are a recurring undercurrent in the archive, this states the mechanic directly instead of hinting at outcomes.",
+   "source_id": null,
+   "text": "You don't need to time the market. You need to show up, same amount, every week.",
+   "theme": "dca mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin doesn't care about your schedule. It just keeps producing a block, every ten minutes.",
+    "headline": "Every ten minutes, like clockwork.",
+    "purpose": "Highlight Bitcoin's mechanical reliability as a point of trust.",
+    "suggestion_id": "S12",
+    "target_feeling": "Steady trust, quiet awe at the certainty.",
+    "visual_direction": "A single minimal clock face prop, plain hands, the second hand colored Relai orange. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S12",
+   "rationale": "The archive's zoom-out and conviction posts recur often, this grounds that feeling in a concrete mechanic instead of a mood.",
+   "source_id": null,
+   "text": "Bitcoin doesn't care about your schedule. It just keeps producing a block, every ten minutes, like clockwork.",
+   "theme": "network reliability",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Most people don't change their mind about Bitcoin. They just run out of reasons not to.",
+    "headline": "They just run out of reasons.",
+    "purpose": "Reframe skepticism as a gradual process to resonate with converted skeptics.",
+    "suggestion_id": "S13",
+    "target_feeling": "A knowing nod of recognition.",
+    "visual_direction": "Type treatment: a short vertical list of words, each struck through, fading down the page, except the last word left uncrossed and colored Relai orange. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S13",
+   "rationale": "The skeptic-to-believer arc shows up repeatedly in the archive, this reframes it without implying a financial outcome for being wrong.",
+   "source_id": null,
+   "text": "Most people don't change their mind about Bitcoin. They just run out of reasons not to.",
+   "theme": "skeptic journey",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "What's one Bitcoin habit you picked up that surprised you?",
+    "headline": "One habit that surprised you?",
+    "purpose": "Open-ended engagement question to collect personal bitcoin habit stories.",
+    "suggestion_id": "S14",
+    "target_feeling": "Curiosity and openness.",
+    "visual_direction": "A single speech bubble prop centered, outlined in Relai orange, otherwise empty. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S14",
+   "rationale": "Open questions appear periodically in the archive and draw replies, this one stays genuinely open and has nothing to do with price.",
+   "source_id": null,
+   "text": "What's one Bitcoin habit you picked up that surprised you?",
+   "theme": "engagement question",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "A wallet you don't control is just someone else's promise.",
+    "headline": "Someone else's promise.",
+    "purpose": "Reinforce the self-custody principle by contrasting control with blind trust.",
+    "suggestion_id": "S15",
+    "target_feeling": "Clarity, with a touch of wariness toward custodial setups.",
+    "visual_direction": "A single simple line-icon prop of a handshake, one hand outlined in Relai orange, the other in neutral gray. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S15",
+   "rationale": "Self-custody is a recurring thread in the archive, this takes the risk angle rather than the benefit angle already covered elsewhere.",
+   "source_id": null,
+   "text": "A wallet you don't control is just someone else's promise.",
+   "theme": "self-custody risk",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W45"
+}
