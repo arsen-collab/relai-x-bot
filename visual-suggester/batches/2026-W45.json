@@ -1,0 +1,211 @@
+{
+ "batch_file": "visual-suggester/batches/2026-W45.md",
+ "board_snapshot": {
+  "concept_count": 47,
+  "newest": "2026-09-09"
+ },
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "concepts": [
+  {
+   "caption": "A Bitcoin is always a Bitcoin. Ten years apart, the unit hasn't changed. The only real question is whether you held your own keys the whole time.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "then_now",
+   "headline": "1 BTC = 1 BTC",
+   "id": "V01",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"150\" font-family=\"sans-serif\" font-size=\"64\" fill=\"#3D3D3D\" text-anchor=\"middle\">1 BTC = 1 BTC</text><line x1=\"540\" y1=\"250\" x2=\"540\" y2=\"1100\" stroke=\"#111111\" stroke-width=\"6\"/><text x=\"270\" y=\"300\" font-family=\"sans-serif\" font-size=\"40\" fill=\"#BFBFBF\" text-anchor=\"middle\">2015</text><text x=\"270\" y=\"700\" font-family=\"sans-serif\" font-size=\"80\" fill=\"#3D3D3D\" text-anchor=\"middle\">1 BTC</text><text x=\"810\" y=\"300\" font-family=\"sans-serif\" font-size=\"40\" fill=\"#BFBFBF\" text-anchor=\"middle\">2024</text><text x=\"810\" y=\"700\" font-family=\"sans-serif\" font-size=\"80\" fill=\"#3D3D3D\" text-anchor=\"middle\">1 BTC</text><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Burger priced in BTC: 2016 vs 2026",
+   "needs_check": [
+    "Confirm the two year labels used (e.g. 2016 and 2026) are acceptable as generic placeholders and don't read as implying anything about price at either date"
+   ],
+   "novelty": "Swaps the versus/price-comparison structure for the then_now format with zero dollar amounts anywhere, focused purely on unit permanence rather than purchasing power.",
+   "purpose": "Reinforce Bitcoin's fixed-unit identity over time without any price framing.",
+   "rationale": "Strong, often-repeated evergreen line, first use of the then_now catalog format on this board, cheap to build with zero price risk.",
+   "shape": "single image",
+   "source_kind": "evergreen line",
+   "source_ref": "\"1 BTC = 1 BTC / The best stablecoin.\" tightened to \"1 BTC = 1 BTC\" for the headline, meaning kept exactly.",
+   "subject": "one Bitcoin across ten years",
+   "target_feeling": "calm, quiet permanence",
+   "visual_direction": "Two-column layout, thin vertical divider down the middle. Left column labeled with an earlier year, right column labeled with a later year, each showing the numeral 1 BTC in matching weight. No dollar figures anywhere. Orange accent on the divider line only. Generous white space, logo bottom right."
+  },
+  {
+   "caption": "Zero. That's how much user Bitcoin Relai itself holds. Self-custodial means your keys, your coins, always. The app is built so Relai never could take custody, even if it wanted to.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "big_number",
+   "headline": "0",
+   "id": "V02",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"750\" font-family=\"sans-serif\" font-size=\"500\" fill=\"#111111\" text-anchor=\"middle\">0</text><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Instagram post: Relai users are buying (bear market conviction)",
+   "needs_check": [
+    "Confirm '0 user funds held' is the precise, currently accurate way to describe Relai's self-custodial model before it goes on an image"
+   ],
+   "novelty": "Same format, entirely different message category: custody architecture and trust rather than market sentiment or conviction.",
+   "purpose": "Reinforce trust in Relai's self-custodial model by stating plainly that it never holds user funds.",
+   "rationale": "Strong trust-building evergreen line, rerun of the sole big_number format on the board but with a wholly different message.",
+   "shape": "single image",
+   "source_kind": "evergreen line",
+   "source_ref": "\"0. / That's how much user funds we hold. / Thank you for reading.\"",
+   "subject": "Relai holds zero user funds",
+   "target_feeling": "trust, reassurance",
+   "visual_direction": "Single giant numeral 0 centered on the frame, orange accent on the numeral itself, nothing else in the frame, no icons, no chart. Generous white space, logo bottom right."
+  },
+  {
+   "caption": "Self-custody sounds complicated until you break down the myths. Swipe through five things people get wrong about holding their own Bitcoin, from 'exchanges are safer' to 'I don't have enough to bother.'",
+   "compliance": "unapproved",
+   "flags": [
+    "Naming specific past exchanges (Mt. Gox, FTX, Celsius) brushes against 'no comparisons to other brokers or exchanges', even though one such line is already pre-approved in the copy pool; confirm any new myth slides don't add fresh named comparisons"
+   ],
+   "format": "myth_rebuttal",
+   "headline": "SELF-CUSTODY MYTHS, DEBUNKED",
+   "id": "V03",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"140\" font-family=\"sans-serif\" font-size=\"56\" fill=\"#3D3D3D\" text-anchor=\"middle\">SELF-CUSTODY MYTHS, DEBUNKED</text><text x=\"100\" y=\"500\" font-family=\"sans-serif\" font-size=\"90\" fill=\"#BFBFBF\">\"</text><text x=\"540\" y=\"560\" font-family=\"sans-serif\" font-size=\"44\" fill=\"#3D3D3D\" text-anchor=\"middle\">\"Self-custody is too risky\"</text><text x=\"540\" y=\"650\" font-family=\"sans-serif\" font-size=\"44\" fill=\"#111111\" text-anchor=\"middle\">You hold the keys, not an exchange.</text><circle cx=\"500\" cy=\"1280\" r=\"8\" fill=\"#111111\"/><circle cx=\"530\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"560\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"590\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "5 Bitcoin misconceptions — debunked",
+   "needs_check": [
+    "Finalize the exact wording of all five to seven myths and rebuttals so none reads as investment advice",
+    "If past exchange collapses (Mt. Gox, FTX, Celsius) are named anywhere in the carousel, confirm facts are stated accurately"
+   ],
+   "novelty": "Narrows scope specifically to self-custody myths rather than general Bitcoin misconceptions, Relai's clearest differentiator.",
+   "purpose": "Address common hesitations about self-custody directly to build confidence in holding one's own keys.",
+   "rationale": "Self-custody is Relai's core differentiator and recurs heavily across the approved pool, a dedicated myth carousel fills a gap next to the general misconceptions piece already on the board.",
+   "shape": "carousel",
+   "source_kind": "archive theme",
+   "source_ref": "Self-custody anxiety theme, evidenced by repeated approved lines: 'NOT YOUR KEYS NOT YOUR BITCOIN' (multiple variants), 'If you don't self-custody your Bitcoin, you don't actually own any Bitcoin', 'Self-custody history lesson: Mt. Gox, QuadrigaCX, FTX, Celsius. Class dismissed.'",
+   "subject": "common self-custody myths debunked",
+   "target_feeling": "clarity, growing confidence",
+   "visual_direction": "Consistent template per slide: the myth in quotes at the top, the rebuttal directly under it in one line, orange accent on the rebuttal text only, plain background, logo bottom right on every slide. No icons beyond simple quote marks."
+  },
+  {
+   "caption": "A padlock only works if you hold the key. Self-custody means you're the only one who can open yours. Hold your own keys, always.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "single_prop",
+   "headline": "YOUR KEYS. YOUR BITCOIN.",
+   "id": "V04",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"140\" font-family=\"sans-serif\" font-size=\"60\" fill=\"#3D3D3D\" text-anchor=\"middle\">YOUR KEYS. YOUR BITCOIN.</text><rect x=\"440\" y=\"700\" width=\"200\" height=\"160\" rx=\"20\" fill=\"none\" stroke=\"#3D3D3D\" stroke-width=\"8\"/><path d=\"M470 700 V620 A70 70 0 0 1 610 620 V660\" fill=\"none\" stroke=\"#3D3D3D\" stroke-width=\"8\"/><circle cx=\"540\" cy=\"760\" r=\"10\" fill=\"#3D3D3D\"/><rect x=\"535\" y=\"765\" width=\"10\" height=\"25\" fill=\"#3D3D3D\"/><circle cx=\"620\" cy=\"650\" r=\"18\" fill=\"none\" stroke=\"#111111\" stroke-width=\"8\"/><rect x=\"620\" y=\"650\" width=\"70\" height=\"10\" fill=\"#111111\"/><rect x=\"670\" y=\"660\" width=\"10\" height=\"16\" fill=\"#111111\"/><rect x=\"650\" y=\"660\" width=\"8\" height=\"12\" fill=\"#111111\"/><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "No One Can Freeze It",
+   "needs_check": [],
+   "novelty": "Uses a padlock-and-key metaphor for access and ownership rather than the ice/freeze metaphor for seizure-resistance, a different angle on the same self-custody story.",
+   "purpose": "Give the self-custody mantra a single, instantly readable image.",
+   "rationale": "Cheap to build, reinforces the core self-custody message, and single_prop is underused relative to how well it fits this theme.",
+   "shape": "single image",
+   "source_kind": "archive theme",
+   "source_ref": "Self-custody mantra theme, evidenced by many approved variants of 'NOT YOUR KEYS NOT YOUR BITCOIN' and 'hold your own keys' language across the approved pool.",
+   "subject": "padlock with the key still in it",
+   "target_feeling": "ownership, control, simplicity",
+   "visual_direction": "Single prop: one open padlock with its key still resting in the lock, nothing else in the frame. Orange accent on the key only, plain light background, logo bottom right. No hands, no chains, no second object."
+  },
+  {
+   "caption": "Real reviews from real Relai users, unedited. Swipe to see what people say about setting up self-custody for the first time.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "testimonial",
+   "headline": "WHAT USERS SAY ABOUT SELF-CUSTODY",
+   "id": "V05",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"140\" font-family=\"sans-serif\" font-size=\"52\" fill=\"#3D3D3D\" text-anchor=\"middle\">WHAT USERS SAY ABOUT SELF-CUSTODY</text><text x=\"150\" y=\"500\" font-family=\"sans-serif\" font-size=\"100\" fill=\"#111111\">\"</text><text x=\"540\" y=\"600\" font-family=\"sans-serif\" font-size=\"40\" fill=\"#3D3D3D\" text-anchor=\"middle\">\"Finally I control my own Bitcoin.\"</text><text x=\"540\" y=\"700\" font-family=\"sans-serif\" font-size=\"32\" fill=\"#BFBFBF\" text-anchor=\"middle\">— A. M., Switzerland</text><circle cx=\"500\" cy=\"1280\" r=\"8\" fill=\"#111111\"/><circle cx=\"530\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"560\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Review of the week — Carousel (EN)",
+   "needs_check": [
+    "Source and verify the actual published reviews that mention self-custody specifically: exact quote text, reviewer name, country, and source URL for every slide, before any slide is built. None may be invented or paraphrased."
+   ],
+   "novelty": "Curated around a specific theme, the self-custody onboarding experience, and pulls several reviews into one carousel rather than one review per post.",
+   "purpose": "Build trust using genuine user testimony specifically about the self-custody setup experience.",
+   "rationale": "Testimonial is the least-used format on the board and genuine user voice on self-custody directly supports this week's trust angle.",
+   "shape": "carousel",
+   "source_kind": "format rerun",
+   "source_ref": "testimonial format, rerun of board item 'Review of the week — Carousel (EN)', new angle: curated around self-custody onboarding instead of an arbitrary weekly rotation.",
+   "subject": "real reviews about self-custody onboarding",
+   "target_feeling": "reassurance, social proof",
+   "visual_direction": "Each slide shows one quoted review verbatim, reviewer name and country below it, consistent minimal template, orange accent on the quote mark only, white background, logo bottom right on every slide."
+  },
+  {
+   "caption": "A quick look at the regulatory steps behind Relai: Swiss VQF affiliation, FINMA oversight in Switzerland, and the EU entity registered under AMF and MiCA in France. Compliance is built in, not a footnote.",
+   "compliance": "unapproved",
+   "flags": [
+    "Regulatory claims (VQF, FINMA, AMF, MiCA) must be worded precisely so they cannot be read as an official endorsement or guarantee; recommend compliance sign-off on exact wording before this is built"
+   ],
+   "format": "timeline",
+   "headline": "SWISS OVERSIGHT, STEP BY STEP",
+   "id": "V06",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"140\" font-family=\"sans-serif\" font-size=\"56\" fill=\"#3D3D3D\" text-anchor=\"middle\">SWISS OVERSIGHT, STEP BY STEP</text><line x1=\"150\" y1=\"650\" x2=\"930\" y2=\"650\" stroke=\"#111111\" stroke-width=\"4\"/><circle cx=\"250\" cy=\"650\" r=\"14\" fill=\"#3D3D3D\"/><circle cx=\"470\" cy=\"650\" r=\"14\" fill=\"#3D3D3D\"/><circle cx=\"690\" cy=\"650\" r=\"14\" fill=\"#3D3D3D\"/><circle cx=\"910\" cy=\"650\" r=\"14\" fill=\"#3D3D3D\"/><text x=\"250\" y=\"710\" font-family=\"sans-serif\" font-size=\"28\" fill=\"#BFBFBF\" text-anchor=\"middle\">2020</text><text x=\"470\" y=\"710\" font-family=\"sans-serif\" font-size=\"28\" fill=\"#BFBFBF\" text-anchor=\"middle\">2021</text><text x=\"690\" y=\"710\" font-family=\"sans-serif\" font-size=\"28\" fill=\"#BFBFBF\" text-anchor=\"middle\">2022</text><text x=\"910\" y=\"710\" font-family=\"sans-serif\" font-size=\"28\" fill=\"#BFBFBF\" text-anchor=\"middle\">2023</text><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Bitcoin HODL — Adoption Timeline",
+   "needs_check": [
+    "Exact founding date of Relai AG",
+    "Exact date of VQF affiliation",
+    "Precise, currently accurate wording of FINMA's relationship to Relai AG",
+    "Exact date Relai EU SASU was established and its AMF/MiCA registration date"
+   ],
+   "novelty": "Subject is Relai's own regulatory record rather than Bitcoin adoption or currency decline, first use of the timeline format for brand credibility instead of macro narrative.",
+   "purpose": "Build institutional trust by showing Relai's regulatory history as a simple, scannable timeline.",
+   "rationale": "Differentiates Relai on the trust and compliance axis using a cheap, already-proven format, timely for an EU audience increasingly asking about MiCA.",
+   "shape": "single image",
+   "source_kind": "format rerun",
+   "source_ref": "timeline format, rerun of board items 'Bitcoin HODL — Adoption Timeline' and 'Stop Saving in Euro', applied to Relai's own regulatory history instead of macro Bitcoin or fiat narrative.",
+   "subject": "Relai's Swiss and EU regulatory milestones",
+   "target_feeling": "trust, credibility",
+   "visual_direction": "A horizontal row of four simple markers, one date label under each, original plain iconography, no regulator logos. Orange accent on the connecting line only, logo bottom right, generous white space."
+  },
+  {
+   "caption": "Using Relai's own backtest tool, here's what a flat weekly Bitcoin purchase would have totaled, slide by slide, across past years. Based on historical prices only, not a projection of future returns.",
+   "compliance": "unapproved",
+   "flags": [
+    "Backward-looking performance framing: caption must make clear this is a historical backtest only, not a guaranteed or implied future outcome, to stay clear of MiCA risk"
+   ],
+   "format": "step_compounding",
+   "headline": "THE SAME WEEKLY BUY, YEAR BY YEAR",
+   "id": "V07",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"540\" y=\"140\" font-family=\"sans-serif\" font-size=\"52\" fill=\"#3D3D3D\" text-anchor=\"middle\">THE SAME WEEKLY BUY, YEAR BY YEAR</text><text x=\"540\" y=\"700\" font-family=\"sans-serif\" font-size=\"140\" fill=\"#111111\" text-anchor=\"middle\">0.0142 BTC</text><text x=\"540\" y=\"780\" font-family=\"sans-serif\" font-size=\"36\" fill=\"#BFBFBF\" text-anchor=\"middle\">Year 1</text><circle cx=\"500\" cy=\"1280\" r=\"8\" fill=\"#111111\"/><circle cx=\"530\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"560\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><circle cx=\"590\" cy=\"1280\" r=\"8\" fill=\"#BFBFBF\"/><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "3% inflation — what it actually costs you (carousel)",
+   "needs_check": [
+    "Weekly contribution amount, start year, end year, and every slide's resulting total must come directly from Relai's own backtest tool, nothing approximated or written from memory",
+    "Confirm number of slides (suggest 4 to 6) matches the real intervals the backtest tool can produce"
+   ],
+   "novelty": "Uses the never-shipped step_compounding format, built from Relai's own backtest tool, structurally distinct from the existing two_line_chart compounding and inflation posts.",
+   "purpose": "Show the mechanic of consistent DCA by watching the same calculation move forward historically, not promising a return.",
+   "rationale": "step_compounding is a strong, unused format that matches the voice principle of showing mechanic over outcome, worth a first attempt this week.",
+   "shape": "carousel",
+   "source_kind": "net new",
+   "source_ref": "First use of the zero-count step_compounding catalog format on this board. No existing item shows the same calculation advancing slide by slide, which directly follows the voice principle of showing the mechanic rather than the outcome.",
+   "subject": "same weekly Bitcoin purchase advancing by year",
+   "target_feeling": "calm confidence in consistency, not excitement about gains",
+   "visual_direction": "Each slide repeats the same simple layout: a running total at display size, a small year marker underneath, orange accent on the total figure only, no line chart, no decoration. Position of elements stays identical across slides so it reads as one calculation advancing. Logo bottom right."
+  },
+  {
+   "caption": "No weekends off, no closing time. Bitcoin moves every day of the year, holidays included. Worth remembering next time a transfer is stuck 'processing' for three business days.",
+   "compliance": "unapproved",
+   "flags": [],
+   "format": "type_only",
+   "headline": "BITCOIN DOESN'T TAKE BANK HOLIDAYS.",
+   "id": "V08",
+   "mock_svg": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1080\" height=\"1350\" fill=\"#FFFFFF\"/><text x=\"100\" y=\"600\" font-family=\"sans-serif\" font-size=\"80\" fill=\"#3D3D3D\">BITCOIN DOESN'T</text><text x=\"100\" y=\"700\" font-family=\"sans-serif\" font-size=\"80\" fill=\"#3D3D3D\">TAKE BANK</text><text x=\"100\" y=\"800\" font-family=\"sans-serif\" font-size=\"80\" fill=\"#111111\">HOLIDAYS.</text><rect x=\"990\" y=\"1290\" width=\"60\" height=\"30\" fill=\"#BFBFBF\"/></svg>",
+   "nearest_existing": "Businesses Want Bitcoin checklist",
+   "needs_check": [
+    "Confirm the factual framing holds: the Bitcoin network processes blocks continuously including weekends and holidays"
+   ],
+   "novelty": "Entirely different message, network availability versus business adoption, and a different structure: single punchy line versus a checklist.",
+   "purpose": "A light, low-production post contrasting Bitcoin's always-on network with traditional banking hours.",
+   "rationale": "type_only is cheap and fast, giving the designer a lightweight filler alongside the heavier carousel concepts this week, and fills the format diversity gap.",
+   "shape": "single image",
+   "source_kind": "net new",
+   "source_ref": "Original line written to fill a light, fast-to-produce type_only slot this week, no existing approved line covers the always-on network angle directly.",
+   "subject": "Bitcoin network runs every day",
+   "target_feeling": "a small moment of delight at something familiar seen differently",
+   "visual_direction": "Type only, no imagery. Headline set large, the word HOLIDAYS in orange, everything else in black. Generous white space, logo bottom right, nothing else on the frame."
+  }
+ ],
+ "dropped_count": 0,
+ "generated_at": "2026-11-01 22:22 CET",
+ "mock_palette_is_placeholder": true,
+ "status": "unreviewed",
+ "week": "2026-W45"
+}
