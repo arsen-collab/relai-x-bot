@@ -1,0 +1,300 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W46.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 0,
+ "generated_at": "2026-11-08 22:15 CET",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "Bitcoin on a platform isn't yours until you can move it without asking permission. Hold your own keys.",
+    "headline": "1 BTC you hold beats 2 BTC someone else holds.",
+    "purpose": "Make the self-custody math viscerally clear in one glance.",
+    "suggestion_id": "S01",
+    "target_feeling": "A quiet click of recognition, ownership over quantity.",
+    "visual_direction": "A simple scale or balance comparison: left side shows '1 BTC, your wallet' sitting lower (heavier, grounded), right side shows '2 BTC, their platform' tipped up and lighter. Relai orange on the left side label only. Generous white space, no icons beyond simple text blocks and the scale line."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S01",
+   "rationale": "This self-custody comparison was one of the archive's stronger performers at 185 likes, so the core math-based argument is worth keeping, just restated with exact approved terminology.",
+   "source_id": "1526995534543671296",
+   "text": "One Bitcoin in your own wallet beats two Bitcoin sitting on someone else's platform.\nHold your own keys.",
+   "theme": "self-custody math",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "El Salvador added Bitcoin to its national reserves. Nation-state adoption isn't a theory anymore, it's already happened once.",
+    "headline": "The first country to hold Bitcoin in its reserves.",
+    "purpose": "Mark a factual milestone in Bitcoin's institutional history.",
+    "suggestion_id": "S02",
+    "target_feeling": "A sense of quiet validation, this is already happening.",
+    "visual_direction": "A single bold line of type treatment: a small outline map silhouette of El Salvador with 'first' set in Relai orange above it. No flag colors, no other countries shown. Logo bottom right, rest of frame empty."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "unverified current figures"
+   ],
+   "id": "S02",
+   "rationale": "This was the top performer in the archive at 591 likes, but the specific holdings figure is years stale, so the rewrite keeps the historical fact without restating an outdated number.",
+   "source_id": "1439815812471271425",
+   "text": "El Salvador was the first country to hold Bitcoin in its national reserves.\nProof that nation-state adoption isn't just a theory anymore.",
+   "theme": "nation-state adoption",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "We're thinking about building one. Reply with what you'd actually want on it.",
+    "headline": "A Bitcoin price widget on your home screen?",
+    "purpose": "Open a genuine product feedback thread with the audience.",
+    "suggestion_id": "S03",
+    "target_feeling": "Invited to weigh in, like the team is actually listening.",
+    "visual_direction": "A simple phone outline prop, empty home screen with one placeholder widget rectangle sketched in Relai orange outline, labeled '?'. No real app UI shown. Rest of the phone screen left blank."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "This product feedback question drew 170 likes, showing the audience engages with direct build-in-public asks.",
+   "source_id": "1612500196277030927",
+   "text": "Would a Bitcoin price widget on your home screen be useful?\nThinking about building one, curious what you'd actually want on it.",
+   "theme": "product feedback",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "It's the community patiently answering the same questions, one newcomer at a time.",
+    "headline": "Bitcoin's best support desk isn't a desk.",
+    "purpose": "Celebrate the community as Bitcoin's real support system.",
+    "suggestion_id": "S04",
+    "target_feeling": "Warmth, belonging, a nod to the people who patiently teach.",
+    "visual_direction": "Type treatment only: the word 'HELP DESK' struck through, with 'the community' written below it in Relai orange, hand-written feel. No people illustrated. Plenty of white space around the two lines."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "The original community-as-support-line framing earned solid engagement at 112 likes, and the idea holds up without the win-condition language.",
+   "source_id": "1645478750199615488",
+   "text": "Bitcoin's best customer support isn't a help desk.\nIt's the community patiently explaining things to newcomers, one question at a time.",
+   "theme": "community support",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Hold your own keys. It's that simple.",
+    "headline": "If they hold it, you don't own it.",
+    "purpose": "Restate the core self-custody principle as simply as possible.",
+    "suggestion_id": "S05",
+    "target_feeling": "Clarity, almost relief, the idea reduced to its simplest form.",
+    "visual_direction": "A single padlock prop drawn in outline, open, with a key sitting next to it in Relai orange. No wallet app screenshots. Centered, isolated, large amount of surrounding white space."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S05",
+   "rationale": "This direct self-custody message performed well at 112 likes and matches a recurring archive theme, rewritten to avoid implying a named-competitor comparison.",
+   "source_id": "1640779284167147520",
+   "text": "If a platform holds your Bitcoin for you, you don't actually own it.\nHold your own keys. It's that simple.",
+   "theme": "self-custody",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "That might be one of its biggest advantages. Culture spreads faster than any whitepaper.",
+    "headline": "Bitcoin runs on memes as much as code.",
+    "purpose": "Highlight Bitcoin culture's informal, human side.",
+    "suggestion_id": "S06",
+    "target_feeling": "A small smile, recognition of the community's personality.",
+    "visual_direction": "A type treatment comparison: 'CODE' in plain type on one line, 'MEMES' in Relai orange directly below it in the same weight and size, as if they're equals. No actual meme imagery used. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "The original meme-pride tweet got 100 likes, so the playful community angle is kept while dropping the absolute \"we will win\" claim.",
+   "source_id": "1707084687523381385",
+   "text": "Bitcoin culture runs on memes as much as it runs on code.\nThat might be one of its biggest advantages.",
+   "theme": "community culture",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "The one nobody talks about. Tell us.",
+    "headline": "The most underrated feature of Bitcoin?",
+    "purpose": "Spark a community discussion thread.",
+    "suggestion_id": "S07",
+    "target_feeling": "Curiosity, wanting to be the one with the clever answer.",
+    "visual_direction": "Large question mark set in Relai orange as the sole visual device, centered, nothing else on the frame besides the headline above it. Maximum white space."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S07",
+   "rationale": "This open question drew steady engagement at 71 likes and fits the Bitcoin-literate X audience well as a low-effort, high-reply format.",
+   "source_id": "1871550394394177690",
+   "text": "What's the most underrated feature of Bitcoin, the one nobody talks about?",
+   "theme": "community question",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Everyone who wishes they'd started earlier had the same chance everyone else did. It was the courage to start.",
+    "headline": "The difference was never timing.",
+    "purpose": "Reframe timing anxiety as a matter of starting, not luck.",
+    "suggestion_id": "S08",
+    "target_feeling": "A nudge of quiet resolve rather than regret.",
+    "visual_direction": "A single timeline, a flat horizontal line with one dot marked 'start' that can sit anywhere along it, placed off-center toward the right to show it's never too late. Relai orange used only for the dot. No chart, no price data."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "past performance framing"
+   ],
+   "id": "S08",
+   "rationale": "This reframe of regret into courage got 50 likes and fits the education-not-hype voice better than most FOMO-style lines in the archive.",
+   "source_id": "1969063516012200127",
+   "text": "Everyone who wishes they'd started earlier had the same chance everyone else did.\nThe difference was never timing. It was the courage to start.",
+   "theme": "courage to start",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "That's not a thought experiment. That's the monetary system we use every day.",
+    "headline": "One entity. Unlimited printing. Total trust required.",
+    "purpose": "Prompt reflection on the fiat trust assumption.",
+    "suggestion_id": "S09",
+    "target_feeling": "A mild jolt, realizing something normalized is actually strange.",
+    "visual_direction": "Type treatment only: the words 'UNLIMITED' repeated small and faded in a receding pattern filling most of the frame, with one instance set large and solid in Relai orange. No currency symbols or banknote imagery."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "This central-bank thought experiment resonated at 39 likes with strong repost share, reflecting the recurring archive theme of contrasting fiat and Bitcoin.",
+   "source_id": "1901672879235936577",
+   "text": "Imagine a monetary system where one entity can print unlimited money and everyone just has to trust it.\nThat's not a thought experiment. That's what we use every day.",
+   "theme": "fiat system critique",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "That's the whole idea of self-custody: you can prove what you hold without anyone being able to touch it.",
+    "headline": "Public address. Private keys.",
+    "purpose": "Explain the public address versus private key mechanic simply.",
+    "suggestion_id": "S10",
+    "target_feeling": "Understanding clicking into place, technical but calm.",
+    "visual_direction": "A simple two-column comparison: left column labeled 'Address' with an open padlock icon, right column labeled 'Keys' with a closed padlock icon in Relai orange. No wallet screenshots, no QR codes."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "Self-custody and 'hold your own keys' are recurring conviction themes in the archive, usually framed as slogans rather than explained as a mechanic.",
+   "source_id": null,
+   "text": "Your wallet address is public.\nYour keys are not.\n\nThat's the whole idea of self-custody: you can prove what you hold without anyone being able to touch it.",
+   "theme": "self-custody mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Dollar cost averaging isn't a strategy, it's a habit. The market sets the price, you just decide to show up.",
+    "headline": "Same amount. Same day. Every month.",
+    "purpose": "Show DCA as a repeatable habit, not a market call.",
+    "suggestion_id": "S11",
+    "target_feeling": "Reassurance, something manageable rather than something to time perfectly.",
+    "visual_direction": "A simple repeating calendar strip: four small squares in a row, each marked with the same dot in Relai orange on the same date, rest of the squares empty. No price chart, no numbers shown."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "investment advice"
+   ],
+   "id": "S11",
+   "rationale": "Consistency and DCA language recur across the archive as a conviction frame; this reframes it as a concrete recurring mechanic rather than an outcome.",
+   "source_id": null,
+   "text": "Dollar cost averaging isn't a strategy. It's a habit.\n\nSame amount, same day, every month. The market sets the price, you just decide to show up.",
+   "theme": "dca mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Every number above that is someone's opinion, not the protocol.",
+    "headline": "21 million. Not 21 million and one.",
+    "purpose": "Reinforce Bitcoin's fixed supply as a hard, simple fact.",
+    "suggestion_id": "S12",
+    "target_feeling": "A sense of certainty in a world of moving targets.",
+    "visual_direction": "Large numerals '21,000,000' set in Relai orange, centered, with nothing else on the frame except the logo. No chart, no supply curve."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S12",
+   "rationale": "Scarcity and sats divisibility show up repeatedly in the archive; this grounds it in the protocol fact instead of a price goal like '1 sat = 1 cent.'",
+   "source_id": null,
+   "text": "There will only ever be 21 million Bitcoin. Not 21 million and one.\n\nEvery number above that is someone's opinion.",
+   "theme": "fixed supply",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "History's pattern, not a prediction. Bitcoin was built so that part can't happen to it.",
+    "headline": "Every currency printed without limit, eventually was.",
+    "purpose": "Make the historical case for a capped-supply currency.",
+    "suggestion_id": "S13",
+    "target_feeling": "A sober, matter-of-fact realization rather than alarm.",
+    "visual_direction": "A single horizontal line representing time, flat and plain, with one short upward mark near the end labeled 'Bitcoin' in Relai orange, standing apart from the rest of the line which stays flat and unlabeled. No currency logos or named historical currencies shown."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "implied investment claim"
+   ],
+   "id": "S13",
+   "rationale": "Distrust of central banks and money printing is a recurring macro theme in the archive; this states the design fact instead of predicting a price reaction.",
+   "source_id": null,
+   "text": "Every currency in history that could be printed without limit, eventually was.\n\nBitcoin was built so that part can't happen to it.",
+   "theme": "fiat debasement",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "The one you thought you already understood. Tell us which one.",
+    "headline": "The concept you had to relearn.",
+    "purpose": "Spark a reflective community thread on relearning Bitcoin concepts.",
+    "suggestion_id": "S14",
+    "target_feeling": "A knowing nod, the comfort of shared confusion.",
+    "visual_direction": "Type treatment: the word 'UNDERSTOOD' with a single letter crossed out and rewritten above it by hand in Relai orange. No icons, no illustration, just the type correction."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S14",
+   "rationale": "Open questions to the community appear occasionally in the archive and tend to draw engagement; this one is genuinely open and has no price angle.",
+   "source_id": null,
+   "text": "What's one Bitcoin concept you had to relearn after you thought you already understood it?",
+   "theme": "community question",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin's price moves fast. Its protocol doesn't. Zoom out far enough and the chart matters less than what's underneath it.",
+    "headline": "The design doesn't move in days.",
+    "purpose": "Deliver the zoom-out conviction frame without touching price prediction.",
+    "suggestion_id": "S15",
+    "target_feeling": "Calm distance, the noise of daily price quieting down.",
+    "visual_direction": "A single zig-zag line representing daily noise on the left half of the frame, smoothing into a flat steady line on the right half, with the flat portion rendered in Relai orange. No axis labels, no numbers, no dates."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S15",
+   "rationale": "Zoom-out and long-term conviction language recur across the archive, usually tied to price moves; this keeps the frame but removes any price signal.",
+   "source_id": null,
+   "text": "Bitcoin's price moves in days.\n\nIts design doesn't.\n\nZoom out far enough and the chart stops mattering as much as the protocol does.",
+   "theme": "zoom out conviction",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W46"
+}
