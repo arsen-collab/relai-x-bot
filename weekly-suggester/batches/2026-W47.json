@@ -1,0 +1,294 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W47.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 0,
+ "generated_at": "2026-11-15 22:54 CET",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "Who are the Bitcoin creators in Europe you actually learn from?\n\nDrop names below.",
+    "headline": "Who do you learn Bitcoin from?",
+    "purpose": "Spark community engagement by surfacing trusted Bitcoin voices.",
+    "suggestion_id": "S01",
+    "target_feeling": "Curious and included, like joining a conversation already in progress.",
+    "visual_direction": "Type treatment only: the question set large and centered. Below it, a row of five empty circle outlines standing in for avatars, thin line weight, one circle outlined in Relai orange. No photos, no real faces, no illustration."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S01",
+   "rationale": "open community question in this format drew solid replies and reposts in the archive",
+   "source_id": "2006374586401554675",
+   "text": "Who are the Bitcoin creators in Europe you actually learn from?\n\nDrop names below.",
+   "theme": "community bitcoin creators",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "The best time to start buying Bitcoin regularly was years ago.\nThe second best time is today.\nConsistency beats timing.",
+    "headline": "The second best time is today.",
+    "purpose": "Reinforce the habit of buying regularly instead of trying to time the market.",
+    "suggestion_id": "S02",
+    "target_feeling": "Calm confidence, no urgency or FOMO.",
+    "visual_direction": "Simple timeline device: one horizontal line with two plain dots on it. Left dot small and gray labeled \"years ago,\" right dot larger in Relai orange labeled \"today.\" No axis, no numbers, no price reference."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S02",
+   "rationale": "classic line performed well; reframed around the recurring-purchase mechanic instead of a buy-now timing call",
+   "source_id": "1867212057759682964",
+   "text": "The best time to start buying Bitcoin regularly was years ago.\nThe second best time is today.\nConsistency beats timing.",
+   "theme": "consistency dca",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "There's no Relai without you.\n\nThank you for being part of this.",
+    "headline": "There's no Relai without you.",
+    "purpose": "Thank the community and mark a moment of connection.",
+    "suggestion_id": "S03",
+    "target_feeling": "Warm, genuine gratitude.",
+    "visual_direction": "Pure type treatment: the words set large and centered, nothing else in frame. Headline carries the full weight. Generous white space, no icons, no props, no photography."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "simple thank-you post to users, matches the archive's well-received appreciation theme",
+   "source_id": "1838251982555140509",
+   "text": "There's no Relai without you.\n\nThank you for being part of this.",
+   "theme": "gratitude community",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "With Relai, euros become Bitcoin in a few taps.\n\nThen it sits in your own self-custodial wallet, not ours.",
+    "headline": "Euros become Bitcoin in a few taps.",
+    "purpose": "Explain the core buying mechanic and the self-custody outcome in one line.",
+    "suggestion_id": "S04",
+    "target_feeling": "Simple, reassuring clarity.",
+    "visual_direction": "Three-step flow diagram: a euro symbol, an arrow, a Bitcoin symbol, another arrow, a simple wallet outline. Arrows rendered in Relai orange, symbols in plain black line art. No coins, no illustrated characters."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "this metaphor post got solid engagement; rewritten as a concrete mechanic per the 'specific beats clever' principle",
+   "source_id": "1919777927849267237",
+   "text": "With Relai, euros become Bitcoin in a few taps.\n\nThen it sits in your own self-custodial wallet, not ours.",
+   "theme": "self-custody buying",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Date idea: read the Bitcoin whitepaper out loud together.\n\nBring tap water. Save the sats for stacking.",
+    "headline": "Read the whitepaper. Bring water.",
+    "purpose": "Use humor to make self-custody culture feel approachable and shared.",
+    "suggestion_id": "S05",
+    "target_feeling": "Amused, in on the joke.",
+    "visual_direction": "Flat-lay prop photo shot from above: a printed stack of paper standing in for the whitepaper, next to two plain glasses of tap water, on a neutral surface. No people in frame, no illustrated icons."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "stack sats terminology, allowed on X but confirm context"
+   ],
+   "id": "S05",
+   "rationale": "lighthearted, Bitcoin-literate humor format that landed well in the archive",
+   "source_id": "1771934750858441091",
+   "text": "Date idea: read the Bitcoin whitepaper out loud together.\n\nBring tap water. Save the sats for stacking.",
+   "theme": "humor culture date",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin has no leaders.\n\nThat's the whole point.",
+    "headline": "Bitcoin has no leaders.",
+    "purpose": "Reinforce decentralization as a core Bitcoin principle.",
+    "suggestion_id": "S06",
+    "target_feeling": "Quiet conviction.",
+    "visual_direction": "Network diagram: a loose scatter of equal-sized dots connected by thin lines, no dot centered or enlarged relative to the others. All dots black except one off to the side rendered in Relai orange, reading as one of many rather than a leader."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "clean statement of Bitcoin's core value prop, mirrors a well-performing decentralization line in the archive",
+   "source_id": "1752385938804945373",
+   "text": "Bitcoin has no leaders.\n\nThat's the whole point.",
+   "theme": "decentralization",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin is one of the few things you can actually own.\n\nOnly if you hold your own keys.",
+    "headline": "Hold the keys. Own it.",
+    "purpose": "Tie the idea of ownership directly to holding your own keys.",
+    "suggestion_id": "S07",
+    "target_feeling": "Empowered and grounded.",
+    "visual_direction": "Single prop photo: one physical key resting on a plain, empty surface, shot straight on. Key accented in Relai orange or lit with an orange rim light. Background neutral, nothing else in frame."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S07",
+   "rationale": "core self-custody message that performed well, restated with the skill's exact terminology",
+   "source_id": "1774136760336818458",
+   "text": "Bitcoin is one of the few things you can actually own.\n\nOnly if you hold your own keys.",
+   "theme": "self-custody ownership",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Get your Bitcoin off exchanges.\n\nThis is not a drill.",
+    "headline": "Get your Bitcoin off exchanges.",
+    "purpose": "Push self-custody as a security practice rather than a product pitch.",
+    "suggestion_id": "S08",
+    "target_feeling": "Urgency without alarm.",
+    "visual_direction": "Two-box comparison: left box labeled \"Exchange\" with a simple lock icon, right box labeled \"Your wallet\" with a simple key icon. Right box outlined in Relai orange. No exchange names or logos anywhere in frame."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S08",
+   "rationale": "direct security call-to-action that resonated in the archive, updated from 'coins' to exact Bitcoin terminology",
+   "source_id": "1666856362826149888",
+   "text": "Get your Bitcoin off exchanges.\n\nThis is not a drill.",
+   "theme": "self-custody security",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Price update: 1 BTC is still 1 BTC.\n\nThat's the only chart that matters.",
+    "headline": "1 BTC = 1 BTC.",
+    "purpose": "Use deadpan humor to reframe short-term price noise as irrelevant.",
+    "suggestion_id": "S09",
+    "target_feeling": "Wry calm.",
+    "visual_direction": "Flat line chart: a single straight horizontal line running across the frame with no axis labels or numbers, headline set above it. Line rendered in Relai orange. No candlesticks, no price markers, no timeframe shown."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "self-aware joke that sidesteps price speculation, echoes the archive's zoom-out humor that drew engagement",
+   "source_id": "2010296448160510374",
+   "text": "Price update: 1 BTC is still 1 BTC.\n\nThat's the only chart that matters.",
+   "theme": "price humor zoom-out",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Most people's first real Bitcoin lesson isn't about price.\nIt's realizing nobody can freeze a wallet they don't control.",
+    "headline": "Nobody can freeze what you hold.",
+    "purpose": "Surface the real lesson of self-custody beyond price.",
+    "suggestion_id": "S10",
+    "target_feeling": "A quiet realization landing.",
+    "visual_direction": "Two-box comparison: left box \"Account\" with a padlock icon crossed out, right box \"Self-custody wallet\" with an open padlock icon, untouched. Right box accented in Relai orange. No bank or exchange branding anywhere."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "Builds on the recurring self-custody and conviction theme in the archive, reframed around control instead of price talk.",
+   "source_id": null,
+   "text": "Most people's first real Bitcoin lesson isn't about price.\nIt's realizing nobody can freeze a wallet they don't control.",
+   "theme": "self-custody mindset",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin's supply doesn't move with the news cycle.\nThat's the whole point of zooming out.",
+    "headline": "21 million. Fixed. Forever.",
+    "purpose": "Anchor the zoom-out mindset in Bitcoin's fixed supply.",
+    "suggestion_id": "S11",
+    "target_feeling": "Steady, long-term calm.",
+    "visual_direction": "Flat line chart: a single straight horizontal line near the top of the frame, rendered in Relai orange, with no axis labels, numbers, or timeframe so it can't be read as a price or performance chart. The cap figure lives only in the caption."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "Takes the archive's recurring zoom-out and long-term conviction framing and grounds it in a concrete mechanic instead of a prediction.",
+   "source_id": null,
+   "text": "Bitcoin's supply doesn't move with the news cycle.\nThat's the whole point of zooming out.",
+   "theme": "fixed supply, zoom out",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Every currency in history was printed into existence.\nBitcoin is mined into existence, on a fixed schedule, forever.",
+    "headline": "Printed vs mined.",
+    "purpose": "Contrast fiat issuance with Bitcoin's fixed mining schedule.",
+    "suggestion_id": "S12",
+    "target_feeling": "Clear-eyed understanding.",
+    "visual_direction": "Two-column comparison: left column headed \"Printed\" with an upward arrow that has no ceiling, right column headed \"Mined\" with a stepped line that reaches a fixed, flat cap. Right column accented in Relai orange."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S12",
+   "rationale": "Reworks the archive's central bank and debasement theme into a factual mechanic comparison, without the causal price claim the originals lean on.",
+   "source_id": null,
+   "text": "Every currency in history was printed into existence.\nBitcoin is mined into existence, on a fixed schedule, forever.",
+   "theme": "monetary debasement mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "DCA isn't about timing the market.\nIt's a fixed amount, on a fixed schedule, no matter what the price does.",
+    "headline": "Same amount. Every time.",
+    "purpose": "Explain the DCA mechanic plainly: fixed amount, regardless of price.",
+    "suggestion_id": "S13",
+    "target_feeling": "Methodical, unbothered.",
+    "visual_direction": "Repeating bar chart: a row of identical-height bars evenly spaced, rendered in Relai orange. A thin unlabeled wavy gray line passes behind them to suggest price moving while the bars stay constant. No numbers or axis."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S13",
+   "rationale": "Archive repeatedly implies timing and market calls; this shows the DCA mechanic itself, which the skill prefers over outcome framing.",
+   "source_id": null,
+   "text": "DCA isn't about timing the market.\nIt's a fixed amount, on a fixed schedule, no matter what the price does.",
+   "theme": "dca mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "What's one thing you wish someone had explained before you held your own keys?",
+    "headline": "What do you wish you knew first?",
+    "purpose": "Invite the community to share self-custody lessons they learned the hard way.",
+    "suggestion_id": "S14",
+    "target_feeling": "Reflective and open.",
+    "visual_direction": "Type treatment: the question set large and centered, with one small key icon in the corner rendered in Relai orange. No photos, no illustrated hands, no additional props."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S14",
+   "rationale": "Mirrors the archive's recurring low-effort engagement questions, redirected toward self-custody instead of price or creators.",
+   "source_id": null,
+   "text": "What's one thing you wish someone had explained before you held your own keys?",
+   "theme": "community question, keys",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Your seed phrase doesn't care how long you've held Bitcoin.\nWrite it down anyway.",
+    "headline": "Write it down anyway.",
+    "purpose": "Remind holders that seed phrase habits matter regardless of experience.",
+    "suggestion_id": "S15",
+    "target_feeling": "Gentle urgency.",
+    "visual_direction": "Prop photo: a blurred seed phrase card on a plain surface with a pen resting on top, pen accented in Relai orange. Words on the card kept illegible or blurred, no real or example seed phrase shown."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S15",
+   "rationale": "New angle on the archive's conviction-and-time theme, swapping price bragging for a practical self-custody habit.",
+   "source_id": null,
+   "text": "Your seed phrase doesn't care how long you've held Bitcoin.\nWrite it down anyway.",
+   "theme": "seed phrase habits",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W47"
+}
