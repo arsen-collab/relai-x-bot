@@ -50,8 +50,9 @@ RECENT_POSTS_TO_CHECK = 20
 # are active, which re-maps every future month, not just the next one.
 # Run the preview before and after to see the effect.
 #
-# Handles are as configured on 16 Nov 2026 and have not yet been checked
-# against X. Run the workflow with action verify_handles before going live.
+# All 15 active handles were verified on X on 16 Nov 2026 with action
+# verify_handles: each exists and carries the gold business badge. Run it
+# again after adding or changing a handle.
 COMPANIES = [
     {"name": "Apple", "handle": "@Apple", "active": True},
     {"name": "NVIDIA", "handle": "@nvidia", "active": True},
