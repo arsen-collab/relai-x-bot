@@ -1,23 +1,20 @@
 #!/usr/bin/env python3
 """
-CEO monthly bot - one approved tweet a month on Julian's personal X account.
+CEO monthly bot - one tweet a month on Julian's personal X account.
 
 Posts config.TEMPLATE for the company due this month, on the first Tuesday at
-13:58 Europe/Zurich by default. Nothing posts without a recorded human
-approval for that month's exact text.
+13:58 Europe/Zurich by default.
+
+No per-post approval, decided by Arsen on 16 Nov 2026: the wording was signed
+off by Compliance once, and Arsen monitors the account weekly. A heads-up goes
+to Slack HEADS_UP_DAYS before each post with the exact text and a
+BitcoinTreasuries reminder. To stop a post, disable the workflow in GitHub
+Actions before the post time.
 
 Rotation:
   The company due is (months since START) modulo (active companies). Derived
   from the date, so a missed run or a redeploy cannot break the order, and
   there is no rotation state to keep.
-
-Approval:
-  APPROVAL_LEAD_DAYS before the post date a Slack message goes to Arsen with
-  the exact text, company, date and a BitcoinTreasuries reminder. Approving
-  is a workflow run (action approve) that commits the month and a hash of the
-  exact text to approvals.txt. The hash means a wording or company change
-  after approval cancels it. No approval by the post time: no post, and a
-  Slack message says so.
 
 Reliability, same pattern as the other bots:
   Four cron slots a day, any of which can act. Every other day each run exits
@@ -26,16 +23,14 @@ Reliability, same pattern as the other bots:
   messages already went out, so four slots send one message, not four.
 
 Modes (first argument, or MODE):
-  run             the scheduled path: send a request, post, or send a notice
-  preview         next 15 months with dates, company, tweet and status
-  approve MONTH   record approval for MONTH (YYYY-MM)
-  post_now MONTH  post MONTH's tweet now. Still needs its approval
+  run             the scheduled path: send the heads-up, post, or send a notice
+  preview         next 15 months with dates, company and tweet
+  post_now MONTH  post MONTH's tweet now (YYYY-MM). Skips if already posted
   verify_handles  look the configured handles up on X
 
 DRY_RUN defaults to on. Only DRY_RUN=false (or 0, no) acts for real.
 """
 
-import hashlib
 import os
 import subprocess
 import sys
@@ -53,7 +48,6 @@ from slack_api import post_to_slack  # noqa: E402
 
 TZ = ZoneInfo("Europe/Zurich")
 
-APPROVALS_FILE = os.path.join(HERE, "approvals.txt")
 POSTED_FILE = os.path.join(HERE, "posted.txt")
 NOTICES_FILE = os.path.join(HERE, "notices.txt")
 
@@ -157,8 +151,8 @@ def post_datetime(ym):
     return datetime(ym[0], ym[1], day, config.POST_HOUR, config.POST_MINUTE, tzinfo=TZ)
 
 
-def request_date(ym):
-    return post_datetime(ym).date() - timedelta(days=config.APPROVAL_LEAD_DAYS)
+def heads_up_date(ym):
+    return post_datetime(ym).date() - timedelta(days=config.HEADS_UP_DAYS)
 
 
 def post_time_covered(ym):
@@ -180,12 +174,8 @@ def human_date(moment):
 
 
 # --------------------------------------------------------------------------
-# Logs: approvals, posts, notices. Committed text files, one line each.
+# Logs: posts and notices. Committed text files, one line each.
 # --------------------------------------------------------------------------
-
-def text_hash(text):
-    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:12]
-
 
 def _entries(path):
     if not os.path.exists(path):
@@ -198,12 +188,6 @@ def _entries(path):
                 continue
             rows.append(line.split())
     return rows
-
-
-def is_approved(ym, text):
-    key, digest = month_str(ym), text_hash(text)
-    return any(len(r) >= 2 and r[0] == key and r[1] == digest
-               for r in _entries(APPROVALS_FILE))
 
 
 def is_posted(ym):
@@ -222,10 +206,9 @@ def append_line(path, line):
         fh.write(line.rstrip("\n") + "\n")
 
 
-def commit(paths, message, fatal=False):
-    """Push a log change. Non-fatal for post and notice logs: the account
-    check and a repeat Slack message are the fallbacks. Fatal for approvals,
-    which must never be silently lost."""
+def commit(paths, message):
+    """Push a log change. Non-fatal: the account check and a repeat Slack
+    message are the fallbacks."""
     try:
         subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
         subprocess.run(["git", "config", "user.email",
@@ -235,8 +218,6 @@ def commit(paths, message, fatal=False):
         subprocess.run(["git", "push"], check=True)
         print("Committed and pushed.")
     except (subprocess.CalledProcessError, FileNotFoundError) as exc:
-        if fatal:
-            sys.exit(f"ERROR: could not push: {exc}")
         print(f"WARNING: could not push: {exc}")
 
 
@@ -249,40 +230,23 @@ def workflow_url():
     return f"https://github.com/{repo}/actions/workflows/{config.WORKFLOW_FILE}"
 
 
-def request_message(ym, company, tweet):
+def heads_up_message(ym, company, tweet):
     when = post_datetime(ym)
     return "\n".join([
-        f"*Julian's monthly X post: approval needed for {when:%B %Y}*",
-        f"Post date: {human_date(when)}, {when:%H:%M} Zurich",
+        f"*Julian's monthly X post goes out {human_date(when)}, {when:%H:%M} Zurich*",
         f"Company: {company['name']} ({company['handle']})",
-        "Tweet:",
         f">{tweet}",
         "",
-        f"Before approving, confirm {company['name']} still holds no Bitcoin: "
+        f"Worth a look that {company['name']} still holds no Bitcoin: "
         f"{config.TREASURY_CHECK_URL}",
-        f"To approve: {workflow_url()} > Run workflow > action approve, "
-        f"month {month_str(ym)}, untick dry run.",
-        "No approval by the post time means no post. Changing the wording or "
-        "the company after approving cancels the approval.",
-    ])
-
-
-def skipped_message(ym, company, tweet):
-    when = post_datetime(ym)
-    return "\n".join([
-        f"*Julian's monthly X post for {when:%B %Y} did not go out: not approved.*",
-        f"Company: {company['name']} ({company['handle']})",
-        f">{tweet}",
-        "",
-        "The rotation moves on next month. To post this one anyway, approve it, "
-        f"then run action post_now, month {month_str(ym)}: {workflow_url()}",
+        f"No action needed. To stop it, disable the workflow before then: {workflow_url()}",
     ])
 
 
 def missed_message(ym, company, tweet):
     when = post_datetime(ym)
     return "\n".join([
-        f"*Julian's monthly X post for {when:%B %Y} was approved but did not go out.*",
+        f"*Julian's monthly X post for {when:%B %Y} did not go out.*",
         f"No scheduled run got through on {human_date(when)} before "
         f"{config.HARD_CUTOFF_HOUR}:00 Zurich.",
         f">{tweet}",
@@ -360,18 +324,16 @@ def publish(ym, tweet, dry_run):
 # Modes
 # --------------------------------------------------------------------------
 
-def maybe_request(ym, today, dry_run):
-    if not request_date(ym) <= today < post_datetime(ym).date():
+def maybe_heads_up(ym, today, dry_run):
+    if not heads_up_date(ym) <= today < post_datetime(ym).date():
+        return
+    if is_posted(ym):
+        return
+    if has_notice(ym, "heads_up"):
+        print(f"Heads-up for {month_str(ym)} already sent.")
         return
     company = company_for(ym)
-    tweet = build_tweet(company)
-    if is_approved(ym, tweet):
-        print(f"{month_str(ym)} is already approved. No request needed.")
-        return
-    if has_notice(ym, "request"):
-        print(f"Approval request for {month_str(ym)} already sent.")
-        return
-    send_notice(ym, "request", request_message(ym, company, tweet), dry_run)
+    send_notice(ym, "heads_up", heads_up_message(ym, company, build_tweet(company)), dry_run)
 
 
 def maybe_post(ym, now, dry_run):
@@ -382,7 +344,7 @@ def maybe_post(ym, now, dry_run):
     if is_posted(ym):
         print(f"{month_str(ym)} already posted.")
         return
-    if has_notice(ym, "skipped") or has_notice(ym, "missed"):
+    if has_notice(ym, "missed"):
         print(f"{month_str(ym)} was already closed without posting.")
         return
     if now < when:
@@ -392,13 +354,8 @@ def maybe_post(ym, now, dry_run):
     company = company_for(ym)
     tweet = build_tweet(company)
 
-    if not is_approved(ym, tweet):
-        print("Not approved. Not posting.")
-        send_notice(ym, "skipped", skipped_message(ym, company, tweet), dry_run)
-        return
-
     if now.date() != when.date() or now.hour >= config.HARD_CUTOFF_HOUR:
-        print("Approved, but past the post day's cutoff. Not posting.")
+        print("Past the post day's cutoff. Not posting.")
         send_notice(ym, "missed", missed_message(ym, company, tweet), dry_run)
         return
 
@@ -410,7 +367,7 @@ def run_scheduled(now, dry_run):
     this_month = (now.year, now.month)
     for ym in (this_month, add_months(this_month, 1)):
         if months_since_start(ym) >= 0:
-            maybe_request(ym, now.date(), dry_run)
+            maybe_heads_up(ym, now.date(), dry_run)
     if months_since_start(this_month) >= 0:
         maybe_post(this_month, now, dry_run)
     else:
@@ -429,40 +386,10 @@ def preview(from_ym):
         ym = add_months(start, n)
         when = post_datetime(ym)
         tweet = build_tweet(company_for(ym))
-        if is_posted(ym):
-            status = "posted"
-        elif is_approved(ym, tweet):
-            status = "approved"
-        else:
-            status = "not approved"
+        status = "posted" if is_posted(ym) else "scheduled"
         warn = "" if post_time_covered(ym) else "  WARNING: no cron slot covers this time"
         print(f"{month_str(ym)}  {when:%a %d %b %Y %H:%M %Z}  "
-              f"request {request_date(ym):%d %b}  [{status}]  {tweet}{warn}")
-
-
-def approve(ym, dry_run):
-    validate_config()
-    if months_since_start(ym) < 0:
-        sys.exit(f"ERROR: {month_str(ym)} is before the start month.")
-    company = company_for(ym)
-    tweet = build_tweet(company)
-    when = post_datetime(ym)
-    print(f"Month: {month_str(ym)}, posts {human_date(when)} {when:%H:%M} Zurich")
-    print(f"Company: {company['name']} ({company['handle']})")
-    print(f">{tweet}")
-    if is_approved(ym, tweet):
-        print("Already approved. Nothing to do.")
-        return
-    if dry_run:
-        print("DRY_RUN enabled. Not approved. Untick dry run to approve.")
-        return
-    actor = os.environ.get("GITHUB_ACTOR", "local")
-    append_line(APPROVALS_FILE, f"{month_str(ym)}  {text_hash(tweet)}  {actor}  {tweet}")
-    commit([APPROVALS_FILE], f"CEO monthly: {actor} approved {month_str(ym)}", fatal=True)
-    print(f"Approved by {actor}.")
-    if has_notice(ym, "skipped") or has_notice(ym, "missed"):
-        print(f"The scheduled post for {month_str(ym)} already closed. "
-              "Use action post_now to post it.")
+              f"heads-up {heads_up_date(ym):%d %b}  [{status}]  {tweet}{warn}")
 
 
 def post_now(ym, dry_run):
@@ -473,10 +400,6 @@ def post_now(ym, dry_run):
     if is_posted(ym):
         print(f"{month_str(ym)} already posted. Nothing to do.")
         return
-    if not is_approved(ym, tweet):
-        print(f">{tweet}")
-        sys.exit(f"ERROR: {month_str(ym)} is not approved for this exact text. "
-                 "Run action approve first.")
     publish(ym, tweet, dry_run)
 
 
@@ -524,10 +447,10 @@ def main():
         run_scheduled(now, dry_run)
     elif mode == "preview":
         preview(parse_month(month_arg) if month_arg else (now.year, now.month))
-    elif mode in ("approve", "post_now"):
+    elif mode == "post_now":
         if not month_arg:
-            sys.exit(f"ERROR: {mode} needs a month, YYYY-MM.")
-        (approve if mode == "approve" else post_now)(parse_month(month_arg), dry_run)
+            sys.exit("ERROR: post_now needs a month, YYYY-MM.")
+        post_now(parse_month(month_arg), dry_run)
     elif mode == "verify_handles":
         verify_handles(dry_run)
     else:

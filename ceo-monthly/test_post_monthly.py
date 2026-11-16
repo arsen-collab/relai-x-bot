@@ -77,7 +77,7 @@ class Rotation(unittest.TestCase):
 class Schedule(unittest.TestCase):
     def setUp(self):
         patcher = mock.patch.multiple(config, POST_WEEKDAY=1, POST_WEEK=1,
-                                      POST_HOUR=13, POST_MINUTE=58, APPROVAL_LEAD_DAYS=3)
+                                      POST_HOUR=13, POST_MINUTE=58, HEADS_UP_DAYS=3)
         patcher.start()
         self.addCleanup(patcher.stop)
 
@@ -94,8 +94,8 @@ class Schedule(unittest.TestCase):
         self.assertEqual((winter.hour, winter.minute), (13, 58))
         self.assertEqual((summer.hour, summer.minute), (13, 58))
 
-    def test_request_date_can_fall_in_previous_month(self):
-        self.assertEqual(pm.request_date((2026, 12)), date(2026, 11, 28))
+    def test_heads_up_date_can_fall_in_previous_month(self):
+        self.assertEqual(pm.heads_up_date((2026, 12)), date(2026, 11, 28))
 
     def test_cron_slots_cover_default_time_in_both_seasons(self):
         for month in range(1, 13):
@@ -112,14 +112,14 @@ class WithLogs(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.mkdtemp()
         self.addCleanup(shutil.rmtree, self.tmp)
-        for name in ("APPROVALS_FILE", "POSTED_FILE", "NOTICES_FILE"):
+        for name in ("POSTED_FILE", "NOTICES_FILE"):
             p = mock.patch.object(pm, name, os.path.join(self.tmp, name.lower()))
             p.start()
             self.addCleanup(p.stop)
         patches = [
             mock.patch.multiple(config, START_YEAR=2026, START_MONTH=12, POST_WEEKDAY=1,
                                 POST_WEEK=1, POST_HOUR=13, POST_MINUTE=58,
-                                APPROVAL_LEAD_DAYS=3, HARD_CUTOFF_HOUR=20),
+                                HEADS_UP_DAYS=3, HARD_CUTOFF_HOUR=20),
             mock.patch.object(pm, "commit"),
             mock.patch.object(pm, "send_slack"),
             mock.patch.object(pm.x_api, "get_credentials", return_value={}),
@@ -139,85 +139,55 @@ class WithLogs(unittest.TestCase):
     DEC = (2026, 12)
     POST_TIME = datetime(2026, 12, 1, 14, 5, tzinfo=TZ)
 
-    def approve(self, ym=DEC):
-        pm.approve(ym, dry_run=False)
-
 
 class DoublePostGuard(WithLogs):
-    def test_posts_once_when_approved(self):
-        self.approve()
+    def test_posts_once(self):
         pm.run_scheduled(self.POST_TIME, dry_run=False)
         self.assertEqual(self.post.call_count, 1)
         self.assertTrue(pm.is_posted(self.DEC))
 
     def test_second_slot_same_day_does_not_post(self):
-        self.approve()
         pm.run_scheduled(self.POST_TIME, dry_run=False)
         pm.run_scheduled(datetime(2026, 12, 1, 15, 41, tzinfo=TZ), dry_run=False)
         self.assertEqual(self.post.call_count, 1)
 
     def test_already_on_account_logs_without_posting(self):
         # A post that went out but whose log push failed.
-        self.approve()
         self.already.return_value = True
         pm.run_scheduled(self.POST_TIME, dry_run=False)
         self.post.assert_not_called()
         self.assertTrue(pm.is_posted(self.DEC))
 
     def test_post_now_respects_log(self):
-        self.approve()
         pm.post_now(self.DEC, dry_run=False)
         pm.post_now(self.DEC, dry_run=False)
         self.assertEqual(self.post.call_count, 1)
 
     def test_dry_run_never_calls_x(self):
-        self.approve()
         pm.run_scheduled(self.POST_TIME, dry_run=True)
         pm.post_now(self.DEC, dry_run=True)
         self.post.assert_not_called()
         self.assertFalse(pm.is_posted(self.DEC))
 
 
-class Approval(WithLogs):
-    def test_unapproved_does_not_post_and_notifies_once(self):
+class HeadsUpAndTiming(WithLogs):
+    def test_posts_with_no_approval_step(self):
         pm.run_scheduled(self.POST_TIME, dry_run=False)
-        pm.run_scheduled(datetime(2026, 12, 1, 15, 41, tzinfo=TZ), dry_run=False)
-        self.post.assert_not_called()
-        self.assertEqual(self.slack.call_count, 1)
-        self.assertIn("not approved", self.slack.call_args[0][0])
-
-    def test_approval_after_skip_does_not_revive_schedule(self):
-        pm.run_scheduled(self.POST_TIME, dry_run=False)
-        self.approve()
-        pm.run_scheduled(datetime(2026, 12, 1, 16, 37, tzinfo=TZ), dry_run=False)
-        self.post.assert_not_called()
-
-    def test_wording_change_cancels_approval(self):
-        self.approve()
-        with mock.patch.object(config, "TEMPLATE", "Relai users hold more Bitcoin than {handle}"):
-            pm.run_scheduled(self.POST_TIME, dry_run=False)
-            with self.assertRaises(SystemExit):
-                pm.post_now(self.DEC, dry_run=False)
-        self.post.assert_not_called()
-
-    def test_post_now_needs_approval(self):
-        with self.assertRaises(SystemExit):
-            pm.post_now(self.DEC, dry_run=False)
-        self.post.assert_not_called()
+        self.assertEqual(self.post.call_count, 1)
 
     def test_too_early_on_post_day(self):
-        self.approve()
         pm.run_scheduled(datetime(2026, 12, 1, 12, 58, tzinfo=TZ), dry_run=False)
         self.post.assert_not_called()
         self.slack.assert_not_called()
 
-    def test_past_cutoff_sends_missed_not_post(self):
-        self.approve()
+    def test_past_cutoff_sends_missed_once_and_does_not_post(self):
         pm.run_scheduled(datetime(2026, 12, 1, 20, 30, tzinfo=TZ), dry_run=False)
+        pm.run_scheduled(datetime(2026, 12, 2, 13, 0, tzinfo=TZ), dry_run=False)
         self.post.assert_not_called()
+        self.assertEqual(self.slack.call_count, 1)
         self.assertIn("did not go out", self.slack.call_args[0][0])
 
-    def test_request_sent_once_three_days_before(self):
+    def test_heads_up_sent_once_three_days_before(self):
         pm.run_scheduled(datetime(2026, 11, 27, 14, 0, tzinfo=TZ), dry_run=False)
         self.slack.assert_not_called()
         pm.run_scheduled(datetime(2026, 11, 28, 14, 0, tzinfo=TZ), dry_run=False)
@@ -226,16 +196,24 @@ class Approval(WithLogs):
         message = self.slack.call_args[0][0]
         self.assertIn("Relai holds more Bitcoin than @Apple", message)
         self.assertIn("bitcointreasuries", message)
-        self.assertIn("2026-12", message)
+        self.assertIn("No action needed", message)
+        self.post.assert_not_called()
 
-    def test_missed_request_day_is_caught_up(self):
+    def test_missed_heads_up_day_is_caught_up(self):
         pm.run_scheduled(datetime(2026, 11, 30, 14, 0, tzinfo=TZ), dry_run=False)
         self.assertEqual(self.slack.call_count, 1)
 
-    def test_no_request_when_already_approved(self):
-        self.approve()
+    def test_no_heads_up_for_a_month_already_posted(self):
+        pm.post_now(self.DEC, dry_run=False)
+        self.slack.reset_mock()
         pm.run_scheduled(datetime(2026, 11, 28, 14, 0, tzinfo=TZ), dry_run=False)
         self.slack.assert_not_called()
+
+    def test_wording_change_posts_new_wording(self):
+        with mock.patch.object(config, "TEMPLATE", "Relai users hold more Bitcoin than {handle}"):
+            pm.run_scheduled(self.POST_TIME, dry_run=False)
+        self.post.assert_called_once()
+        self.assertEqual(self.post.call_args[0][1], "Relai users hold more Bitcoin than @Apple")
 
 
 if __name__ == "__main__":

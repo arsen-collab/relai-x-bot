@@ -1,11 +1,14 @@
 name: CEO Monthly Tweet
 
-# One approved tweet a month on Julian's personal X account. See
+# One tweet a month on Julian's personal X account. See
 # ceo-monthly/README.md.
 #
 # Fires daily. ceo-monthly/post_monthly.py decides on the Zurich clock whether
 # today is a request day, the post day, or nothing. On most days it exits
 # before any API call.
+#
+# There is no approval step (removed 16 Nov 2026). To stop a post, disable
+# this workflow before the post time.
 #
 # Post time 13:58 Europe/Zurich. 11:58 UTC is 13:58 in CEST, 12:58 UTC is
 # 13:58 in CET; the slot that lands before 13:58 local exits as too early.
@@ -25,16 +28,16 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: 'preview, approve, post_now, verify_handles, or run (what the schedule does)'
+        description: 'preview, post_now, verify_handles, or run (what the schedule does)'
         type: choice
-        options: [preview, approve, post_now, verify_handles, run]
+        options: [preview, post_now, verify_handles, run]
         default: preview
       month:
-        description: 'YYYY-MM, for approve, post_now, or where preview starts'
+        description: 'YYYY-MM, for post_now, or where preview starts'
         type: string
         default: ''
       dry_run:
-        description: 'Preview only. Untick to approve, post or look handles up'
+        description: 'Preview only. Untick to post or look handles up'
         type: boolean
         default: true
 
@@ -42,7 +45,7 @@ concurrency:
   group: ceo-monthly
   cancel-in-progress: false
 
-# Approvals, posts and Slack notices are logged to committed files.
+# Posts and Slack notices are logged to committed files.
 permissions:
   contents: write
 

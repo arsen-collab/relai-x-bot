@@ -5,9 +5,8 @@ A Python module rather than YAML or JSON, same as both suggesters: stdlib
 only, and comments can sit next to the values they explain. Edit the values,
 not the code in post_monthly.py.
 
-Anything you change here changes public copy on Julian's account. The tweet
-text is part of what gets approved each month, so an edit after approval
-cancels that month's approval and it has to be approved again.
+Anything you change here changes public copy on Julian's account, and there
+is no per-post approval: an edit here posts as written on the next post date.
 """
 
 # The tweet. {handle} is the company's X handle including the @, {name} is
@@ -36,8 +35,8 @@ POST_MINUTE = 58
 # message instead. Same cutoff as the other bots.
 HARD_CUTOFF_HOUR = 20
 
-# How many days before the post date the approval request goes to Slack.
-APPROVAL_LEAD_DAYS = 3
+# How many days before the post date the Slack heads-up goes out.
+HEADS_UP_DAYS = 3
 
 # How many of the account's recent posts the double-post guard reads. One
 # read per posting attempt, pay per use, so not more than needed.
@@ -73,7 +72,7 @@ COMPANIES = [
     {"name": "Nestlé", "handle": "@Nestle", "active": True},
 ]
 
-# Where the approval request points. Only the homepage: no per-company URL
+# Where the heads-up points. Only the homepage: no per-company URL
 # has been checked.
 TREASURY_CHECK_URL = "https://bitcointreasuries.net/"
 
