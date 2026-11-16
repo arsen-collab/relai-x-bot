@@ -21,6 +21,13 @@ console to get them: that changes the keys @relai_app's bot depends on.
 
 Usage:
     python3 scripts/x_authorize_account.py OWNER/REPO
+    python3 scripts/x_authorize_account.py OWNER/REPO --prefix CEO_
+
+--prefix stores the account's token under prefixed names (CEO_ACCESS_TOKEN,
+CEO_ACCESS_TOKEN_SECRET, CEO_X_USER_ID) and leaves API_KEY and API_KEY_SECRET
+alone. Use it whenever the target repo already posts as another account.
+Without it, pointing this at arsen-collab/relai-x-bot would overwrite
+@relai_app's ACCESS_TOKEN with someone else's.
 
 API_KEY and API_KEY_SECRET are read from the environment if set, otherwise
 asked for with hidden input, so they never land in shell history.
@@ -96,9 +103,21 @@ def set_secret(repo, name, value):
 
 
 def main():
-    if len(sys.argv) != 2 or "/" not in sys.argv[1]:
-        sys.exit("Usage: python3 scripts/x_authorize_account.py OWNER/REPO")
-    repo = sys.argv[1]
+    usage = "Usage: python3 scripts/x_authorize_account.py OWNER/REPO [--prefix NAME_]"
+    args = sys.argv[1:]
+    prefix = ""
+    if "--prefix" in args:
+        at = args.index("--prefix")
+        if at + 1 >= len(args):
+            sys.exit(usage)
+        prefix = args[at + 1]
+        del args[at:at + 2]
+        if not prefix.replace("_", "").isalnum() or not prefix.endswith("_"):
+            sys.exit("ERROR: --prefix must be letters, digits and underscores, ending in _, e.g. CEO_")
+        prefix = prefix.upper()
+    if len(args) != 1 or "/" not in args[0]:
+        sys.exit(usage)
+    repo = args[0]
 
     check = subprocess.run(["gh", "repo", "view", repo], capture_output=True, text=True)
     if check.returncode != 0:
@@ -133,14 +152,21 @@ def main():
             sys.exit(f"ERROR: X's reply had no {field}. Nothing was stored.")
 
     print(f"\nAuthorized by @{access['screen_name']} (user id {access['user_id']}).")
+    names = [f"{prefix}ACCESS_TOKEN", f"{prefix}ACCESS_TOKEN_SECRET", f"{prefix}X_USER_ID"]
+    if not prefix:
+        names = ["API_KEY", "API_KEY_SECRET"] + names
+    print(f"Secrets to write: {', '.join(names)}")
     if input(f"Store these on {repo}? Type yes: ").strip().lower() != "yes":
         sys.exit("Stopped. Nothing was stored.")
 
-    set_secret(repo, "API_KEY", consumer_key)
-    set_secret(repo, "API_KEY_SECRET", consumer_secret)
-    set_secret(repo, "ACCESS_TOKEN", access["oauth_token"])
-    set_secret(repo, "ACCESS_TOKEN_SECRET", access["oauth_token_secret"])
-    set_secret(repo, "X_USER_ID", access["user_id"])
+    # With a prefix the repo already has the app keys, shared by every
+    # account authorized on Relai's app, so they are left untouched.
+    if not prefix:
+        set_secret(repo, "API_KEY", consumer_key)
+        set_secret(repo, "API_KEY_SECRET", consumer_secret)
+    set_secret(repo, f"{prefix}ACCESS_TOKEN", access["oauth_token"])
+    set_secret(repo, f"{prefix}ACCESS_TOKEN_SECRET", access["oauth_token_secret"])
+    set_secret(repo, f"{prefix}X_USER_ID", access["user_id"])
     print("Done. Do a dry run, then one live run, from the repo's Actions tab.")
 
 

@@ -1,0 +1,101 @@
+name: CEO Monthly Tweet
+
+# One approved tweet a month on Julian's personal X account. See
+# ceo-monthly/README.md.
+#
+# Fires daily. ceo-monthly/post_monthly.py decides on the Zurich clock whether
+# today is a request day, the post day, or nothing. On most days it exits
+# before any API call.
+#
+# Post time 13:58 Europe/Zurich. 11:58 UTC is 13:58 in CEST, 12:58 UTC is
+# 13:58 in CET; the slot that lands before 13:58 local exits as too early.
+# 13:41 and 14:37 UTC are backups for runner failures. Off the hour on
+# purpose. If config.POST_HOUR/POST_MINUTE move, these must move too; the
+# preview warns when no slot covers the post time.
+#
+# A cron with both day-of-month and day-of-week set fires on either, not
+# both, so "first Tuesday" cannot be a cron expression. The script decides.
+
+on:
+  schedule:
+    - cron: '58 11 * * *'  # SLOT 1
+    - cron: '58 12 * * *'  # SLOT 2
+    - cron: '41 13 * * *'  # SLOT 3
+    - cron: '37 14 * * *'  # SLOT 4
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'preview, approve, post_now, verify_handles, or run (what the schedule does)'
+        type: choice
+        options: [preview, approve, post_now, verify_handles, run]
+        default: preview
+      month:
+        description: 'YYYY-MM, for approve, post_now, or where preview starts'
+        type: string
+        default: ''
+      dry_run:
+        description: 'Preview only. Untick to approve, post or look handles up'
+        type: boolean
+        default: true
+
+concurrency:
+  group: ceo-monthly
+  cancel-in-progress: false
+
+# Approvals, posts and Slack notices are logged to committed files.
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # ref: main, not the triggering commit, so a queued run sees the log
+      # lines an earlier slot just pushed, and can push on top of them.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Map cron to slot
+        id: slot
+        run: |
+          case "${{ github.event.schedule }}" in
+            "58 11 * * *") echo "n=1" >> $GITHUB_OUTPUT ;;
+            "58 12 * * *") echo "n=2" >> $GITHUB_OUTPUT ;;
+            "41 13 * * *") echo "n=3" >> $GITHUB_OUTPUT ;;
+            "37 14 * * *") echo "n=4" >> $GITHUB_OUTPUT ;;
+            *)             echo "n=0" >> $GITHUB_OUTPUT ;;
+          esac
+
+      # Read-only lookup of the configured handles. Uses @relai_app's token,
+      # so it works before Julian has authorized the app. One API read.
+      - name: Verify handles
+        if: github.event_name == 'workflow_dispatch' && inputs.action == 'verify_handles'
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          MODE: verify_handles
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: python3 ceo-monthly/post_monthly.py
+
+      # Everything that can post uses Julian's token only. RELAI_ACCESS_TOKEN
+      # is there to be compared against, so a mis-set secret stops the run
+      # instead of posting to @relai_app.
+      - name: Run
+        if: github.event_name == 'schedule' || inputs.action != 'verify_handles'
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.CEO_ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.CEO_ACCESS_TOKEN_SECRET }}
+          X_USER_ID: ${{ secrets.CEO_X_USER_ID }}
+          RELAI_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLOT: ${{ steps.slot.outputs.n }}
+          MODE: ${{ github.event_name == 'schedule' && 'run' || inputs.action }}
+          MONTH: ${{ inputs.month }}
+          DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || inputs.dry_run }}
+        run: python3 ceo-monthly/post_monthly.py

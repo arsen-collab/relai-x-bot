@@ -1,0 +1,3 @@
+# Approvals, one line per month: MONTH  HASH-OF-EXACT-TEXT  APPROVER  TEXT
+# Written by the workflow action approve. The hash is what counts: a wording
+# or company change after approval no longer matches, so it needs approving again.

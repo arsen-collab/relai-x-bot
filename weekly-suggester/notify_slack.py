@@ -21,8 +21,6 @@ Env:
 import json
 import os
 import sys
-import urllib.error
-import urllib.request
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -30,29 +28,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(HERE)
 
 sys.path.insert(0, HERE)
+sys.path.append(REPO_ROOT)
 import config  # noqa: E402
+from slack_api import post_to_slack  # noqa: E402
 
 BATCH_DIR = os.path.join(HERE, "batches")
 
 TZ = ZoneInfo("Europe/Zurich")
-
-
-def post_to_slack(webhook_url, text):
-    request = urllib.request.Request(
-        webhook_url,
-        data=json.dumps({"text": text}).encode("utf-8"),
-        headers={"content-type": "application/json"},
-        method="POST",
-    )
-    try:
-        with urllib.request.urlopen(request, timeout=30) as response:
-            response.read()
-    # The URL is the credential, so it must never reach a log line. Actions
-    # logs on this repo are public.
-    except urllib.error.HTTPError as exc:
-        sys.exit(f"ERROR: Slack webhook returned HTTP {exc.code}.")
-    except urllib.error.URLError as exc:
-        sys.exit(f"ERROR: Slack unreachable: {exc.reason}")
 
 
 def build_message(batch):
