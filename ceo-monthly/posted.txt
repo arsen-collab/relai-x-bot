@@ -1,2 +1,3 @@
 # Posted log, one line per month: MONTH  DATE  TWEET-ID  TEXT
 # The first double-post guard. The second is reading the account.
+2026-12  2026-11-16  2122242749646635392  Relai holds more Bitcoin than @Apple
