@@ -1,0 +1,2 @@
+# Posted log, one line per month: MONTH  DATE  TWEET-ID  TEXT
+# The first double-post guard. The second is reading the account.

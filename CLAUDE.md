@@ -18,6 +18,9 @@ Two things sit just outside a strict reading of that, both deliberately:
   same approved copy pools, the same compliance module and the same
   design-brief skill as the X image branch. Splitting it into its own repo
   would mean four of those five things existing twice. Added 9 Sep 2026.
+- `ceo-monthly/` posts once a month to Julian Liniger's personal X account,
+  not @relai_app. It lives here because it is the same kind of job on the
+  same X app, client, scheduler pattern and Slack webhook. Added 16 Nov 2026.
 
 ---
 
@@ -43,6 +46,30 @@ Two things sit just outside a strict reading of that, both deliberately:
 | `post_fresh.py` | `fresh.yml` | Days evergreen does not post | Top line of `fresh.txt`, then drains it |
 
 All three target 09:00-13:00 Europe/Zurich, hard cutoff 20:00.
+
+### CEO monthly bot
+
+`ceo-monthly/post_monthly.py`, workflow `ceo_monthly.yml`. One tweet a month
+on **Julian's personal account**, from `config.TEMPLATE` ("Relai holds more
+Bitcoin than {handle}") and the next active company in `config.COMPANIES`.
+First Tuesday, 13:58 Zurich. See `ceo-monthly/README.md`.
+
+- **Rotation is date-derived:** months since `START_*`, modulo active
+  companies. Toggling or adding a company re-maps every future month.
+- **Nothing posts without approval.** A Slack request goes out 3 days before.
+  Approving is a workflow run that commits the month and a hash of the exact
+  text to `approvals.txt`, so a wording or company edit cancels it. Not
+  approved by the post time: no post, Slack says so, the month is closed.
+- **It posts only with `CEO_*` secrets.** The workflow maps them onto the
+  names `x_api.py` reads, so `x_api.py` is unchanged. The run stops if they
+  match @relai_app's token.
+- **Three committed logs, no rotation state:** `approvals.txt`,
+  `posted.txt` (first double-post guard, before the account read) and
+  `notices.txt` (one Slack message per event, not one per cron slot).
+- **The cron slots are tied to 13:58.** Moving `POST_HOUR`/`POST_MINUTE` needs
+  new cron lines; the preview warns when none lands within an hour.
+- Every public tweet it makes is a Relai marketing communication under
+  **MiCA Art. 66**, same as @relai_app. See Compliance.
 
 **`fresh.txt` is the fast lane, and it is a queue, not a rotation.** Approved
 copy posts within a day or two instead of waiting out the evergreen cycle,
@@ -177,6 +204,15 @@ which is the point. The archive-ranking lists (`TIME_BOUND`,
 `NOT_STANDALONE`) stayed in `weekly-suggester/config.py`; they are specific to
 sorting the X archive.
 
+`slack_api.py`. `post_to_slack` over an Incoming Webhook. Used by both
+suggesters' `notify_slack.py` and the CEO monthly bot. Moved out of the two
+notifiers on 16 Nov 2026, where it had been copied. The webhook URL is the
+credential and must never reach a log line.
+
+`scripts/x_authorize_account.py`. PIN-flow helper that stores another
+account's X token as repo secrets. **Pass `--prefix CEO_` when the target is
+this repo**; without a prefix it writes `ACCESS_TOKEN`, which is @relai_app's.
+
 ### Offline tools
 
 `find_evergreen_candidates.py`. Run manually against a downloaded X data
@@ -309,7 +345,11 @@ Set in repo Settings, never in code. Names only:
 - `ANTHROPIC_API_KEY` — weekly suggester, `generate.py`
 - `SLACK_WEBHOOK_URL` — weekly suggester, `notify_slack.py`. Incoming Webhook
   pointed at Arsen's own DM, same pattern as `relai-review-monitor` and
-  `relai-aso-report`. A webhook's destination is fixed at creation
+  `relai-aso-report`. A webhook's destination is fixed at creation. Also used
+  by the CEO monthly bot
+- `CEO_ACCESS_TOKEN`, `CEO_ACCESS_TOKEN_SECRET`: Julian's X token, CEO monthly
+  bot only. Set with `scripts/x_authorize_account.py ... --prefix CEO_`
+- `CEO_X_USER_ID`: optional, Julian's user id
 
 Never print, log or commit secret values.
 
@@ -380,6 +420,14 @@ not misleading. Forward-looking return or price projections engage
   or add generic caution.
 - Anything touching public copy is an advisory draft. Guglielmo in Compliance
   reviews before it goes live.
+- **The CEO monthly bot posts a factual comparative claim naming another
+  company.** Under **MiCA Art. 66(2)** "Relai holds more Bitcoin than X" needs
+  Relai to hold Bitcoin itself, and X to hold none, which is why every
+  approval request carries the BitcoinTreasuries check. Naming and tagging a
+  brand engages **UWG Art. 3 para. 1 lit. e** (CH) and **Directive
+  2006/114/EC Art. 4** (EU). `TEMPLATE` is compliance-reviewed content, and
+  the monthly approval is per exact text. Do not add a path that posts
+  without an `approvals.txt` match.
 - New third-party services are ICT dependencies under **DORA** and need a
   register entry. Mention it once when introducing one.
 - The weekly suggester produces advisory drafts only. It writes to
