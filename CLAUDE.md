@@ -56,16 +56,18 @@ First Tuesday, 13:58 Zurich. See `ceo-monthly/README.md`.
 
 - **Rotation is date-derived:** months since `START_*`, modulo active
   companies. Toggling or adding a company re-maps every future month.
-- **Nothing posts without approval.** A Slack request goes out 3 days before.
-  Approving is a workflow run that commits the month and a hash of the exact
-  text to `approvals.txt`, so a wording or company edit cancels it. Not
-  approved by the post time: no post, Slack says so, the month is closed.
+- **No per-post approval, decided by Arsen on 16 Nov 2026.** Compliance
+  signed off the wording once and Arsen monitors the account weekly. A Slack
+  heads-up goes out 3 days before with the tweet and the BitcoinTreasuries
+  link; no action needed. To stop a post, disable the workflow before the
+  post time. An edit to `TEMPLATE` or the list posts as written.
 - **It posts only with `CEO_*` secrets.** The workflow maps them onto the
   names `x_api.py` reads, so `x_api.py` is unchanged. The run stops if they
   match @relai_app's token.
-- **Three committed logs, no rotation state:** `approvals.txt`,
-  `posted.txt` (first double-post guard, before the account read) and
-  `notices.txt` (one Slack message per event, not one per cron slot).
+- **Two committed logs, no rotation state:** `posted.txt` (first
+  double-post guard, before the account read) and `notices.txt` (one Slack
+  message per event, not one per cron slot). The approval history up to
+  16 Nov 2026 is in git, in the removed `approvals.txt`.
 - **The cron slots are tied to 13:58.** Moving `POST_HOUR`/`POST_MINUTE` needs
   new cron lines; the preview warns when none lands within an hour.
 - Every public tweet it makes is a Relai marketing communication under
@@ -423,11 +425,16 @@ not misleading. Forward-looking return or price projections engage
 - **The CEO monthly bot posts a factual comparative claim naming another
   company.** Under **MiCA Art. 66(2)** "Relai holds more Bitcoin than X" needs
   Relai to hold Bitcoin itself, and X to hold none, which is why every
-  approval request carries the BitcoinTreasuries check. Naming and tagging a
-  brand engages **UWG Art. 3 para. 1 lit. e** (CH) and **Directive
-  2006/114/EC Art. 4** (EU). `TEMPLATE` is compliance-reviewed content, and
-  the monthly approval is per exact text. Do not add a path that posts
-  without an `approvals.txt` match.
+  heads-up carries the BitcoinTreasuries link. Naming and tagging a brand
+  engages **UWG Art. 3 para. 1 lit. e** (CH) and **Directive 2006/114/EC
+  Art. 4** (EU). `TEMPLATE` is compliance-reviewed content: get an edit
+  signed off before committing it, because nothing gates it afterwards.
+- **The per-post approval was removed on 16 Nov 2026** at Arsen's request,
+  after Compliance signed off the wording. The control that remains is
+  Arsen's weekly check of the account plus the heads-up. If a company on the
+  list buys Bitcoin, the claim becomes misleading under **MiCA Art. 66(2)**
+  on the next post unless someone catches it. If that premise stops holding,
+  for example the weekly check lapses, put an approval gate back.
 - New third-party services are ICT dependencies under **DORA** and need a
   register entry. Mention it once when introducing one.
 - The weekly suggester produces advisory drafts only. It writes to

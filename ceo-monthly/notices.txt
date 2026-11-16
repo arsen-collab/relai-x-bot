@@ -1,3 +1,4 @@
 # Slack messages already sent, one line each: MONTH  KIND  DATE
-# Kinds: request (approval asked), skipped (not approved), missed (approved,
-# no run got through). Stops four cron slots sending four messages.
+# Kinds: heads_up (post coming), missed (no run got through before the
+# cutoff). Older lines may say request. Stops four cron slots sending four
+# messages.
