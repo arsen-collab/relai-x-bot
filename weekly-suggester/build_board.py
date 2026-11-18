@@ -10,7 +10,8 @@ The board is a template plus data rather than hand-written HTML each week, so
 a change to the review UI applies to every future week and cannot half-apply.
 Publish the output as the SAME artifact each week rather than minting a new
 one, so config.REVIEW_URL in the Slack message stays valid. The Action cannot
-do that step, which is why the link shows last week until someone runs it.
+do that step; the Claude scheduled task publish-weekly-review-boards does it
+every Monday.
 
 The data goes in as <script type="application/json"> literals, so it is
 escaped for that context: a "</script>" inside any suggestion text would
