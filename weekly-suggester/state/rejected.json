@@ -12,6 +12,24 @@
    "suggestion_id": "S03",
    "text": "There will never be enough Bitcoin for 8 billion people.\nBut there will always be enough sats.",
    "theme": "sats scarcity"
+  },
+  {
+   "week": "2026-W41",
+   "suggestion_id": "S13",
+   "text": "Bitcoin's price moves every day. The 21 million supply cap never does.",
+   "theme": "fixed supply conviction"
+  },
+  {
+   "week": "2026-W41",
+   "suggestion_id": "S14",
+   "text": "Most skeptics don't change their mind about Bitcoin. They just stop mentioning it.",
+   "theme": "skepticism over time"
+  },
+  {
+   "week": "2026-W41",
+   "suggestion_id": "S15",
+   "text": "No tokens, no roadmap votes, no restarts. Just blocks, every ten minutes.",
+   "theme": "bitcoin only simplicity"
   }
  ]
 }

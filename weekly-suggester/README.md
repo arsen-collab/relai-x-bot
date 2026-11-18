@@ -100,10 +100,13 @@ it. Savings terminology is the main one.
 
 ## Review and routing
 
-Not automated. Every Monday, after the batch lands, republish the board to the
-same artifact URL: `python3 weekly-suggester/build_board.py`, then publish
-`board/YYYY-Www.html` at `config.REVIEW_URL`. The Action cannot do this step, so
-until it is done the Slack link shows the previous week. `board_template.html`
+The Action cannot publish an artifact, so the board is republished by a
+Claude scheduled task, `publish-weekly-review-boards`, Monday 07:37
+Europe/Zurich (added 9 Nov 2026). It runs `python3 weekly-suggester/build_board.py`
+and publishes `board/YYYY-Www.html` at `config.REVIEW_URL`. It runs while the
+Claude app is open, or on next launch. If it does not run, the Slack link shows
+the previous week, which is what happened for weeks 44 and 45; run the same two
+steps by hand. `board_template.html`
 is the review UI; `build_board.py` joins the batch with `state/pool.json` for the
 source tweets.
 
