@@ -1,0 +1,300 @@
+{
+ "batch_file": "weekly-suggester/batches/2026-W48.md",
+ "brief_defaults": {
+  "due_days": 3,
+  "image_spec": "1080 x 1350 px, portrait",
+  "languages": [
+   "🇬🇧 EN",
+   "🇩🇪 DE"
+  ],
+  "platform": [
+   "IG"
+  ],
+  "priority": "Medium"
+ },
+ "dropped_count": 1,
+ "generated_at": "2026-11-22 23:36 CET",
+ "ranking_basis": "likes + (2 * reposts), 18 month half-life decay, weak proxy, no impression data",
+ "status": "unreviewed",
+ "suggestions": [
+  {
+   "brief": {
+    "caption": "Bitcoin isn't us versus them. It's for anyone who wants to hold their own money.",
+    "headline": "Bitcoin is for anyone.",
+    "purpose": "Reframe Bitcoin as inclusive rather than tribal, for people turned off by the us vs them discourse.",
+    "suggestion_id": "S01",
+    "target_feeling": "Welcomed, not judged.",
+    "visual_direction": "Type treatment: the words 'us' and 'them' shown small and crossed out at the top, with 'anyone' set large below in Relai orange. No other graphic elements. Generous white space. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S01",
+   "rationale": "Original 'us vs them, Bitcoin is for everyone' line drew 110 likes and 11 reposts, a strong ratio for a short unity statement.",
+   "source_id": "1645452074388422656",
+   "text": "Bitcoin isn't us versus them.\nIt's for anyone who wants to hold their own money.",
+   "theme": "bitcoin for everyone",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Don't wait to buy Bitcoin. Buy Bitcoin, then wait.",
+    "headline": "Buy Bitcoin, then wait.",
+    "purpose": "Teach the DCA mechanic as the antidote to timing anxiety.",
+    "suggestion_id": "S02",
+    "target_feeling": "Calm resolve to start now instead of waiting.",
+    "visual_direction": "Comparison device: two short sequences stacked. Top row, struck through: 'Wait → Buy'. Bottom row, in Relai orange: 'Buy → Wait'. Simple arrows only, no icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S02",
+   "rationale": "This line got 97 likes and 16 reposts, the zoom-out patience framing the skill explicitly treats as a safe alternative to buy-the-dip language.",
+   "source_id": "1621218140607873024",
+   "text": "Don't wait to buy Bitcoin.\nBuy Bitcoin, then wait.",
+   "theme": "dca patience",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "How fiat money moves: phone to bank to phone. How Bitcoin moves: phone to phone, direct. Self-custody skips the middleman.",
+    "headline": "Self-custody skips the middleman.",
+    "purpose": "Explain the self-custody mechanic by contrasting fiat's path through a bank with Bitcoin's direct path.",
+    "suggestion_id": "S03",
+    "target_feeling": "A clean 'oh, that's how it works' clarity.",
+    "visual_direction": "Flow diagram, two rows. Row one: phone icon, dash line, bank icon, dash line, phone icon. Row two: phone icon, single solid line in Relai orange, phone icon. No other icons or color. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S03",
+   "rationale": "The original diagram earned 101 likes and 23 reposts, the highest repost count in the set, showing the mechanic-not-outcome format works.",
+   "source_id": "1575173994499686406",
+   "text": "How fiat money moves:\n📱 ---- 🏦 ----> 📱\n\nHow Bitcoin moves:\n📱 ----------> 📱\n\nSelf-custody skips the middleman.",
+   "theme": "self-custody mechanic",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Assets you can buy on Relai: Bitcoin. That's the list.",
+    "headline": "Bitcoin. That's the list.",
+    "purpose": "State plainly that Relai only offers Bitcoin, for users comparing platforms.",
+    "suggestion_id": "S04",
+    "target_feeling": "Reassuring simplicity, no clutter to sort through.",
+    "visual_direction": "List/receipt-style type treatment: a single line item 'Bitcoin' set large, with a thin rule above and below like a short list with no second entry. Relai orange used only on the word 'Bitcoin'. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S04",
+   "rationale": "The original 'bitcoin, sats, bits' list joke picked up 108 likes, showing the Bitcoin-only positioning lands as humor.",
+   "source_id": "1657081201793069056",
+   "text": "Assets you can buy on Relai:\nBitcoin.\nThat's the list.",
+   "theme": "bitcoin only",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "How did you get your mom to hold her own Bitcoin?",
+    "headline": "How did you get mom on board?",
+    "purpose": "Spark replies and relatable stories from people who have walked family members through self-custody.",
+    "suggestion_id": "S05",
+    "target_feeling": "Warm, a little funny, invites a reply.",
+    "visual_direction": "Simple quote-mark type treatment: a single oversized quotation mark in Relai orange beside the question set in plain type. No photo, no illustration. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S05",
+   "rationale": "A simple open question format in the archive, this one drew 58 likes and 3 reposts on a relatable angle.",
+   "source_id": "1823018353700552809",
+   "text": "How did you get your mom to hold her own Bitcoin?",
+   "theme": "family adoption question",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Good money is easy to use and hard to create.",
+    "headline": "Easy to use. Hard to create.",
+    "purpose": "State the sound money principle that underlies why Bitcoin's design matters.",
+    "suggestion_id": "S06",
+    "target_feeling": "A quiet, confident 'that makes sense'.",
+    "visual_direction": "Two-column comparison, no icons. Left column label 'Easy to use', right column label 'Hard to create', separated by a thin vertical rule. Relai orange on the rule only. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S06",
+   "rationale": "This evergreen line got 64 likes and 5 reposts without needing a hashtag or brand mention, a clean educational one-liner.",
+   "source_id": "1796551708316774699",
+   "text": "Good money is easy to use and hard to create.",
+   "theme": "sound money principle",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "Someday your grandkids might ask why you never held your own Bitcoin. Worth thinking about now.",
+    "headline": "Why you never held your own Bitcoin.",
+    "purpose": "Prompt a generational, long-term reflection on self-custody.",
+    "suggestion_id": "S07",
+    "target_feeling": "A little weighty, makes you pause.",
+    "visual_direction": "Plain type treatment on generous white space, the headline centered, no imagery or props. Relai orange used only on the word 'Bitcoin'. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "implies urgency or FOMO around holding bitcoin"
+   ],
+   "id": "S07",
+   "rationale": "A recent post built on this generational framing got 39 likes and 2 reposts despite low reach, suggesting the angle resonates.",
+   "source_id": "2084253951587693044",
+   "text": "Someday your grandkids might ask why you never held your own Bitcoin.\nWorth thinking about now.",
+   "theme": "long term reflection",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "It started with one Bitcoin beach town. Then a Bitcoin city. Then a whole Bitcoin country. Adoption doesn't stop at borders.",
+    "headline": "Adoption doesn't stop at borders.",
+    "purpose": "Show the pattern of Bitcoin adoption spreading from small pockets to whole countries.",
+    "suggestion_id": "S08",
+    "target_feeling": "A sense of momentum and inevitability.",
+    "visual_direction": "Progression chart: three simple labeled steps in a horizontal line, 'Town', 'City', 'Country', connected by arrows, the final step highlighted in Relai orange. No map or illustration. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S08",
+   "rationale": "The beach to city to country to world progression earned 119 likes and 11 reposts, a strong showing for an adoption-narrative post.",
+   "source_id": "1743311646125375940",
+   "text": "It started with one Bitcoin beach town.\nThen a Bitcoin city.\nThen a whole Bitcoin country.\nAdoption doesn't stop at borders.",
+   "theme": "bitcoin adoption growth",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "A small town mayor in Texas mines Bitcoin from his own home. Just a sign of how far things have come.",
+    "headline": "A mayor mines Bitcoin from home.",
+    "purpose": "Share a concrete, specific adoption anecdote to humanize Bitcoin's reach.",
+    "suggestion_id": "S09",
+    "target_feeling": "Amused curiosity, 'things have really changed'.",
+    "visual_direction": "Type treatment only, headline set large and centered, with 'Texas' called out in Relai orange as the one accent word. No photo or icon. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S09",
+   "rationale": "Original drew strong engagement (314 likes, 33 reposts) from a simple real-world adoption anecdote; keeping that human-interest angle without hype language.",
+   "source_id": "1413516131139194888",
+   "text": "A small town mayor in Texas mines Bitcoin from his own home.\nJust a sign of how far things have come.",
+   "theme": "bitcoin adoption story",
+   "type": "rewrite"
+  },
+  {
+   "brief": {
+    "caption": "A wallet you don't control is just someone else's promise. Hold your own keys instead.",
+    "headline": "A promise isn't your money.",
+    "purpose": "Make the case for self-custody by naming what a custodial wallet actually is.",
+    "suggestion_id": "S10",
+    "target_feeling": "A moment of realization, slightly unsettling then resolved.",
+    "visual_direction": "Single prop: a simple line-drawn key icon in Relai orange, centered, with the headline set above it. No wallet or bank imagery. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S10",
+   "rationale": "Self-custody and holding your own keys is a recurring conviction theme across the archive; this gives it a sharper, standalone framing distinct from the hype posts.",
+   "source_id": null,
+   "text": "A wallet you don't control is just someone else's promise.\nHold your own keys instead.",
+   "theme": "self-custody",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "The auto-invest plan buys a fixed amount of Bitcoin on the same day, every time. No timing. No guessing. Just consistency.",
+    "headline": "Same amount. Same day. Every time.",
+    "purpose": "Explain the auto-invest plan's fixed-schedule mechanic in concrete terms.",
+    "suggestion_id": "S11",
+    "target_feeling": "Steady, mechanical reliability, no drama.",
+    "visual_direction": "Calendar device: a simple grid of a month, with one date per row highlighted in Relai orange to show recurrence. No numbers or amounts shown. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S11",
+   "rationale": "The archive repeatedly leans on consistency and 'zoom out' language; this shows the actual DCA mechanic rather than an outcome, per the show-the-mechanic principle.",
+   "source_id": null,
+   "text": "The auto-invest plan buys a fixed amount of Bitcoin on the same day, every time.\nNo timing. No guessing. Just consistency.",
+   "theme": "dca mechanic",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Currencies get printed whenever central banks decide. Bitcoin's supply doesn't take a vote.",
+    "headline": "No vote on the supply.",
+    "purpose": "Contrast discretionary currency printing with Bitcoin's fixed supply.",
+    "suggestion_id": "S12",
+    "target_feeling": "Quiet clarity on why scarcity matters.",
+    "visual_direction": "Simple line chart comparison: one open-ended rising line labeled 'currency supply', one flat capped line labeled 'Bitcoin supply' in Relai orange. No axis numbers. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "monetary policy framing, keep as protocol fact not outcome claim"
+   ],
+   "id": "S12",
+   "rationale": "Reframes the recurring central-bank-debasement theme as a structural fact about Bitcoin's protocol rather than a price-move claim, avoiding the causation risk in similar archive posts.",
+   "source_id": null,
+   "text": "Currencies get printed whenever central banks decide.\nBitcoin's supply doesn't take a vote.",
+   "theme": "fixed supply",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Most people don't change their mind about Bitcoin. They just run out of reasons to wait.",
+    "headline": "They just run out of reasons to wait.",
+    "purpose": "Capture the pattern of skeptics coming around to Bitcoin over time.",
+    "suggestion_id": "S13",
+    "target_feeling": "A knowing nod from people who've seen it happen.",
+    "visual_direction": "Plain bold type treatment, headline centered on white space, no supporting graphic. Relai orange on the word 'wait' only. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [],
+   "id": "S13",
+   "rationale": "Reworks the recurring 'skeptic becomes buyer' theme without tying it to being 'wrong' about price, keeping it behavioral rather than a price-prediction frame.",
+   "source_id": null,
+   "text": "Most people don't change their mind about Bitcoin.\nThey just run out of reasons to wait.",
+   "theme": "skeptic conviction",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "Bitcoin's price moves every day. Your conviction doesn't have to.",
+    "headline": "Zoom out.",
+    "purpose": "Reinforce the zoom-out mindset against daily price volatility.",
+    "suggestion_id": "S14",
+    "target_feeling": "Steadying, a deep breath.",
+    "visual_direction": "Chart device: a jagged, noisy price line on the left side zooming into a smooth, gently rising line on the right, with 'Zoom out' set in Relai orange over the smooth section. No axis labels or numbers. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "price volatility reference, no direction or prediction implied"
+   ],
+   "id": "S14",
+   "rationale": "Builds on the frequent 'zoom out' and long-term framing language in the archive, applied to volatility rather than any specific price level or direction.",
+   "source_id": null,
+   "text": "Bitcoin's price moves every day.\nYour conviction doesn't have to.\nZoom out.",
+   "theme": "zoom out conviction",
+   "type": "new"
+  },
+  {
+   "brief": {
+    "caption": "The people who get the most out of Bitcoin aren't the ones who trade it. They're the ones who forget they own it.",
+    "headline": "Forget you own it.",
+    "purpose": "Promote patience and holding over trading as the discipline that pays off.",
+    "suggestion_id": "S15",
+    "target_feeling": "Reassured, low-pressure confidence in doing less.",
+    "visual_direction": "Single prop: a simple line-drawn wallet icon with a faint dust or fade effect in Relai orange to suggest time passing untouched. No other icons. Logo bottom right."
+   },
+   "compliance": "unapproved",
+   "flags": [
+    "implied outcome claim, softened to behavior not guaranteed result"
+   ],
+   "id": "S15",
+   "rationale": "Picks up the archive's recurring respect for patience and long holding over speculation, as a culture point distinct from the mechanic or supply posts.",
+   "source_id": null,
+   "text": "The people who get the most out of Bitcoin aren't the ones who trade it.\nThey're the ones who forget they own it.",
+   "theme": "patience discipline",
+   "type": "new"
+  }
+ ],
+ "week": "2026-W48"
+}
