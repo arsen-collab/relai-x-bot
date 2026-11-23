@@ -121,7 +121,7 @@ def posted_today(today, path=POSTED_FILE):
     return False
 
 
-def drain(tweet_raw, raw_lines, today):
+def drain(tweet_raw, raw_lines, today, note=""):
     """Remove the posted line from fresh.txt and log it in fresh_posted.txt."""
     kept = []
     dropped = False
@@ -139,7 +139,8 @@ def drain(tweet_raw, raw_lines, today):
         header = ("# Lines already posted from fresh.txt, newest last.\n"
                   "# A log, not a pool. Nothing reads this file.\n#\n")
     with open(POSTED_FILE, "a", encoding="utf-8") as fh:
-        fh.write(f"{header}{today:%Y-%m-%d}  {tweet_raw}\n")
+        prefix = f"{note} " if note else ""
+        fh.write(f"{header}{today:%Y-%m-%d}  {prefix}{tweet_raw}\n")
 
 
 def commit_drain(tweet_raw):
@@ -225,7 +226,13 @@ def main():
 
     tweet_id = x_api.post(creds, tweet)
     if not tweet_id:
-        print("Post failed. Queue left untouched, the next slot retries.")
+        # x_api.post exits on every real failure. None means X refused the
+        # text as a duplicate of something already on the account. Retrying
+        # would hit the same refusal every day and jam the whole queue behind
+        # this one line, so drain it and log why. Nothing was posted.
+        print("X refused this line as a duplicate. Draining it so the queue moves on.")
+        drain(tweet_raw, raw_lines, today, note="[not posted: X duplicate]")
+        commit_drain(tweet_raw)
         return
 
     print(f"Posted: https://x.com/relai_app/status/{tweet_id}")

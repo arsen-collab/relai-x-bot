@@ -158,9 +158,24 @@ def main():
     flag_checks = [(label, re.compile(pat, re.IGNORECASE))
                    for label, pat in config.FLAG_CHECKS]
 
+    # The board is a browser textarea. Normalise before any check, so a
+    # stray carriage return cannot split one tweet into two lines of
+    # fresh.txt, and surrounding whitespace cannot dodge the dedupe.
+    for d in decisions:
+        if isinstance(d.get("text"), str):
+            d["text"] = d["text"].replace("\r\n", "\n").replace("\r", "\n").strip()
+
     def gate(item):
         """Reasons this line must not go straight to the posting pool."""
-        reasons = [label for label, pat in drop_checks if pat.search(item["text"])]
+        if not item["text"]:
+            return ["empty after editing"]
+        reasons = []
+        first = item["text"].split("\n", 1)[0]
+        if first == "#" or first.startswith("# "):
+            # post_fresh.py reads "# " lines as comments, so it would sit
+            # in fresh.txt and never post. "#Bitcoin" is a hashtag and fine.
+            reasons.append('starts with "# ", the posting bot would read it as a comment')
+        reasons += [label for label, pat in drop_checks if pat.search(item["text"])]
         reasons += [label for label, pat in flag_checks if pat.search(item["text"])]
         if len(item["text"]) > 280:
             reasons.append("over 280 chars")
@@ -210,7 +225,7 @@ def main():
         lines, added = [], []
         for item in promote:
             one = item["text"].replace("\n", "\\n")
-            if one in existing:
+            if one in existing.splitlines():
                 print(f"  Already in fresh.txt, skipping: {item['id']}")
                 continue
             lines.append(one)
