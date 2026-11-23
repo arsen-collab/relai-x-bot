@@ -1,5 +1,10 @@
 # External scheduler (cron-job.org)
 
+**Optional as of 23 Nov 2026.** The Claude scheduled task `trigger-x-posting`
+already dispatches `external_trigger.yml` at 09:07 and 10:07 Zurich while the
+Claude app is open. cron-job.org is the upgrade for weekends and days the
+laptop is closed.
+
 GitHub cron starts this repo's scheduled runs about 8 hours late. In November
 2026 every evergreen, fresh and market-update post went out 17:00-19:00
 Zurich instead of 09:00-13:00, and the fourth slot regularly hit the 20:00

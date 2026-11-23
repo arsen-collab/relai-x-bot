@@ -316,14 +316,20 @@ hours, plus failures with "job was not acquired by Runner of type hosted".
 Manual dispatch completes in seconds. Making the repo public in Aug 2026 did
 not help: in Nov 2026 every slot still landed 16:00-21:00 Zurich.
 
-**Fixed 23 Nov 2026 by moving the trigger to cron-job.org.** Four cron-job.org
-jobs (09:07, 09:53, 10:37, 11:23 Zurich) POST to
-`external_trigger.yml` with a slot number. It dispatches evergreen, fresh and,
-Tue/Fri only, the market update, each with that slot, so all existing guards
+**Fixed 23 Nov 2026 by dispatching instead of waiting on cron.**
+`external_trigger.yml` takes a slot number and dispatches evergreen, fresh
+and, Tue/Fri only, the market update with that slot, so all existing guards
 apply unchanged. The posting workflows gained a `slot` input (choice, default
-0 = manual). The GitHub cron lines stay as a late backup. Setup, token scope
-and how to pause everything: `EXTERNAL_SCHEDULER.md`. The CEO monthly bot is
-not on it.
+0 = manual). The GitHub cron lines stay as a late backup.
+
+What calls it today: the Claude scheduled task `trigger-x-posting` on
+Arsen's Mac, 09:07 (slot 1) and 10:07 (slot 3) Zurich, via `gh workflow
+run`. No token, no new vendor. It only fires while the Claude app is open;
+a missed day falls back to the late GitHub cron, so timing slips but nothing
+is lost. cron-job.org would cover weekends and a closed laptop, but needs a
+fine-grained PAT that Arsen creates himself (GitHub is blocked in the
+browser Claude drives). Steps in `EXTERNAL_SCHEDULER.md`; it is optional.
+The CEO monthly bot is on neither.
 
 **X duplicate content.** X rejects identical or near-identical text posted
 within roughly 24 to 48 hours. This is why the evergreen pool needs to stay
@@ -346,9 +352,9 @@ else reusing `load_tweets` needs its own guard; `rank.py` has one.
 
 Set in repo Settings, never in code. Names only:
 
-- Not a repo secret: a fine-grained PAT (this repo only, Actions read and
-  write) lives in the four cron-job.org jobs as an `Authorization` header.
-  It expires; when it does, posting silently falls back to the late GitHub
+- Only if cron-job.org is set up: a fine-grained PAT (this repo only,
+  Actions read and write) in the cron-job.org jobs' `Authorization` header,
+  not a repo secret. When it expires posting falls back to the late GitHub
   cron. Keep the expiry date in Arsen's calendar
 
 - `API_KEY`, `API_KEY_SECRET`, `ACCESS_TOKEN`, `ACCESS_TOKEN_SECRET` — X, OAuth 1.0a, do not expire
