@@ -1,0 +1,59 @@
+name: External Trigger
+
+# Called by cron-job.org, not by GitHub cron. GitHub's scheduler starts runs
+# on this repo about 8 hours late (Nov 2026: every slot landed 16:00-21:00
+# Zurich instead of 09:00-13:00), while a workflow_dispatch starts in seconds.
+#
+# cron-job.org holds four jobs, one per slot, each a POST to this workflow's
+# dispatch endpoint with
+# {"ref":"main","inputs":{"slot":"N","dry_run":"false"}}, using a
+# fine-grained token limited to this repo with Actions read and write.
+#
+# This workflow only fans out. It dispatches the three posting workflows with
+# the same slot and dry_run=false, so they keep their own concurrency groups,
+# window guards and duplicate checks. Evergreen and fresh pick their own days.
+# The market update is dispatched on Tuesday and Friday (Zurich date) only,
+# because post_tweet.py writes the weekday into the text.
+#
+# The GitHub cron lines in each posting workflow stay as a backup. A late
+# backup run finds the post already up (or fresh_posted.txt logged today)
+# and exits.
+
+on:
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'Slot 1-4'
+        type: choice
+        options: ['1', '2', '3', '4']
+        required: true
+      dry_run:
+        description: 'Preview only. cron-job.org sends false explicitly'
+        type: boolean
+        default: true
+
+permissions:
+  actions: write
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Dispatch posting workflows
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SLOT: ${{ inputs.slot }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          dow=$(TZ=Europe/Zurich date +%u)   # 1=Mon ... 7=Sun
+          echo "Slot $SLOT, Zurich weekday $dow, dry_run $DRY_RUN"
+          gh workflow run evergreen.yml --ref main -f slot="$SLOT" -f dry_run="$DRY_RUN"
+          gh workflow run fresh.yml     --ref main -f slot="$SLOT" -f dry_run="$DRY_RUN"
+          if [ "$dow" = "2" ] || [ "$dow" = "5" ]; then
+            gh workflow run daily_tweet.yml --ref main -f slot="$SLOT" -f dry_run="$DRY_RUN"
+          else
+            echo "Not Tuesday or Friday, no market update."
+          fi
