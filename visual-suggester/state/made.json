@@ -1,0 +1,37 @@
+{
+ "concepts": [
+  {
+   "week": "2026-W41",
+   "concept_id": "V01",
+   "subject": "Relai holds zero user funds",
+   "headline": "0. THAT'S HOW MUCH CLIENT FUNDS WE HOLD.\n\nAnd we're proud of it.",
+   "format": "big_number",
+   "source": "visual suggester review",
+   "recorded": "2026-10-08"
+  },
+  {
+   "subject": "Coffee priced in Bitcoin",
+   "headline": "The Same Coffee. Different Price",
+   "format": "then_now",
+   "source": "visual suggester 2026-W42 V01",
+   "notion_url": "https://app.notion.com/p/3f8e068a2f67817c9155e7073e6632f4",
+   "recorded": "2026-10-13"
+  },
+  {
+   "subject": "Self-custody history lesson",
+   "headline": "A short lesson on self-custody",
+   "format": "",
+   "source": "visual suggester 2026-W42 V08",
+   "notion_url": "https://app.notion.com/3f8e068a2f678142ad5fe20f7d3d0d4e",
+   "recorded": "2026-11-23"
+  },
+  {
+   "subject": "Self-custody urgency, no delay",
+   "headline": "SELF-CUSTODY YOUR BITCOIN. NOT TOMORROW. NOW.",
+   "format": "",
+   "source": "review board",
+   "notion_url": "https://app.notion.com/421e068a2f678101a064cb1982661a9c",
+   "recorded": "2026-11-23"
+  }
+ ]
+}
