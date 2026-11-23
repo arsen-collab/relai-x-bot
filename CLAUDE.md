@@ -349,7 +349,7 @@ Set in repo Settings, never in code. Names only:
 - Not a repo secret: a fine-grained PAT (this repo only, Actions read and
   write) lives in the four cron-job.org jobs as an `Authorization` header.
   It expires; when it does, posting silently falls back to the late GitHub
-  cron. Expiry date is in Arsen's calendar
+  cron. Keep the expiry date in Arsen's calendar
 
 - `API_KEY`, `API_KEY_SECRET`, `ACCESS_TOKEN`, `ACCESS_TOKEN_SECRET` — X, OAuth 1.0a, do not expire
 - `X_USER_ID` — optional, saves one API read per run
