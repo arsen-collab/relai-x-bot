@@ -313,13 +313,17 @@ reading the account. Nothing to reconcile after a missed run.
 
 **GitHub scheduled runs are unreliable on this repo.** Delays of 6 to 8
 hours, plus failures with "job was not acquired by Runner of type hosted".
-Manual dispatch completes in 14 seconds. The repo was made public to get a
-larger runner pool; effect still being observed as of 7 Aug 2026.
+Manual dispatch completes in seconds. Making the repo public in Aug 2026 did
+not help: in Nov 2026 every slot still landed 16:00-21:00 Zurich.
 
-If it does not resolve: move the trigger off GitHub cron. An external
-scheduler (cron-job.org) calling GitHub's workflow dispatch API gets the same
-immediate behaviour as manual runs. Needs a fine-grained PAT with Actions
-write. No code changes.
+**Fixed 23 Nov 2026 by moving the trigger to cron-job.org.** Four cron-job.org
+jobs (09:07, 09:53, 10:37, 11:23 Zurich) POST to
+`external_trigger.yml` with a slot number. It dispatches evergreen, fresh and,
+Tue/Fri only, the market update, each with that slot, so all existing guards
+apply unchanged. The posting workflows gained a `slot` input (choice, default
+0 = manual). The GitHub cron lines stay as a late backup. Setup, token scope
+and how to pause everything: `EXTERNAL_SCHEDULER.md`. The CEO monthly bot is
+not on it.
 
 **X duplicate content.** X rejects identical or near-identical text posted
 within roughly 24 to 48 hours. This is why the evergreen pool needs to stay
@@ -341,6 +345,11 @@ else reusing `load_tweets` needs its own guard; `rank.py` has one.
 ## Secrets
 
 Set in repo Settings, never in code. Names only:
+
+- Not a repo secret: a fine-grained PAT (this repo only, Actions read and
+  write) lives in the four cron-job.org jobs as an `Authorization` header.
+  It expires; when it does, posting silently falls back to the late GitHub
+  cron. Expiry date is in Arsen's calendar
 
 - `API_KEY`, `API_KEY_SECRET`, `ACCESS_TOKEN`, `ACCESS_TOKEN_SECRET` — X, OAuth 1.0a, do not expire
 - `X_USER_ID` — optional, saves one API read per run
