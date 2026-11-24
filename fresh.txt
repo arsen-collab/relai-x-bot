@@ -19,7 +19,6 @@
 #
 # Empty is the normal state. When this file has no tweets the bot exits
 # before any API call, so it costs nothing.
-The best time to buy Bitcoin was 17 years ago. \n\nThe second best time is now.
 Get your Bitcoin off exchanges.\n\nThis is not a drill.
 Price update: 1 BTC is still 1 BTC.\n\nThat's the only chart that matters.
 Self-custody isn't the risky part.\n\nLetting someone else hold your keys is.
